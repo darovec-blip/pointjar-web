@@ -30,6 +30,15 @@ li{margin-bottom:8px}
 .hero h2,.hero p{color:#fff}
 .kontakt a{color:var(--punch);font-weight:700}
 .q{font-weight:700;color:var(--ink);margin:14px 0 2px}
+label{display:block;font-weight:700;font-size:14px;margin:14px 0 4px}
+input,textarea{width:100%;padding:11px 13px;border:2.5px solid var(--ink);border-radius:7px;background:var(--card);font:inherit;font-size:15px;color:var(--ink)}
+textarea{min-height:150px;resize:vertical}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+button.odoslat{margin-top:18px;width:100%;padding:13px;border:2.5px solid var(--ink);border-radius:7px;background:var(--punch);color:#fff;font:inherit;font-weight:700;font-size:16px;cursor:pointer;box-shadow:4px 4px 0 var(--ink)}
+button.odoslat:disabled{opacity:.6;cursor:default}
+.hlaska{margin-top:14px;font-size:14px}
+.hlaska.ok{color:#0FA678;font-weight:700}
+.hlaska.zle{color:#D93A3A}
 footer{color:var(--inkSoft);font-size:13px;text-align:center;margin-top:32px}
 footer a{color:var(--inkSoft)}
 [data-lang]{display:none}
@@ -44,6 +53,7 @@ footer a{color:var(--inkSoft)}
       <a href="./" aria-current="page">Support</a>
       <a href="./privacy.html">Privacy</a>
       <a href="./terms.html">Terms</a>
+      <a href="./kontakt.html">Contact</a>
     </nav>
   <div class="card hero">
     <h2>PointJar help &amp; support</h2>
@@ -66,6 +76,7 @@ footer a{color:var(--inkSoft)}
       <a href="./" aria-current="page">Podpora</a>
       <a href="./privacy.html">Zásady</a>
       <a href="./terms.html">Podmienky</a>
+      <a href="./kontakt.html">Kontakt</a>
     </nav>
   <div class="card hero">
     <h2>PointJar — pomoc a podpora</h2>
@@ -88,6 +99,7 @@ footer a{color:var(--inkSoft)}
       <a href="./" aria-current="page">Podpora</a>
       <a href="./privacy.html">Zásady</a>
       <a href="./terms.html">Podmínky</a>
+      <a href="./kontakt.html">Kontakt</a>
     </nav>
   <div class="card hero">
     <h2>PointJar — pomoc a podpora</h2>
@@ -110,6 +122,7 @@ footer a{color:var(--inkSoft)}
       <a href="./" aria-current="page">Support</a>
       <a href="./privacy.html">Datenschutz</a>
       <a href="./terms.html">Bedingungen</a>
+      <a href="./kontakt.html">Kontakt</a>
     </nav>
   <div class="card hero">
     <h2>PointJar — Hilfe und Support</h2>
@@ -131,6 +144,44 @@ footer a{color:var(--inkSoft)}
   <footer>© 2026 marcel s.r.o. · <a href="mailto:darovec@gmail.com">darovec@gmail.com</a></footer>
 </div>
 <script>
+const FUNKCIA_URL='https://bfrfsqorgjvesjwftuzi.supabase.co/functions/v1/podpora';
+const PUBLISHABLE='sb_publishable_SRsE77rat693ZCisKOwUzA_CN-843l8';
+
+// --- kontaktný formulár (jeden pre každý jazyk, obsluha spoločná) ---
+(function(){
+  var MAIL='support@pointjar.app';
+  var formulare=[].slice.call(document.querySelectorAll('.kontakt-form'));
+  formulare.forEach(function(f){
+    var hlaska=f.querySelector('.hlaska');
+    var btn=f.querySelector('button');
+    f.addEventListener('submit',function(ev){
+      ev.preventDefault();
+      var email=f.email.value.trim(), sprava=f.sprava.value.trim();
+      if(!email||sprava.length<5){
+        hlaska.className='hlaska zle'; hlaska.textContent=f.dataset.povinne; return;
+      }
+      btn.disabled=true; btn.textContent=f.dataset.odosielam;
+      hlaska.className='hlaska'; hlaska.textContent='';
+      fetch(FUNKCIA_URL,{
+        method:'POST',
+        headers:{'Content-Type':'application/json','apikey':PUBLISHABLE},
+        body:JSON.stringify({
+          sprava:sprava, email:email, meno:f.meno.value.trim(), hp:f.hp.value,
+          zdroj:'web', lang:document.documentElement.lang||'en'
+        })
+      }).then(function(r){ return r.json().catch(function(){return null;}).then(function(j){
+        if(!r.ok||!j||!j.ok) throw new Error('zlyhalo');
+        hlaska.className='hlaska ok'; hlaska.textContent=f.dataset.hotovo; f.reset();
+      });}).catch(function(){
+        hlaska.className='hlaska zle';
+        hlaska.innerHTML=f.dataset.chyba+' <a href="mailto:'+MAIL+'">'+MAIL+'</a>';
+      }).then(function(){
+        btn.disabled=false; btn.textContent=f.dataset.odoslat;
+      });
+    });
+  });
+})();
+// --- prepínač jazykov ---
 (function(){
   var tlacidla=[].slice.call(document.querySelectorAll('.jazyky button'));
   function prepni(k){
