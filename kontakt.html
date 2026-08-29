@@ -49,6 +49,16 @@ footer{color:var(--inkSoft);font-size:13px;text-align:center;margin-top:32px}
 footer a{color:var(--inkSoft)}
 [data-lang]{display:none}
 [data-lang].aktivny{display:block}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.cta a{display:inline-block;padding:12px 20px;border:2.5px solid var(--ink);border-radius:7px;background:var(--ink);color:#fff;text-decoration:none;font-family:Fredoka,sans-serif;font-weight:600;font-size:15px}
+.cta a:active{transform:scale(.97);opacity:.92}
+.cta .coskoro{display:inline-block;padding:12px 20px;border:2.5px dashed var(--inkSoft);border-radius:7px;color:var(--inkSoft);font-family:Fredoka,sans-serif;font-weight:600;font-size:15px}
+.ako{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:14px}
+.ako div{border:2.5px solid var(--ink);border-radius:9px;background:var(--card);padding:14px;font-size:14px;color:var(--inkSoft)}
+.ako div span{display:block;font-size:26px;margin-bottom:6px}
+.telefony{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:14px}
+.telefon{aspect-ratio:9/19;border:2.5px solid var(--ink);border-radius:22px;background:var(--paper);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--inkSoft);font-size:13px;text-align:center;padding:12px}
+.telefon svg{opacity:.85}
 </style>
 </head>
 <body>
@@ -62,7 +72,8 @@ footer a{color:var(--inkSoft)}
 </svg></div><h1>PointJar</h1></header>
   <div class="jazyky"><button data-k="en" aria-pressed="false">🇬🇧 English</button><button data-k="sk" aria-pressed="false">🇸🇰 Slovenčina</button><button data-k="cs" aria-pressed="false">🇨🇿 Čeština</button><button data-k="de" aria-pressed="false">🇩🇪 Deutsch</button></div>
   <div data-lang="en"><nav>
-      <a href="./">Support</a>
+      <a href="./">Home</a>
+      <a href="./podpora.html">Support</a>
       <a href="./privacy.html">Privacy</a>
       <a href="./terms.html">Terms</a>
       <a href="./kontakt.html" aria-current="page">Contact</a>
@@ -91,7 +102,8 @@ footer a{color:var(--inkSoft)}
     <p><a href="mailto:support@pointjar.app">support@pointjar.app</a></p>
   </div></div>
 <div data-lang="sk"><nav>
-      <a href="./">Podpora</a>
+      <a href="./">Domov</a>
+      <a href="./podpora.html">Podpora</a>
       <a href="./privacy.html">Zásady</a>
       <a href="./terms.html">Podmienky</a>
       <a href="./kontakt.html" aria-current="page">Kontakt</a>
@@ -120,7 +132,8 @@ footer a{color:var(--inkSoft)}
     <p><a href="mailto:support@pointjar.app">support@pointjar.app</a></p>
   </div></div>
 <div data-lang="cs"><nav>
-      <a href="./">Podpora</a>
+      <a href="./">Domů</a>
+      <a href="./podpora.html">Podpora</a>
       <a href="./privacy.html">Zásady</a>
       <a href="./terms.html">Podmínky</a>
       <a href="./kontakt.html" aria-current="page">Kontakt</a>
@@ -149,7 +162,8 @@ footer a{color:var(--inkSoft)}
     <p><a href="mailto:support@pointjar.app">support@pointjar.app</a></p>
   </div></div>
 <div data-lang="de"><nav>
-      <a href="./">Support</a>
+      <a href="./">Start</a>
+      <a href="./podpora.html">Support</a>
       <a href="./privacy.html">Datenschutz</a>
       <a href="./terms.html">Bedingungen</a>
       <a href="./kontakt.html" aria-current="page">Kontakt</a>
