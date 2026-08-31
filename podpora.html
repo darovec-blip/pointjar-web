@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box}
-:root{--ink:#14213D;--inkSoft:#48587A;--paper:#F4F8FF;--grid:#D5E2F2;--card:#fff;--punch:#FF5A1F;--gold:#FFC400}
+:root{--ink:#14213D;--inkSoft:#48587A;--paper:#F4F8FF;--grid:#D5E2F2;--card:#fff;--punch:#FF5A1F;--gold:#FFC400;--mint:#0FA678}
 body{margin:0;background:var(--paper);color:var(--ink);font:600 16px/1.6 Nunito,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
 background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:26px 26px}
 h1,h2,h3,nav a,button{font-family:Fredoka,Nunito,-apple-system,sans-serif}
@@ -30,6 +30,14 @@ nav a[aria-current]{background:var(--punch);color:#fff}
 .jazyky button[aria-pressed="true"]{border-color:var(--ink);background:var(--gold);font-weight:700}
 .card{background:var(--card);border:2.5px solid var(--ink);border-radius:9px;padding:22px;margin-bottom:20px}
 .card h2{font-size:19px;margin:0 0 12px}
+.card h3{font-size:17px;margin:18px 0 8px}
+.step strong{color:var(--ink)}
+.notice{border-left:8px solid var(--gold)}
+.request{border-color:var(--mint)}
+.tlacidlo{display:inline-block;margin-top:8px;padding:11px 17px;border:2.5px solid var(--ink);border-radius:7px;background:var(--punch);color:#fff;text-decoration:none;font-family:Fredoka,sans-serif;font-weight:600}
+.tlacidlo:hover{filter:brightness(.96)}
+.tlacidlo:active{transform:scale(.97);opacity:.92}
+.small{font-size:13px!important}
 .card p,.card li{color:var(--inkSoft);font-size:15px}
 .card p{margin:0 0 10px}
 ul,ol{margin:0;padding-left:22px}
@@ -83,6 +91,7 @@ footer a{color:var(--inkSoft)}
   <div data-lang="en"><nav>
       <a href="./">Home</a>
       <a href="./podpora.html" aria-current="page">Support</a>
+      <a href="./delete-account.html">Delete account</a>
       <a href="./privacy.html">Privacy</a>
       <a href="./terms.html">Terms</a>
       <a href="./kontakt.html">Contact</a>
@@ -107,6 +116,7 @@ footer a{color:var(--inkSoft)}
 <div data-lang="sk"><nav>
       <a href="./">Domov</a>
       <a href="./podpora.html" aria-current="page">Podpora</a>
+      <a href="./delete-account.html">Vymazať konto</a>
       <a href="./privacy.html">Zásady</a>
       <a href="./terms.html">Podmienky</a>
       <a href="./kontakt.html">Kontakt</a>
@@ -131,6 +141,7 @@ footer a{color:var(--inkSoft)}
 <div data-lang="cs"><nav>
       <a href="./">Domů</a>
       <a href="./podpora.html" aria-current="page">Podpora</a>
+      <a href="./delete-account.html">Smazat účet</a>
       <a href="./privacy.html">Zásady</a>
       <a href="./terms.html">Podmínky</a>
       <a href="./kontakt.html">Kontakt</a>
@@ -155,6 +166,7 @@ footer a{color:var(--inkSoft)}
 <div data-lang="de"><nav>
       <a href="./">Start</a>
       <a href="./podpora.html" aria-current="page">Support</a>
+      <a href="./delete-account.html">Konto löschen</a>
       <a href="./privacy.html">Datenschutz</a>
       <a href="./terms.html">Bedingungen</a>
       <a href="./kontakt.html">Kontakt</a>
