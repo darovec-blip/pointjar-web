@@ -73,9 +73,15 @@ footer a{color:var(--inkSoft)}
 .ako{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:14px}
 .ako div{border:2.5px solid var(--ink);border-radius:9px;background:var(--card);padding:14px;font-size:14px;color:var(--inkSoft)}
 .ako div span{display:block;font-size:26px;margin-bottom:6px}
-.telefony{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:14px}
-.telefon{aspect-ratio:9/19;border:2.5px solid var(--ink);border-radius:22px;background:var(--paper);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--inkSoft);font-size:13px;text-align:center;padding:12px}
-.telefon svg{opacity:.85}
+.platformyText{text-align:center;color:var(--inkSoft);font-size:14px;margin:-4px 0 14px}
+.platformy{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
+.platforma{display:flex;flex-direction:column;align-items:center;gap:8px}
+.platforma .ramik{width:100%;border:2.5px solid var(--ink);border-radius:20px;background:var(--paper);overflow:hidden;display:flex}
+.platforma img{width:100%;display:block}
+.platforma .label{font-family:Fredoka,sans-serif;font-weight:600;font-size:13px;color:var(--ink)}
+.platforma .stav{font-size:12px;color:var(--inkSoft)}
+.platforma.android .ramik{aspect-ratio:9/19;align-items:center;justify-content:center;flex-direction:column;gap:10px;color:var(--inkSoft);font-size:13px;text-align:center;padding:12px}
+.platforma.android .ramik svg{opacity:.85}
 </style>
 </head>
 <body>
@@ -102,7 +108,7 @@ footer a{color:var(--inkSoft)}
   </div>
   <div class="cta">
     <a href="https://apps.apple.com/app/id6806119044"><img src="assets/badges/appstore-en-us.svg" alt="Download on the App Store" height="56"></a>
-    <span class="play"><img src="assets/badges/googleplay-en.png" alt="Google Play" height="84"><span class="pop">Google Play — coming soon</span></span>
+    <span class="play"><img src="assets/badges/googleplay-en.png" alt="Google Play" height="84"><span class="pop">Google Play — under review</span></span>
   </div>
   <p class="dovera">No ads, no purchases. We don't track you and never sell your data.</p>
   <div class="card" style="margin-top:20px">
@@ -111,25 +117,25 @@ footer a{color:var(--inkSoft)}
   </div>
   <div class="card">
     <h2>A peek inside</h2>
-    <div class="telefony"><div class="telefon"><svg width="34" height="40" viewBox="0 0 52 60" fill="none" aria-hidden="true">
+    <p class="platformyText">One family app for the whole household — iPhone, iPad and Android.</p>
+    <div class="platformy">
+    <div class="platforma">
+      <div class="ramik"><img src="assets/screenshots/iphone-en.png" alt="PointJar na iPhone" loading="lazy"></div>
+      <span class="label">iPhone</span>
+    </div>
+    <div class="platforma">
+      <div class="ramik"><img src="assets/screenshots/ipad-en.png" alt="PointJar na iPad" loading="lazy"></div>
+      <span class="label">iPad</span>
+    </div>
+    <div class="platforma android">
+      <div class="ramik"><svg width="34" height="40" viewBox="0 0 52 60" fill="none" aria-hidden="true">
 <path d="M11 18 c-2 0 -4 2 -4 5 v28 c0 4 3 7 7 7 h20 c4 0 7 -3 7 -7 V23 c0 -3 -2 -5 -4 -5 z" stroke="#14213D" stroke-width="3.2" stroke-linejoin="round"></path>
 <path d="M8 36 h35 v15 c0 4 -3 7 -7 7 h-21 c-4 0 -7 -3 -7 -7 z" fill="#FF5A1F" opacity=".9"></path>
 <path d="M11 18 c-2 0 -4 2 -4 5 v28 c0 4 3 7 7 7 h20 c4 0 7 -3 7 -7 V23 c0 -3 -2 -5 -4 -5 z" stroke="#14213D" stroke-width="3.2" stroke-linejoin="round" fill="none"></path>
 <rect x="13" y="5" width="26" height="6" rx="3" stroke="#14213D" stroke-width="3.2"></rect>
 <path d="M12 10 h28 M13 14 h26" stroke="#14213D" stroke-width="3.2" stroke-linecap="round"></path>
-</svg><span>Screenshots of the new design are coming soon.</span></div><div class="telefon"><svg width="34" height="40" viewBox="0 0 52 60" fill="none" aria-hidden="true">
-<path d="M11 18 c-2 0 -4 2 -4 5 v28 c0 4 3 7 7 7 h20 c4 0 7 -3 7 -7 V23 c0 -3 -2 -5 -4 -5 z" stroke="#14213D" stroke-width="3.2" stroke-linejoin="round"></path>
-<path d="M8 36 h35 v15 c0 4 -3 7 -7 7 h-21 c-4 0 -7 -3 -7 -7 z" fill="#FF5A1F" opacity=".9"></path>
-<path d="M11 18 c-2 0 -4 2 -4 5 v28 c0 4 3 7 7 7 h20 c4 0 7 -3 7 -7 V23 c0 -3 -2 -5 -4 -5 z" stroke="#14213D" stroke-width="3.2" stroke-linejoin="round" fill="none"></path>
-<rect x="13" y="5" width="26" height="6" rx="3" stroke="#14213D" stroke-width="3.2"></rect>
-<path d="M12 10 h28 M13 14 h26" stroke="#14213D" stroke-width="3.2" stroke-linecap="round"></path>
-</svg><span>Screenshots of the new design are coming soon.</span></div><div class="telefon"><svg width="34" height="40" viewBox="0 0 52 60" fill="none" aria-hidden="true">
-<path d="M11 18 c-2 0 -4 2 -4 5 v28 c0 4 3 7 7 7 h20 c4 0 7 -3 7 -7 V23 c0 -3 -2 -5 -4 -5 z" stroke="#14213D" stroke-width="3.2" stroke-linejoin="round"></path>
-<path d="M8 36 h35 v15 c0 4 -3 7 -7 7 h-21 c-4 0 -7 -3 -7 -7 z" fill="#FF5A1F" opacity=".9"></path>
-<path d="M11 18 c-2 0 -4 2 -4 5 v28 c0 4 3 7 7 7 h20 c4 0 7 -3 7 -7 V23 c0 -3 -2 -5 -4 -5 z" stroke="#14213D" stroke-width="3.2" stroke-linejoin="round" fill="none"></path>
-<rect x="13" y="5" width="26" height="6" rx="3" stroke="#14213D" stroke-width="3.2"></rect>
-<path d="M12 10 h28 M13 14 h26" stroke="#14213D" stroke-width="3.2" stroke-linecap="round"></path>
-</svg><span>Screenshots of the new design are coming soon.</span></div></div>
+</svg><span class="label">Android</span><span class="stav">Android — under review</span></div>
+    </div></div>
   </div></div>
 <div data-lang="sk"><nav>
       <a href="./" aria-current="page">Domov</a>
@@ -145,7 +151,7 @@ footer a{color:var(--inkSoft)}
   </div>
   <div class="cta">
     <a href="https://apps.apple.com/app/id6806119044"><img src="assets/badges/appstore-sk-sk.svg" alt="Stiahnuť v App Store" height="56"></a>
-    <span class="play"><img src="assets/badges/googleplay-sk.png" alt="Google Play" height="84"><span class="pop">Google Play — už čoskoro</span></span>
+    <span class="play"><img src="assets/badges/googleplay-sk.png" alt="Google Play" height="84"><span class="pop">Google Play — v schvaľovaní</span></span>
   </div>
   <p class="dovera">Bez reklám a nákupov. Nesledujeme ťa a tvoje údaje nikdy nepredávame.</p>
   <div class="card" style="margin-top:20px">
@@ -154,25 +160,25 @@ footer a{color:var(--inkSoft)}
   </div>
   <div class="card">
     <h2>Pohľad do appky</h2>
-    <div class="telefony"><div class="telefon"><svg width="34" height="40" viewBox="0 0 52 60" fill="none" aria-hidden="true">
+    <p class="platformyText">Jedna appka pre celú domácnosť — iPhone, iPad aj Android.</p>
+    <div class="platformy">
+    <div class="platforma">
+      <div class="ramik"><img src="assets/screenshots/iphone-sk.png" alt="PointJar na iPhone" loading="lazy"></div>
+      <span class="label">iPhone</span>
+    </div>
+    <div class="platforma">
+      <div class="ramik"><img src="assets/screenshots/ipad-sk.png" alt="PointJar na iPad" loading="lazy"></div>
+      <span class="label">iPad</span>
+    </div>
+    <div class="platforma android">
+      <div class="ramik"><svg width="34" height="40" viewBox="0 0 52 60" fill="none" aria-hidden="true">
 <path d="M11 18 c-2 0 -4 2 -4 5 v28 c0 4 3 7 7 7 h20 c4 0 7 -3 7 -7 V23 c0 -3 -2 -5 -4 -5 z" stroke="#14213D" stroke-width="3.2" stroke-linejoin="round"></path>
 <path d="M8 36 h35 v15 c0 4 -3 7 -7 7 h-21 c-4 0 -7 -3 -7 -7 z" fill="#FF5A1F" opacity=".9"></path>
 <path d="M11 18 c-2 0 -4 2 -4 5 v28 c0 4 3 7 7 7 h20 c4 0 7 -3 7 -7 V23 c0 -3 -2 -5 -4 -5 z" stroke="#14213D" stroke-width="3.2" stroke-linejoin="round" fill="none"></path>
 <rect x="13" y="5" width="26" height="6" rx="3" stroke="#14213D" stroke-width="3.2"></rect>
 <path d="M12 10 h28 M13 14 h26" stroke="#14213D" stroke-width="3.2" stroke-linecap="round"></path>
-</svg><span>Screenshoty nového dizajnu pridáme už čoskoro.</span></div><div class="telefon"><svg width="34" height="40" viewBox="0 0 52 60" fill="none" aria-hidden="true">
-<path d="M11 18 c-2 0 -4 2 -4 5 v28 c0 4 3 7 7 7 h20 c4 0 7 -3 7 -7 V23 c0 -3 -2 -5 -4 -5 z" stroke="#14213D" stroke-width="3.2" stroke-linejoin="round"></path>
-<path d="M8 36 h35 v15 c0 4 -3 7 -7 7 h-21 c-4 0 -7 -3 -7 -7 z" fill="#FF5A1F" opacity=".9"></path>
-<path d="M11 18 c-2 0 -4 2 -4 5 v28 c0 4 3 7 7 7 h20 c4 0 7 -3 7 -7 V23 c0 -3 -2 -5 -4 -5 z" stroke="#14213D" stroke-width="3.2" stroke-linejoin="round" fill="none"></path>
-<rect x="13" y="5" width="26" height="6" rx="3" stroke="#14213D" stroke-width="3.2"></rect>
-<path d="M12 10 h28 M13 14 h26" stroke="#14213D" stroke-width="3.2" stroke-linecap="round"></path>
-</svg><span>Screenshoty nového dizajnu pridáme už čoskoro.</span></div><div class="telefon"><svg width="34" height="40" viewBox="0 0 52 60" fill="none" aria-hidden="true">
-<path d="M11 18 c-2 0 -4 2 -4 5 v28 c0 4 3 7 7 7 h20 c4 0 7 -3 7 -7 V23 c0 -3 -2 -5 -4 -5 z" stroke="#14213D" stroke-width="3.2" stroke-linejoin="round"></path>
-<path d="M8 36 h35 v15 c0 4 -3 7 -7 7 h-21 c-4 0 -7 -3 -7 -7 z" fill="#FF5A1F" opacity=".9"></path>
-<path d="M11 18 c-2 0 -4 2 -4 5 v28 c0 4 3 7 7 7 h20 c4 0 7 -3 7 -7 V23 c0 -3 -2 -5 -4 -5 z" stroke="#14213D" stroke-width="3.2" stroke-linejoin="round" fill="none"></path>
-<rect x="13" y="5" width="26" height="6" rx="3" stroke="#14213D" stroke-width="3.2"></rect>
-<path d="M12 10 h28 M13 14 h26" stroke="#14213D" stroke-width="3.2" stroke-linecap="round"></path>
-</svg><span>Screenshoty nového dizajnu pridáme už čoskoro.</span></div></div>
+</svg><span class="label">Android</span><span class="stav">Android — v schvaľovaní</span></div>
+    </div></div>
   </div></div>
 <div data-lang="cs"><nav>
       <a href="./" aria-current="page">Domů</a>
@@ -188,7 +194,7 @@ footer a{color:var(--inkSoft)}
   </div>
   <div class="cta">
     <a href="https://apps.apple.com/app/id6806119044"><img src="assets/badges/appstore-cs-cz.svg" alt="Stáhnout v App Store" height="56"></a>
-    <span class="play"><img src="assets/badges/googleplay-cs.png" alt="Google Play" height="84"><span class="pop">Google Play — už brzy</span></span>
+    <span class="play"><img src="assets/badges/googleplay-cs.png" alt="Google Play" height="84"><span class="pop">Google Play — ve schvalování</span></span>
   </div>
   <p class="dovera">Bez reklam a nákupů. Nesledujeme tě a tvoje údaje nikdy neprodáváme.</p>
   <div class="card" style="margin-top:20px">
@@ -197,25 +203,25 @@ footer a{color:var(--inkSoft)}
   </div>
   <div class="card">
     <h2>Pohled do aplikace</h2>
-    <div class="telefony"><div class="telefon"><svg width="34" height="40" viewBox="0 0 52 60" fill="none" aria-hidden="true">
+    <p class="platformyText">Jedna aplikace pro celou domácnost — iPhone, iPad i Android.</p>
+    <div class="platformy">
+    <div class="platforma">
+      <div class="ramik"><img src="assets/screenshots/iphone-cs.png" alt="PointJar na iPhone" loading="lazy"></div>
+      <span class="label">iPhone</span>
+    </div>
+    <div class="platforma">
+      <div class="ramik"><img src="assets/screenshots/ipad-cs.png" alt="PointJar na iPad" loading="lazy"></div>
+      <span class="label">iPad</span>
+    </div>
+    <div class="platforma android">
+      <div class="ramik"><svg width="34" height="40" viewBox="0 0 52 60" fill="none" aria-hidden="true">
 <path d="M11 18 c-2 0 -4 2 -4 5 v28 c0 4 3 7 7 7 h20 c4 0 7 -3 7 -7 V23 c0 -3 -2 -5 -4 -5 z" stroke="#14213D" stroke-width="3.2" stroke-linejoin="round"></path>
 <path d="M8 36 h35 v15 c0 4 -3 7 -7 7 h-21 c-4 0 -7 -3 -7 -7 z" fill="#FF5A1F" opacity=".9"></path>
 <path d="M11 18 c-2 0 -4 2 -4 5 v28 c0 4 3 7 7 7 h20 c4 0 7 -3 7 -7 V23 c0 -3 -2 -5 -4 -5 z" stroke="#14213D" stroke-width="3.2" stroke-linejoin="round" fill="none"></path>
 <rect x="13" y="5" width="26" height="6" rx="3" stroke="#14213D" stroke-width="3.2"></rect>
 <path d="M12 10 h28 M13 14 h26" stroke="#14213D" stroke-width="3.2" stroke-linecap="round"></path>
-</svg><span>Screenshoty nového designu přidáme už brzy.</span></div><div class="telefon"><svg width="34" height="40" viewBox="0 0 52 60" fill="none" aria-hidden="true">
-<path d="M11 18 c-2 0 -4 2 -4 5 v28 c0 4 3 7 7 7 h20 c4 0 7 -3 7 -7 V23 c0 -3 -2 -5 -4 -5 z" stroke="#14213D" stroke-width="3.2" stroke-linejoin="round"></path>
-<path d="M8 36 h35 v15 c0 4 -3 7 -7 7 h-21 c-4 0 -7 -3 -7 -7 z" fill="#FF5A1F" opacity=".9"></path>
-<path d="M11 18 c-2 0 -4 2 -4 5 v28 c0 4 3 7 7 7 h20 c4 0 7 -3 7 -7 V23 c0 -3 -2 -5 -4 -5 z" stroke="#14213D" stroke-width="3.2" stroke-linejoin="round" fill="none"></path>
-<rect x="13" y="5" width="26" height="6" rx="3" stroke="#14213D" stroke-width="3.2"></rect>
-<path d="M12 10 h28 M13 14 h26" stroke="#14213D" stroke-width="3.2" stroke-linecap="round"></path>
-</svg><span>Screenshoty nového designu přidáme už brzy.</span></div><div class="telefon"><svg width="34" height="40" viewBox="0 0 52 60" fill="none" aria-hidden="true">
-<path d="M11 18 c-2 0 -4 2 -4 5 v28 c0 4 3 7 7 7 h20 c4 0 7 -3 7 -7 V23 c0 -3 -2 -5 -4 -5 z" stroke="#14213D" stroke-width="3.2" stroke-linejoin="round"></path>
-<path d="M8 36 h35 v15 c0 4 -3 7 -7 7 h-21 c-4 0 -7 -3 -7 -7 z" fill="#FF5A1F" opacity=".9"></path>
-<path d="M11 18 c-2 0 -4 2 -4 5 v28 c0 4 3 7 7 7 h20 c4 0 7 -3 7 -7 V23 c0 -3 -2 -5 -4 -5 z" stroke="#14213D" stroke-width="3.2" stroke-linejoin="round" fill="none"></path>
-<rect x="13" y="5" width="26" height="6" rx="3" stroke="#14213D" stroke-width="3.2"></rect>
-<path d="M12 10 h28 M13 14 h26" stroke="#14213D" stroke-width="3.2" stroke-linecap="round"></path>
-</svg><span>Screenshoty nového designu přidáme už brzy.</span></div></div>
+</svg><span class="label">Android</span><span class="stav">Android — ve schvalování</span></div>
+    </div></div>
   </div></div>
 <div data-lang="de"><nav>
       <a href="./" aria-current="page">Start</a>
@@ -231,7 +237,7 @@ footer a{color:var(--inkSoft)}
   </div>
   <div class="cta">
     <a href="https://apps.apple.com/app/id6806119044"><img src="assets/badges/appstore-de-de.svg" alt="Im App Store laden" height="56"></a>
-    <span class="play"><img src="assets/badges/googleplay-de.png" alt="Google Play" height="84"><span class="pop">Google Play — bald verfügbar</span></span>
+    <span class="play"><img src="assets/badges/googleplay-de.png" alt="Google Play" height="84"><span class="pop">Google Play — in Prüfung</span></span>
   </div>
   <p class="dovera">Keine Werbung, keine Käufe. Wir tracken dich nicht und verkaufen deine Daten niemals.</p>
   <div class="card" style="margin-top:20px">
@@ -240,25 +246,25 @@ footer a{color:var(--inkSoft)}
   </div>
   <div class="card">
     <h2>Ein Blick hinein</h2>
-    <div class="telefony"><div class="telefon"><svg width="34" height="40" viewBox="0 0 52 60" fill="none" aria-hidden="true">
+    <p class="platformyText">Eine App für die ganze Familie — iPhone, iPad und Android.</p>
+    <div class="platformy">
+    <div class="platforma">
+      <div class="ramik"><img src="assets/screenshots/iphone-de.png" alt="PointJar na iPhone" loading="lazy"></div>
+      <span class="label">iPhone</span>
+    </div>
+    <div class="platforma">
+      <div class="ramik"><img src="assets/screenshots/ipad-de.png" alt="PointJar na iPad" loading="lazy"></div>
+      <span class="label">iPad</span>
+    </div>
+    <div class="platforma android">
+      <div class="ramik"><svg width="34" height="40" viewBox="0 0 52 60" fill="none" aria-hidden="true">
 <path d="M11 18 c-2 0 -4 2 -4 5 v28 c0 4 3 7 7 7 h20 c4 0 7 -3 7 -7 V23 c0 -3 -2 -5 -4 -5 z" stroke="#14213D" stroke-width="3.2" stroke-linejoin="round"></path>
 <path d="M8 36 h35 v15 c0 4 -3 7 -7 7 h-21 c-4 0 -7 -3 -7 -7 z" fill="#FF5A1F" opacity=".9"></path>
 <path d="M11 18 c-2 0 -4 2 -4 5 v28 c0 4 3 7 7 7 h20 c4 0 7 -3 7 -7 V23 c0 -3 -2 -5 -4 -5 z" stroke="#14213D" stroke-width="3.2" stroke-linejoin="round" fill="none"></path>
 <rect x="13" y="5" width="26" height="6" rx="3" stroke="#14213D" stroke-width="3.2"></rect>
 <path d="M12 10 h28 M13 14 h26" stroke="#14213D" stroke-width="3.2" stroke-linecap="round"></path>
-</svg><span>Screenshots des neuen Designs folgen in Kürze.</span></div><div class="telefon"><svg width="34" height="40" viewBox="0 0 52 60" fill="none" aria-hidden="true">
-<path d="M11 18 c-2 0 -4 2 -4 5 v28 c0 4 3 7 7 7 h20 c4 0 7 -3 7 -7 V23 c0 -3 -2 -5 -4 -5 z" stroke="#14213D" stroke-width="3.2" stroke-linejoin="round"></path>
-<path d="M8 36 h35 v15 c0 4 -3 7 -7 7 h-21 c-4 0 -7 -3 -7 -7 z" fill="#FF5A1F" opacity=".9"></path>
-<path d="M11 18 c-2 0 -4 2 -4 5 v28 c0 4 3 7 7 7 h20 c4 0 7 -3 7 -7 V23 c0 -3 -2 -5 -4 -5 z" stroke="#14213D" stroke-width="3.2" stroke-linejoin="round" fill="none"></path>
-<rect x="13" y="5" width="26" height="6" rx="3" stroke="#14213D" stroke-width="3.2"></rect>
-<path d="M12 10 h28 M13 14 h26" stroke="#14213D" stroke-width="3.2" stroke-linecap="round"></path>
-</svg><span>Screenshots des neuen Designs folgen in Kürze.</span></div><div class="telefon"><svg width="34" height="40" viewBox="0 0 52 60" fill="none" aria-hidden="true">
-<path d="M11 18 c-2 0 -4 2 -4 5 v28 c0 4 3 7 7 7 h20 c4 0 7 -3 7 -7 V23 c0 -3 -2 -5 -4 -5 z" stroke="#14213D" stroke-width="3.2" stroke-linejoin="round"></path>
-<path d="M8 36 h35 v15 c0 4 -3 7 -7 7 h-21 c-4 0 -7 -3 -7 -7 z" fill="#FF5A1F" opacity=".9"></path>
-<path d="M11 18 c-2 0 -4 2 -4 5 v28 c0 4 3 7 7 7 h20 c4 0 7 -3 7 -7 V23 c0 -3 -2 -5 -4 -5 z" stroke="#14213D" stroke-width="3.2" stroke-linejoin="round" fill="none"></path>
-<rect x="13" y="5" width="26" height="6" rx="3" stroke="#14213D" stroke-width="3.2"></rect>
-<path d="M12 10 h28 M13 14 h26" stroke="#14213D" stroke-width="3.2" stroke-linecap="round"></path>
-</svg><span>Screenshots des neuen Designs folgen in Kürze.</span></div></div>
+</svg><span class="label">Android</span><span class="stav">Android — in Prüfung</span></div>
+    </div></div>
   </div></div>
   <footer>© 2026 marcel s.r.o. · <a href="mailto:support@pointjar.app">support@pointjar.app</a></footer>
 </div>
