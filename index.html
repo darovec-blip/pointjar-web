@@ -82,6 +82,34 @@ footer a{color:var(--inkSoft)}
 .platforma .stav{font-size:12px;color:var(--inkSoft)}
 .platforma.android .ramik{aspect-ratio:9/19;align-items:center;justify-content:center;flex-direction:column;gap:10px;color:var(--inkSoft);font-size:13px;text-align:center;padding:12px}
 .platforma.android .ramik svg{opacity:.85}
+
+/* --- galéria screenshotov --- */
+.galeria{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:14px}
+.galeria figure{margin:0;display:flex;flex-direction:column;gap:7px}
+.galeria .ramik{border:2.5px solid var(--ink);border-radius:18px;background:var(--paper);overflow:hidden}
+.galeria img{width:100%;display:block}
+.galeria figcaption{font-size:13px;color:var(--inkSoft);text-align:center}
+.zariadeniePas{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:2px 0 14px}
+.zariadeniePas span{font-size:12px;color:var(--inkSoft);border:2px solid var(--grid);border-radius:999px;padding:3px 11px;background:var(--card)}
+/* --- novinky / changelog --- */
+.novinky .verzia{display:inline-block;font-family:Fredoka,sans-serif;font-weight:600;font-size:13px;background:var(--gold);border:2.5px solid var(--ink);border-radius:999px;padding:2px 12px;margin-bottom:10px}
+.novinky ul{padding-left:20px}
+.novinky li{font-size:15px;color:var(--inkSoft)}
+.starsie{font-size:13px;color:var(--inkSoft);margin-top:12px}
+/* --- pätka --- */
+footer{display:flex;flex-direction:column;align-items:center;gap:8px}
+footer .pravne a{color:var(--inkSoft);text-decoration:underline;text-underline-offset:2px}
+footer .pataDrobne{font-size:12px;opacity:.8}
+footer .pataJazyk{display:none}
+footer .pataJazyk.aktivny{display:inline}
+/* --- podpora projektu --- */
+.sumy{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 4px}
+.sumy a,.sumy span{display:inline-block;padding:11px 20px;border:2.5px solid var(--ink);border-radius:9px;background:var(--card);font-family:Fredoka,sans-serif;font-weight:600;color:var(--ink);text-decoration:none}
+.sumy a:hover{background:var(--gold)}
+.priprava{border-left:8px solid var(--gold);background:#FFFBEA}
+/* --- testovanie --- */
+.kroky li{font-size:15px}
+.odznakPlatformy{display:inline-block;font-size:12px;font-weight:700;color:var(--ink);background:var(--gold);border:2px solid var(--ink);border-radius:999px;padding:2px 10px;margin-right:6px}
 </style>
 </head>
 <body>
@@ -96,10 +124,10 @@ footer a{color:var(--inkSoft)}
   <div class="jazyky"><button data-k="en" aria-pressed="false">🇬🇧 English</button><button data-k="sk" aria-pressed="false">🇸🇰 Slovenčina</button><button data-k="cs" aria-pressed="false">🇨🇿 Čeština</button><button data-k="de" aria-pressed="false">🇩🇪 Deutsch</button></div>
   <div data-lang="en"><nav>
       <a href="./" aria-current="page">Home</a>
+      <a href="./pribeh.html">Our story</a>
       <a href="./podpora.html">Support</a>
-      <a href="./delete-account.html">Delete account</a>
-      <a href="./privacy.html">Privacy</a>
-      <a href="./terms.html">Terms</a>
+      <a href="./testovanie.html">Test the app</a>
+      <a href="./podpor.html">Support the project</a>
       <a href="./kontakt.html">Contact</a>
     </nav>
   <div class="card hero">
@@ -136,13 +164,31 @@ footer a{color:var(--inkSoft)}
 <path d="M12 10 h28 M13 14 h26" stroke="#14213D" stroke-width="3.2" stroke-linecap="round"></path>
 </svg><span class="label">Android</span><span class="stav">Android — in testing</span></div>
     </div></div>
+    
+    <p class="zariadeniePas"><span>iPhone and iPad</span></p>
+    <div class="galeria"><figure><div class="ramik"><img src="assets/screenshots/galeria/en-01.png" alt="The child's screen" loading="lazy"></div><figcaption>The child's screen</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/galeria/en-02.png" alt="Tasks in categories" loading="lazy"></div><figcaption>Tasks in categories</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/galeria/en-03.png" alt="Reward shop" loading="lazy"></div><figcaption>Reward shop</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/galeria/en-04.png" alt="The parent's approvals" loading="lazy"></div><figcaption>The parent's approvals</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/galeria/en-05.png" alt="Activities and points" loading="lazy"></div><figcaption>Activities and points</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/galeria/en-06.png" alt="Why the app exists" loading="lazy"></div><figcaption>Why the app exists</figcaption></figure></div>
+    
+    <p class="zariadeniePas"><span>Android</span></p>
+    <div class="galeria"><figure><div class="ramik"><img src="assets/screenshots/android/en-01.png" alt="The child's screen" loading="lazy"></div><figcaption>The child's screen</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/en-02.png" alt="Tasks in categories" loading="lazy"></div><figcaption>Tasks in categories</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/en-03.png" alt="Reward shop" loading="lazy"></div><figcaption>Reward shop</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/en-04.png" alt="The parent's approvals" loading="lazy"></div><figcaption>The parent's approvals</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/en-05.png" alt="Activities and points" loading="lazy"></div><figcaption>Activities and points</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/en-06.png" alt="Why the app exists" loading="lazy"></div><figcaption>Why the app exists</figcaption></figure></div>
+  </div>
+  
+  <div class="card novinky">
+    <h2>What's new</h2>
+    <span class="verzia">Version 1.4.0</span>
+    <ul><li>Kids pick their own avatar from 40 characters; parents can change it.</li><li>Tasks are grouped into categories that expand with a tap.</li><li>After creating a family, the app helps you add the child, the other parent and a viewer: with a code or an account e-mail that joins automatically.</li><li>Invitations include a download link and the code fills in by itself on the new device.</li><li>New screen Why PointJar exists, with the studies behind tasks and rewards.</li><li>Better layout with large text, support on every screen.</li></ul>
+    <p class="starsie">We keep improving the app — every version ships with release notes in the store.</p>
+  </div>
+  <div class="card">
+    <h2>Why PointJar exists</h2>
+    <p>PointJar is a family project. Matej built it for his son Juraj — instead of a chart on the fridge they wanted a fair system where points never get lost, the level never drops and a promised reward is a promise kept. Our family still uses it every day, and everything in the app grew out of real mornings, homework and negotiations about ice cream.</p>
+    <a class="tlacidlo" href="./pribeh.html">Our story</a>
   </div></div>
 <div data-lang="sk"><nav>
       <a href="./" aria-current="page">Domov</a>
+      <a href="./pribeh.html">Príbeh</a>
       <a href="./podpora.html">Podpora</a>
-      <a href="./delete-account.html">Vymazať konto</a>
-      <a href="./privacy.html">Zásady</a>
-      <a href="./terms.html">Podmienky</a>
+      <a href="./testovanie.html">Testovanie</a>
+      <a href="./podpor.html">Podporiť projekt</a>
       <a href="./kontakt.html">Kontakt</a>
     </nav>
   <div class="card hero">
@@ -179,13 +225,31 @@ footer a{color:var(--inkSoft)}
 <path d="M12 10 h28 M13 14 h26" stroke="#14213D" stroke-width="3.2" stroke-linecap="round"></path>
 </svg><span class="label">Android</span><span class="stav">Android — v testovaní</span></div>
     </div></div>
+    
+    <p class="zariadeniePas"><span>iPhone a iPad</span></p>
+    <div class="galeria"><figure><div class="ramik"><img src="assets/screenshots/galeria/sk-01.png" alt="Obrazovka dieťaťa" loading="lazy"></div><figcaption>Obrazovka dieťaťa</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/galeria/sk-02.png" alt="Úlohy v kategóriách" loading="lazy"></div><figcaption>Úlohy v kategóriách</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/galeria/sk-03.png" alt="Obchod s odmenami" loading="lazy"></div><figcaption>Obchod s odmenami</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/galeria/sk-04.png" alt="Schvaľovanie u rodiča" loading="lazy"></div><figcaption>Schvaľovanie u rodiča</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/galeria/sk-05.png" alt="Aktivity a body" loading="lazy"></div><figcaption>Aktivity a body</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/galeria/sk-06.png" alt="Prečo appka vznikla" loading="lazy"></div><figcaption>Prečo appka vznikla</figcaption></figure></div>
+    
+    <p class="zariadeniePas"><span>Android</span></p>
+    <div class="galeria"><figure><div class="ramik"><img src="assets/screenshots/android/sk-01.png" alt="Obrazovka dieťaťa" loading="lazy"></div><figcaption>Obrazovka dieťaťa</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/sk-02.png" alt="Úlohy v kategóriách" loading="lazy"></div><figcaption>Úlohy v kategóriách</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/sk-03.png" alt="Obchod s odmenami" loading="lazy"></div><figcaption>Obchod s odmenami</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/sk-04.png" alt="Schvaľovanie u rodiča" loading="lazy"></div><figcaption>Schvaľovanie u rodiča</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/sk-05.png" alt="Aktivity a body" loading="lazy"></div><figcaption>Aktivity a body</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/sk-06.png" alt="Prečo appka vznikla" loading="lazy"></div><figcaption>Prečo appka vznikla</figcaption></figure></div>
+  </div>
+  
+  <div class="card novinky">
+    <h2>Čo pribudlo</h2>
+    <span class="verzia">Verzia 1.4.0</span>
+    <ul><li>Dieťa si vyberá vlastného avatara zo 40 postavičiek, rodič ho môže zmeniť.</li><li>Úlohy sú v kategóriách, ktoré sa rozbaľujú klepnutím.</li><li>Po založení rodiny appka pomôže pridať dieťa, druhého rodiča a diváka: kódom alebo e-mailom účtu, ktorý sa po prihlásení pripojí sám.</li><li>Pozvánka má odkaz na stiahnutie a kód sa na novom zariadení vyplní sám.</li><li>Nová obrazovka Prečo vznikol PointJar so štúdiami za úlohami a odmenami.</li><li>Lepšie zobrazenie pri veľkom písme, podpora na každej obrazovke.</li></ul>
+    <p class="starsie">Appku vylepšujeme priebežne — každá verzia vychádza aj s poznámkami v obchode.</p>
+  </div>
+  <div class="card">
+    <h2>Prečo PointJar vznikol</h2>
+    <p>PointJar je rodinný projekt. Matej ho postavil pre svojho syna Juraja — namiesto tabuľky na chladničke chceli férový systém, v ktorom sa body nestrácajú, level nikdy neklesá a sľúbená odmena platí. Naša rodina ho používa dodnes každý deň a všetko v appke vzniklo z reálnych rán, domácich úloh a vyjednávaní o zmrzline.</p>
+    <a class="tlacidlo" href="./pribeh.html">Príbeh</a>
   </div></div>
 <div data-lang="cs"><nav>
       <a href="./" aria-current="page">Domů</a>
+      <a href="./pribeh.html">Příběh</a>
       <a href="./podpora.html">Podpora</a>
-      <a href="./delete-account.html">Smazat účet</a>
-      <a href="./privacy.html">Zásady</a>
-      <a href="./terms.html">Podmínky</a>
+      <a href="./testovanie.html">Testování</a>
+      <a href="./podpor.html">Podpořit projekt</a>
       <a href="./kontakt.html">Kontakt</a>
     </nav>
   <div class="card hero">
@@ -222,13 +286,31 @@ footer a{color:var(--inkSoft)}
 <path d="M12 10 h28 M13 14 h26" stroke="#14213D" stroke-width="3.2" stroke-linecap="round"></path>
 </svg><span class="label">Android</span><span class="stav">Android — v testování</span></div>
     </div></div>
+    
+    <p class="zariadeniePas"><span>iPhone a iPad</span></p>
+    <div class="galeria"><figure><div class="ramik"><img src="assets/screenshots/galeria/cs-01.png" alt="Obrazovka dítěte" loading="lazy"></div><figcaption>Obrazovka dítěte</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/galeria/cs-02.png" alt="Úkoly v kategoriích" loading="lazy"></div><figcaption>Úkoly v kategoriích</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/galeria/cs-03.png" alt="Obchod s odměnami" loading="lazy"></div><figcaption>Obchod s odměnami</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/galeria/cs-04.png" alt="Schvalování u rodiče" loading="lazy"></div><figcaption>Schvalování u rodiče</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/galeria/cs-05.png" alt="Aktivity a body" loading="lazy"></div><figcaption>Aktivity a body</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/galeria/cs-06.png" alt="Proč appka vznikla" loading="lazy"></div><figcaption>Proč appka vznikla</figcaption></figure></div>
+    
+    <p class="zariadeniePas"><span>Android</span></p>
+    <div class="galeria"><figure><div class="ramik"><img src="assets/screenshots/android/cs-01.png" alt="Obrazovka dítěte" loading="lazy"></div><figcaption>Obrazovka dítěte</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/cs-02.png" alt="Úkoly v kategoriích" loading="lazy"></div><figcaption>Úkoly v kategoriích</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/cs-03.png" alt="Obchod s odměnami" loading="lazy"></div><figcaption>Obchod s odměnami</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/cs-04.png" alt="Schvalování u rodiče" loading="lazy"></div><figcaption>Schvalování u rodiče</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/cs-05.png" alt="Aktivity a body" loading="lazy"></div><figcaption>Aktivity a body</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/cs-06.png" alt="Proč appka vznikla" loading="lazy"></div><figcaption>Proč appka vznikla</figcaption></figure></div>
+  </div>
+  
+  <div class="card novinky">
+    <h2>Co přibylo</h2>
+    <span class="verzia">Verze 1.4.0</span>
+    <ul><li>Dítě si vybírá vlastního avatara ze 40 postaviček, rodič ho může změnit.</li><li>Úkoly jsou v kategoriích, které se rozbalují klepnutím.</li><li>Po založení rodiny appka pomůže přidat dítě, druhého rodiče a diváka: kódem nebo e-mailem účtu, který se po přihlášení připojí sám.</li><li>Pozvánka má odkaz ke stažení a kód se na novém zařízení vyplní sám.</li><li>Nová obrazovka Proč vznikl PointJar se studiemi za úkoly a odměnami.</li><li>Lepší zobrazení při velkém písmu, podpora na každé obrazovce.</li></ul>
+    <p class="starsie">Aplikaci vylepšujeme průběžně — každá verze vychází i s poznámkami v obchodě.</p>
+  </div>
+  <div class="card">
+    <h2>Proč PointJar vznikl</h2>
+    <p>PointJar je rodinný projekt. Matej ho postavil pro svého syna Juraje — místo tabulky na lednici chtěli férový systém, ve kterém se body neztrácejí, level nikdy neklesá a slíbená odměna platí. Naše rodina ho používá dodnes každý den a všechno v aplikaci vzniklo ze skutečných rán, domácích úkolů a vyjednávání o zmrzlině.</p>
+    <a class="tlacidlo" href="./pribeh.html">Příběh</a>
   </div></div>
 <div data-lang="de"><nav>
       <a href="./" aria-current="page">Start</a>
+      <a href="./pribeh.html">Geschichte</a>
       <a href="./podpora.html">Support</a>
-      <a href="./delete-account.html">Konto löschen</a>
-      <a href="./privacy.html">Datenschutz</a>
-      <a href="./terms.html">Bedingungen</a>
+      <a href="./testovanie.html">App testen</a>
+      <a href="./podpor.html">Projekt unterstützen</a>
       <a href="./kontakt.html">Kontakt</a>
     </nav>
   <div class="card hero">
@@ -265,8 +347,45 @@ footer a{color:var(--inkSoft)}
 <path d="M12 10 h28 M13 14 h26" stroke="#14213D" stroke-width="3.2" stroke-linecap="round"></path>
 </svg><span class="label">Android</span><span class="stav">Android — im Test</span></div>
     </div></div>
+    
+    <p class="zariadeniePas"><span>iPhone und iPad</span></p>
+    <div class="galeria"><figure><div class="ramik"><img src="assets/screenshots/galeria/de-01.png" alt="Bildschirm des Kindes" loading="lazy"></div><figcaption>Bildschirm des Kindes</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/galeria/de-02.png" alt="Aufgaben in Kategorien" loading="lazy"></div><figcaption>Aufgaben in Kategorien</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/galeria/de-03.png" alt="Belohnungs-Shop" loading="lazy"></div><figcaption>Belohnungs-Shop</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/galeria/de-04.png" alt="Bestätigen als Elternteil" loading="lazy"></div><figcaption>Bestätigen als Elternteil</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/galeria/de-05.png" alt="Aktivitäten und Punkte" loading="lazy"></div><figcaption>Aktivitäten und Punkte</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/galeria/de-06.png" alt="Warum es die App gibt" loading="lazy"></div><figcaption>Warum es die App gibt</figcaption></figure></div>
+    
+    <p class="zariadeniePas"><span>Android</span></p>
+    <div class="galeria"><figure><div class="ramik"><img src="assets/screenshots/android/de-01.png" alt="Bildschirm des Kindes" loading="lazy"></div><figcaption>Bildschirm des Kindes</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/de-02.png" alt="Aufgaben in Kategorien" loading="lazy"></div><figcaption>Aufgaben in Kategorien</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/de-03.png" alt="Belohnungs-Shop" loading="lazy"></div><figcaption>Belohnungs-Shop</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/de-04.png" alt="Bestätigen als Elternteil" loading="lazy"></div><figcaption>Bestätigen als Elternteil</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/de-05.png" alt="Aktivitäten und Punkte" loading="lazy"></div><figcaption>Aktivitäten und Punkte</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/de-06.png" alt="Warum es die App gibt" loading="lazy"></div><figcaption>Warum es die App gibt</figcaption></figure></div>
+  </div>
+  
+  <div class="card novinky">
+    <h2>Was neu ist</h2>
+    <span class="verzia">Version 1.4.0</span>
+    <ul><li>Kinder wählen ihren Avatar aus 40 Figuren, Eltern können ihn ändern.</li><li>Aufgaben sind in Kategorien, die sich per Tipp aufklappen.</li><li>Nach dem Anlegen der Familie hilft die App, Kind, zweiten Elternteil und Zuschauer hinzuzufügen: per Code oder Konto-E-Mail, die automatisch beitritt.</li><li>Einladungen enthalten einen Download-Link, der Code füllt sich am neuen Gerät selbst aus.</li><li>Neuer Bildschirm Warum es PointJar gibt, mit den Studien hinter Aufgaben und Belohnungen.</li><li>Bessere Darstellung bei großer Schrift.</li></ul>
+    <p class="starsie">Wir verbessern die App laufend — jede Version erscheint mit Release-Notes im Store.</p>
+  </div>
+  <div class="card">
+    <h2>Warum es PointJar gibt</h2>
+    <p>PointJar ist ein Familienprojekt. Matej hat es für seinen Sohn Juraj gebaut — statt einer Tabelle am Kühlschrank wollten sie ein faires System, in dem Punkte nie verloren gehen, das Level nie sinkt und eine versprochene Belohnung gilt. Unsere Familie nutzt die App bis heute jeden Tag, und alles darin ist aus echten Morgen, Hausaufgaben und Eis-Verhandlungen entstanden.</p>
+    <a class="tlacidlo" href="./pribeh.html">Geschichte</a>
   </div></div>
-  <footer>© 2026 marcel s.r.o. · <a href="mailto:support@pointjar.app">support@pointjar.app</a></footer>
+  <footer>
+    <span data-lang="en" class="pataJazyk"><span class="pravne">
+      <a href="./privacy.html">Privacy</a> ·
+      <a href="./terms.html">Terms</a> ·
+      <a href="./delete-account.html">Delete account</a>
+    </span></span><span data-lang="sk" class="pataJazyk"><span class="pravne">
+      <a href="./privacy.html">Zásady</a> ·
+      <a href="./terms.html">Podmienky</a> ·
+      <a href="./delete-account.html">Vymazať konto</a>
+    </span></span><span data-lang="cs" class="pataJazyk"><span class="pravne">
+      <a href="./privacy.html">Zásady</a> ·
+      <a href="./terms.html">Podmínky</a> ·
+      <a href="./delete-account.html">Smazat účet</a>
+    </span></span><span data-lang="de" class="pataJazyk"><span class="pravne">
+      <a href="./privacy.html">Datenschutz</a> ·
+      <a href="./terms.html">Bedingungen</a> ·
+      <a href="./delete-account.html">Konto löschen</a>
+    </span></span>
+    <span class="pataDrobne">© 2026 marcel s.r.o. · <a href="mailto:support@pointjar.app">support@pointjar.app</a></span>
+  </footer>
 </div>
 <script>
 const FUNKCIA_URL='https://bfrfsqorgjvesjwftuzi.supabase.co/functions/v1/podpora';
@@ -291,7 +410,7 @@ const PUBLISHABLE='sb_publishable_SRsE77rat693ZCisKOwUzA_CN-843l8';
         method:'POST',
         headers:{'Content-Type':'application/json','apikey':PUBLISHABLE},
         body:JSON.stringify({
-          sprava:sprava, email:email, meno:f.meno.value.trim(), hp:f.hp.value,
+          sprava:(f.dataset.predpona?f.dataset.predpona+'\n\n':'')+sprava, email:email, meno:f.meno.value.trim(), hp:f.hp.value,
           zdroj:'web', lang:document.documentElement.lang||'en'
         })
       }).then(function(r){ return r.json().catch(function(){return null;}).then(function(j){
