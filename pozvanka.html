@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PointJar — Confirm invitation</title>
+<meta name="description" content="PointJar — family chores and rewards app by marcel s.r.o..">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+:root{--ink:#14213D;--inkSoft:#48587A;--paper:#F4F8FF;--grid:#D5E2F2;--card:#fff;--punch:#FF5A1F;--gold:#FFC400;--mint:#0FA678}
+body{margin:0;background:var(--paper);color:var(--ink);font:600 16px/1.6 Nunito,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:26px 26px}
+h1,h2,h3,nav a,button{font-family:Fredoka,Nunito,-apple-system,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:28px 20px 64px}
+header{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:22px}
+.logo{width:56px;height:56px;border:3px solid var(--ink);border-radius:13px;background:var(--gold);display:flex;align-items:center;justify-content:center;flex:none}
+.logo svg{display:block}
+h1{font-size:30px;margin:0}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:22px}
+nav a{padding:8px 14px;border:2.5px solid var(--ink);border-radius:7px;background:var(--card);color:var(--ink);text-decoration:none;font-weight:600;font-size:14px}
+nav a:hover:not([aria-current]){background:var(--paper)}
+nav a[aria-current]{background:var(--punch);color:#fff}
+.jazyky{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-bottom:24px}
+.jazyky button{padding:6px 12px;border:2px solid var(--grid);border-radius:7px;background:var(--card);cursor:pointer;font:inherit;font-size:14px}
+.jazyky button:hover{border-color:var(--ink)}
+.jazyky button[aria-pressed="true"]{border-color:var(--ink);background:var(--gold);font-weight:700}
+.card{background:var(--card);border:2.5px solid var(--ink);border-radius:9px;padding:22px;margin-bottom:20px}
+.card h2{font-size:19px;margin:0 0 12px}
+.card h3{font-size:17px;margin:18px 0 8px}
+.step strong{color:var(--ink)}
+.notice{border-left:8px solid var(--gold)}
+.request{border-color:var(--mint)}
+.tlacidlo{display:inline-block;margin-top:8px;padding:11px 17px;border:2.5px solid var(--ink);border-radius:7px;background:var(--punch);color:#fff;text-decoration:none;font-family:Fredoka,sans-serif;font-weight:600}
+.tlacidlo:hover{filter:brightness(.96)}
+.tlacidlo:active{transform:scale(.97);opacity:.92}
+.small{font-size:13px!important}
+.card p,.card li{color:var(--inkSoft);font-size:15px}
+.card p{margin:0 0 10px}
+ul,ol{margin:0;padding-left:22px}
+li{margin-bottom:8px}
+.hero{background:var(--punch);color:#fff}
+.hero h2,.hero p{color:#fff}
+.kontakt a{color:var(--punch);font-weight:700}
+.q{font-weight:800;color:var(--ink);margin:14px 0 2px}
+.datum{font-size:13px;color:var(--inkSoft);margin:0 0 8px}
+label{display:block;font-weight:700;font-size:14px;margin:14px 0 4px}
+input,textarea{width:100%;padding:11px 13px;border:2.5px solid var(--ink);border-radius:7px;background:var(--card);font:inherit;font-size:15px;color:var(--ink)}
+textarea{min-height:150px;resize:vertical}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+button.odoslat:active{transform:scale(.97);opacity:.92}
+button.odoslat{margin-top:18px;width:100%;padding:13px;border:2.5px solid var(--ink);border-radius:7px;background:var(--punch);color:#fff;font-weight:600;font-size:16px;cursor:pointer}
+button.odoslat:active{transform:scale(.97);opacity:.92}
+button.odoslat:disabled{opacity:.6;cursor:default}
+.hlaska{margin-top:14px;font-size:14px}
+.hlaska.ok{color:#0FA678;font-weight:700}
+.hlaska.zle{color:#D93A3A}
+footer{color:var(--inkSoft);font-size:13px;text-align:center;margin-top:32px}
+footer a{color:var(--inkSoft)}
+[data-lang]{display:none}
+[data-lang].aktivny{display:block}
+.cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:18px;justify-content:center;align-items:center}
+.cta a{display:inline-block;line-height:0}
+.cta a:active{transform:scale(.97);opacity:.92}
+.cta img{display:block;width:auto}
+.cta .play{display:flex;flex-direction:column;align-items:center}
+.cta .play img{margin:-13px 0}
+.cta .pop{font-family:Fredoka,sans-serif;font-weight:600;font-size:13px;color:var(--inkSoft);margin-top:2px}
+.dovera{text-align:center;font-family:Fredoka,Nunito,sans-serif;font-weight:600;font-size:17px;color:var(--ink);margin:16px auto 0;max-width:56ch}
+.ako{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:14px}
+.ako div{border:2.5px solid var(--ink);border-radius:9px;background:var(--card);padding:14px;font-size:14px;color:var(--inkSoft)}
+.ako div span{display:block;font-size:26px;margin-bottom:6px}
+.platformyText{text-align:center;color:var(--inkSoft);font-size:14px;margin:-4px 0 14px}
+.platformy{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
+.platforma{display:flex;flex-direction:column;align-items:center;gap:8px}
+.platforma .ramik{width:100%;border:2.5px solid var(--ink);border-radius:20px;background:var(--paper);overflow:hidden;display:flex}
+.platforma img{width:100%;display:block}
+.platforma .label{font-family:Fredoka,sans-serif;font-weight:600;font-size:13px;color:var(--ink)}
+.platforma .stav{font-size:12px;color:var(--inkSoft)}
+.platforma.android .ramik{aspect-ratio:9/19;align-items:center;justify-content:center;flex-direction:column;gap:10px;color:var(--inkSoft);font-size:13px;text-align:center;padding:12px}
+.platforma.android .ramik svg{opacity:.85}
+
+/* --- galéria screenshotov --- */
+.galeria{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:14px}
+.galeria figure{margin:0;display:flex;flex-direction:column;gap:7px}
+.galeria .ramik{border:2.5px solid var(--ink);border-radius:18px;background:var(--paper);overflow:hidden}
+.galeria img{width:100%;display:block}
+.galeria figcaption{font-size:13px;color:var(--inkSoft);text-align:center}
+.zariadeniePas{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:2px 0 14px}
+.zariadeniePas span{font-size:12px;color:var(--inkSoft);border:2px solid var(--grid);border-radius:999px;padding:3px 11px;background:var(--card)}
+/* --- novinky / changelog --- */
+.novinky .verzia{display:inline-block;font-family:Fredoka,sans-serif;font-weight:600;font-size:13px;background:var(--gold);border:2.5px solid var(--ink);border-radius:999px;padding:2px 12px;margin-bottom:10px}
+.novinky ul{padding-left:20px}
+.novinky li{font-size:15px;color:var(--inkSoft)}
+.starsie{font-size:13px;color:var(--inkSoft);margin-top:12px}
+/* --- pätka --- */
+footer{display:flex;flex-direction:column;align-items:center;gap:8px}
+footer .pravne a{color:var(--inkSoft);text-decoration:underline;text-underline-offset:2px}
+footer .pataDrobne{font-size:12px;opacity:.8}
+footer .pataJazyk{display:none}
+footer .pataJazyk.aktivny{display:inline}
+/* --- podpora projektu --- */
+.sumy{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 4px}
+.sumy a,.sumy span{display:inline-block;padding:11px 20px;border:2.5px solid var(--ink);border-radius:9px;background:var(--card);font-family:Fredoka,sans-serif;font-weight:600;color:var(--ink);text-decoration:none}
+.sumy a:hover{background:var(--gold)}
+.platba{border-left:8px solid var(--gold);background:#FFFBEA}
+.platbaPozn{font-size:13px;color:var(--ink);opacity:.75;margin-top:10px}
+/* --- testovanie --- */
+.kroky li{font-size:15px}
+.odznakPlatformy{display:inline-block;font-size:12px;font-weight:700;color:var(--ink);background:var(--gold);border:2px solid var(--ink);border-radius:999px;padding:2px 10px;margin-right:6px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header><div class="logo"><svg width="34" height="40" viewBox="0 0 52 60" fill="none" aria-hidden="true">
+<path d="M11 18 c-2 0 -4 2 -4 5 v28 c0 4 3 7 7 7 h20 c4 0 7 -3 7 -7 V23 c0 -3 -2 -5 -4 -5 z" stroke="#14213D" stroke-width="3.2" stroke-linejoin="round"></path>
+<path d="M8 36 h35 v15 c0 4 -3 7 -7 7 h-21 c-4 0 -7 -3 -7 -7 z" fill="#FF5A1F" opacity=".9"></path>
+<path d="M11 18 c-2 0 -4 2 -4 5 v28 c0 4 3 7 7 7 h20 c4 0 7 -3 7 -7 V23 c0 -3 -2 -5 -4 -5 z" stroke="#14213D" stroke-width="3.2" stroke-linejoin="round" fill="none"></path>
+<rect x="13" y="5" width="26" height="6" rx="3" stroke="#14213D" stroke-width="3.2"></rect>
+<path d="M12 10 h28 M13 14 h26" stroke="#14213D" stroke-width="3.2" stroke-linecap="round"></path>
+</svg></div><h1>PointJar</h1></header>
+  <div class="jazyky"><button data-k="en" aria-pressed="false">🇬🇧 English</button><button data-k="sk" aria-pressed="false">🇸🇰 Slovenčina</button><button data-k="cs" aria-pressed="false">🇨🇿 Čeština</button><button data-k="de" aria-pressed="false">🇩🇪 Deutsch</button></div>
+  <div data-lang="en"><nav>
+      <a href="./">Home</a>
+      <a href="./pribeh.html">Our story</a>
+      <a href="./podpora.html">Support</a>
+      <a href="./testovanie.html">Test the app</a>
+      <a href="./podpor.html">Support the project</a>
+      <a href="./kontakt.html">Contact</a>
+    </nav><style>
+.obchody{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0}
+.obchod{display:inline-block;padding:12px 20px;border:3px solid #14213D;border-radius:14px;background:#fff;color:#14213D;font-weight:800;text-decoration:none;box-shadow:4px 4px 0 #14213D}
+.obchod.ios{background:#14213D;color:#fff}
+.kod-box{font-family:Fredoka,sans-serif;font-size:40px;letter-spacing:4px;text-align:center;background:#FFC400;border:3px solid #14213D;border-radius:18px;padding:18px;margin:12px 0;box-shadow:5px 5px 0 #14213D}
+.otvorit{display:block;text-align:center;padding:14px;border:3px solid #14213D;border-radius:14px;background:#FF5A1F;color:#fff;font-weight:800;text-decoration:none;box-shadow:4px 4px 0 #14213D;margin-top:8px}
+.kopirovat{display:block;width:100%;margin-top:10px;padding:10px;border:2px solid #14213D;border-radius:12px;background:#fff;font:inherit;font-weight:800;cursor:pointer}
+</style><style>
+.potvrd-stav{text-align:center;padding:8px 0 4px}
+.potvrd-emoji{font-size:44px;line-height:1}
+.potvrd-rodina{font-family:Fredoka,sans-serif;font-size:26px;margin:10px 0 2px}
+.potvrd-rola{color:#48587A;font-size:14px;margin:0 0 14px}
+.potvrd-chyba{color:#C2410C;font-weight:800}
+</style><div class="card"><h2>Confirm invitation</h2>
+  <div class="potvrd-stav">
+    <p data-stav="pracujem">Checking the invitation…</p>
+    <div data-stav="hotovo" hidden>
+      <div class="potvrd-emoji">🫙</div>
+      <p class="potvrd-rodina" data-rodina></p>
+      <p class="potvrd-rola" data-rola></p>
+      <h3>Invitation confirmed</h3>
+      <p>Now sign in to the app with the same e-mail address this invitation was sent to. PointJar will place you in the family automatically.</p>
+    </div>
+    <div data-stav="zle" hidden>
+      <div class="potvrd-emoji">🫙</div>
+      <h3 class="potvrd-chyba">Could not confirm the invitation</h3>
+      <p data-zle-text>The link is invalid, already used, or expired. Ask the parent to send the invitation again.</p>
+    </div>
+  </div>
+  <div class="obchody"><a class="obchod ios" href="https://apps.apple.com/app/id6806119044"> App Store (iPhone, iPad)</a><a class="obchod" href="https://play.google.com/apps/testing/com.pointjar.app">▶ Google Play (Android)</a></div></div></div>
+<div data-lang="sk"><nav>
+      <a href="./">Domov</a>
+      <a href="./pribeh.html">Príbeh</a>
+      <a href="./podpora.html">Podpora</a>
+      <a href="./testovanie.html">Testovanie</a>
+      <a href="./podpor.html">Podporiť projekt</a>
+      <a href="./kontakt.html">Kontakt</a>
+    </nav><style>
+.obchody{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0}
+.obchod{display:inline-block;padding:12px 20px;border:3px solid #14213D;border-radius:14px;background:#fff;color:#14213D;font-weight:800;text-decoration:none;box-shadow:4px 4px 0 #14213D}
+.obchod.ios{background:#14213D;color:#fff}
+.kod-box{font-family:Fredoka,sans-serif;font-size:40px;letter-spacing:4px;text-align:center;background:#FFC400;border:3px solid #14213D;border-radius:18px;padding:18px;margin:12px 0;box-shadow:5px 5px 0 #14213D}
+.otvorit{display:block;text-align:center;padding:14px;border:3px solid #14213D;border-radius:14px;background:#FF5A1F;color:#fff;font-weight:800;text-decoration:none;box-shadow:4px 4px 0 #14213D;margin-top:8px}
+.kopirovat{display:block;width:100%;margin-top:10px;padding:10px;border:2px solid #14213D;border-radius:12px;background:#fff;font:inherit;font-weight:800;cursor:pointer}
+</style><style>
+.potvrd-stav{text-align:center;padding:8px 0 4px}
+.potvrd-emoji{font-size:44px;line-height:1}
+.potvrd-rodina{font-family:Fredoka,sans-serif;font-size:26px;margin:10px 0 2px}
+.potvrd-rola{color:#48587A;font-size:14px;margin:0 0 14px}
+.potvrd-chyba{color:#C2410C;font-weight:800}
+</style><div class="card"><h2>Potvrdenie pozvania</h2>
+  <div class="potvrd-stav">
+    <p data-stav="pracujem">Overujem pozvanie…</p>
+    <div data-stav="hotovo" hidden>
+      <div class="potvrd-emoji">🫙</div>
+      <p class="potvrd-rodina" data-rodina></p>
+      <p class="potvrd-rola" data-rola></p>
+      <h3>Pozvanie je potvrdené</h3>
+      <p>Teraz sa v appke prihlás tou istou e-mailovou adresou, na ktorú prišla táto pozvánka. PointJar ťa zaradí do rodiny sám.</p>
+    </div>
+    <div data-stav="zle" hidden>
+      <div class="potvrd-emoji">🫙</div>
+      <h3 class="potvrd-chyba">Pozvanie sa nepodarilo potvrdiť</h3>
+      <p data-zle-text>Odkaz je neplatný, už bol použitý, alebo mu vypršala platnosť. Popros rodiča, nech ti pozvánku pošle znova.</p>
+    </div>
+  </div>
+  <div class="obchody"><a class="obchod ios" href="https://apps.apple.com/app/id6806119044"> App Store (iPhone, iPad)</a><a class="obchod" href="https://play.google.com/apps/testing/com.pointjar.app">▶ Google Play (Android)</a></div></div></div>
+<div data-lang="cs"><nav>
+      <a href="./">Domů</a>
+      <a href="./pribeh.html">Příběh</a>
+      <a href="./podpora.html">Podpora</a>
+      <a href="./testovanie.html">Testování</a>
+      <a href="./podpor.html">Podpořit projekt</a>
+      <a href="./kontakt.html">Kontakt</a>
+    </nav><style>
+.obchody{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0}
+.obchod{display:inline-block;padding:12px 20px;border:3px solid #14213D;border-radius:14px;background:#fff;color:#14213D;font-weight:800;text-decoration:none;box-shadow:4px 4px 0 #14213D}
+.obchod.ios{background:#14213D;color:#fff}
+.kod-box{font-family:Fredoka,sans-serif;font-size:40px;letter-spacing:4px;text-align:center;background:#FFC400;border:3px solid #14213D;border-radius:18px;padding:18px;margin:12px 0;box-shadow:5px 5px 0 #14213D}
+.otvorit{display:block;text-align:center;padding:14px;border:3px solid #14213D;border-radius:14px;background:#FF5A1F;color:#fff;font-weight:800;text-decoration:none;box-shadow:4px 4px 0 #14213D;margin-top:8px}
+.kopirovat{display:block;width:100%;margin-top:10px;padding:10px;border:2px solid #14213D;border-radius:12px;background:#fff;font:inherit;font-weight:800;cursor:pointer}
+</style><style>
+.potvrd-stav{text-align:center;padding:8px 0 4px}
+.potvrd-emoji{font-size:44px;line-height:1}
+.potvrd-rodina{font-family:Fredoka,sans-serif;font-size:26px;margin:10px 0 2px}
+.potvrd-rola{color:#48587A;font-size:14px;margin:0 0 14px}
+.potvrd-chyba{color:#C2410C;font-weight:800}
+</style><div class="card"><h2>Potvrzení pozvání</h2>
+  <div class="potvrd-stav">
+    <p data-stav="pracujem">Ověřuji pozvání…</p>
+    <div data-stav="hotovo" hidden>
+      <div class="potvrd-emoji">🫙</div>
+      <p class="potvrd-rodina" data-rodina></p>
+      <p class="potvrd-rola" data-rola></p>
+      <h3>Pozvání je potvrzeno</h3>
+      <p>Teď se v appce přihlas tou samou e-mailovou adresou, na kterou přišlo toto pozvání. PointJar tě do rodiny zařadí sám.</p>
+    </div>
+    <div data-stav="zle" hidden>
+      <div class="potvrd-emoji">🫙</div>
+      <h3 class="potvrd-chyba">Pozvání se nepodařilo potvrdit</h3>
+      <p data-zle-text>Odkaz je neplatný, už byl použit, nebo mu vypršela platnost. Popros rodiče, ať ti pozvání pošle znovu.</p>
+    </div>
+  </div>
+  <div class="obchody"><a class="obchod ios" href="https://apps.apple.com/app/id6806119044"> App Store (iPhone, iPad)</a><a class="obchod" href="https://play.google.com/apps/testing/com.pointjar.app">▶ Google Play (Android)</a></div></div></div>
+<div data-lang="de"><nav>
+      <a href="./">Start</a>
+      <a href="./pribeh.html">Geschichte</a>
+      <a href="./podpora.html">Support</a>
+      <a href="./testovanie.html">App testen</a>
+      <a href="./podpor.html">Projekt unterstützen</a>
+      <a href="./kontakt.html">Kontakt</a>
+    </nav><style>
+.obchody{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0}
+.obchod{display:inline-block;padding:12px 20px;border:3px solid #14213D;border-radius:14px;background:#fff;color:#14213D;font-weight:800;text-decoration:none;box-shadow:4px 4px 0 #14213D}
+.obchod.ios{background:#14213D;color:#fff}
+.kod-box{font-family:Fredoka,sans-serif;font-size:40px;letter-spacing:4px;text-align:center;background:#FFC400;border:3px solid #14213D;border-radius:18px;padding:18px;margin:12px 0;box-shadow:5px 5px 0 #14213D}
+.otvorit{display:block;text-align:center;padding:14px;border:3px solid #14213D;border-radius:14px;background:#FF5A1F;color:#fff;font-weight:800;text-decoration:none;box-shadow:4px 4px 0 #14213D;margin-top:8px}
+.kopirovat{display:block;width:100%;margin-top:10px;padding:10px;border:2px solid #14213D;border-radius:12px;background:#fff;font:inherit;font-weight:800;cursor:pointer}
+</style><style>
+.potvrd-stav{text-align:center;padding:8px 0 4px}
+.potvrd-emoji{font-size:44px;line-height:1}
+.potvrd-rodina{font-family:Fredoka,sans-serif;font-size:26px;margin:10px 0 2px}
+.potvrd-rola{color:#48587A;font-size:14px;margin:0 0 14px}
+.potvrd-chyba{color:#C2410C;font-weight:800}
+</style><div class="card"><h2>Einladung bestätigen</h2>
+  <div class="potvrd-stav">
+    <p data-stav="pracujem">Einladung wird geprüft…</p>
+    <div data-stav="hotovo" hidden>
+      <div class="potvrd-emoji">🫙</div>
+      <p class="potvrd-rodina" data-rodina></p>
+      <p class="potvrd-rola" data-rola></p>
+      <h3>Einladung bestätigt</h3>
+      <p>Melde dich jetzt in der App mit derselben E-Mail-Adresse an, an die diese Einladung ging. PointJar nimmt dich automatisch in die Familie auf.</p>
+    </div>
+    <div data-stav="zle" hidden>
+      <div class="potvrd-emoji">🫙</div>
+      <h3 class="potvrd-chyba">Einladung konnte nicht bestätigt werden</h3>
+      <p data-zle-text>Der Link ist ungültig, bereits verwendet oder abgelaufen. Bitte den Elternteil, die Einladung erneut zu senden.</p>
+    </div>
+  </div>
+  <div class="obchody"><a class="obchod ios" href="https://apps.apple.com/app/id6806119044"> App Store (iPhone, iPad)</a><a class="obchod" href="https://play.google.com/apps/testing/com.pointjar.app">▶ Google Play (Android)</a></div></div></div>
+  <footer>
+    <span data-lang="en" class="pataJazyk"><span class="pravne">
+      <a href="./privacy.html">Privacy</a> ·
+      <a href="./terms.html">Terms</a> ·
+      <a href="./delete-account.html">Delete account</a>
+    </span></span><span data-lang="sk" class="pataJazyk"><span class="pravne">
+      <a href="./privacy.html">Zásady</a> ·
+      <a href="./terms.html">Podmienky</a> ·
+      <a href="./delete-account.html">Vymazať konto</a>
+    </span></span><span data-lang="cs" class="pataJazyk"><span class="pravne">
+      <a href="./privacy.html">Zásady</a> ·
+      <a href="./terms.html">Podmínky</a> ·
+      <a href="./delete-account.html">Smazat účet</a>
+    </span></span><span data-lang="de" class="pataJazyk"><span class="pravne">
+      <a href="./privacy.html">Datenschutz</a> ·
+      <a href="./terms.html">Bedingungen</a> ·
+      <a href="./delete-account.html">Konto löschen</a>
+    </span></span>
+    <span class="pataDrobne">© 2026 marcel s.r.o. · <a href="mailto:support@pointjar.app">support@pointjar.app</a></span>
+  </footer>
+</div>
+<script>
+const FUNKCIA_URL='https://bfrfsqorgjvesjwftuzi.supabase.co/functions/v1/podpora';
+const PUBLISHABLE='sb_publishable_SRsE77rat693ZCisKOwUzA_CN-843l8';
+
+// --- kontaktný formulár (jeden pre každý jazyk, obsluha spoločná) ---
+// Proti spamu: neviditeľná výzva zo servera. Prehliadač k nej musí nájsť číslo,
+// ktorého otisk začína nulami — pre človeka sekunda, pre rozosielač práca navyše
+// pri každej správe. Žiadna cudzia captcha, žiadne cookie, nič na klikanie.
+(function(){
+  var MAIL='support@pointjar.app';
+  var enc=new TextEncoder();
+  function hex(b){return [].map.call(new Uint8Array(b),function(x){return ('0'+x.toString(16)).slice(-2)}).join('')}
+  function sha(s){return crypto.subtle.digest('SHA-256',enc.encode(s)).then(hex)}
+
+  var vyzva=null, ziska=null;
+  function vyzvi(){
+    if(vyzva) return Promise.resolve(vyzva);
+    if(ziska) return ziska;
+    ziska=fetch(FUNKCIA_URL,{headers:{'apikey':PUBLISHABLE}})
+      .then(function(r){return r.json()})
+      .then(function(j){ziska=null; if(!j||!j.ok) throw new Error('vyzva'); vyzva=j; return j})
+      .catch(function(e){ziska=null; throw e});
+    return ziska;
+  }
+
+  // Hľadá po dávkach, aby stránka medzitým neprestala reagovať.
+  function vyries(v,sprava){
+    return sha(sprava).then(function(h){
+      var ciel=new Array((v.obtiaznost||4)+1).join('0'), n=0;
+      function davka(){
+        var u=[],i;
+        for(i=0;i<512;i++) u.push(sha(v.sol+'.'+h+'.'+(n+i)));
+        var od=n; n+=512;
+        return Promise.all(u).then(function(o){
+          for(var j=0;j<o.length;j++) if(o[j].indexOf(ciel)===0) return String(od+j);
+          if(n>4000000) throw new Error('vyzva');
+          return davka();
+        });
+      }
+      return davka();
+    });
+  }
+
+  function posli(f,sprava,email,znova){
+    return vyzvi().then(function(v){
+      return vyries(v,sprava).then(function(nonce){
+        // server neprijme výzvu mladšiu ako dve sekundy
+        var caka=Math.max(0,2300-(Date.now()-v.cas));
+        return new Promise(function(r){setTimeout(r,caka)}).then(function(){
+          var b=f.querySelector('button'); if(b) b.textContent=f.dataset.odosielam;
+          return fetch(FUNKCIA_URL,{
+            method:'POST',
+            headers:{'Content-Type':'application/json','apikey':PUBLISHABLE},
+            body:JSON.stringify({
+              sprava:sprava, email:email, meno:f.meno.value.trim(), hp:f.hp.value,
+              vyzva:{sol:v.sol,cas:v.cas,podpis:v.podpis,nonce:nonce},
+              zdroj:'web', lang:document.documentElement.lang||'en'
+            })
+          });
+        });
+      });
+    }).then(function(r){
+      return r.json().catch(function(){return null}).then(function(j){
+        if(r.ok&&j&&j.ok) return true;
+        // vypršaná alebo zahodená výzva — raz si vypýtame novú
+        if(!znova&&j&&typeof j.chyba==='string'&&j.chyba.indexOf('vyzva')===0){
+          vyzva=null; return posli(f,sprava,email,true);
+        }
+        throw new Error('zlyhalo');
+      });
+    });
+  }
+
+  var formulare=[].slice.call(document.querySelectorAll('.kontakt-form'));
+  formulare.forEach(function(f){
+    var hlaska=f.querySelector('.hlaska');
+    var btn=f.querySelector('button');
+    // výzvu si vypýtame hneď ako sa niekto formulára dotkne, nech je hotová skôr ako text
+    f.addEventListener('focusin',function(){vyzvi().catch(function(){})},{once:true});
+    f.addEventListener('submit',function(ev){
+      ev.preventDefault();
+      var email=f.email.value.trim(), sprava=f.sprava.value.trim();
+      if(!email||sprava.length<5){
+        hlaska.className='hlaska zle'; hlaska.textContent=f.dataset.povinne; return;
+      }
+      if(f.dataset.predpona) sprava=f.dataset.predpona+'\n\n'+sprava;
+      btn.disabled=true; btn.textContent=f.dataset.overujem;
+      hlaska.className='hlaska'; hlaska.textContent='';
+      posli(f,sprava,email,false).then(function(){
+        hlaska.className='hlaska ok'; hlaska.textContent=f.dataset.hotovo; f.reset(); vyzva=null;
+      }).catch(function(){
+        hlaska.className='hlaska zle';
+        hlaska.innerHTML=f.dataset.chyba+' <a href="mailto:'+MAIL+'">'+MAIL+'</a>';
+      }).then(function(){
+        btn.disabled=false; btn.textContent=f.dataset.odoslat;
+      });
+    });
+  });
+})();
+// --- prepínač jazykov ---
+(function(){
+  var tlacidla=[].slice.call(document.querySelectorAll('.jazyky button'));
+  function prepni(k){
+    [].forEach.call(document.querySelectorAll('[data-lang]'),function(el){
+      el.classList.toggle('aktivny', el.getAttribute('data-lang')===k);
+    });
+    tlacidla.forEach(function(b){b.setAttribute('aria-pressed', String(b.dataset.k===k));});
+    document.documentElement.lang=k;
+    try{localStorage.setItem('pointjar.web.jazyk',k);}catch(e){}
+  }
+  tlacidla.forEach(function(b){b.addEventListener('click',function(){prepni(b.dataset.k);});});
+  var url=new URLSearchParams(location.search).get('lang');
+  var ulozeny=null; try{ulozeny=localStorage.getItem('pointjar.web.jazyk');}catch(e){}
+  var prehliadac=(navigator.language||'en').slice(0,2);
+  var podporovane=['en','sk','cs','de'];
+  var start=[url,ulozeny,prehliadac].filter(function(k){return podporovane.indexOf(k)>-1;})[0]||'en';
+  prepni(start);
+})();
+</script>
+<script>
+(function(){
+var URL_POTVRD='https://bfrfsqorgjvesjwftuzi.supabase.co/functions/v1/pozvanka-potvrdit';
+var PUBLISHABLE='sb_publishable_SRsE77rat693ZCisKOwUzA_CN-843l8';
+var TEXTY={"en":{"bezTokenu":"The link has no confirmation code. Please open it directly from the e-mail.","caste":"Too many attempts. Please try again in a moment.","zleText":"The link is invalid, already used, or expired. Ask the parent to send the invitation again.","rola":{"child":"child","parent":"parent","viewer":"viewer","admin":"admin"},"akoRola":"Role in the family"},"sk":{"bezTokenu":"V odkaze chýba potvrdzovací kód. Otvor ho prosím priamo z e-mailu.","caste":"Priveľa pokusov. Skús to prosím za chvíľu.","zleText":"Odkaz je neplatný, už bol použitý, alebo mu vypršala platnosť. Popros rodiča, nech ti pozvánku pošle znova.","rola":{"child":"dieťa","parent":"rodič","viewer":"divák","admin":"správca"},"akoRola":"Rola v rodine"},"cs":{"bezTokenu":"V odkazu chybí potvrzovací kód. Otevři ho prosím přímo z e-mailu.","caste":"Příliš mnoho pokusů. Zkus to prosím za chvíli.","zleText":"Odkaz je neplatný, už byl použit, nebo mu vypršela platnost. Popros rodiče, ať ti pozvání pošle znovu.","rola":{"child":"dítě","parent":"rodič","viewer":"divák","admin":"správce"},"akoRola":"Role v rodině"},"de":{"bezTokenu":"Im Link fehlt der Bestätigungscode. Bitte öffne ihn direkt aus der E-Mail.","caste":"Zu viele Versuche. Bitte versuche es in einem Moment erneut.","zleText":"Der Link ist ungültig, bereits verwendet oder abgelaufen. Bitte den Elternteil, die Einladung erneut zu senden.","rola":{"child":"Kind","parent":"Elternteil","viewer":"Zuschauer","admin":"Administrator"},"akoRola":"Rolle in der Familie"}};
+function ukaz(stav){document.querySelectorAll('[data-stav]').forEach(function(e){e.hidden=e.dataset.stav!==stav})}
+function zle(text){
+  if(text){document.querySelectorAll('[data-zle-text]').forEach(function(e){e.textContent=text})}
+  ukaz('zle');
+}
+var token=(new URLSearchParams(location.search).get('t')||'').trim();
+if(!/^[0-9a-f]{64}$/.test(token)){
+  Object.keys(TEXTY).forEach(function(k){
+    var box=document.querySelector('[data-lang="'+k+'"] [data-zle-text]');
+    if(box){box.textContent=TEXTY[k].bezTokenu}
+  });
+  ukaz('zle');
+  return;
+}
+fetch(URL_POTVRD,{
+  method:'POST',
+  headers:{'Content-Type':'application/json','apikey':PUBLISHABLE},
+  body:JSON.stringify({token:token})
+}).then(function(r){return r.json().then(function(j){return {status:r.status,body:j}})})
+ .then(function(o){
+   if(o.status===429){
+     Object.keys(TEXTY).forEach(function(k){
+       var box=document.querySelector('[data-lang="'+k+'"] [data-zle-text]');
+       if(box){box.textContent=TEXTY[k].caste}
+     });
+     ukaz('zle');return;
+   }
+   if(!o.body||!o.body.ok){zle(null);return;}
+   Object.keys(TEXTY).forEach(function(k){
+     var sekcia=document.querySelector('[data-lang="'+k+'"]');
+     if(!sekcia)return;
+     var r=sekcia.querySelector('[data-rodina]');
+     if(r){r.textContent=o.body.rodina||'PointJar'}
+     var rl=sekcia.querySelector('[data-rola]');
+     if(rl){rl.textContent=TEXTY[k].akoRola+': '+(TEXTY[k].rola[o.body.rola]||o.body.rola||'')}
+   });
+   ukaz('hotovo');
+ }).catch(function(){zle(null)});
+})();</script></body>
+</html>
