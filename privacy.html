@@ -205,31 +205,92 @@ const FUNKCIA_URL='https://bfrfsqorgjvesjwftuzi.supabase.co/functions/v1/podpora
 const PUBLISHABLE='sb_publishable_SRsE77rat693ZCisKOwUzA_CN-843l8';
 
 // --- kontaktný formulár (jeden pre každý jazyk, obsluha spoločná) ---
+// Proti spamu: neviditeľná výzva zo servera. Prehliadač k nej musí nájsť číslo,
+// ktorého otisk začína nulami — pre človeka sekunda, pre rozosielač práca navyše
+// pri každej správe. Žiadna cudzia captcha, žiadne cookie, nič na klikanie.
 (function(){
   var MAIL='support@pointjar.app';
+  var enc=new TextEncoder();
+  function hex(b){return [].map.call(new Uint8Array(b),function(x){return ('0'+x.toString(16)).slice(-2)}).join('')}
+  function sha(s){return crypto.subtle.digest('SHA-256',enc.encode(s)).then(hex)}
+
+  var vyzva=null, ziska=null;
+  function vyzvi(){
+    if(vyzva) return Promise.resolve(vyzva);
+    if(ziska) return ziska;
+    ziska=fetch(FUNKCIA_URL,{headers:{'apikey':PUBLISHABLE}})
+      .then(function(r){return r.json()})
+      .then(function(j){ziska=null; if(!j||!j.ok) throw new Error('vyzva'); vyzva=j; return j})
+      .catch(function(e){ziska=null; throw e});
+    return ziska;
+  }
+
+  // Hľadá po dávkach, aby stránka medzitým neprestala reagovať.
+  function vyries(v,sprava){
+    return sha(sprava).then(function(h){
+      var ciel=new Array((v.obtiaznost||4)+1).join('0'), n=0;
+      function davka(){
+        var u=[],i;
+        for(i=0;i<512;i++) u.push(sha(v.sol+'.'+h+'.'+(n+i)));
+        var od=n; n+=512;
+        return Promise.all(u).then(function(o){
+          for(var j=0;j<o.length;j++) if(o[j].indexOf(ciel)===0) return String(od+j);
+          if(n>4000000) throw new Error('vyzva');
+          return davka();
+        });
+      }
+      return davka();
+    });
+  }
+
+  function posli(f,sprava,email,znova){
+    return vyzvi().then(function(v){
+      return vyries(v,sprava).then(function(nonce){
+        // server neprijme výzvu mladšiu ako dve sekundy
+        var caka=Math.max(0,2300-(Date.now()-v.cas));
+        return new Promise(function(r){setTimeout(r,caka)}).then(function(){
+          var b=f.querySelector('button'); if(b) b.textContent=f.dataset.odosielam;
+          return fetch(FUNKCIA_URL,{
+            method:'POST',
+            headers:{'Content-Type':'application/json','apikey':PUBLISHABLE},
+            body:JSON.stringify({
+              sprava:sprava, email:email, meno:f.meno.value.trim(), hp:f.hp.value,
+              vyzva:{sol:v.sol,cas:v.cas,podpis:v.podpis,nonce:nonce},
+              zdroj:'web', lang:document.documentElement.lang||'en'
+            })
+          });
+        });
+      });
+    }).then(function(r){
+      return r.json().catch(function(){return null}).then(function(j){
+        if(r.ok&&j&&j.ok) return true;
+        // vypršaná alebo zahodená výzva — raz si vypýtame novú
+        if(!znova&&j&&typeof j.chyba==='string'&&j.chyba.indexOf('vyzva')===0){
+          vyzva=null; return posli(f,sprava,email,true);
+        }
+        throw new Error('zlyhalo');
+      });
+    });
+  }
+
   var formulare=[].slice.call(document.querySelectorAll('.kontakt-form'));
   formulare.forEach(function(f){
     var hlaska=f.querySelector('.hlaska');
     var btn=f.querySelector('button');
+    // výzvu si vypýtame hneď ako sa niekto formulára dotkne, nech je hotová skôr ako text
+    f.addEventListener('focusin',function(){vyzvi().catch(function(){})},{once:true});
     f.addEventListener('submit',function(ev){
       ev.preventDefault();
       var email=f.email.value.trim(), sprava=f.sprava.value.trim();
       if(!email||sprava.length<5){
         hlaska.className='hlaska zle'; hlaska.textContent=f.dataset.povinne; return;
       }
-      btn.disabled=true; btn.textContent=f.dataset.odosielam;
+      if(f.dataset.predpona) sprava=f.dataset.predpona+'\n\n'+sprava;
+      btn.disabled=true; btn.textContent=f.dataset.overujem;
       hlaska.className='hlaska'; hlaska.textContent='';
-      fetch(FUNKCIA_URL,{
-        method:'POST',
-        headers:{'Content-Type':'application/json','apikey':PUBLISHABLE},
-        body:JSON.stringify({
-          sprava:(f.dataset.predpona?f.dataset.predpona+'\n\n':'')+sprava, email:email, meno:f.meno.value.trim(), hp:f.hp.value,
-          zdroj:'web', lang:document.documentElement.lang||'en'
-        })
-      }).then(function(r){ return r.json().catch(function(){return null;}).then(function(j){
-        if(!r.ok||!j||!j.ok) throw new Error('zlyhalo');
-        hlaska.className='hlaska ok'; hlaska.textContent=f.dataset.hotovo; f.reset();
-      });}).catch(function(){
+      posli(f,sprava,email,false).then(function(){
+        hlaska.className='hlaska ok'; hlaska.textContent=f.dataset.hotovo; f.reset(); vyzva=null;
+      }).catch(function(){
         hlaska.className='hlaska zle';
         hlaska.innerHTML=f.dataset.chyba+' <a href="mailto:'+MAIL+'">'+MAIL+'</a>';
       }).then(function(){
