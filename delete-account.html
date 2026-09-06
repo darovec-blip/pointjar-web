@@ -15,19 +15,33 @@ body{margin:0;background:var(--paper);color:var(--ink);font:600 16px/1.6 Nunito,
 background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:26px 26px}
 h1,h2,h3,nav a,button{font-family:Fredoka,Nunito,-apple-system,sans-serif}
 .wrap{max-width:760px;margin:0 auto;padding:28px 20px 64px}
-header{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:22px}
+header{position:relative;display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:22px;min-height:56px}
 .logo{width:56px;height:56px;border:3px solid var(--ink);border-radius:13px;background:var(--gold);display:flex;align-items:center;justify-content:center;flex:none}
 .logo svg{display:block}
 h1{font-size:30px;margin:0}
+/* --- prepínač jazyka: len vlajka a šípka, zoznam sa rozbalí ako v appke --- */
+.jazyk-menu{position:absolute;right:0;top:50%;transform:translateY(-50%)}
+.jazyk-spust{display:flex;align-items:center;gap:6px;padding:7px 10px 7px 12px;border:2px solid var(--grid);border-radius:11px;background:var(--card);cursor:pointer;font:inherit;line-height:1}
+.jazyk-spust:hover{border-color:var(--ink)}
+.jazyk-spust .vlajka{font-size:20px}
+.jazyk-spust .sipka{font-size:11px;color:var(--inkSoft)}
+.jazyk-zoznam{position:absolute;right:0;top:calc(100% + 8px);min-width:260px;background:var(--card);border:2.5px solid var(--ink);border-radius:11px;padding:10px 8px;z-index:20;box-shadow:0 10px 30px rgba(20,33,61,.14)}
+.jazyk-zoznam[hidden]{display:none}
+.jazyk-nadpis{font-family:Fredoka,sans-serif;font-weight:600;font-size:11px;letter-spacing:1.6px;color:var(--inkSoft);padding:2px 10px 8px}
+.jazyk-zoznam button{display:flex;align-items:center;gap:12px;width:100%;padding:11px 10px;border:0;border-radius:9px;background:transparent;cursor:pointer;font:inherit;font-size:16px;color:var(--ink);text-align:left}
+.jazyk-zoznam button:hover{background:var(--paper)}
+.jazyk-zoznam button[aria-selected="true"]{background:#EEF3FB}
+.jazyk-zoznam button .ikona{font-size:20px;width:26px;text-align:center}
+.jazyk-zoznam button .fajka{margin-left:auto;color:var(--mint);font-weight:800}
+.jazyk-zoznam button:not([aria-selected="true"]) .fajka{visibility:hidden}
+.jazyk-zoznam [data-lang]{display:none}
+.jazyk-zoznam [data-lang].aktivny{display:inline}
+@media (max-width:560px){header{justify-content:flex-start;padding-right:70px}}
 a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:22px}
 nav a{padding:8px 14px;border:2.5px solid var(--ink);border-radius:7px;background:var(--card);color:var(--ink);text-decoration:none;font-weight:600;font-size:14px}
 nav a:hover:not([aria-current]){background:var(--paper)}
 nav a[aria-current]{background:var(--punch);color:#fff}
-.jazyky{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-bottom:24px}
-.jazyky button{padding:6px 12px;border:2px solid var(--grid);border-radius:7px;background:var(--card);cursor:pointer;font:inherit;font-size:14px}
-.jazyky button:hover{border-color:var(--ink)}
-.jazyky button[aria-pressed="true"]{border-color:var(--ink);background:var(--gold);font-weight:700}
 .card{background:var(--card);border:2.5px solid var(--ink);border-radius:9px;padding:22px;margin-bottom:20px}
 .card h2{font-size:19px;margin:0 0 12px}
 .card h3{font-size:17px;margin:18px 0 8px}
@@ -121,8 +135,19 @@ footer .pataJazyk.aktivny{display:inline}
 <path d="M11 18 c-2 0 -4 2 -4 5 v28 c0 4 3 7 7 7 h20 c4 0 7 -3 7 -7 V23 c0 -3 -2 -5 -4 -5 z" stroke="#14213D" stroke-width="3.2" stroke-linejoin="round" fill="none"></path>
 <rect x="13" y="5" width="26" height="6" rx="3" stroke="#14213D" stroke-width="3.2"></rect>
 <path d="M12 10 h28 M13 14 h26" stroke="#14213D" stroke-width="3.2" stroke-linecap="round"></path>
-</svg></div><h1>PointJar</h1></header>
-  <div class="jazyky"><button data-k="en" aria-pressed="false">🇬🇧 English</button><button data-k="sk" aria-pressed="false">🇸🇰 Slovenčina</button><button data-k="cs" aria-pressed="false">🇨🇿 Čeština</button><button data-k="de" aria-pressed="false">🇩🇪 Deutsch</button></div>
+</svg></div><h1>PointJar</h1><div class="jazyk-menu">
+    <button class="jazyk-spust" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
+      <span class="vlajka" data-vlajka>🌐</span><span class="sipka">▼</span>
+    </button>
+    <div class="jazyk-zoznam" role="listbox" hidden>
+      <div class="jazyk-nadpis"><span data-lang="en">LANGUAGE</span><span data-lang="sk">JAZYK</span><span data-lang="cs">JAZYK</span><span data-lang="de">SPRACHE</span></div>
+      <button type="button" role="option" data-k="auto" aria-selected="false"><span class="ikona">🌐</span><span><span data-lang="en">Browser language</span><span data-lang="sk">Podľa prehliadača</span><span data-lang="cs">Podle prohlížeče</span><span data-lang="de">Wie der Browser</span></span><span class="fajka">✓</span></button>
+      <button type="button" role="option" data-k="en" aria-selected="false"><span class="ikona">🇬🇧</span><span>English</span><span class="fajka">✓</span></button>
+      <button type="button" role="option" data-k="sk" aria-selected="false"><span class="ikona">🇸🇰</span><span>Slovenčina</span><span class="fajka">✓</span></button>
+      <button type="button" role="option" data-k="cs" aria-selected="false"><span class="ikona">🇨🇿</span><span>Čeština</span><span class="fajka">✓</span></button>
+      <button type="button" role="option" data-k="de" aria-selected="false"><span class="ikona">🇩🇪</span><span>Deutsch</span><span class="fajka">✓</span></button>
+    </div>
+  </div></header>
   <div data-lang="en"><nav>
       <a href="./">Home</a>
       <a href="./pribeh.html">Our story</a>
@@ -392,23 +417,41 @@ const PUBLISHABLE='sb_publishable_SRsE77rat693ZCisKOwUzA_CN-843l8';
   });
 })();
 // --- prepínač jazykov ---
+// Vidno len aktuálnu vlajku; zoznam sa rozbalí po kliknutí, rovnako ako v appke.
+// Voľba „auto" zahodí uloženú hodnotu a jazyk určí prehliadač.
 (function(){
-  var tlacidla=[].slice.call(document.querySelectorAll('.jazyky button'));
-  function prepni(k){
+  var KLUC='pointjar.web.jazyk';
+  var podporovane=['en','sk','cs','de'];
+  var VLAJKY={en:'🇬🇧',sk:'🇸🇰',cs:'🇨🇿',de:'🇩🇪'};
+  var menu=document.querySelector('.jazyk-menu');
+  var spust=menu&&menu.querySelector('.jazyk-spust');
+  var zoznam=menu&&menu.querySelector('.jazyk-zoznam');
+  var polozky=menu?[].slice.call(menu.querySelectorAll('[data-k]')):[];
+  function prehliadac(){var k=(navigator.language||'en').slice(0,2);return podporovane.indexOf(k)>-1?k:'en';}
+  function ukazJazyk(k,volba){
     [].forEach.call(document.querySelectorAll('[data-lang]'),function(el){
       el.classList.toggle('aktivny', el.getAttribute('data-lang')===k);
     });
-    tlacidla.forEach(function(b){b.setAttribute('aria-pressed', String(b.dataset.k===k));});
     document.documentElement.lang=k;
-    try{localStorage.setItem('pointjar.web.jazyk',k);}catch(e){}
+    var v=menu&&menu.querySelector('[data-vlajka]'); if(v) v.textContent=VLAJKY[k]||'🌐';
+    polozky.forEach(function(b){b.setAttribute('aria-selected', String(b.dataset.k===volba));});
   }
-  tlacidla.forEach(function(b){b.addEventListener('click',function(){prepni(b.dataset.k);});});
+  function zvol(volba){
+    if(volba==='auto'){try{localStorage.removeItem(KLUC);}catch(e){} ukazJazyk(prehliadac(),'auto');}
+    else{try{localStorage.setItem(KLUC,volba);}catch(e){} ukazJazyk(volba,volba);}
+  }
+  function otvor(ano){if(!zoznam)return; zoznam.hidden=!ano; spust.setAttribute('aria-expanded',String(ano));}
+  if(spust){
+    spust.addEventListener('click',function(ev){ev.stopPropagation();otvor(zoznam.hidden);});
+    polozky.forEach(function(b){b.addEventListener('click',function(){zvol(b.dataset.k);otvor(false);});});
+    document.addEventListener('click',function(ev){if(!menu.contains(ev.target))otvor(false);});
+    document.addEventListener('keydown',function(ev){if(ev.key==='Escape')otvor(false);});
+  }
   var url=new URLSearchParams(location.search).get('lang');
-  var ulozeny=null; try{ulozeny=localStorage.getItem('pointjar.web.jazyk');}catch(e){}
-  var prehliadac=(navigator.language||'en').slice(0,2);
-  var podporovane=['en','sk','cs','de'];
-  var start=[url,ulozeny,prehliadac].filter(function(k){return podporovane.indexOf(k)>-1;})[0]||'en';
-  prepni(start);
+  var ulozeny=null; try{ulozeny=localStorage.getItem(KLUC);}catch(e){}
+  if(url&&podporovane.indexOf(url)>-1) zvol(url);
+  else if(ulozeny&&podporovane.indexOf(ulozeny)>-1) ukazJazyk(ulozeny,ulozeny);
+  else ukazJazyk(prehliadac(),'auto');
 })();
 </script>
 </body>
