@@ -1,0 +1,21 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "A6567R6YAD.com.pointjar.app"
+        ],
+        "components": [
+          {
+            "/": "/pozvanka",
+            "comment": "pozvánka e-mailom"
+          },
+          {
+            "/": "/pripojit",
+            "comment": "pozvánka kódom"
+          }
+        ]
+      }
+    ]
+  }
+}
