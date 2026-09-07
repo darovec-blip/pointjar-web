@@ -16,8 +16,7 @@ background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradien
 h1,h2,h3,nav a,button{font-family:'Baloo 2',Nunito,-apple-system,sans-serif}
 .wrap{max-width:760px;margin:0 auto;padding:28px 20px 64px}
 header{position:relative;display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:22px;min-height:56px}
-.logo{width:56px;height:56px;border:3px solid var(--ink);border-radius:13px;background:var(--gold);display:flex;align-items:center;justify-content:center;flex:none}
-.logo svg{display:block}
+.logo{display:block;width:56px;height:56px;flex:none}
 h1{font-size:30px;margin:0}
 /* --- prepínač jazyka: len vlajka a šípka, zoznam sa rozbalí ako v appke --- */
 .jazyk-menu{position:absolute;right:0;top:50%;transform:translateY(-50%)}
@@ -129,13 +128,7 @@ footer .pataJazyk.aktivny{display:inline}
 </head>
 <body>
 <div class="wrap">
-  <header><div class="logo"><svg width="34" height="40" viewBox="0 0 52 60" fill="none" aria-hidden="true">
-<path d="M11 18 c-2 0 -4 2 -4 5 v28 c0 4 3 7 7 7 h20 c4 0 7 -3 7 -7 V23 c0 -3 -2 -5 -4 -5 z" stroke="#14213D" stroke-width="3.2" stroke-linejoin="round"></path>
-<path d="M8 36 h35 v15 c0 4 -3 7 -7 7 h-21 c-4 0 -7 -3 -7 -7 z" fill="#FF5A1F" opacity=".9"></path>
-<path d="M11 18 c-2 0 -4 2 -4 5 v28 c0 4 3 7 7 7 h20 c4 0 7 -3 7 -7 V23 c0 -3 -2 -5 -4 -5 z" stroke="#14213D" stroke-width="3.2" stroke-linejoin="round" fill="none"></path>
-<rect x="13" y="5" width="26" height="6" rx="3" stroke="#14213D" stroke-width="3.2"></rect>
-<path d="M12 10 h28 M13 14 h26" stroke="#14213D" stroke-width="3.2" stroke-linecap="round"></path>
-</svg></div><h1>PointJar</h1><div class="jazyk-menu">
+  <header><img class="logo" src="assets/ikona.png" width="56" height="56" alt=""><h1>PointJar</h1><div class="jazyk-menu">
     <button class="jazyk-spust" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
       <span class="vlajka" data-vlajka>🌐</span><span class="sipka">▼</span>
     </button>
@@ -201,7 +194,7 @@ footer .pataJazyk.aktivny{display:inline}
   <div class="card novinky">
     <h2>What's new</h2>
     <span class="verzia">Version 1.5.0</span>
-    <ul><li>Crash reports reach us again, so we can see problems and fix them.</li><li>Signing out now also signs the device out of notifications, so they never reach the next person.</li><li>The app no longer freezes on a blank screen when a font fails to load.</li><li>A quick double tap on a points entry now records it only once.</li><li>Updated guide and privacy policy.</li><li>Stability and security fixes under the hood.</li></ul>
+    <ul><li>What's in this release:</li><li>• notifications for the whole family: goal reached, new level, new member (viewers too); reminders to parents about pending approvals after 4, 10 and 18 hours</li><li>• notification archive "What happened recently" on the child's and parent's screen, the whole family under Admin → Changes</li><li>• e-mail invitation with confirmation; the link in the e-mail opens the app directly (Universal Links / App Links)</li><li>• Baloo 2 typeface instead of Fredoka (č ľ ť ď ň ř ě ů were missing), icon unified with iOS</li><li>• family time zone taken from the parent's phone; "today" and daily limits start at the same midnight as the database</li><li>• badge and notification tray are cleared when the app opens</li><li>• updated guide and legal texts (effective 7 September 2026)</li><li>• security fixes</li></ul>
     <p class="starsie">We keep improving the app — every version ships with release notes in the store.</p>
   </div>
   <div class="card">
@@ -262,7 +255,7 @@ footer .pataJazyk.aktivny{display:inline}
   <div class="card novinky">
     <h2>Čo pribudlo</h2>
     <span class="verzia">Verzia 1.5.0</span>
-    <ul><li>Hlásenia pádov nám znova chodia, takže chyby vidíme a vieme ich opraviť.</li><li>Pri odhlásení sa zo zariadenia odhlásia aj notifikácie, nech nechodia ďalšiemu človeku.</li><li>Appka už nezamrzne na prázdnej obrazovke, keď sa nepodarí načítať písmo.</li><li>Rýchle dvojité klepnutie na zápis bodov ich zapíše len raz.</li><li>Aktualizovaný návod a zásady ochrany osobných údajov.</li><li>Opravy stability a bezpečnosti pod kapotou.</li></ul>
+    <ul><li>Čo je vo vydaní:</li><li>• pushky pre celú rodinu: cieľ dosiahnutý, nový level, nový člen (aj divák); pripomienky rodičom na čakajúce schválenia po 4, 10 a 18 hodinách</li><li>• archív notifikácií „Čo sa stalo naposledy" na obrazovke dieťaťa a rodiča, celá rodina v Admin → Zmeny</li><li>• pozvánka e-mailom s potvrdením; odkaz z e-mailu otvorí appku (Universal Links / App Links)</li><li>• písmo Baloo 2 namiesto Fredoky (chýbali č ľ ť ď ň ř ě ů), ikona zjednotená s iOS</li><li>• časové pásmo rodiny z telefónu rodiča, „dnes" a denné limity od tej istej polnoci ako DB</li><li>• odznak a lišta notifikácií sa čistia pri otvorení appky</li><li>• aktualizovaný návod a právne texty (účinnosť 7. 9. 2026)</li><li>• bezpečnostné opravy</li></ul>
     <p class="starsie">Appku vylepšujeme priebežne — každá verzia vychádza aj s poznámkami v obchode.</p>
   </div>
   <div class="card">
@@ -323,7 +316,7 @@ footer .pataJazyk.aktivny{display:inline}
   <div class="card novinky">
     <h2>Co přibylo</h2>
     <span class="verzia">Verze 1.5.0</span>
-    <ul><li>Hlášení pádů nám znovu chodí, takže chyby vidíme a umíme je opravit.</li><li>Při odhlášení se ze zařízení odhlásí i notifikace, ať nechodí dalšímu člověku.</li><li>Aplikace už nezamrzne na prázdné obrazovce, když se nepodaří načíst písmo.</li><li>Rychlé dvojité kliknutí na zápis bodů je zapíše jen jednou.</li><li>Aktualizovaný návod a zásady ochrany osobních údajů.</li><li>Opravy stability a bezpečnosti pod kapotou.</li></ul>
+    <ul><li>Co je ve vydání:</li><li>• notifikace pro celou rodinu: cíl dosažen, nový level, nový člen (i divák); připomínky rodičům na čekající schválení po 4, 10 a 18 hodinách</li><li>• archiv notifikací „Co se stalo naposledy" na obrazovce dítěte a rodiče, celá rodina v Admin → Změny</li><li>• pozvánka e-mailem s potvrzením; odkaz z e-mailu otevře appku (Universal Links / App Links)</li><li>• písmo Baloo 2 místo Fredoky (chyběly č ľ ť ď ň ř ě ů), ikona sjednocená s iOS</li><li>• časové pásmo rodiny z telefonu rodiče, „dnes" a denní limity od stejné půlnoci jako DB</li><li>• odznak a lišta notifikací se čistí při otevření appky</li><li>• aktualizovaný návod a právní texty (účinnost 7. 9. 2026)</li><li>• bezpečnostní opravy</li></ul>
     <p class="starsie">Aplikaci vylepšujeme průběžně — každá verze vychází i s poznámkami v obchodě.</p>
   </div>
   <div class="card">
@@ -384,7 +377,7 @@ footer .pataJazyk.aktivny{display:inline}
   <div class="card novinky">
     <h2>Was neu ist</h2>
     <span class="verzia">Version 1.5.0</span>
-    <ul><li>Fehlerberichte erreichen uns wieder, wir sehen Probleme also und können sie beheben.</li><li>Beim Abmelden wird das Gerät auch von Benachrichtigungen abgemeldet, damit sie nicht bei der nächsten Person landen.</li><li>Die App friert nicht mehr auf einem leeren Bildschirm ein, wenn eine Schrift nicht lädt.</li><li>Ein schneller Doppeltipp auf eine Punkteingabe zählt nur einmal.</li><li>Aktualisierte Anleitung und Datenschutzerklärung.</li><li>Stabilitäts- und Sicherheitskorrekturen im Hintergrund.</li></ul>
+    <ul><li>Das ist neu:</li><li>• Benachrichtigungen für die ganze Familie: Ziel erreicht, neues Level, neues Mitglied (auch Zuschauer); Erinnerungen an Eltern bei offenen Bestätigungen nach 4, 10 und 18 Stunden</li><li>• Benachrichtigungsarchiv „Was zuletzt passiert ist" auf dem Kinder- und Elternbildschirm, ganze Familie unter Admin → Änderungen</li><li>• Einladung per E-Mail mit Bestätigung; der Link aus der E-Mail öffnet direkt die App (Universal Links / App Links)</li><li>• Schrift Baloo 2 statt Fredoka (č ľ ť ď ň ř ě ů fehlten), Symbol an iOS angeglichen</li><li>• Zeitzone der Familie vom Telefon des Elternteils; „heute" und Tageslimits beginnen um dieselbe Mitternacht wie die Datenbank</li><li>• Badge und Benachrichtigungsleiste werden beim Öffnen der App geleert</li><li>• aktualisierte Anleitung und Rechtstexte (gültig ab 7. 9. 2026)</li><li>• Sicherheitskorrekturen</li></ul>
     <p class="starsie">Wir verbessern die App laufend — jede Version erscheint mit Release-Notes im Store.</p>
   </div>
   <div class="card">

@@ -17,8 +17,7 @@ background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradien
 h1,h2,h3,nav a,button{font-family:'Baloo 2',Nunito,-apple-system,sans-serif}
 .wrap{max-width:760px;margin:0 auto;padding:28px 20px 64px}
 header{position:relative;display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:22px;min-height:56px}
-.logo{width:56px;height:56px;border:3px solid var(--ink);border-radius:13px;background:var(--gold);display:flex;align-items:center;justify-content:center;flex:none}
-.logo svg{display:block}
+.logo{display:block;width:56px;height:56px;flex:none}
 h1{font-size:30px;margin:0}
 /* --- prepínač jazyka: len vlajka a šípka, zoznam sa rozbalí ako v appke --- */
 .jazyk-menu{position:absolute;right:0;top:50%;transform:translateY(-50%)}
@@ -130,13 +129,7 @@ footer .pataJazyk.aktivny{display:inline}
 </head>
 <body>
 <div class="wrap">
-  <header><div class="logo"><svg width="34" height="40" viewBox="0 0 52 60" fill="none" aria-hidden="true">
-<path d="M11 18 c-2 0 -4 2 -4 5 v28 c0 4 3 7 7 7 h20 c4 0 7 -3 7 -7 V23 c0 -3 -2 -5 -4 -5 z" stroke="#14213D" stroke-width="3.2" stroke-linejoin="round"></path>
-<path d="M8 36 h35 v15 c0 4 -3 7 -7 7 h-21 c-4 0 -7 -3 -7 -7 z" fill="#FF5A1F" opacity=".9"></path>
-<path d="M11 18 c-2 0 -4 2 -4 5 v28 c0 4 3 7 7 7 h20 c4 0 7 -3 7 -7 V23 c0 -3 -2 -5 -4 -5 z" stroke="#14213D" stroke-width="3.2" stroke-linejoin="round" fill="none"></path>
-<rect x="13" y="5" width="26" height="6" rx="3" stroke="#14213D" stroke-width="3.2"></rect>
-<path d="M12 10 h28 M13 14 h26" stroke="#14213D" stroke-width="3.2" stroke-linecap="round"></path>
-</svg></div><h1>PointJar</h1><div class="jazyk-menu">
+  <header><img class="logo" src="assets/ikona.png" width="56" height="56" alt=""><h1>PointJar</h1><div class="jazyk-menu">
     <button class="jazyk-spust" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
       <span class="vlajka" data-vlajka>🌐</span><span class="sipka">▼</span>
     </button>
