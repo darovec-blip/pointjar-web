@@ -156,9 +156,15 @@ footer .pataJazyk.aktivny{display:inline}
 .potvrd-obchody .tlacidlo{margin-top:0}
 .card .potvrd-pop{font-family:'Baloo 2',sans-serif;font-weight:600;font-size:13px;color:var(--inkSoft);margin:6px 0 0}
 .potvrd-chyba{color:#C2410C;font-weight:800}
+.potvrd-tlacidlo{font-size:16px;padding:13px 28px;border-radius:11px;cursor:pointer;margin-top:14px}
 </style><div class="card"><h2>Confirm invitation</h2>
   <div class="potvrd-stav">
-    <p data-stav="pracujem">Checking the invitation…</p>
+    <div data-stav="uvod">
+      <img class="potvrd-dzban" src="assets/ikona-72.png" width="72" height="72" alt="">
+      <p class="potvrd-krok">Confirm the invitation with one click. The link works only once, so nothing happens without you.</p>
+      <button class="tlacidlo potvrd-tlacidlo" type="button" data-potvrd>Confirm invitation</button>
+    </div>
+    <p data-stav="pracujem" hidden>Checking the invitation…</p>
     <div data-stav="hotovo" hidden>
       <img class="potvrd-dzban" src="assets/ikona-72.png" width="72" height="72" alt="">
       <p class="potvrd-rodina" data-rodina></p>
@@ -195,9 +201,15 @@ footer .pataJazyk.aktivny{display:inline}
 .potvrd-obchody .tlacidlo{margin-top:0}
 .card .potvrd-pop{font-family:'Baloo 2',sans-serif;font-weight:600;font-size:13px;color:var(--inkSoft);margin:6px 0 0}
 .potvrd-chyba{color:#C2410C;font-weight:800}
+.potvrd-tlacidlo{font-size:16px;padding:13px 28px;border-radius:11px;cursor:pointer;margin-top:14px}
 </style><div class="card"><h2>Potvrdenie pozvania</h2>
   <div class="potvrd-stav">
-    <p data-stav="pracujem">Overujem pozvanie…</p>
+    <div data-stav="uvod">
+      <img class="potvrd-dzban" src="assets/ikona-72.png" width="72" height="72" alt="">
+      <p class="potvrd-krok">Pozvanie potvrdíš jedným kliknutím. Odkaz funguje len raz, preto sa nič nedeje bez teba.</p>
+      <button class="tlacidlo potvrd-tlacidlo" type="button" data-potvrd>Potvrdiť pozvanie</button>
+    </div>
+    <p data-stav="pracujem" hidden>Overujem pozvanie…</p>
     <div data-stav="hotovo" hidden>
       <img class="potvrd-dzban" src="assets/ikona-72.png" width="72" height="72" alt="">
       <p class="potvrd-rodina" data-rodina></p>
@@ -234,9 +246,15 @@ footer .pataJazyk.aktivny{display:inline}
 .potvrd-obchody .tlacidlo{margin-top:0}
 .card .potvrd-pop{font-family:'Baloo 2',sans-serif;font-weight:600;font-size:13px;color:var(--inkSoft);margin:6px 0 0}
 .potvrd-chyba{color:#C2410C;font-weight:800}
+.potvrd-tlacidlo{font-size:16px;padding:13px 28px;border-radius:11px;cursor:pointer;margin-top:14px}
 </style><div class="card"><h2>Potvrzení pozvání</h2>
   <div class="potvrd-stav">
-    <p data-stav="pracujem">Ověřuji pozvání…</p>
+    <div data-stav="uvod">
+      <img class="potvrd-dzban" src="assets/ikona-72.png" width="72" height="72" alt="">
+      <p class="potvrd-krok">Pozvání potvrdíš jedním kliknutím. Odkaz funguje jen jednou, proto se nic neděje bez tebe.</p>
+      <button class="tlacidlo potvrd-tlacidlo" type="button" data-potvrd>Potvrdit pozvání</button>
+    </div>
+    <p data-stav="pracujem" hidden>Ověřuji pozvání…</p>
     <div data-stav="hotovo" hidden>
       <img class="potvrd-dzban" src="assets/ikona-72.png" width="72" height="72" alt="">
       <p class="potvrd-rodina" data-rodina></p>
@@ -273,9 +291,15 @@ footer .pataJazyk.aktivny{display:inline}
 .potvrd-obchody .tlacidlo{margin-top:0}
 .card .potvrd-pop{font-family:'Baloo 2',sans-serif;font-weight:600;font-size:13px;color:var(--inkSoft);margin:6px 0 0}
 .potvrd-chyba{color:#C2410C;font-weight:800}
+.potvrd-tlacidlo{font-size:16px;padding:13px 28px;border-radius:11px;cursor:pointer;margin-top:14px}
 </style><div class="card"><h2>Einladung bestätigen</h2>
   <div class="potvrd-stav">
-    <p data-stav="pracujem">Einladung wird geprüft…</p>
+    <div data-stav="uvod">
+      <img class="potvrd-dzban" src="assets/ikona-72.png" width="72" height="72" alt="">
+      <p class="potvrd-krok">Bestätige die Einladung mit einem Klick. Der Link funktioniert nur einmal, ohne dich passiert also nichts.</p>
+      <button class="tlacidlo potvrd-tlacidlo" type="button" data-potvrd>Einladung bestätigen</button>
+    </div>
+    <p data-stav="pracujem" hidden>Einladung wird geprüft…</p>
     <div data-stav="hotovo" hidden>
       <img class="potvrd-dzban" src="assets/ikona-72.png" width="72" height="72" alt="">
       <p class="potvrd-rodina" data-rodina></p>
@@ -490,6 +514,16 @@ if(!/^[0-9a-f]{64}$/.test(token)){
   ukaz('zle');
   return;
 }
+// Token je jednorazový, preto sa potvrdzuje až kliknutím na tlačidlo.
+// Automatické potvrdenie pri načítaní spotreboval náhľad odkazu v Mail appke,
+// reload alebo skener pošty — druhé otvorenie potom hlásilo „odkaz vypršal“,
+// hoci pozvanie v skutočnosti prešlo (8. 9. 2026).
+var bezi=false;
+document.querySelectorAll('[data-potvrd]').forEach(function(b){b.addEventListener('click',potvrd)});
+function potvrd(){
+if(bezi)return; bezi=true;
+document.querySelectorAll('[data-potvrd]').forEach(function(b){b.disabled=true});
+ukaz('pracujem');
 fetch(URL_POTVRD,{
   method:'POST',
   headers:{'Content-Type':'application/json','apikey':PUBLISHABLE},
@@ -519,5 +553,6 @@ fetch(URL_POTVRD,{
    });
    ukaz('hotovo');
  }).catch(function(){zle(null)});
+}
 })();</script></body>
 </html>
