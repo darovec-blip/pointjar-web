@@ -157,6 +157,8 @@ footer .pataJazyk.aktivny{display:inline}
 .card .potvrd-pop{font-family:'Baloo 2',sans-serif;font-weight:600;font-size:13px;color:var(--inkSoft);margin:6px 0 0}
 .potvrd-chyba{color:#C2410C;font-weight:800}
 .potvrd-tlacidlo{font-size:16px;padding:13px 28px;border-radius:11px;cursor:pointer;margin-top:14px}
+.card .potvrd-odpocet{font-family:'Baloo 2',sans-serif;font-weight:600;font-size:14px;color:var(--inkSoft);margin:16px 0 0}
+.potvrd-zostat{display:block;margin:6px auto 0;border:0;background:none;font:inherit;color:var(--inkSoft);text-decoration:underline;cursor:pointer;padding:4px}
 </style><div class="card"><h2>Confirm invitation</h2>
   <div class="potvrd-stav">
     <div data-stav="uvod">
@@ -171,6 +173,8 @@ footer .pataJazyk.aktivny{display:inline}
       <h3>Invitation confirmed</h3>
       <p class="potvrd-krok" data-s-emailom hidden>Now sign in to the app with Google or Apple using <strong data-email></strong>. PointJar will place you in the family automatically.</p>
       <p class="potvrd-krok" data-bez-emailu hidden>Now sign in to the app with the same e-mail address this invitation was sent to. PointJar will place you in the family automatically.</p>
+      <p class="potvrd-odpocet" data-odpocet hidden>Opening the app… <span data-odpocet-cislo></span>
+        <button type="button" class="potvrd-zostat" data-zostat>Stay on this page</button></p>
       <div class="potvrd-appka">
         <a class="tlacidlo potvrd-otvorit" href="pointjar://" data-otvorit hidden>Have the app? Open it</a>
         <h3>Get PointJar with the link below</h3>
@@ -202,6 +206,8 @@ footer .pataJazyk.aktivny{display:inline}
 .card .potvrd-pop{font-family:'Baloo 2',sans-serif;font-weight:600;font-size:13px;color:var(--inkSoft);margin:6px 0 0}
 .potvrd-chyba{color:#C2410C;font-weight:800}
 .potvrd-tlacidlo{font-size:16px;padding:13px 28px;border-radius:11px;cursor:pointer;margin-top:14px}
+.card .potvrd-odpocet{font-family:'Baloo 2',sans-serif;font-weight:600;font-size:14px;color:var(--inkSoft);margin:16px 0 0}
+.potvrd-zostat{display:block;margin:6px auto 0;border:0;background:none;font:inherit;color:var(--inkSoft);text-decoration:underline;cursor:pointer;padding:4px}
 </style><div class="card"><h2>Potvrdenie pozvania</h2>
   <div class="potvrd-stav">
     <div data-stav="uvod">
@@ -216,6 +222,8 @@ footer .pataJazyk.aktivny{display:inline}
       <h3>Pozvanie je potvrdené</h3>
       <p class="potvrd-krok" data-s-emailom hidden>Teraz sa v appke prihlás cez Google alebo Apple adresou <strong data-email></strong>. PointJar ťa zaradí do rodiny sám.</p>
       <p class="potvrd-krok" data-bez-emailu hidden>Teraz sa v appke prihlás tou istou e-mailovou adresou, na ktorú prišla táto pozvánka. PointJar ťa zaradí do rodiny sám.</p>
+      <p class="potvrd-odpocet" data-odpocet hidden>Otváram appku… <span data-odpocet-cislo></span>
+        <button type="button" class="potvrd-zostat" data-zostat>Zostať na stránke</button></p>
       <div class="potvrd-appka">
         <a class="tlacidlo potvrd-otvorit" href="pointjar://" data-otvorit hidden>Máš appku? Otvor ju</a>
         <h3>Stiahni si PointJar odkazom nižšie</h3>
@@ -247,6 +255,8 @@ footer .pataJazyk.aktivny{display:inline}
 .card .potvrd-pop{font-family:'Baloo 2',sans-serif;font-weight:600;font-size:13px;color:var(--inkSoft);margin:6px 0 0}
 .potvrd-chyba{color:#C2410C;font-weight:800}
 .potvrd-tlacidlo{font-size:16px;padding:13px 28px;border-radius:11px;cursor:pointer;margin-top:14px}
+.card .potvrd-odpocet{font-family:'Baloo 2',sans-serif;font-weight:600;font-size:14px;color:var(--inkSoft);margin:16px 0 0}
+.potvrd-zostat{display:block;margin:6px auto 0;border:0;background:none;font:inherit;color:var(--inkSoft);text-decoration:underline;cursor:pointer;padding:4px}
 </style><div class="card"><h2>Potvrzení pozvání</h2>
   <div class="potvrd-stav">
     <div data-stav="uvod">
@@ -261,6 +271,8 @@ footer .pataJazyk.aktivny{display:inline}
       <h3>Pozvání je potvrzeno</h3>
       <p class="potvrd-krok" data-s-emailom hidden>Teď se v appce přihlas přes Google nebo Apple adresou <strong data-email></strong>. PointJar tě do rodiny zařadí sám.</p>
       <p class="potvrd-krok" data-bez-emailu hidden>Teď se v appce přihlas tou samou e-mailovou adresou, na kterou přišlo toto pozvání. PointJar tě do rodiny zařadí sám.</p>
+      <p class="potvrd-odpocet" data-odpocet hidden>Otevírám appku… <span data-odpocet-cislo></span>
+        <button type="button" class="potvrd-zostat" data-zostat>Zůstat na stránce</button></p>
       <div class="potvrd-appka">
         <a class="tlacidlo potvrd-otvorit" href="pointjar://" data-otvorit hidden>Máš appku? Otevři ji</a>
         <h3>Stáhni si PointJar odkazem níže</h3>
@@ -292,6 +304,8 @@ footer .pataJazyk.aktivny{display:inline}
 .card .potvrd-pop{font-family:'Baloo 2',sans-serif;font-weight:600;font-size:13px;color:var(--inkSoft);margin:6px 0 0}
 .potvrd-chyba{color:#C2410C;font-weight:800}
 .potvrd-tlacidlo{font-size:16px;padding:13px 28px;border-radius:11px;cursor:pointer;margin-top:14px}
+.card .potvrd-odpocet{font-family:'Baloo 2',sans-serif;font-weight:600;font-size:14px;color:var(--inkSoft);margin:16px 0 0}
+.potvrd-zostat{display:block;margin:6px auto 0;border:0;background:none;font:inherit;color:var(--inkSoft);text-decoration:underline;cursor:pointer;padding:4px}
 </style><div class="card"><h2>Einladung bestätigen</h2>
   <div class="potvrd-stav">
     <div data-stav="uvod">
@@ -306,6 +320,8 @@ footer .pataJazyk.aktivny{display:inline}
       <h3>Einladung bestätigt</h3>
       <p class="potvrd-krok" data-s-emailom hidden>Melde dich jetzt in der App mit Google oder Apple an, und zwar mit <strong data-email></strong>. PointJar nimmt dich automatisch in die Familie auf.</p>
       <p class="potvrd-krok" data-bez-emailu hidden>Melde dich jetzt in der App mit derselben E-Mail-Adresse an, an die diese Einladung ging. PointJar nimmt dich automatisch in die Familie auf.</p>
+      <p class="potvrd-odpocet" data-odpocet hidden>App wird geöffnet… <span data-odpocet-cislo></span>
+        <button type="button" class="potvrd-zostat" data-zostat>Auf der Seite bleiben</button></p>
       <div class="potvrd-appka">
         <a class="tlacidlo potvrd-otvorit" href="pointjar://" data-otvorit hidden>App schon da? Öffnen</a>
         <h3>Lade PointJar über den Link unten</h3>
@@ -518,6 +534,33 @@ if(!/^[0-9a-f]{64}$/.test(token)){
 // Automatické potvrdenie pri načítaní spotreboval náhľad odkazu v Mail appke,
 // reload alebo skener pošty — druhé otvorenie potom hlásilo „odkaz vypršal“,
 // hoci pozvanie v skutočnosti prešlo (8. 9. 2026).
+// Viditeľný odpočet a pokus otvoriť appku. Len na telefóne (na počítači
+// pointjar:// nemá čo otvoriť) a nikdy do obchodu — ten ostáva na tlačidlách.
+function odpocetDoAppky(){
+  if(!ios&&!android)return;
+  var zostava=3, casovac=null;
+  var polia=[].slice.call(document.querySelectorAll('[data-odpocet]'));
+  if(!polia.length)return;
+  polia.forEach(function(p){p.hidden=false});
+  function pis(){
+    document.querySelectorAll('[data-odpocet-cislo]').forEach(function(e){e.textContent='('+zostava+')'});
+  }
+  function stop(){
+    if(casovac)clearInterval(casovac);
+    polia.forEach(function(p){p.hidden=true});
+  }
+  document.querySelectorAll('[data-zostat]').forEach(function(b){b.addEventListener('click',stop)});
+  // Človek medzitým prepol inam (alebo appka nabehla) — odpočet nemá čo robiť.
+  document.addEventListener('visibilitychange',function(){if(document.hidden)stop()});
+  pis();
+  casovac=setInterval(function(){
+    zostava--;
+    if(zostava>0){pis();return;}
+    stop();
+    // Keď appka nie je, prehliadač nič neurobí a stránka ostane, ako je.
+    location.href='pointjar://';
+  },1000);
+}
 var bezi=false;
 document.querySelectorAll('[data-potvrd]').forEach(function(b){b.addEventListener('click',potvrd)});
 function potvrd(){
@@ -552,6 +595,7 @@ fetch(URL_POTVRD,{
      sekcia.querySelectorAll('[data-bez-emailu]').forEach(function(e){e.hidden=!!email});
    });
    ukaz('hotovo');
+   odpocetDoAppky();
  }).catch(function(){zle(null)});
 }
 })();</script></body>
