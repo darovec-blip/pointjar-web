@@ -4,13 +4,25 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>PointJar — Our story</title>
-<meta name="description" content="PointJar — family chores and rewards app by marcel s.r.o..">
+<meta name="description" content="Why PointJar exists: a father built it for his son instead of a chart on the fridge, and what the research says about rewarding kids.">
+<link rel="canonical" href="https://pointjar.app/pribeh.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PointJar">
+<meta property="og:title" content="PointJar — Our story">
+<meta property="og:description" content="Why PointJar exists: a father built it for his son instead of a chart on the fridge, and what the research says about rewarding kids.">
+<meta property="og:url" content="https://pointjar.app/pribeh.html">
+<meta property="og:image" content="https://pointjar.app/assets/nahlad.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box}
-:root{--ink:#14213D;--inkSoft:#48587A;--paper:#F4F8FF;--grid:#D5E2F2;--card:#fff;--punch:#FF5A1F;--gold:#FFC400;--mint:#0FA678}
+/* --punch je značková oranžová na plochy a obrysy. Pod bielym textom má voči
+   bielej kontrast len 3,12 : 1, čo je pod hranicou WCAG AA (4,5). Všade, kde na
+   oranžovej stojí text, preto ide --punchDeep: 5,08 : 1 voči bielej a 4,77 voči
+   papieru, a značka ostáva rozpoznateľná. (nález 12. 9. 2026) */
+:root{--ink:#14213D;--inkSoft:#48587A;--paper:#F4F8FF;--grid:#D5E2F2;--card:#fff;--punch:#FF5A1F;--punchDeep:#C93C0A;--gold:#FFC400;--mint:#0FA678}
 body{margin:0;background:var(--paper);color:var(--ink);font:600 16px/1.6 Nunito,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
 background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:26px 26px}
 h1,h2,h3,nav a,button{font-family:'Baloo 2',Nunito,-apple-system,sans-serif}
@@ -40,14 +52,14 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:22px}
 nav a{padding:8px 14px;border:2.5px solid var(--ink);border-radius:7px;background:var(--card);color:var(--ink);text-decoration:none;font-weight:600;font-size:14px}
 nav a:hover:not([aria-current]){background:var(--paper)}
-nav a[aria-current]{background:var(--punch);color:#fff}
+nav a[aria-current]{background:var(--punchDeep);color:#fff}
 .card{background:var(--card);border:2.5px solid var(--ink);border-radius:9px;padding:22px;margin-bottom:20px}
 .card h2{font-size:19px;margin:0 0 12px}
 .card h3{font-size:17px;margin:18px 0 8px}
 .step strong{color:var(--ink)}
 .notice{border-left:8px solid var(--gold)}
 .request{border-color:var(--mint)}
-.tlacidlo{display:inline-block;margin-top:8px;padding:11px 17px;border:2.5px solid var(--ink);border-radius:7px;background:var(--punch);color:#fff;text-decoration:none;font-family:'Baloo 2',sans-serif;font-weight:600}
+.tlacidlo{display:inline-block;margin-top:8px;padding:11px 17px;border:2.5px solid var(--ink);border-radius:7px;background:var(--punchDeep);color:#fff;text-decoration:none;font-family:'Baloo 2',sans-serif;font-weight:600}
 .tlacidlo:hover{filter:brightness(.96)}
 .tlacidlo:active{transform:scale(.97);opacity:.92}
 .small{font-size:13px!important}
@@ -55,9 +67,9 @@ nav a[aria-current]{background:var(--punch);color:#fff}
 .card p{margin:0 0 10px}
 ul,ol{margin:0;padding-left:22px}
 li{margin-bottom:8px}
-.hero{background:var(--punch);color:#fff}
+.hero{background:var(--punchDeep);color:#fff}
 .hero h2,.hero p{color:#fff}
-.kontakt a{color:var(--punch);font-weight:700}
+.kontakt a{color:var(--punchDeep);font-weight:700}
 .q{font-weight:800;color:var(--ink);margin:14px 0 2px}
 .datum{font-size:13px;color:var(--inkSoft);margin:0 0 8px}
 label{display:block;font-weight:700;font-size:14px;margin:14px 0 4px}
@@ -65,7 +77,7 @@ input,textarea{width:100%;padding:11px 13px;border:2.5px solid var(--ink);border
 textarea{min-height:150px;resize:vertical}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 button.odoslat:active{transform:scale(.97);opacity:.92}
-button.odoslat{margin-top:18px;width:100%;padding:13px;border:2.5px solid var(--ink);border-radius:7px;background:var(--punch);color:#fff;font-weight:600;font-size:16px;cursor:pointer}
+button.odoslat{margin-top:18px;width:100%;padding:13px;border:2.5px solid var(--ink);border-radius:7px;background:var(--punchDeep);color:#fff;font-weight:600;font-size:16px;cursor:pointer}
 button.odoslat:active{transform:scale(.97);opacity:.92}
 button.odoslat:disabled{opacity:.6;cursor:default}
 .hlaska{margin-top:14px;font-size:14px}
@@ -79,9 +91,7 @@ footer a{color:var(--inkSoft)}
 .cta a{display:inline-block;line-height:0}
 .cta a:active{transform:scale(.97);opacity:.92}
 .cta img{display:block;width:auto}
-.cta .play{display:flex;flex-direction:column;align-items:center}
-.cta .play img{margin:-13px 0}
-.cta .pop{font-family:'Baloo 2',sans-serif;font-weight:600;font-size:13px;color:var(--inkSoft);margin-top:2px}
+.cta .play{display:flex;align-items:center}
 .dovera{text-align:center;font-family:'Baloo 2',Nunito,sans-serif;font-weight:600;font-size:17px;color:var(--ink);margin:16px auto 0;max-width:56ch}
 .ako{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:14px}
 .ako div{border:2.5px solid var(--ink);border-radius:9px;background:var(--card);padding:14px;font-size:14px;color:var(--inkSoft)}

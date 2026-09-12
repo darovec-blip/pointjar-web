@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PointJar — What's new</title>
+<meta name="description" content="Every PointJar release and what it changed, newest first.">
+<link rel="canonical" href="https://pointjar.app/novinky.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PointJar">
+<meta property="og:title" content="PointJar — What's new">
+<meta property="og:description" content="Every PointJar release and what it changed, newest first.">
+<meta property="og:url" content="https://pointjar.app/novinky.html">
+<meta property="og:image" content="https://pointjar.app/assets/nahlad.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+/* --punch je značková oranžová na plochy a obrysy. Pod bielym textom má voči
+   bielej kontrast len 3,12 : 1, čo je pod hranicou WCAG AA (4,5). Všade, kde na
+   oranžovej stojí text, preto ide --punchDeep: 5,08 : 1 voči bielej a 4,77 voči
+   papieru, a značka ostáva rozpoznateľná. (nález 12. 9. 2026) */
+:root{--ink:#14213D;--inkSoft:#48587A;--paper:#F4F8FF;--grid:#D5E2F2;--card:#fff;--punch:#FF5A1F;--punchDeep:#C93C0A;--gold:#FFC400;--mint:#0FA678}
+body{margin:0;background:var(--paper);color:var(--ink);font:600 16px/1.6 Nunito,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:26px 26px}
+h1,h2,h3,nav a,button{font-family:'Baloo 2',Nunito,-apple-system,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:28px 20px 64px}
+header{position:relative;display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:22px;min-height:56px}
+.logo{display:block;width:56px;height:56px;flex:none}
+h1{font-size:30px;margin:0}
+/* --- prepínač jazyka: len vlajka a šípka, zoznam sa rozbalí ako v appke --- */
+.jazyk-menu{position:absolute;right:0;top:50%;transform:translateY(-50%)}
+.jazyk-spust{display:flex;align-items:center;gap:6px;padding:7px 10px 7px 12px;border:2px solid var(--grid);border-radius:11px;background:var(--card);cursor:pointer;font:inherit;line-height:1}
+.jazyk-spust:hover{border-color:var(--ink)}
+.jazyk-spust .vlajka{font-size:20px}
+.jazyk-spust .sipka{font-size:11px;color:var(--inkSoft)}
+.jazyk-zoznam{position:absolute;right:0;top:calc(100% + 8px);min-width:260px;background:var(--card);border:2.5px solid var(--ink);border-radius:11px;padding:10px 8px;z-index:20;box-shadow:0 10px 30px rgba(20,33,61,.14)}
+.jazyk-zoznam[hidden]{display:none}
+.jazyk-nadpis{font-family:'Baloo 2',sans-serif;font-weight:600;font-size:11px;letter-spacing:1.6px;color:var(--inkSoft);padding:2px 10px 8px}
+.jazyk-zoznam button{display:flex;align-items:center;gap:12px;width:100%;padding:11px 10px;border:0;border-radius:9px;background:transparent;cursor:pointer;font:inherit;font-size:16px;color:var(--ink);text-align:left}
+.jazyk-zoznam button:hover{background:var(--paper)}
+.jazyk-zoznam button[aria-selected="true"]{background:#EEF3FB}
+.jazyk-zoznam button .ikona{font-size:20px;width:26px;text-align:center}
+.jazyk-zoznam button .fajka{margin-left:auto;color:var(--mint);font-weight:800}
+.jazyk-zoznam button:not([aria-selected="true"]) .fajka{visibility:hidden}
+.jazyk-zoznam [data-lang]{display:none}
+.jazyk-zoznam [data-lang].aktivny{display:inline}
+@media (max-width:560px){header{justify-content:flex-start;padding-right:70px}}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:22px}
+nav a{padding:8px 14px;border:2.5px solid var(--ink);border-radius:7px;background:var(--card);color:var(--ink);text-decoration:none;font-weight:600;font-size:14px}
+nav a:hover:not([aria-current]){background:var(--paper)}
+nav a[aria-current]{background:var(--punchDeep);color:#fff}
+.card{background:var(--card);border:2.5px solid var(--ink);border-radius:9px;padding:22px;margin-bottom:20px}
+.card h2{font-size:19px;margin:0 0 12px}
+.card h3{font-size:17px;margin:18px 0 8px}
+.step strong{color:var(--ink)}
+.notice{border-left:8px solid var(--gold)}
+.request{border-color:var(--mint)}
+.tlacidlo{display:inline-block;margin-top:8px;padding:11px 17px;border:2.5px solid var(--ink);border-radius:7px;background:var(--punchDeep);color:#fff;text-decoration:none;font-family:'Baloo 2',sans-serif;font-weight:600}
+.tlacidlo:hover{filter:brightness(.96)}
+.tlacidlo:active{transform:scale(.97);opacity:.92}
+.small{font-size:13px!important}
+.card p,.card li{color:var(--inkSoft);font-size:15px}
+.card p{margin:0 0 10px}
+ul,ol{margin:0;padding-left:22px}
+li{margin-bottom:8px}
+.hero{background:var(--punchDeep);color:#fff}
+.hero h2,.hero p{color:#fff}
+.kontakt a{color:var(--punchDeep);font-weight:700}
+.q{font-weight:800;color:var(--ink);margin:14px 0 2px}
+.datum{font-size:13px;color:var(--inkSoft);margin:0 0 8px}
+label{display:block;font-weight:700;font-size:14px;margin:14px 0 4px}
+input,textarea{width:100%;padding:11px 13px;border:2.5px solid var(--ink);border-radius:7px;background:var(--card);font:inherit;font-size:15px;color:var(--ink)}
+textarea{min-height:150px;resize:vertical}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+button.odoslat:active{transform:scale(.97);opacity:.92}
+button.odoslat{margin-top:18px;width:100%;padding:13px;border:2.5px solid var(--ink);border-radius:7px;background:var(--punchDeep);color:#fff;font-weight:600;font-size:16px;cursor:pointer}
+button.odoslat:active{transform:scale(.97);opacity:.92}
+button.odoslat:disabled{opacity:.6;cursor:default}
+.hlaska{margin-top:14px;font-size:14px}
+.hlaska.ok{color:#0FA678;font-weight:700}
+.hlaska.zle{color:#D93A3A}
+footer{color:var(--inkSoft);font-size:13px;text-align:center;margin-top:32px}
+footer a{color:var(--inkSoft)}
+[data-lang]{display:none}
+[data-lang].aktivny{display:block}
+.cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:18px;justify-content:center;align-items:center}
+.cta a{display:inline-block;line-height:0}
+.cta a:active{transform:scale(.97);opacity:.92}
+.cta img{display:block;width:auto}
+.cta .play{display:flex;align-items:center}
+.dovera{text-align:center;font-family:'Baloo 2',Nunito,sans-serif;font-weight:600;font-size:17px;color:var(--ink);margin:16px auto 0;max-width:56ch}
+.ako{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:14px}
+.ako div{border:2.5px solid var(--ink);border-radius:9px;background:var(--card);padding:14px;font-size:14px;color:var(--inkSoft)}
+.ako div span{display:block;font-size:26px;margin-bottom:6px}
+.platformyText{text-align:center;color:var(--inkSoft);font-size:14px;margin:-4px 0 14px}
+.platformy{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
+.platforma{display:flex;flex-direction:column;align-items:center;gap:8px}
+.platforma .ramik{width:100%;border:2.5px solid var(--ink);border-radius:20px;background:var(--paper);overflow:hidden;display:flex}
+.platforma img{width:100%;display:block}
+.platforma .label{font-family:'Baloo 2',sans-serif;font-weight:600;font-size:13px;color:var(--ink)}
+.platforma .stav{font-size:12px;color:var(--inkSoft)}
+.platforma.android .ramik{aspect-ratio:9/19;align-items:center;justify-content:center;flex-direction:column;gap:10px;color:var(--inkSoft);font-size:13px;text-align:center;padding:12px}
+.platforma.android .ramik svg{opacity:.85}
+
+/* --- galéria screenshotov --- */
+.galeria{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:14px}
+.galeria figure{margin:0;display:flex;flex-direction:column;gap:7px}
+.galeria .ramik{border:2.5px solid var(--ink);border-radius:18px;background:var(--paper);overflow:hidden}
+.galeria img{width:100%;display:block}
+.galeria figcaption{font-size:13px;color:var(--inkSoft);text-align:center}
+.zariadeniePas{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:2px 0 14px}
+.zariadeniePas span{font-size:12px;color:var(--inkSoft);border:2px solid var(--grid);border-radius:999px;padding:3px 11px;background:var(--card)}
+/* --- novinky / changelog --- */
+.novinky .verzia{display:inline-block;font-family:'Baloo 2',sans-serif;font-weight:600;font-size:13px;background:var(--gold);border:2.5px solid var(--ink);border-radius:999px;padding:2px 12px;margin-bottom:10px}
+.novinky ul{padding-left:20px}
+.novinky li{font-size:15px;color:var(--inkSoft)}
+.starsie{font-size:13px;color:var(--inkSoft);margin-top:12px}
+/* --- pätka --- */
+footer{display:flex;flex-direction:column;align-items:center;gap:8px}
+footer .pravne a{color:var(--inkSoft);text-decoration:underline;text-underline-offset:2px}
+footer .pataDrobne{font-size:12px;opacity:.8}
+footer .pataJazyk{display:none}
+footer .pataJazyk.aktivny{display:inline}
+/* --- podpora projektu --- */
+.sumy{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 4px}
+.sumy a,.sumy span{display:inline-block;padding:11px 20px;border:2.5px solid var(--ink);border-radius:9px;background:var(--card);font-family:'Baloo 2',sans-serif;font-weight:600;color:var(--ink);text-decoration:none}
+.sumy a:hover{background:var(--gold)}
+.platba{border-left:8px solid var(--gold);background:#FFFBEA}
+.platbaPozn{font-size:13px;color:var(--ink);opacity:.75;margin-top:10px}
+/* --- testovanie --- */
+.kroky li{font-size:15px}
+.odznakPlatformy{display:inline-block;font-size:12px;font-weight:700;color:var(--ink);background:var(--gold);border:2px solid var(--ink);border-radius:999px;padding:2px 10px;margin-right:6px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header><img class="logo" src="assets/ikona.png" width="56" height="56" alt=""><h1>PointJar</h1><div class="jazyk-menu">
+    <button class="jazyk-spust" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
+      <span class="vlajka" data-vlajka>🌐</span><span class="sipka">▼</span>
+    </button>
+    <div class="jazyk-zoznam" role="listbox" hidden>
+      <div class="jazyk-nadpis"><span data-lang="en">LANGUAGE</span><span data-lang="sk">JAZYK</span><span data-lang="cs">JAZYK</span><span data-lang="de">SPRACHE</span></div>
+      <button type="button" role="option" data-k="auto" aria-selected="false"><span class="ikona">🌐</span><span><span data-lang="en">Browser language</span><span data-lang="sk">Podľa prehliadača</span><span data-lang="cs">Podle prohlížeče</span><span data-lang="de">Wie der Browser</span></span><span class="fajka">✓</span></button>
+      <button type="button" role="option" data-k="en" aria-selected="false"><span class="ikona">🇬🇧</span><span>English</span><span class="fajka">✓</span></button>
+      <button type="button" role="option" data-k="sk" aria-selected="false"><span class="ikona">🇸🇰</span><span>Slovenčina</span><span class="fajka">✓</span></button>
+      <button type="button" role="option" data-k="cs" aria-selected="false"><span class="ikona">🇨🇿</span><span>Čeština</span><span class="fajka">✓</span></button>
+      <button type="button" role="option" data-k="de" aria-selected="false"><span class="ikona">🇩🇪</span><span>Deutsch</span><span class="fajka">✓</span></button>
+    </div>
+  </div></header>
+  <div data-lang="en"><nav>
+      <a href="./">Home</a>
+      <a href="./pribeh.html">Our story</a>
+      <a href="./podpora.html">Support</a>
+      <a href="./testovanie.html">Test the app</a>
+      <a href="./podpor.html">Support the project</a>
+      <a href="./kontakt.html">Contact</a>
+    </nav>
+  <div class="card hero">
+    <h2>What changed in each version</h2>
+    <p>We keep improving the app.</p>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Version 1.5.7</span>
+    <ul><li>A kid's history now also shows a task or reward a parent did not approve. The celebration for an approved reward starts right away, even with the app open. Vibrations are stronger and differ by event, and the parent screen now vibrates too. Celebrations have new animations and points count up on the card. With Reduce Motion turned on, the celebration comes without flying particles. When a kid deletes their account, parents get a message and Members shows it.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Version 1.5.6</span>
+    <ul><li>If a kid taps a task by mistake, they can now take it back. The same goes for a reward request. Trading a reward now asks for confirmation so points are not spent by accident. Families with more kids switch between them using round avatars in the bottom bar. The People tab is now called Members. The intro after creating a family is shorter and swipes. Important announcements show right in the app. We fixed a frozen screen after the first sign-in.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Version 1.5.5</span>
+    <ul><li>Every kid now really has their own: invite a second kid by e-mail and they get their own profile and their own points. When inviting, you see which kids are free and when a new one will be created. The welcome screen is shorter, with the studies tucked into a What the research says section. If something fails, the error appears right by the button. When a member leaves the family, the others are notified. Renaming a kid now applies everywhere.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Version 1.5.4</span>
+    <ul><li>The family grows with you: a second parent has the same rights as the founder, there can be several children and you switch between them. The Family tab shows invitation status, lets you resend or cancel invitations and remove a child (history is kept). Notifications by category, quiet hours for reminders and an in-app notification archive. Record points? confirmation for direct entries, reserved points while a reward is pending, your own name. The welcome e-mail arrives once you join a family.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Version 1.5.3</span>
+    <ul><li>Parent and Family: the full-rights role is now called Parent and family management lives under the Family tab. Add several children right when creating the family, each with its own row for a code or invitation. Remove a child under Family → Settings (history is kept). When the last parent leaves, whoever takes over gets a notification. Clearer messages when a code fails, fixed sign-in texts, the demo shows two children.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Version 1.5.2</span>
+    <ul><li>Your family grows with you: a second parent has the same rights as the founder, and you can add several children and switch between them. Invitations: the people list shows whether an invitee has confirmed, and you can resend or cancel; anyone signing in without a code can ask the family with one tap. Codes are valid for 7 days. Notifications by category, quiet hours for reminders, a notification archive, a “Record points?” confirmation, reserved points for pending rewards, custom member names.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Version 1.5.0</span>
+    <ul><li>What's in this release:</li><li>• notifications for the whole family: goal reached, new level, new member (viewers too); reminders to parents about pending approvals after 4, 10 and 18 hours</li><li>• notification archive "What happened recently" on the child's and parent's screen, the whole family under Admin → Changes</li><li>• e-mail invitation with confirmation; the link in the e-mail opens the app directly (Universal Links / App Links)</li><li>• Baloo 2 typeface instead of Fredoka (č ľ ť ď ň ř ě ů were missing), icon unified with iOS</li><li>• family time zone taken from the parent's phone; "today" and daily limits start at the same midnight as the database</li><li>• badge and notification tray are cleared when the app opens</li><li>• updated guide and legal texts (effective 7 September 2026)</li><li>• security fixes</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Version 1.4.0</span>
+    <ul><li>Kids pick their own avatar from 40 characters; parents can change it.</li><li>Tasks are grouped into categories that expand with a tap.</li><li>After creating a family, the app helps you add the child, the other parent and a viewer: with a code or an account e-mail that joins automatically.</li><li>Invitations include a download link and the code fills in by itself on the new device.</li><li>New screen Why PointJar exists, with the studies behind tasks and rewards.</li><li>Better layout with large text, support on every screen.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Version 1.3.3</span>
+    <ul><li>A more playful child screen and a faster way to what just happened.</li><li>- A jar that really fills up: when points arrive, the level jumps and settles with a bounce. The balance counts up, task boxes and reward cards hop.</li><li>- Gentle vibrations on tap, on new points and on big celebrations.</li><li>- Back to School Challenge: a welcome on first launch, a distinct progress card and a permanent badge once completed.</li><li>- Tapping a notification or the dot opens the right screen and highlights the item it is about.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Version 1.3.2</span>
+    <ul><li>Back to School Challenge: from 8 to 30 September, collect completed tasks right on the child screen and earn a medal.</li><li>- Fixed an issue where returning to the child or parent screen could show the "Something went wrong" card instead of the content.</li><li>- More reliable error reporting: if something does go wrong, the report reaches us even after the app restarts.</li><li>Thanks to everyone who reported the issue.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Version 1.3.1</span>
+    <ul><li>Bug-fix release.</li><li>- Fixed an issue where returning to the child or parent screen could show the "Something went wrong" card instead of the content.</li><li>- More reliable error reporting: if something does go wrong, the report reaches us even after the app restarts.</li><li>Thanks to everyone who reported the issue.</li></ul>
+  </div></div>
+<div data-lang="sk"><nav>
+      <a href="./">Domov</a>
+      <a href="./pribeh.html">Príbeh</a>
+      <a href="./podpora.html">Podpora</a>
+      <a href="./testovanie.html">Testovanie</a>
+      <a href="./podpor.html">Podporiť projekt</a>
+      <a href="./kontakt.html">Kontakt</a>
+    </nav>
+  <div class="card hero">
+    <h2>Čo pribudlo v jednotlivých verziách</h2>
+    <p>Appku vylepšujeme priebežne.</p>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Verzia 1.5.7</span>
+    <ul><li>V histórii dieťaťa teraz pribudne aj úloha alebo odmena, ktorú rodič neuznal. Oslava za schválenú odmenu sa spustí hneď, aj keď máte aplikáciu otvorenú. Vibrácie sú silnejšie a pre každú udalosť iné, vibruje už aj obrazovka rodiča. Oslavy majú nové animácie a body sa na karte prepočítajú. Kto má v telefóne zapnuté obmedzenie pohybu, dostane oslavu bez lietajúcich častíc. Keď si dieťa zruší konto, rodičia dostanú správu a v Členoch je to označené.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Verzia 1.5.6</span>
+    <ul><li>Ak dieťa klepne na úlohu omylom, teraz ju vie vziať späť. Rovnako aj žiadosť o odmenu. Pri výmene odmeny pribudlo potvrdenie, aby sa body neminuli náhodou. Rodiny s viacerými deťmi prepínajú deti kruhovými avatarmi v spodnom pruhu. Záložka Ľudia sa teraz volá Členovia. Úvod po založení rodiny je kratší a listuje sa. Dôležité oznamy vidíte priamo v aplikácii. Opravili sme zamrznutie obrazovky po prvom prihlásení.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Verzia 1.5.5</span>
+    <ul><li>Každé dieťa má teraz naozaj svoje: keď pozvete druhé dieťa e-mailom, dostane vlastný profil aj vlastné body. Pri pozývaní vidíte, ktoré deti sú voľné a kedy vznikne nové. Uvítacia obrazovka je kratšia, štúdie sú v rozbaľovači Čo na to výskum. Keď niečo nevyjde, chybu uvidíte priamo pri tlačidle. Keď člen opustí rodinu, ostatní o tom dostanú upozornenie. Premenovanie dieťaťa sa prejaví všade.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Verzia 1.5.4</span>
+    <ul><li>Rodina rastie s vami: druhý rodič má rovnaké práva ako zakladateľ, detí môže byť viac a prepínate sa medzi nimi. Správa rodiny je v záložke Rodina: vidíte stav pozvánok, pošlete ich znova alebo zrušíte, dieťa sa dá z rodiny odstrániť (história ostáva). Notifikácie po kategóriách, tiché hodiny pripomienok a archív notifikácií v appke. Potvrdenie Zapísať body? pri priamom zápise, rezervované body pri čakajúcej odmene, vlastné meno člena. Uvítací e-mail príde až po vstupe do rodiny.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Verzia 1.5.3</span>
+    <ul><li>Rodič a Rodina: rola s plnými právami sa volá Rodič, správa rodiny je v záložke Rodina. Pri zakladaní rodiny pridáte naraz viac detí, každé má vlastný riadok pre kód či pozvánku. Dieťa sa dá z rodiny odstrániť v Rodina → Nastavenia (história ostáva). Keď posledný rodič odíde, ten, kto správu preberá, dostane upozornenie. Jasnejšie hlášky pri zlyhaní kódu, opravené texty pri prihlásení, demo ukazuje dve deti.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Verzia 1.5.2</span>
+    <ul><li>Rodina rastie s vami: druhý rodič má rovnaké práva ako zakladateľ a detí môže byť viac, medzi nimi sa prepínate. Pozvánky: v zozname ľudí vidíte, či pozvaný potvrdil, viete pozvánku poslať znova alebo zrušiť; kto sa prihlási bez kódu, požiada rodinu jedným klepnutím. Kód platí 7 dní. Notifikácie po kategóriách, tiché hodiny pripomienok, archív notifikácií, potvrdenie „Zapísať body?“ pri priamom zápise, rezervované body pri čakajúcej odmene, vlastné meno člena.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Verzia 1.5.0</span>
+    <ul><li>Čo je vo vydaní:</li><li>• pushky pre celú rodinu: cieľ dosiahnutý, nový level, nový člen (aj divák); pripomienky rodičom na čakajúce schválenia po 4, 10 a 18 hodinách</li><li>• archív notifikácií „Čo sa stalo naposledy" na obrazovke dieťaťa a rodiča, celá rodina v Admin → Zmeny</li><li>• pozvánka e-mailom s potvrdením; odkaz z e-mailu otvorí appku (Universal Links / App Links)</li><li>• písmo Baloo 2 namiesto Fredoky (chýbali č ľ ť ď ň ř ě ů), ikona zjednotená s iOS</li><li>• časové pásmo rodiny z telefónu rodiča, „dnes" a denné limity od tej istej polnoci ako DB</li><li>• odznak a lišta notifikácií sa čistia pri otvorení appky</li><li>• aktualizovaný návod a právne texty (účinnosť 7. 9. 2026)</li><li>• bezpečnostné opravy</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Verzia 1.4.0</span>
+    <ul><li>Dieťa si vyberá vlastného avatara zo 40 postavičiek, rodič ho môže zmeniť.</li><li>Úlohy sú v kategóriách, ktoré sa rozbaľujú klepnutím.</li><li>Po založení rodiny appka pomôže pridať dieťa, druhého rodiča a diváka: kódom alebo e-mailom účtu, ktorý sa po prihlásení pripojí sám.</li><li>Pozvánka má odkaz na stiahnutie a kód sa na novom zariadení vyplní sám.</li><li>Nová obrazovka Prečo vznikol PointJar so štúdiami za úlohami a odmenami.</li><li>Lepšie zobrazenie pri veľkom písme, podpora na každej obrazovke.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Verzia 1.3.3</span>
+    <ul><li>Hravejšia obrazovka dieťaťa a rýchlejšia cesta k tomu, čo sa deje.</li><li>- Džbán, ktorý sa naozaj plní: pri pripísaní bodov hladina vyskočí a pružne sa usadí. Číslo zostatku sa prepočíta, štvorčeky úloh a karty odmien poskočia.</li><li>- Jemné vibrácie pri klepnutí, pri pripísaní bodov a pri veľkej oslave.</li><li>- Školská výzva: privítanie pri prvom otvorení, odlíšený pás s postupom a trvalý odznak po splnení.</li><li>- Klepnutie na notifikáciu alebo na bodku otvorí správnu obrazovku a zvýrazní, čoho sa týka.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Verzia 1.3.2</span>
+    <ul><li>Školská výzva: od 8. do 30. septembra zbieraj splnené úlohy priamo na obrazovke dieťaťa a získaj medailu.</li><li>- Opravená chyba, pri ktorej sa po návrate na obrazovku dieťaťa alebo rodiča zobrazila karta „Niečo sa pokazilo" namiesto obsahu.</li><li>- Spoľahlivejšie hlásenie chýb: ak sa predsa niečo stane, správa nám príde aj po reštarte appky.</li><li>Ďakujeme všetkým, ktorí chybu nahlásili.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Verzia 1.3.1</span>
+    <ul><li>Opravná verzia.</li><li>- Opravená chyba, pri ktorej sa po návrate na obrazovku dieťaťa alebo rodiča zobrazila karta „Niečo sa pokazilo" namiesto obsahu.</li><li>- Spoľahlivejšie hlásenie chýb: ak sa predsa niečo stane, správa nám príde aj po reštarte appky.</li><li>Ďakujeme všetkým, ktorí chybu nahlásili.</li></ul>
+  </div></div>
+<div data-lang="cs"><nav>
+      <a href="./">Domů</a>
+      <a href="./pribeh.html">Příběh</a>
+      <a href="./podpora.html">Podpora</a>
+      <a href="./testovanie.html">Testování</a>
+      <a href="./podpor.html">Podpořit projekt</a>
+      <a href="./kontakt.html">Kontakt</a>
+    </nav>
+  <div class="card hero">
+    <h2>Co přibylo v jednotlivých verzích</h2>
+    <p>Aplikaci vylepšujeme průběžně.</p>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Verze 1.5.7</span>
+    <ul><li>V historii dítěte teď přibude i úkol nebo odměna, kterou rodič neuznal. Oslava za schválenou odměnu se spustí hned, i když máte aplikaci otevřenou. Vibrace jsou silnější a pro každou událost jiné, vibruje už i obrazovka rodiče. Oslavy mají nové animace a body se na kartě přepočítají. Kdo má v telefonu zapnuté omezení pohybu, dostane oslavu bez létajících částic. Když si dítě zruší účet, rodiče dostanou zprávu a v Členech je to označené.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Verze 1.5.6</span>
+    <ul><li>Když dítě klepne na úkol omylem, teď ho umí vzít zpět. Stejně tak žádost o odměnu. Při výměně odměny přibylo potvrzení, aby se body neutratily náhodou. Rodiny s více dětmi přepínají děti kruhovými avatary ve spodním pruhu. Záložka Lidé se teď jmenuje Členové. Úvod po založení rodiny je kratší a listuje se. Důležitá oznámení vidíte přímo v aplikaci. Opravili jsme zamrznutí obrazovky po prvním přihlášení.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Verze 1.5.5</span>
+    <ul><li>Každé dítě má teď opravdu své: když pozvete druhé dítě e-mailem, dostane vlastní profil i vlastní body. Při zvaní vidíte, které děti jsou volné a kdy vznikne nové. Uvítací obrazovka je kratší, studie jsou v rozbalovači Co na to výzkum. Když něco nevyjde, chybu uvidíte přímo u tlačítka. Když člen opustí rodinu, ostatní dostanou upozornění. Přejmenování dítěte se projeví všude.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Verze 1.5.4</span>
+    <ul><li>Rodina roste s vámi: druhý rodič má stejná práva jako zakladatel, dětí může být víc a přepínáte se mezi nimi. Správa rodiny je v záložce Rodina: vidíte stav pozvánek, pošlete je znovu nebo zrušíte, dítě lze z rodiny odebrat (historie zůstává). Notifikace podle kategorií, tiché hodiny připomínek a archiv notifikací v aplikaci. Potvrzení Zapsat body? při přímém zápisu, rezervované body při čekající odměně, vlastní jméno člena. Uvítací e-mail přijde až po vstupu do rodiny.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Verze 1.5.3</span>
+    <ul><li>Rodič a Rodina: role s plnými právy se jmenuje Rodič, správa rodiny je v záložce Rodina. Při zakládání rodiny přidáte najednou víc dětí, každé má vlastní řádek pro kód či pozvánku. Dítě lze z rodiny odebrat v Rodina → Nastavení (historie zůstává). Když poslední rodič odejde, ten, kdo správu přebírá, dostane upozornění. Jasnější hlášky při selhání kódu, opravené texty při přihlášení, demo ukazuje dvě děti.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Verze 1.5.2</span>
+    <ul><li>Rodina roste s vámi: druhý rodič má stejná práva jako zakladatel a dětí může být víc, mezi nimi se přepínáte. Pozvánky: v seznamu lidí vidíte, zda pozvaný potvrdil, pozvánku pošlete znovu nebo zrušíte; kdo se přihlásí bez kódu, požádá rodinu jedním klepnutím. Kód platí 7 dní. Notifikace po kategoriích, tiché hodiny připomínek, archiv notifikací, potvrzení „Zapsat body?“ při přímém zápisu, rezervované body u čekající odměny, vlastní jméno člena.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Verze 1.5.0</span>
+    <ul><li>Co je ve vydání:</li><li>• notifikace pro celou rodinu: cíl dosažen, nový level, nový člen (i divák); připomínky rodičům na čekající schválení po 4, 10 a 18 hodinách</li><li>• archiv notifikací „Co se stalo naposledy" na obrazovce dítěte a rodiče, celá rodina v Admin → Změny</li><li>• pozvánka e-mailem s potvrzením; odkaz z e-mailu otevře appku (Universal Links / App Links)</li><li>• písmo Baloo 2 místo Fredoky (chyběly č ľ ť ď ň ř ě ů), ikona sjednocená s iOS</li><li>• časové pásmo rodiny z telefonu rodiče, „dnes" a denní limity od stejné půlnoci jako DB</li><li>• odznak a lišta notifikací se čistí při otevření appky</li><li>• aktualizovaný návod a právní texty (účinnost 7. 9. 2026)</li><li>• bezpečnostní opravy</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Verze 1.4.0</span>
+    <ul><li>Dítě si vybírá vlastního avatara ze 40 postaviček, rodič ho může změnit.</li><li>Úkoly jsou v kategoriích, které se rozbalují klepnutím.</li><li>Po založení rodiny appka pomůže přidat dítě, druhého rodiče a diváka: kódem nebo e-mailem účtu, který se po přihlášení připojí sám.</li><li>Pozvánka má odkaz ke stažení a kód se na novém zařízení vyplní sám.</li><li>Nová obrazovka Proč vznikl PointJar se studiemi za úkoly a odměnami.</li><li>Lepší zobrazení při velkém písmu, podpora na každé obrazovce.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Verze 1.3.3</span>
+    <ul><li>Hravější obrazovka dítěte a rychlejší cesta k tomu, co se děje.</li><li>- Džbán, který se opravdu plní: při připsání bodů hladina vyskočí a pružně se usadí. Číslo zůstatku se přepočítá, čtverečky úkolů a karty odměn poskočí.</li><li>- Jemné vibrace při klepnutí, při připsání bodů a při velké oslavě.</li><li>- Školní výzva: přivítání při prvním otevření, odlišený pás s postupem a trvalý odznak po splnění.</li><li>- Klepnutí na notifikaci nebo na tečku otevře správnou obrazovku a zvýrazní, čeho se týká.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Verze 1.3.2</span>
+    <ul><li>Školní výzva: od 8. do 30. září sbírej splněné úkoly přímo na obrazovce dítěte a získej medaili.</li><li>- Opravena chyba, kdy se po návratu na obrazovku dítěte nebo rodiče zobrazila karta „Něco se pokazilo" místo obsahu.</li><li>- Spolehlivější hlášení chyb: pokud se přece něco stane, zpráva nám přijde i po restartu aplikace.</li><li>Děkujeme všem, kdo chybu nahlásili.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Verze 1.3.1</span>
+    <ul><li>Opravná verze.</li><li>- Opravena chyba, kdy se po návratu na obrazovku dítěte nebo rodiče zobrazila karta „Něco se pokazilo" místo obsahu.</li><li>- Spolehlivější hlášení chyb: pokud se přece něco stane, zpráva nám přijde i po restartu aplikace.</li><li>Děkujeme všem, kdo chybu nahlásili.</li></ul>
+  </div></div>
+<div data-lang="de"><nav>
+      <a href="./">Start</a>
+      <a href="./pribeh.html">Geschichte</a>
+      <a href="./podpora.html">Support</a>
+      <a href="./testovanie.html">App testen</a>
+      <a href="./podpor.html">Projekt unterstützen</a>
+      <a href="./kontakt.html">Kontakt</a>
+    </nav>
+  <div class="card hero">
+    <h2>Was sich in welcher Version geändert hat</h2>
+    <p>Wir verbessern die App laufend.</p>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Version 1.5.7</span>
+    <ul><li>Im Verlauf des Kindes erscheint jetzt auch eine Aufgabe oder Belohnung, die ein Elternteil nicht anerkannt hat. Die Feier für eine genehmigte Belohnung startet sofort, auch bei geöffneter App. Vibrationen sind stärker und je nach Ereignis anders, auch der Elternbildschirm vibriert. Feiern haben neue Animationen, Punkte zählen auf der Karte hoch. Mit reduzierter Bewegung kommt die Feier ohne Partikel. Löscht ein Kind sein Konto, erfahren es die Eltern.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Version 1.5.6</span>
+    <ul><li>Tippt ein Kind versehentlich auf eine Aufgabe, kann es das jetzt zurücknehmen. Ebenso eine Belohnungsanfrage. Beim Einlösen einer Belohnung fragen wir nach einer Bestätigung, damit keine Punkte aus Versehen ausgegeben werden. Familien mit mehreren Kindern wechseln über runde Avatare in der unteren Leiste. Der Tab Leute heißt jetzt Mitglieder. Die Einführung nach dem Anlegen der Familie ist kürzer. Wichtige Hinweise erscheinen direkt in der App.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Version 1.5.5</span>
+    <ul><li>Jedes Kind hat jetzt wirklich sein eigenes: Ladet ihr ein zweites Kind per E-Mail ein, bekommt es ein eigenes Profil und eigene Punkte. Beim Einladen seht ihr, welche Kinder frei sind und wann ein neues entsteht. Der Willkommensbildschirm ist kürzer, die Studien stecken im Bereich Was die Forschung sagt. Klappt etwas nicht, erscheint der Fehler direkt am Button. Verlässt ein Mitglied die Familie, werden die anderen benachrichtigt.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Version 1.5.4</span>
+    <ul><li>Die Familie wächst mit euch: Ein zweiter Elternteil hat dieselben Rechte wie der Gründer, es kann mehrere Kinder geben, ihr wechselt zwischen ihnen. Der Reiter Familie zeigt den Status der Einladungen, erneut senden, zurückziehen, Kind entfernen (Historie bleibt). Benachrichtigungen nach Kategorien, Ruhezeiten für Erinnerungen, Archiv in der App. Bestätigung Punkte eintragen? bei direkter Eingabe, reservierte Punkte bei wartender Belohnung. Willkommens-E-Mail erst nach dem Beitritt.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Version 1.5.3</span>
+    <ul><li>Eltern und Familie: Die Rolle mit vollen Rechten heißt jetzt Elternteil, die Verwaltung liegt im Reiter Familie. Beim Anlegen der Familie fügt ihr gleich mehrere Kinder hinzu, jedes mit eigener Zeile für Code oder Einladung. Ein Kind lässt sich unter Familie → Einstellungen entfernen (Historie bleibt). Geht der letzte Elternteil, wird der Nachfolger benachrichtigt. Klarere Meldungen bei Code-Fehlern, korrigierte Anmeldetexte, die Demo zeigt zwei Kinder.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Version 1.5.2</span>
+    <ul><li>Die Familie wächst mit: Ein zweiter Elternteil hat dieselben Rechte wie der Gründer, und es können mehrere Kinder dabei sein, zwischen denen ihr wechselt. Einladungen: In der Personenliste seht ihr, ob die Einladung bestätigt wurde, und könnt sie erneut senden oder zurückziehen; wer sich ohne Code anmeldet, bittet die Familie mit einem Tipp. Codes gelten 7 Tage. Benachrichtigungen nach Kategorien, Ruhezeiten, Archiv, Bestätigung „Punkte eintragen?“, reservierte Punkte, eigener Name.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Version 1.5.0</span>
+    <ul><li>Das ist neu:</li><li>• Benachrichtigungen für die ganze Familie: Ziel erreicht, neues Level, neues Mitglied (auch Zuschauer); Erinnerungen an Eltern bei offenen Bestätigungen nach 4, 10 und 18 Stunden</li><li>• Benachrichtigungsarchiv „Was zuletzt passiert ist" auf dem Kinder- und Elternbildschirm, ganze Familie unter Admin → Änderungen</li><li>• Einladung per E-Mail mit Bestätigung; der Link aus der E-Mail öffnet direkt die App (Universal Links / App Links)</li><li>• Schrift Baloo 2 statt Fredoka (č ľ ť ď ň ř ě ů fehlten), Symbol an iOS angeglichen</li><li>• Zeitzone der Familie vom Telefon des Elternteils; „heute" und Tageslimits beginnen um dieselbe Mitternacht wie die Datenbank</li><li>• Badge und Benachrichtigungsleiste werden beim Öffnen der App geleert</li><li>• aktualisierte Anleitung und Rechtstexte (gültig ab 7. 9. 2026)</li><li>• Sicherheitskorrekturen</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Version 1.4.0</span>
+    <ul><li>Kinder wählen ihren Avatar aus 40 Figuren, Eltern können ihn ändern.</li><li>Aufgaben sind in Kategorien, die sich per Tipp aufklappen.</li><li>Nach dem Anlegen der Familie hilft die App, Kind, zweiten Elternteil und Zuschauer hinzuzufügen: per Code oder Konto-E-Mail, die automatisch beitritt.</li><li>Einladungen enthalten einen Download-Link, der Code füllt sich am neuen Gerät selbst aus.</li><li>Neuer Bildschirm Warum es PointJar gibt, mit den Studien hinter Aufgaben und Belohnungen.</li><li>Bessere Darstellung bei großer Schrift.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Version 1.3.3</span>
+    <ul><li>Verspielterer Kinderbildschirm, schnellerer Weg zum Geschehen.</li><li>- Das Glas füllt sich wirklich: Bei neuen Punkten springt der Pegel und federt ein. Der Kontostand zählt hoch, Kästchen und Belohnungskarten hüpfen.</li><li>- Sanfte Vibrationen beim Tippen, bei Punkten und bei großen Feiern.</li><li>- Schulstart-Challenge: Begrüßung beim ersten Start, eigene Fortschrittskarte, dauerhaftes Abzeichen.</li><li>- Ein Tipp auf eine Mitteilung oder den Punkt öffnet den passenden Bildschirm und hebt den Eintrag hervor.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Version 1.3.2</span>
+    <ul><li>Schulstart-Challenge: Vom 8. bis 30. September erledigte Aufgaben direkt auf dem Kinderbildschirm sammeln und eine Medaille holen.</li><li>- Behoben: Beim Zurückkehren zum Kinder- oder Elternbildschirm erschien manchmal die Karte „Etwas ist schiefgelaufen" statt des Inhalts.</li><li>- Zuverlässigere Fehlermeldungen: Falls doch etwas passiert, erreicht uns der Bericht auch nach einem Neustart der App.</li><li>Danke an alle, die den Fehler gemeldet haben.</li></ul>
+  </div>
+  <div class="card novinky">
+    <span class="verzia">Version 1.3.1</span>
+    <ul><li>Fehlerbehebung.</li><li>- Behoben: Beim Zurückkehren zum Kinder- oder Elternbildschirm erschien manchmal die Karte „Etwas ist schiefgelaufen" statt des Inhalts.</li><li>- Zuverlässigere Fehlermeldungen: Falls doch etwas passiert, erreicht uns der Bericht auch nach einem Neustart der App.</li><li>Danke an alle, die den Fehler gemeldet haben.</li></ul>
+  </div></div>
+  <footer>
+    <span data-lang="en" class="pataJazyk"><span class="pravne">
+      <a href="./privacy.html">Privacy</a> ·
+      <a href="./terms.html">Terms</a> ·
+      <a href="./delete-account.html">Delete account</a>
+    </span></span><span data-lang="sk" class="pataJazyk"><span class="pravne">
+      <a href="./privacy.html">Zásady</a> ·
+      <a href="./terms.html">Podmienky</a> ·
+      <a href="./delete-account.html">Vymazať konto</a>
+    </span></span><span data-lang="cs" class="pataJazyk"><span class="pravne">
+      <a href="./privacy.html">Zásady</a> ·
+      <a href="./terms.html">Podmínky</a> ·
+      <a href="./delete-account.html">Smazat účet</a>
+    </span></span><span data-lang="de" class="pataJazyk"><span class="pravne">
+      <a href="./privacy.html">Datenschutz</a> ·
+      <a href="./terms.html">Bedingungen</a> ·
+      <a href="./delete-account.html">Konto löschen</a>
+    </span></span>
+    <span class="pataDrobne">© 2026 marcel s.r.o. · <a href="mailto:support@pointjar.app">support@pointjar.app</a></span>
+  </footer>
+</div>
+<script>
+const FUNKCIA_URL='https://bfrfsqorgjvesjwftuzi.supabase.co/functions/v1/podpora';
+const PUBLISHABLE='sb_publishable_SRsE77rat693ZCisKOwUzA_CN-843l8';
+
+// --- kontaktný formulár (jeden pre každý jazyk, obsluha spoločná) ---
+// Proti spamu: neviditeľná výzva zo servera. Prehliadač k nej musí nájsť číslo,
+// ktorého otisk začína nulami — pre človeka sekunda, pre rozosielač práca navyše
+// pri každej správe. Žiadna cudzia captcha, žiadne cookie, nič na klikanie.
+(function(){
+  var MAIL='support@pointjar.app';
+  var enc=new TextEncoder();
+  function hex(b){return [].map.call(new Uint8Array(b),function(x){return ('0'+x.toString(16)).slice(-2)}).join('')}
+  function sha(s){return crypto.subtle.digest('SHA-256',enc.encode(s)).then(hex)}
+
+  var vyzva=null, ziska=null;
+  function vyzvi(){
+    if(vyzva) return Promise.resolve(vyzva);
+    if(ziska) return ziska;
+    ziska=fetch(FUNKCIA_URL,{headers:{'apikey':PUBLISHABLE}})
+      .then(function(r){return r.json()})
+      .then(function(j){ziska=null; if(!j||!j.ok) throw new Error('vyzva'); vyzva=j; return j})
+      .catch(function(e){ziska=null; throw e});
+    return ziska;
+  }
+
+  // Hľadá po dávkach, aby stránka medzitým neprestala reagovať.
+  function vyries(v,sprava){
+    return sha(sprava).then(function(h){
+      var ciel=new Array((v.obtiaznost||4)+1).join('0'), n=0;
+      function davka(){
+        var u=[],i;
+        for(i=0;i<512;i++) u.push(sha(v.sol+'.'+h+'.'+(n+i)));
+        var od=n; n+=512;
+        return Promise.all(u).then(function(o){
+          for(var j=0;j<o.length;j++) if(o[j].indexOf(ciel)===0) return String(od+j);
+          if(n>4000000) throw new Error('vyzva');
+          return davka();
+        });
+      }
+      return davka();
+    });
+  }
+
+  function posli(f,sprava,email,znova){
+    return vyzvi().then(function(v){
+      return vyries(v,sprava).then(function(nonce){
+        // server neprijme výzvu mladšiu ako dve sekundy
+        var caka=Math.max(0,2300-(Date.now()-v.cas));
+        return new Promise(function(r){setTimeout(r,caka)}).then(function(){
+          var b=f.querySelector('button'); if(b) b.textContent=f.dataset.odosielam;
+          return fetch(FUNKCIA_URL,{
+            method:'POST',
+            headers:{'Content-Type':'application/json','apikey':PUBLISHABLE},
+            body:JSON.stringify({
+              sprava:sprava, email:email, meno:f.meno.value.trim(), hp:f.hp.value,
+              vyzva:{sol:v.sol,cas:v.cas,podpis:v.podpis,nonce:nonce},
+              zdroj:'web', lang:document.documentElement.lang||'en'
+            })
+          });
+        });
+      });
+    }).then(function(r){
+      return r.json().catch(function(){return null}).then(function(j){
+        if(r.ok&&j&&j.ok) return true;
+        // vypršaná alebo zahodená výzva — raz si vypýtame novú
+        if(!znova&&j&&typeof j.chyba==='string'&&j.chyba.indexOf('vyzva')===0){
+          vyzva=null; return posli(f,sprava,email,true);
+        }
+        throw new Error('zlyhalo');
+      });
+    });
+  }
+
+  var formulare=[].slice.call(document.querySelectorAll('.kontakt-form'));
+  formulare.forEach(function(f){
+    var hlaska=f.querySelector('.hlaska');
+    var btn=f.querySelector('button');
+    // výzvu si vypýtame hneď ako sa niekto formulára dotkne, nech je hotová skôr ako text
+    f.addEventListener('focusin',function(){vyzvi().catch(function(){})},{once:true});
+    f.addEventListener('submit',function(ev){
+      ev.preventDefault();
+      var email=f.email.value.trim(), sprava=f.sprava.value.trim();
+      if(!email||sprava.length<5){
+        hlaska.className='hlaska zle'; hlaska.textContent=f.dataset.povinne; return;
+      }
+      if(f.dataset.predpona) sprava=f.dataset.predpona+'\n\n'+sprava;
+      btn.disabled=true; btn.textContent=f.dataset.overujem;
+      hlaska.className='hlaska'; hlaska.textContent='';
+      posli(f,sprava,email,false).then(function(){
+        hlaska.className='hlaska ok'; hlaska.textContent=f.dataset.hotovo; f.reset(); vyzva=null;
+      }).catch(function(){
+        hlaska.className='hlaska zle';
+        hlaska.innerHTML=f.dataset.chyba+' <a href="mailto:'+MAIL+'">'+MAIL+'</a>';
+      }).then(function(){
+        btn.disabled=false; btn.textContent=f.dataset.odoslat;
+      });
+    });
+  });
+})();
+// --- prepínač jazykov ---
+// Vidno len aktuálnu vlajku; zoznam sa rozbalí po kliknutí, rovnako ako v appke.
+// Voľba „auto" zahodí uloženú hodnotu a jazyk určí prehliadač.
+(function(){
+  var KLUC='pointjar.web.jazyk';
+  var podporovane=['en','sk','cs','de'];
+  var VLAJKY={en:'🇬🇧',sk:'🇸🇰',cs:'🇨🇿',de:'🇩🇪'};
+  var menu=document.querySelector('.jazyk-menu');
+  var spust=menu&&menu.querySelector('.jazyk-spust');
+  var zoznam=menu&&menu.querySelector('.jazyk-zoznam');
+  var polozky=menu?[].slice.call(menu.querySelectorAll('[data-k]')):[];
+  function prehliadac(){var k=(navigator.language||'en').slice(0,2);return podporovane.indexOf(k)>-1?k:'en';}
+  function ukazJazyk(k,volba){
+    [].forEach.call(document.querySelectorAll('[data-lang]'),function(el){
+      el.classList.toggle('aktivny', el.getAttribute('data-lang')===k);
+    });
+    document.documentElement.lang=k;
+    var v=menu&&menu.querySelector('[data-vlajka]'); if(v) v.textContent=VLAJKY[k]||'🌐';
+    polozky.forEach(function(b){b.setAttribute('aria-selected', String(b.dataset.k===volba));});
+  }
+  function zvol(volba){
+    if(volba==='auto'){try{localStorage.removeItem(KLUC);}catch(e){} ukazJazyk(prehliadac(),'auto');}
+    else{try{localStorage.setItem(KLUC,volba);}catch(e){} ukazJazyk(volba,volba);}
+  }
+  function otvor(ano){if(!zoznam)return; zoznam.hidden=!ano; spust.setAttribute('aria-expanded',String(ano));}
+  if(spust){
+    spust.addEventListener('click',function(ev){ev.stopPropagation();otvor(zoznam.hidden);});
+    polozky.forEach(function(b){b.addEventListener('click',function(){zvol(b.dataset.k);otvor(false);});});
+    document.addEventListener('click',function(ev){if(!menu.contains(ev.target))otvor(false);});
+    document.addEventListener('keydown',function(ev){if(ev.key==='Escape')otvor(false);});
+  }
+  var url=new URLSearchParams(location.search).get('lang');
+  var ulozeny=null; try{ulozeny=localStorage.getItem(KLUC);}catch(e){}
+  if(url&&podporovane.indexOf(url)>-1) zvol(url);
+  else if(ulozeny&&podporovane.indexOf(ulozeny)>-1) ukazJazyk(ulozeny,ulozeny);
+  else ukazJazyk(prehliadac(),'auto');
+})();
+</script>
+</body>
+</html>
