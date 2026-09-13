@@ -547,6 +547,16 @@ if(!/^[0-9a-f]{64}$/.test(token)){
 // pointjar:// nemá čo otvoriť) a nikdy do obchodu — ten ostáva na tlačidlách.
 function odpocetDoAppky(){
   if(!ios&&!android)return;
+  // iOS: prechod na vlastnú schému (pointjar://) z časovača Safari zahodí —
+  // dovolí ho len ako odpoveď na klepnutie. Odpočet tam preto nebeží vôbec
+  // a namiesto neho svieti tlačidlo „Mám appku, otvoriť", ktoré klepnutie má
+  // (nález Mateja 13. 9. 2026: na Androide to presmerovalo, na iPhone nie,
+  // hoci appku mal). Sľubovať odpočet, ktorý systém nespraví, je horšie než
+  // nesľúbiť nič.
+  if(ios){
+    document.querySelectorAll('[data-otvorit]').forEach(function(a){a.hidden=false});
+    return;
+  }
   var zostava=3, casovac=null;
   var polia=[].slice.call(document.querySelectorAll('[data-odpocet]'));
   if(!polia.length)return;
