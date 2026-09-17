@@ -48,7 +48,7 @@ h1{font-size:30px;margin:0}
 .jazyk-zoznam [data-lang]{display:none}
 .jazyk-zoznam [data-lang].aktivny{display:inline}
 @media (max-width:560px){header{justify-content:flex-start;padding-right:70px}}
-a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:22px}
 nav a{padding:8px 14px;border:2.5px solid var(--ink);border-radius:7px;background:var(--card);color:var(--ink);text-decoration:none;font-weight:600;font-size:14px}
 nav a:hover:not([aria-current]){background:var(--paper)}
@@ -119,6 +119,16 @@ footer a{color:var(--inkSoft)}
 .novinky ul{padding-left:20px}
 .novinky li{font-size:15px;color:var(--inkSoft)}
 .starsie{font-size:13px;color:var(--inkSoft);margin-top:12px}
+.novinky .stav{display:inline-block;font-size:12px;font-weight:700;color:var(--inkSoft);border:2px solid var(--grid);border-radius:999px;padding:2px 10px;margin-bottom:10px;vertical-align:top}
+.novinky .stav.test{background:#FFFBEA;border-color:var(--gold);color:var(--ink)}
+.starsieNadpis{margin:28px 0 12px}
+details.novinky{padding:0}
+details.novinky summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:16px 22px}
+details.novinky summary::-webkit-details-marker{display:none}
+details.novinky summary::after{content:'+';margin-left:auto;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:24px;line-height:1;color:var(--ink)}
+details.novinky[open] summary::after{content:'–'}
+details.novinky summary .verzia,details.novinky summary .stav{margin-bottom:0}
+details.novinky ul{margin:0;padding:0 22px 18px 42px}
 /* --- pätka --- */
 footer{display:flex;flex-direction:column;align-items:center;gap:8px}
 footer .pravne a{color:var(--inkSoft);text-decoration:underline;text-underline-offset:2px}
@@ -164,49 +174,82 @@ footer .pataJazyk.aktivny{display:inline}
     <p>We keep improving the app.</p>
   </div>
   <div class="card novinky">
-    <span class="verzia">Version 1.5.7</span>
+    <span class="verzia">Version 1.5.15</span> <span class="stav test">Test build · TestFlight and Google Play closed testing</span>
+    <ul><li>Fix for freezing after unlocking the phone. Notices from PointJar no longer appear in a system window, which on some Android phones stopped responding to taps and forced you to close the app. The notice is now part of the app itself and closes with the button or the back gesture. If the app opens before the phone's connection is up, loading is retried twice instead of once.</li></ul>
+  </div>
+  <h2 class="starsieNadpis">Older versions</h2>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.5.14</span> <span class="stav test">Test build · TestFlight and Google Play closed testing</span></summary>
+    <ul><li>Another freeze fix. If the app opened before the phone's connection was up, loading failed and the screen stayed stuck until you restarted the app. Now the app waits a moment and retries on its own, and the screen loads without you doing anything. Only loading is retried, never saving, so a reported task or an approval cannot be recorded twice.</li></ul>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.5.13</span> <span class="stav test">Test build · TestFlight and Google Play closed testing</span></summary>
+    <ul><li>Freeze fix. If the app stayed open in the background for a while, the screen sometimes failed to load on return and only a restart helped. The app now refreshes your sign-in before it asks for data, and if that still fails, it retries once on its own. The Parent and Settings tabs refresh on return from the background, just like the child screen, so you see the current state right away. Loading also has a time limit, so a weak connection no longer leaves the app stuck.</li></ul>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.5.12</span> <span class="stav test">Test build · TestFlight and Google Play closed testing</span></summary>
+    <ul><li>Inviting someone to the family now lives in a single block, in the order you actually think about it: who you are adding, which kid if it is a kid, and only then whether you send a code or an e-mail. For a new kid the app explains right away why e-mail is needed — a code cannot carry the kid's name. The kid picker shows whenever the family has at least one kid. With several kids the circles keep their size and tab labels give way to icons so everything fits.</li></ul>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.5.11</span> <span class="stav">On the App Store</span></summary>
+    <ul><li>With more than one kid, each circle shows how many tasks and requests are waiting for your approval — even for the kid you are not currently viewing. The balance card now carries the kid's name, and the ratio bar shows points, not just the number of tasks. We also tidied up Members and Settings: quiet hours have their own Save button, removing access asks for confirmation, and a kid with their own account is invited by e-mail right in Settings.</li></ul>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.5.10</span> <span class="stav">On the App Store</span></summary>
+    <ul><li>Quiet hours now cover every notification, not just reminders. Inside the window a message arrives silently, with no sound and without waking the screen, and it is waiting for you in the morning like any other. Signing out is now complete. Your phone fills in names and e-mail addresses. The kid switcher is clearer: the selected kid pops, the others are outlines. The wrong-code message now appears where you tapped.</li></ul>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.5.9</span> <span class="stav">On the App Store</span></summary>
+    <ul><li>Double-tapping Add kid no longer creates two kids with the same name. While a change is being saved, further taps are ignored — this covers tasks, rewards, points and family members too. When data fails to load, the app now reports it to support on its own, so we learn about an outage before you have to write to us. We also updated the privacy policy and terms of service, effective 12 September 2026.</li></ul>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.5.8</span> <span class="stav">On the App Store</span></summary>
+    <ul><li>We fixed a bug where the Kid screen claimed the family had no kid even though it does. It happened when data failed to load. The app now tells a failure apart from an empty list and shows a message with a Try again button. The help bubble no longer covers the last line of text.</li></ul>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.5.7</span> <span class="stav">On the App Store</span></summary>
     <ul><li>A kid's history now also shows a task or reward a parent did not approve. The celebration for an approved reward starts right away, even with the app open. Vibrations are stronger and differ by event, and the parent screen now vibrates too. Celebrations have new animations and points count up on the card. With Reduce Motion turned on, the celebration comes without flying particles. When a kid deletes their account, parents get a message and Members shows it.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Version 1.5.6</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.5.6</span> <span class="stav">On the App Store</span></summary>
     <ul><li>If a kid taps a task by mistake, they can now take it back. The same goes for a reward request. Trading a reward now asks for confirmation so points are not spent by accident. Families with more kids switch between them using round avatars in the bottom bar. The People tab is now called Members. The intro after creating a family is shorter and swipes. Important announcements show right in the app. We fixed a frozen screen after the first sign-in.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Version 1.5.5</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.5.5</span> <span class="stav">On the App Store</span></summary>
     <ul><li>Every kid now really has their own: invite a second kid by e-mail and they get their own profile and their own points. When inviting, you see which kids are free and when a new one will be created. The welcome screen is shorter, with the studies tucked into a What the research says section. If something fails, the error appears right by the button. When a member leaves the family, the others are notified. Renaming a kid now applies everywhere.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Version 1.5.4</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.5.4</span> <span class="stav">On the App Store</span></summary>
     <ul><li>The family grows with you: a second parent has the same rights as the founder, there can be several children and you switch between them. The Family tab shows invitation status, lets you resend or cancel invitations and remove a child (history is kept). Notifications by category, quiet hours for reminders and an in-app notification archive. Record points? confirmation for direct entries, reserved points while a reward is pending, your own name. The welcome e-mail arrives once you join a family.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Version 1.5.3</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.5.3</span> <span class="stav">On the App Store</span></summary>
     <ul><li>Parent and Family: the full-rights role is now called Parent and family management lives under the Family tab. Add several children right when creating the family, each with its own row for a code or invitation. Remove a child under Family → Settings (history is kept). When the last parent leaves, whoever takes over gets a notification. Clearer messages when a code fails, fixed sign-in texts, the demo shows two children.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Version 1.5.2</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.5.2</span> <span class="stav">On the App Store</span></summary>
     <ul><li>Your family grows with you: a second parent has the same rights as the founder, and you can add several children and switch between them. Invitations: the people list shows whether an invitee has confirmed, and you can resend or cancel; anyone signing in without a code can ask the family with one tap. Codes are valid for 7 days. Notifications by category, quiet hours for reminders, a notification archive, a “Record points?” confirmation, reserved points for pending rewards, custom member names.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Version 1.5.0</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.5.0</span> <span class="stav">On the App Store</span></summary>
     <ul><li>What's in this release:</li><li>• notifications for the whole family: goal reached, new level, new member (viewers too); reminders to parents about pending approvals after 4, 10 and 18 hours</li><li>• notification archive "What happened recently" on the child's and parent's screen, the whole family under Admin → Changes</li><li>• e-mail invitation with confirmation; the link in the e-mail opens the app directly (Universal Links / App Links)</li><li>• Baloo 2 typeface instead of Fredoka (č ľ ť ď ň ř ě ů were missing), icon unified with iOS</li><li>• family time zone taken from the parent's phone; "today" and daily limits start at the same midnight as the database</li><li>• badge and notification tray are cleared when the app opens</li><li>• updated guide and legal texts (effective 7 September 2026)</li><li>• security fixes</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Version 1.4.0</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.4.0</span> <span class="stav">On the App Store</span></summary>
     <ul><li>Kids pick their own avatar from 40 characters; parents can change it.</li><li>Tasks are grouped into categories that expand with a tap.</li><li>After creating a family, the app helps you add the child, the other parent and a viewer: with a code or an account e-mail that joins automatically.</li><li>Invitations include a download link and the code fills in by itself on the new device.</li><li>New screen Why PointJar exists, with the studies behind tasks and rewards.</li><li>Better layout with large text, support on every screen.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Version 1.3.3</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.3.3</span> <span class="stav">On the App Store</span></summary>
     <ul><li>A more playful child screen and a faster way to what just happened.</li><li>- A jar that really fills up: when points arrive, the level jumps and settles with a bounce. The balance counts up, task boxes and reward cards hop.</li><li>- Gentle vibrations on tap, on new points and on big celebrations.</li><li>- Back to School Challenge: a welcome on first launch, a distinct progress card and a permanent badge once completed.</li><li>- Tapping a notification or the dot opens the right screen and highlights the item it is about.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Version 1.3.2</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.3.2</span> <span class="stav">On the App Store</span></summary>
     <ul><li>Back to School Challenge: from 8 to 30 September, collect completed tasks right on the child screen and earn a medal.</li><li>- Fixed an issue where returning to the child or parent screen could show the "Something went wrong" card instead of the content.</li><li>- More reliable error reporting: if something does go wrong, the report reaches us even after the app restarts.</li><li>Thanks to everyone who reported the issue.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Version 1.3.1</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.3.1</span> <span class="stav">On the App Store</span></summary>
     <ul><li>Bug-fix release.</li><li>- Fixed an issue where returning to the child or parent screen could show the "Something went wrong" card instead of the content.</li><li>- More reliable error reporting: if something does go wrong, the report reaches us even after the app restarts.</li><li>Thanks to everyone who reported the issue.</li></ul>
-  </div></div>
+  </details></div>
 <div data-lang="sk"><nav>
       <a href="./">Domov</a>
       <a href="./pribeh.html">Príbeh</a>
@@ -220,49 +263,82 @@ footer .pataJazyk.aktivny{display:inline}
     <p>Appku vylepšujeme priebežne.</p>
   </div>
   <div class="card novinky">
-    <span class="verzia">Verzia 1.5.7</span>
+    <span class="verzia">Verzia 1.5.15</span> <span class="stav test">Testovacia verzia · TestFlight a uzavretý test v Google Play</span>
+    <ul><li>Oprava zamŕzania po odomknutí telefónu. Oznam od PointJar sa už neukazuje v systémovom okne, ktoré na niektorých telefónoch s Androidom prestalo reagovať na klepnutie a appku bolo treba vypnúť. Popup je teraz súčasťou appky a zavrieš ho tlačidlom aj gestom späť. Keď sa appka otvorí skôr, než telefónu nabehne pripojenie, načítanie sa skúsi znova dvakrát namiesto raz.</li></ul>
+  </div>
+  <h2 class="starsieNadpis">Staršie verzie</h2>
+  <details class="card novinky">
+    <summary><span class="verzia">Verzia 1.5.14</span> <span class="stav test">Testovacia verzia · TestFlight a uzavretý test v Google Play</span></summary>
+    <ul><li>Ďalšia oprava zamŕzania. Keď sa appka otvorila skôr, než telefónu nabehlo pripojenie, načítanie zlyhalo a obrazovka ostala stáť, kým si appku nereštartoval. Teraz to appka po chvíli sama skúsi znova a obrazovka sa načíta bez zásahu. Opakuje sa len načítanie údajov, nie zápis, takže nahlásená úloha ani schválenie sa tým nemôžu zapísať dvakrát.</li></ul>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verzia 1.5.13</span> <span class="stav test">Testovacia verzia · TestFlight a uzavretý test v Google Play</span></summary>
+    <ul><li>Oprava zamŕzania. Keď appka zostala dlhšie otvorená na pozadí, po návrate sa obrazovka občas nenačítala a pomohol až reštart. Prihlásenie sa teraz obnoví skôr, než appka požiada o dáta, a keď sa to aj tak nepodarí, skúsi to sama ešte raz. Záložky Rodič a Nastavenie sa po návrate z pozadia obnovia rovnako ako detská obrazovka, takže hneď vidíš aktuálny stav. Načítanie má aj časový limit, aby sa appka pri slabom spojení neprestala ovládať.</li></ul>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verzia 1.5.12</span> <span class="stav test">Testovacia verzia · TestFlight a uzavretý test v Google Play</span></summary>
+    <ul><li>Pozývanie do rodiny je po novom v jednom bloku a v poradí, v akom o tom človek premýšľa: koho pridávaš, pri dieťati aj ktoré, a až potom či mu pošleš kód alebo e-mail. Pri novom dieťati appka rovno vysvetlí, prečo treba e-mail — kódu sa meno dieťaťa priradiť nedá. Výber dieťaťa sa ukáže vždy, keď rodina nejaké má. Pri viacerých deťoch kruhy držia rovnakú veľkosť a popisy záložiek ustúpia ikonám, aby sa všetko zmestilo.</li></ul>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verzia 1.5.11</span> <span class="stav">V App Store</span></summary>
+    <ul><li>Pri viacerých deťoch je na kruhu každého vidieť, koľko úloh a žiadostí mu čaká na schválenie — aj keď práve nie je vybraté. Karta so zostatkom nesie meno dieťaťa a pruh pomeru ukazuje aj body, nielen počet úloh. V Rodine sme upratali Členov a Nastavenia: tiché hodiny majú vlastné tlačidlo Uložiť, odstránenie prístupu sa pýta na potvrdenie a dieťa s vlastným kontom pozveš e-mailom priamo v Nastaveniach.</li></ul>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verzia 1.5.10</span> <span class="stav">V App Store</span></summary>
+    <ul><li>Tiché hodiny už platia na všetky notifikácie, nielen na pripomienky. V nastavenom okne správa príde potichu, bez zvuku a bez rozsvietenia obrazovky, a ráno ju nájdeš ako každú inú. Odhlásenie z konta je teraz úplné. Meno a e-mail dopĺňa telefón sám. Prepínač detí je výraznejší: vybraté dieťa poskočí, nevybraté sú len obrysom. Hláška pri zlom kóde sa ukáže tam, kde klepneš.</li></ul>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verzia 1.5.9</span> <span class="stav">V App Store</span></summary>
+    <ul><li>Dvojité klepnutie na Pridať dieťa už nezaloží dve deti s rovnakým menom. Kým sa zápis dokončuje, ďalšie klepnutie sa zahodí — platí to pre úlohy, odmeny, body aj členov rodiny. Keď sa dáta nepodarí načítať, aplikácia to teraz sama nahlási podpore, takže o výpadku vieme skôr, než nám napíšete. Aktualizovali sme aj zásady ochrany súkromia a podmienky používania, účinné od 12. 9. 2026.</li></ul>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verzia 1.5.8</span> <span class="stav">V App Store</span></summary>
+    <ul><li>Opravili sme chybu, pri ktorej obrazovka Dieťa tvrdila, že rodina nemá dieťa, hoci ho má. Stávalo sa to vtedy, keď sa dáta nepodarilo načítať. Teraz aplikácia rozozná výpadok od prázdneho zoznamu a ukáže hlášku s tlačidlom Skúsiť znova. Bublina s pomocou už neprekrýva posledný riadok textu.</li></ul>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verzia 1.5.7</span> <span class="stav">V App Store</span></summary>
     <ul><li>V histórii dieťaťa teraz pribudne aj úloha alebo odmena, ktorú rodič neuznal. Oslava za schválenú odmenu sa spustí hneď, aj keď máte aplikáciu otvorenú. Vibrácie sú silnejšie a pre každú udalosť iné, vibruje už aj obrazovka rodiča. Oslavy majú nové animácie a body sa na karte prepočítajú. Kto má v telefóne zapnuté obmedzenie pohybu, dostane oslavu bez lietajúcich častíc. Keď si dieťa zruší konto, rodičia dostanú správu a v Členoch je to označené.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Verzia 1.5.6</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verzia 1.5.6</span> <span class="stav">V App Store</span></summary>
     <ul><li>Ak dieťa klepne na úlohu omylom, teraz ju vie vziať späť. Rovnako aj žiadosť o odmenu. Pri výmene odmeny pribudlo potvrdenie, aby sa body neminuli náhodou. Rodiny s viacerými deťmi prepínajú deti kruhovými avatarmi v spodnom pruhu. Záložka Ľudia sa teraz volá Členovia. Úvod po založení rodiny je kratší a listuje sa. Dôležité oznamy vidíte priamo v aplikácii. Opravili sme zamrznutie obrazovky po prvom prihlásení.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Verzia 1.5.5</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verzia 1.5.5</span> <span class="stav">V App Store</span></summary>
     <ul><li>Každé dieťa má teraz naozaj svoje: keď pozvete druhé dieťa e-mailom, dostane vlastný profil aj vlastné body. Pri pozývaní vidíte, ktoré deti sú voľné a kedy vznikne nové. Uvítacia obrazovka je kratšia, štúdie sú v rozbaľovači Čo na to výskum. Keď niečo nevyjde, chybu uvidíte priamo pri tlačidle. Keď člen opustí rodinu, ostatní o tom dostanú upozornenie. Premenovanie dieťaťa sa prejaví všade.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Verzia 1.5.4</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verzia 1.5.4</span> <span class="stav">V App Store</span></summary>
     <ul><li>Rodina rastie s vami: druhý rodič má rovnaké práva ako zakladateľ, detí môže byť viac a prepínate sa medzi nimi. Správa rodiny je v záložke Rodina: vidíte stav pozvánok, pošlete ich znova alebo zrušíte, dieťa sa dá z rodiny odstrániť (história ostáva). Notifikácie po kategóriách, tiché hodiny pripomienok a archív notifikácií v appke. Potvrdenie Zapísať body? pri priamom zápise, rezervované body pri čakajúcej odmene, vlastné meno člena. Uvítací e-mail príde až po vstupe do rodiny.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Verzia 1.5.3</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verzia 1.5.3</span> <span class="stav">V App Store</span></summary>
     <ul><li>Rodič a Rodina: rola s plnými právami sa volá Rodič, správa rodiny je v záložke Rodina. Pri zakladaní rodiny pridáte naraz viac detí, každé má vlastný riadok pre kód či pozvánku. Dieťa sa dá z rodiny odstrániť v Rodina → Nastavenia (história ostáva). Keď posledný rodič odíde, ten, kto správu preberá, dostane upozornenie. Jasnejšie hlášky pri zlyhaní kódu, opravené texty pri prihlásení, demo ukazuje dve deti.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Verzia 1.5.2</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verzia 1.5.2</span> <span class="stav">V App Store</span></summary>
     <ul><li>Rodina rastie s vami: druhý rodič má rovnaké práva ako zakladateľ a detí môže byť viac, medzi nimi sa prepínate. Pozvánky: v zozname ľudí vidíte, či pozvaný potvrdil, viete pozvánku poslať znova alebo zrušiť; kto sa prihlási bez kódu, požiada rodinu jedným klepnutím. Kód platí 7 dní. Notifikácie po kategóriách, tiché hodiny pripomienok, archív notifikácií, potvrdenie „Zapísať body?“ pri priamom zápise, rezervované body pri čakajúcej odmene, vlastné meno člena.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Verzia 1.5.0</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verzia 1.5.0</span> <span class="stav">V App Store</span></summary>
     <ul><li>Čo je vo vydaní:</li><li>• pushky pre celú rodinu: cieľ dosiahnutý, nový level, nový člen (aj divák); pripomienky rodičom na čakajúce schválenia po 4, 10 a 18 hodinách</li><li>• archív notifikácií „Čo sa stalo naposledy" na obrazovke dieťaťa a rodiča, celá rodina v Admin → Zmeny</li><li>• pozvánka e-mailom s potvrdením; odkaz z e-mailu otvorí appku (Universal Links / App Links)</li><li>• písmo Baloo 2 namiesto Fredoky (chýbali č ľ ť ď ň ř ě ů), ikona zjednotená s iOS</li><li>• časové pásmo rodiny z telefónu rodiča, „dnes" a denné limity od tej istej polnoci ako DB</li><li>• odznak a lišta notifikácií sa čistia pri otvorení appky</li><li>• aktualizovaný návod a právne texty (účinnosť 7. 9. 2026)</li><li>• bezpečnostné opravy</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Verzia 1.4.0</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verzia 1.4.0</span> <span class="stav">V App Store</span></summary>
     <ul><li>Dieťa si vyberá vlastného avatara zo 40 postavičiek, rodič ho môže zmeniť.</li><li>Úlohy sú v kategóriách, ktoré sa rozbaľujú klepnutím.</li><li>Po založení rodiny appka pomôže pridať dieťa, druhého rodiča a diváka: kódom alebo e-mailom účtu, ktorý sa po prihlásení pripojí sám.</li><li>Pozvánka má odkaz na stiahnutie a kód sa na novom zariadení vyplní sám.</li><li>Nová obrazovka Prečo vznikol PointJar so štúdiami za úlohami a odmenami.</li><li>Lepšie zobrazenie pri veľkom písme, podpora na každej obrazovke.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Verzia 1.3.3</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verzia 1.3.3</span> <span class="stav">V App Store</span></summary>
     <ul><li>Hravejšia obrazovka dieťaťa a rýchlejšia cesta k tomu, čo sa deje.</li><li>- Džbán, ktorý sa naozaj plní: pri pripísaní bodov hladina vyskočí a pružne sa usadí. Číslo zostatku sa prepočíta, štvorčeky úloh a karty odmien poskočia.</li><li>- Jemné vibrácie pri klepnutí, pri pripísaní bodov a pri veľkej oslave.</li><li>- Školská výzva: privítanie pri prvom otvorení, odlíšený pás s postupom a trvalý odznak po splnení.</li><li>- Klepnutie na notifikáciu alebo na bodku otvorí správnu obrazovku a zvýrazní, čoho sa týka.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Verzia 1.3.2</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verzia 1.3.2</span> <span class="stav">V App Store</span></summary>
     <ul><li>Školská výzva: od 8. do 30. septembra zbieraj splnené úlohy priamo na obrazovke dieťaťa a získaj medailu.</li><li>- Opravená chyba, pri ktorej sa po návrate na obrazovku dieťaťa alebo rodiča zobrazila karta „Niečo sa pokazilo" namiesto obsahu.</li><li>- Spoľahlivejšie hlásenie chýb: ak sa predsa niečo stane, správa nám príde aj po reštarte appky.</li><li>Ďakujeme všetkým, ktorí chybu nahlásili.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Verzia 1.3.1</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verzia 1.3.1</span> <span class="stav">V App Store</span></summary>
     <ul><li>Opravná verzia.</li><li>- Opravená chyba, pri ktorej sa po návrate na obrazovku dieťaťa alebo rodiča zobrazila karta „Niečo sa pokazilo" namiesto obsahu.</li><li>- Spoľahlivejšie hlásenie chýb: ak sa predsa niečo stane, správa nám príde aj po reštarte appky.</li><li>Ďakujeme všetkým, ktorí chybu nahlásili.</li></ul>
-  </div></div>
+  </details></div>
 <div data-lang="cs"><nav>
       <a href="./">Domů</a>
       <a href="./pribeh.html">Příběh</a>
@@ -276,49 +352,82 @@ footer .pataJazyk.aktivny{display:inline}
     <p>Aplikaci vylepšujeme průběžně.</p>
   </div>
   <div class="card novinky">
-    <span class="verzia">Verze 1.5.7</span>
+    <span class="verzia">Verze 1.5.15</span> <span class="stav test">Testovací verze · TestFlight a uzavřený test v Google Play</span>
+    <ul><li>Oprava zamrzávání po odemknutí telefonu. Oznámení od PointJar se už neukazuje v systémovém okně, které na některých telefonech s Androidem přestalo reagovat na klepnutí a appku bylo třeba vypnout. Popup je teď součástí appky a zavřeš ho tlačítkem i gestem zpět. Když se appka otevře dřív, než telefonu naběhne připojení, načtení se zkusí znovu dvakrát místo jednou.</li></ul>
+  </div>
+  <h2 class="starsieNadpis">Starší verze</h2>
+  <details class="card novinky">
+    <summary><span class="verzia">Verze 1.5.14</span> <span class="stav test">Testovací verze · TestFlight a uzavřený test v Google Play</span></summary>
+    <ul><li>Další oprava zamrzávání. Když se appka otevřela dřív, než telefonu naběhlo připojení, načtení selhalo a obrazovka zůstala stát, dokud jsi appku nerestartoval. Teď to appka po chvíli sama zkusí znovu a obrazovka se načte bez zásahu. Opakuje se jen načítání údajů, ne zápis, takže nahlášený úkol ani schválení se tím nemohou zapsat dvakrát.</li></ul>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verze 1.5.13</span> <span class="stav test">Testovací verze · TestFlight a uzavřený test v Google Play</span></summary>
+    <ul><li>Oprava zamrzávání. Když appka zůstala dlouho otevřená na pozadí, po návratu se obrazovka občas nenačetla a pomohl až restart. Přihlášení se teď obnoví dřív, než si appka řekne o data, a když se to přesto nepovede, zkusí to sama ještě jednou. Záložky Rodič a Nastavení se po návratu z pozadí obnoví stejně jako dětská obrazovka, takže hned vidíš aktuální stav. Načítání má i časový limit, aby appka při slabém spojení nepřestala reagovat.</li></ul>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verze 1.5.12</span> <span class="stav test">Testovací verze · TestFlight a uzavřený test v Google Play</span></summary>
+    <ul><li>Zvaní do rodiny je nově v jednom bloku a v pořadí, v jakém o tom člověk přemýšlí: koho přidáváš, u dítěte i které, a teprve potom jestli mu pošleš kód nebo e-mail. U nového dítěte appka rovnou vysvětlí, proč je potřeba e-mail — kódu se jméno dítěte přiřadit nedá. Výběr dítěte se ukáže vždy, když rodina nějaké má. U více dětí drží kruhy stejnou velikost a popisy záložek ustoupí ikonám, aby se vše vešlo.</li></ul>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verze 1.5.11</span> <span class="stav">V App Store</span></summary>
+    <ul><li>U více dětí je na kruhu každého vidět, kolik úkolů a žádostí mu čeká na schválení — i když právě není vybrané. Karta se zůstatkem nese jméno dítěte a pruh poměru ukazuje i body, nejen počet úkolů. V Rodině jsme uklidili Členy a Nastavení: tiché hodiny mají vlastní tlačítko Uložit, odebrání přístupu se ptá na potvrzení a dítě s vlastním účtem pozveš e-mailem přímo v Nastavení.</li></ul>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verze 1.5.10</span> <span class="stav">V App Store</span></summary>
+    <ul><li>Tiché hodiny už platí na všechny notifikace, nejen na připomínky. V nastaveném okně přijde zpráva potichu, bez zvuku a bez rozsvícení obrazovky, a ráno ji najdeš jako každou jinou. Odhlášení z účtu je teď úplné. Jméno a e-mail doplní telefon sám. Přepínač dětí je výraznější: vybrané dítě poskočí, nevybrané jsou jen obrysem. Hláška u špatného kódu se ukáže tam, kde klepneš.</li></ul>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verze 1.5.9</span> <span class="stav">V App Store</span></summary>
+    <ul><li>Dvojité klepnutí na Přidat dítě už nezaloží dvě děti se stejným jménem. Dokud se zápis dokončuje, další klepnutí se zahodí — platí to pro úkoly, odměny, body i členy rodiny. Když se data nepodaří načíst, aplikace to teď sama nahlásí podpoře, takže o výpadku víme dřív, než nám napíšete. Aktualizovali jsme také zásady ochrany soukromí a podmínky použití, účinné od 12. 9. 2026.</li></ul>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verze 1.5.8</span> <span class="stav">V App Store</span></summary>
+    <ul><li>Opravili jsme chybu, kdy obrazovka Dítě tvrdila, že rodina nemá dítě, přestože ho má. Stávalo se to tehdy, když se data nepodařilo načíst. Teď aplikace rozezná výpadek od prázdného seznamu a ukáže hlášku s tlačítkem Zkusit znovu. Bublina s nápovědou už nepřekrývá poslední řádek textu.</li></ul>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verze 1.5.7</span> <span class="stav">V App Store</span></summary>
     <ul><li>V historii dítěte teď přibude i úkol nebo odměna, kterou rodič neuznal. Oslava za schválenou odměnu se spustí hned, i když máte aplikaci otevřenou. Vibrace jsou silnější a pro každou událost jiné, vibruje už i obrazovka rodiče. Oslavy mají nové animace a body se na kartě přepočítají. Kdo má v telefonu zapnuté omezení pohybu, dostane oslavu bez létajících částic. Když si dítě zruší účet, rodiče dostanou zprávu a v Členech je to označené.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Verze 1.5.6</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verze 1.5.6</span> <span class="stav">V App Store</span></summary>
     <ul><li>Když dítě klepne na úkol omylem, teď ho umí vzít zpět. Stejně tak žádost o odměnu. Při výměně odměny přibylo potvrzení, aby se body neutratily náhodou. Rodiny s více dětmi přepínají děti kruhovými avatary ve spodním pruhu. Záložka Lidé se teď jmenuje Členové. Úvod po založení rodiny je kratší a listuje se. Důležitá oznámení vidíte přímo v aplikaci. Opravili jsme zamrznutí obrazovky po prvním přihlášení.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Verze 1.5.5</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verze 1.5.5</span> <span class="stav">V App Store</span></summary>
     <ul><li>Každé dítě má teď opravdu své: když pozvete druhé dítě e-mailem, dostane vlastní profil i vlastní body. Při zvaní vidíte, které děti jsou volné a kdy vznikne nové. Uvítací obrazovka je kratší, studie jsou v rozbalovači Co na to výzkum. Když něco nevyjde, chybu uvidíte přímo u tlačítka. Když člen opustí rodinu, ostatní dostanou upozornění. Přejmenování dítěte se projeví všude.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Verze 1.5.4</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verze 1.5.4</span> <span class="stav">V App Store</span></summary>
     <ul><li>Rodina roste s vámi: druhý rodič má stejná práva jako zakladatel, dětí může být víc a přepínáte se mezi nimi. Správa rodiny je v záložce Rodina: vidíte stav pozvánek, pošlete je znovu nebo zrušíte, dítě lze z rodiny odebrat (historie zůstává). Notifikace podle kategorií, tiché hodiny připomínek a archiv notifikací v aplikaci. Potvrzení Zapsat body? při přímém zápisu, rezervované body při čekající odměně, vlastní jméno člena. Uvítací e-mail přijde až po vstupu do rodiny.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Verze 1.5.3</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verze 1.5.3</span> <span class="stav">V App Store</span></summary>
     <ul><li>Rodič a Rodina: role s plnými právy se jmenuje Rodič, správa rodiny je v záložce Rodina. Při zakládání rodiny přidáte najednou víc dětí, každé má vlastní řádek pro kód či pozvánku. Dítě lze z rodiny odebrat v Rodina → Nastavení (historie zůstává). Když poslední rodič odejde, ten, kdo správu přebírá, dostane upozornění. Jasnější hlášky při selhání kódu, opravené texty při přihlášení, demo ukazuje dvě děti.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Verze 1.5.2</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verze 1.5.2</span> <span class="stav">V App Store</span></summary>
     <ul><li>Rodina roste s vámi: druhý rodič má stejná práva jako zakladatel a dětí může být víc, mezi nimi se přepínáte. Pozvánky: v seznamu lidí vidíte, zda pozvaný potvrdil, pozvánku pošlete znovu nebo zrušíte; kdo se přihlásí bez kódu, požádá rodinu jedním klepnutím. Kód platí 7 dní. Notifikace po kategoriích, tiché hodiny připomínek, archiv notifikací, potvrzení „Zapsat body?“ při přímém zápisu, rezervované body u čekající odměny, vlastní jméno člena.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Verze 1.5.0</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verze 1.5.0</span> <span class="stav">V App Store</span></summary>
     <ul><li>Co je ve vydání:</li><li>• notifikace pro celou rodinu: cíl dosažen, nový level, nový člen (i divák); připomínky rodičům na čekající schválení po 4, 10 a 18 hodinách</li><li>• archiv notifikací „Co se stalo naposledy" na obrazovce dítěte a rodiče, celá rodina v Admin → Změny</li><li>• pozvánka e-mailem s potvrzením; odkaz z e-mailu otevře appku (Universal Links / App Links)</li><li>• písmo Baloo 2 místo Fredoky (chyběly č ľ ť ď ň ř ě ů), ikona sjednocená s iOS</li><li>• časové pásmo rodiny z telefonu rodiče, „dnes" a denní limity od stejné půlnoci jako DB</li><li>• odznak a lišta notifikací se čistí při otevření appky</li><li>• aktualizovaný návod a právní texty (účinnost 7. 9. 2026)</li><li>• bezpečnostní opravy</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Verze 1.4.0</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verze 1.4.0</span> <span class="stav">V App Store</span></summary>
     <ul><li>Dítě si vybírá vlastního avatara ze 40 postaviček, rodič ho může změnit.</li><li>Úkoly jsou v kategoriích, které se rozbalují klepnutím.</li><li>Po založení rodiny appka pomůže přidat dítě, druhého rodiče a diváka: kódem nebo e-mailem účtu, který se po přihlášení připojí sám.</li><li>Pozvánka má odkaz ke stažení a kód se na novém zařízení vyplní sám.</li><li>Nová obrazovka Proč vznikl PointJar se studiemi za úkoly a odměnami.</li><li>Lepší zobrazení při velkém písmu, podpora na každé obrazovce.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Verze 1.3.3</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verze 1.3.3</span> <span class="stav">V App Store</span></summary>
     <ul><li>Hravější obrazovka dítěte a rychlejší cesta k tomu, co se děje.</li><li>- Džbán, který se opravdu plní: při připsání bodů hladina vyskočí a pružně se usadí. Číslo zůstatku se přepočítá, čtverečky úkolů a karty odměn poskočí.</li><li>- Jemné vibrace při klepnutí, při připsání bodů a při velké oslavě.</li><li>- Školní výzva: přivítání při prvním otevření, odlišený pás s postupem a trvalý odznak po splnění.</li><li>- Klepnutí na notifikaci nebo na tečku otevře správnou obrazovku a zvýrazní, čeho se týká.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Verze 1.3.2</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verze 1.3.2</span> <span class="stav">V App Store</span></summary>
     <ul><li>Školní výzva: od 8. do 30. září sbírej splněné úkoly přímo na obrazovce dítěte a získej medaili.</li><li>- Opravena chyba, kdy se po návratu na obrazovku dítěte nebo rodiče zobrazila karta „Něco se pokazilo" místo obsahu.</li><li>- Spolehlivější hlášení chyb: pokud se přece něco stane, zpráva nám přijde i po restartu aplikace.</li><li>Děkujeme všem, kdo chybu nahlásili.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Verze 1.3.1</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Verze 1.3.1</span> <span class="stav">V App Store</span></summary>
     <ul><li>Opravná verze.</li><li>- Opravena chyba, kdy se po návratu na obrazovku dítěte nebo rodiče zobrazila karta „Něco se pokazilo" místo obsahu.</li><li>- Spolehlivější hlášení chyb: pokud se přece něco stane, zpráva nám přijde i po restartu aplikace.</li><li>Děkujeme všem, kdo chybu nahlásili.</li></ul>
-  </div></div>
+  </details></div>
 <div data-lang="de"><nav>
       <a href="./">Start</a>
       <a href="./pribeh.html">Geschichte</a>
@@ -332,49 +441,82 @@ footer .pataJazyk.aktivny{display:inline}
     <p>Wir verbessern die App laufend.</p>
   </div>
   <div class="card novinky">
-    <span class="verzia">Version 1.5.7</span>
+    <span class="verzia">Version 1.5.15</span> <span class="stav test">Testversion · TestFlight und geschlossener Test bei Google Play</span>
+    <ul><li>Fehlerbehebung zum Einfrieren nach dem Entsperren des Telefons. Hinweise von PointJar erscheinen nicht mehr in einem Systemfenster, das auf manchen Android-Telefonen nicht mehr auf Tippen reagierte, sodass die App beendet werden musste. Der Hinweis ist jetzt Teil der App und lässt sich per Taste oder Zurück-Geste schließen. Öffnet sich die App, bevor die Verbindung steht, wird das Laden zweimal statt einmal wiederholt.</li></ul>
+  </div>
+  <h2 class="starsieNadpis">Ältere Versionen</h2>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.5.14</span> <span class="stav test">Testversion · TestFlight und geschlossener Test bei Google Play</span></summary>
+    <ul><li>Weitere Fehlerbehebung zum Einfrieren. Wurde die App geöffnet, bevor die Verbindung des Telefons stand, schlug das Laden fehl und der Bildschirm blieb stehen, bis die App neu gestartet wurde. Jetzt wartet die App kurz und versucht es selbst noch einmal, der Bildschirm lädt ohne Zutun. Wiederholt wird nur das Laden, nie das Speichern, damit nichts doppelt erfasst wird.</li></ul>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.5.13</span> <span class="stav test">Testversion · TestFlight und geschlossener Test bei Google Play</span></summary>
+    <ul><li>Fehlerbehebung: Einfrieren. Blieb die App längere Zeit im Hintergrund geöffnet, wurde der Bildschirm nach der Rückkehr manchmal nicht geladen und nur ein Neustart half. Die App erneuert die Anmeldung jetzt, bevor sie Daten abruft, und versucht es bei einem Fehlschlag selbst noch einmal. Die Tabs Eltern und Einstellungen aktualisieren sich nach der Rückkehr aus dem Hintergrund wie der Kinderbildschirm. Das Laden hat zudem ein Zeitlimit, damit die App bei schwacher Verbindung nicht hängen bleibt.</li></ul>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.5.12</span> <span class="stav test">Testversion · TestFlight und geschlossener Test bei Google Play</span></summary>
+    <ul><li>Das Einladen in die Familie steckt jetzt in einem einzigen Block, in der Reihenfolge, in der man darüber nachdenkt: wen du hinzufügst, bei einem Kind auch welches, und erst dann, ob du einen Code oder eine E-Mail schickst. Bei einem neuen Kind erklärt die App gleich, warum eine E-Mail nötig ist — ein Code kann den Namen des Kindes nicht mitnehmen. Die Kinderauswahl erscheint immer, wenn die Familie mindestens ein Kind hat. Bei mehreren Kindern behalten die Kreise ihre Größe.</li></ul>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.5.11</span> <span class="stav">Im App Store</span></summary>
+    <ul><li>Bei mehreren Kindern zeigt jeder Kreis, wie viele Aufgaben und Anfragen auf deine Freigabe warten — auch bei nicht ausgewählten Kindern. Die Punktekarte trägt den Namen des Kindes, und der Verhältnisbalken zeigt Punkte, nicht nur die Anzahl. Wir haben auch Mitglieder und Einstellungen aufgeräumt: die Ruhezeiten haben einen eigenen Speichern-Knopf, das Entfernen des Zugangs fragt nach, und ein Kind mit eigenem Konto lädst du direkt in den Einstellungen ein.</li></ul>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.5.10</span> <span class="stav">Im App Store</span></summary>
+    <ul><li>Die Ruhezeiten gelten jetzt für alle Mitteilungen, nicht nur für Erinnerungen. Im eingestellten Fenster kommt eine Nachricht lautlos an, ohne Ton und ohne den Bildschirm zu wecken, und liegt morgens bereit wie jede andere. Das Abmelden ist jetzt vollständig. Namen und E-Mail füllt das Telefon selbst aus. Die Kinderauswahl ist deutlicher. Die Meldung beim falschen Code erscheint dort, wo du getippt hast.</li></ul>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.5.9</span> <span class="stav">Im App Store</span></summary>
+    <ul><li>Doppeltes Tippen auf Kind hinzufügen legt nicht mehr zwei Kinder mit demselben Namen an. Solange gespeichert wird, werden weitere Tipps ignoriert — das gilt auch für Aufgaben, Belohnungen, Punkte und Familienmitglieder. Wenn Daten nicht geladen werden können, meldet die App das jetzt selbst an den Support, so erfahren wir von einer Störung, bevor Sie uns schreiben. Außerdem haben wir Datenschutz und Nutzungsbedingungen aktualisiert, gültig ab 12. 9. 2026.</li></ul>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.5.8</span> <span class="stav">Im App Store</span></summary>
+    <ul><li>Wir haben einen Fehler behoben, bei dem der Kind-Bildschirm behauptete, die Familie habe kein Kind, obwohl sie eines hat. Das passierte, wenn Daten nicht geladen werden konnten. Die App unterscheidet jetzt einen Fehler von einer leeren Liste und zeigt eine Meldung mit Erneut versuchen. Die Hilfe-Blase verdeckt nicht mehr die letzte Zeile.</li></ul>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.5.7</span> <span class="stav">Im App Store</span></summary>
     <ul><li>Im Verlauf des Kindes erscheint jetzt auch eine Aufgabe oder Belohnung, die ein Elternteil nicht anerkannt hat. Die Feier für eine genehmigte Belohnung startet sofort, auch bei geöffneter App. Vibrationen sind stärker und je nach Ereignis anders, auch der Elternbildschirm vibriert. Feiern haben neue Animationen, Punkte zählen auf der Karte hoch. Mit reduzierter Bewegung kommt die Feier ohne Partikel. Löscht ein Kind sein Konto, erfahren es die Eltern.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Version 1.5.6</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.5.6</span> <span class="stav">Im App Store</span></summary>
     <ul><li>Tippt ein Kind versehentlich auf eine Aufgabe, kann es das jetzt zurücknehmen. Ebenso eine Belohnungsanfrage. Beim Einlösen einer Belohnung fragen wir nach einer Bestätigung, damit keine Punkte aus Versehen ausgegeben werden. Familien mit mehreren Kindern wechseln über runde Avatare in der unteren Leiste. Der Tab Leute heißt jetzt Mitglieder. Die Einführung nach dem Anlegen der Familie ist kürzer. Wichtige Hinweise erscheinen direkt in der App.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Version 1.5.5</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.5.5</span> <span class="stav">Im App Store</span></summary>
     <ul><li>Jedes Kind hat jetzt wirklich sein eigenes: Ladet ihr ein zweites Kind per E-Mail ein, bekommt es ein eigenes Profil und eigene Punkte. Beim Einladen seht ihr, welche Kinder frei sind und wann ein neues entsteht. Der Willkommensbildschirm ist kürzer, die Studien stecken im Bereich Was die Forschung sagt. Klappt etwas nicht, erscheint der Fehler direkt am Button. Verlässt ein Mitglied die Familie, werden die anderen benachrichtigt.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Version 1.5.4</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.5.4</span> <span class="stav">Im App Store</span></summary>
     <ul><li>Die Familie wächst mit euch: Ein zweiter Elternteil hat dieselben Rechte wie der Gründer, es kann mehrere Kinder geben, ihr wechselt zwischen ihnen. Der Reiter Familie zeigt den Status der Einladungen, erneut senden, zurückziehen, Kind entfernen (Historie bleibt). Benachrichtigungen nach Kategorien, Ruhezeiten für Erinnerungen, Archiv in der App. Bestätigung Punkte eintragen? bei direkter Eingabe, reservierte Punkte bei wartender Belohnung. Willkommens-E-Mail erst nach dem Beitritt.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Version 1.5.3</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.5.3</span> <span class="stav">Im App Store</span></summary>
     <ul><li>Eltern und Familie: Die Rolle mit vollen Rechten heißt jetzt Elternteil, die Verwaltung liegt im Reiter Familie. Beim Anlegen der Familie fügt ihr gleich mehrere Kinder hinzu, jedes mit eigener Zeile für Code oder Einladung. Ein Kind lässt sich unter Familie → Einstellungen entfernen (Historie bleibt). Geht der letzte Elternteil, wird der Nachfolger benachrichtigt. Klarere Meldungen bei Code-Fehlern, korrigierte Anmeldetexte, die Demo zeigt zwei Kinder.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Version 1.5.2</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.5.2</span> <span class="stav">Im App Store</span></summary>
     <ul><li>Die Familie wächst mit: Ein zweiter Elternteil hat dieselben Rechte wie der Gründer, und es können mehrere Kinder dabei sein, zwischen denen ihr wechselt. Einladungen: In der Personenliste seht ihr, ob die Einladung bestätigt wurde, und könnt sie erneut senden oder zurückziehen; wer sich ohne Code anmeldet, bittet die Familie mit einem Tipp. Codes gelten 7 Tage. Benachrichtigungen nach Kategorien, Ruhezeiten, Archiv, Bestätigung „Punkte eintragen?“, reservierte Punkte, eigener Name.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Version 1.5.0</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.5.0</span> <span class="stav">Im App Store</span></summary>
     <ul><li>Das ist neu:</li><li>• Benachrichtigungen für die ganze Familie: Ziel erreicht, neues Level, neues Mitglied (auch Zuschauer); Erinnerungen an Eltern bei offenen Bestätigungen nach 4, 10 und 18 Stunden</li><li>• Benachrichtigungsarchiv „Was zuletzt passiert ist" auf dem Kinder- und Elternbildschirm, ganze Familie unter Admin → Änderungen</li><li>• Einladung per E-Mail mit Bestätigung; der Link aus der E-Mail öffnet direkt die App (Universal Links / App Links)</li><li>• Schrift Baloo 2 statt Fredoka (č ľ ť ď ň ř ě ů fehlten), Symbol an iOS angeglichen</li><li>• Zeitzone der Familie vom Telefon des Elternteils; „heute" und Tageslimits beginnen um dieselbe Mitternacht wie die Datenbank</li><li>• Badge und Benachrichtigungsleiste werden beim Öffnen der App geleert</li><li>• aktualisierte Anleitung und Rechtstexte (gültig ab 7. 9. 2026)</li><li>• Sicherheitskorrekturen</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Version 1.4.0</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.4.0</span> <span class="stav">Im App Store</span></summary>
     <ul><li>Kinder wählen ihren Avatar aus 40 Figuren, Eltern können ihn ändern.</li><li>Aufgaben sind in Kategorien, die sich per Tipp aufklappen.</li><li>Nach dem Anlegen der Familie hilft die App, Kind, zweiten Elternteil und Zuschauer hinzuzufügen: per Code oder Konto-E-Mail, die automatisch beitritt.</li><li>Einladungen enthalten einen Download-Link, der Code füllt sich am neuen Gerät selbst aus.</li><li>Neuer Bildschirm Warum es PointJar gibt, mit den Studien hinter Aufgaben und Belohnungen.</li><li>Bessere Darstellung bei großer Schrift.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Version 1.3.3</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.3.3</span> <span class="stav">Im App Store</span></summary>
     <ul><li>Verspielterer Kinderbildschirm, schnellerer Weg zum Geschehen.</li><li>- Das Glas füllt sich wirklich: Bei neuen Punkten springt der Pegel und federt ein. Der Kontostand zählt hoch, Kästchen und Belohnungskarten hüpfen.</li><li>- Sanfte Vibrationen beim Tippen, bei Punkten und bei großen Feiern.</li><li>- Schulstart-Challenge: Begrüßung beim ersten Start, eigene Fortschrittskarte, dauerhaftes Abzeichen.</li><li>- Ein Tipp auf eine Mitteilung oder den Punkt öffnet den passenden Bildschirm und hebt den Eintrag hervor.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Version 1.3.2</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.3.2</span> <span class="stav">Im App Store</span></summary>
     <ul><li>Schulstart-Challenge: Vom 8. bis 30. September erledigte Aufgaben direkt auf dem Kinderbildschirm sammeln und eine Medaille holen.</li><li>- Behoben: Beim Zurückkehren zum Kinder- oder Elternbildschirm erschien manchmal die Karte „Etwas ist schiefgelaufen" statt des Inhalts.</li><li>- Zuverlässigere Fehlermeldungen: Falls doch etwas passiert, erreicht uns der Bericht auch nach einem Neustart der App.</li><li>Danke an alle, die den Fehler gemeldet haben.</li></ul>
-  </div>
-  <div class="card novinky">
-    <span class="verzia">Version 1.3.1</span>
+  </details>
+  <details class="card novinky">
+    <summary><span class="verzia">Version 1.3.1</span> <span class="stav">Im App Store</span></summary>
     <ul><li>Fehlerbehebung.</li><li>- Behoben: Beim Zurückkehren zum Kinder- oder Elternbildschirm erschien manchmal die Karte „Etwas ist schiefgelaufen" statt des Inhalts.</li><li>- Zuverlässigere Fehlermeldungen: Falls doch etwas passiert, erreicht uns der Bericht auch nach einem Neustart der App.</li><li>Danke an alle, die den Fehler gemeldet haben.</li></ul>
-  </div></div>
+  </details></div>
   <footer>
     <span data-lang="en" class="pataJazyk"><span class="pravne">
       <a href="./privacy.html">Privacy</a> ·

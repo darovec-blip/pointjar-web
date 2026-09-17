@@ -48,7 +48,7 @@ h1{font-size:30px;margin:0}
 .jazyk-zoznam [data-lang]{display:none}
 .jazyk-zoznam [data-lang].aktivny{display:inline}
 @media (max-width:560px){header{justify-content:flex-start;padding-right:70px}}
-a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:22px}
 nav a{padding:8px 14px;border:2.5px solid var(--ink);border-radius:7px;background:var(--card);color:var(--ink);text-decoration:none;font-weight:600;font-size:14px}
 nav a:hover:not([aria-current]){background:var(--paper)}
@@ -119,6 +119,16 @@ footer a{color:var(--inkSoft)}
 .novinky ul{padding-left:20px}
 .novinky li{font-size:15px;color:var(--inkSoft)}
 .starsie{font-size:13px;color:var(--inkSoft);margin-top:12px}
+.novinky .stav{display:inline-block;font-size:12px;font-weight:700;color:var(--inkSoft);border:2px solid var(--grid);border-radius:999px;padding:2px 10px;margin-bottom:10px;vertical-align:top}
+.novinky .stav.test{background:#FFFBEA;border-color:var(--gold);color:var(--ink)}
+.starsieNadpis{margin:28px 0 12px}
+details.novinky{padding:0}
+details.novinky summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:16px 22px}
+details.novinky summary::-webkit-details-marker{display:none}
+details.novinky summary::after{content:'+';margin-left:auto;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:24px;line-height:1;color:var(--ink)}
+details.novinky[open] summary::after{content:'–'}
+details.novinky summary .verzia,details.novinky summary .stav{margin-bottom:0}
+details.novinky ul{margin:0;padding:0 22px 18px 42px}
 /* --- pätka --- */
 footer{display:flex;flex-direction:column;align-items:center;gap:8px}
 footer .pravne a{color:var(--inkSoft);text-decoration:underline;text-underline-offset:2px}
@@ -204,8 +214,8 @@ footer .pataJazyk.aktivny{display:inline}
   
   <div class="card novinky">
     <h2>What's new</h2>
-    <span class="verzia">Version 1.5.7</span>
-    <ul><li>A kid's history now also shows a task or reward a parent did not approve. The celebration for an approved reward starts right away, even with the app open. Vibrations are stronger and differ by event, and the parent screen now vibrates too. Celebrations have new animations and points count up on the card. With Reduce Motion turned on, the celebration comes without flying particles. When a kid deletes their account, parents get a message and Members shows it.</li></ul>
+    <span class="verzia">Version 1.5.15</span> <span class="stav test">Test build · TestFlight and Google Play closed testing</span>
+    <ul><li>Fix for freezing after unlocking the phone. Notices from PointJar no longer appear in a system window, which on some Android phones stopped responding to taps and forced you to close the app. The notice is now part of the app itself and closes with the button or the back gesture. If the app opens before the phone's connection is up, loading is retried twice instead of once.</li></ul>
     <p class="starsie">We keep improving the app. <a href="./novinky.html">All versions</a></p>
   </div>
   <div class="card">
@@ -266,8 +276,8 @@ footer .pataJazyk.aktivny{display:inline}
   
   <div class="card novinky">
     <h2>Čo pribudlo</h2>
-    <span class="verzia">Verzia 1.5.7</span>
-    <ul><li>V histórii dieťaťa teraz pribudne aj úloha alebo odmena, ktorú rodič neuznal. Oslava za schválenú odmenu sa spustí hneď, aj keď máte aplikáciu otvorenú. Vibrácie sú silnejšie a pre každú udalosť iné, vibruje už aj obrazovka rodiča. Oslavy majú nové animácie a body sa na karte prepočítajú. Kto má v telefóne zapnuté obmedzenie pohybu, dostane oslavu bez lietajúcich častíc. Keď si dieťa zruší konto, rodičia dostanú správu a v Členoch je to označené.</li></ul>
+    <span class="verzia">Verzia 1.5.15</span> <span class="stav test">Testovacia verzia · TestFlight a uzavretý test v Google Play</span>
+    <ul><li>Oprava zamŕzania po odomknutí telefónu. Oznam od PointJar sa už neukazuje v systémovom okne, ktoré na niektorých telefónoch s Androidom prestalo reagovať na klepnutie a appku bolo treba vypnúť. Popup je teraz súčasťou appky a zavrieš ho tlačidlom aj gestom späť. Keď sa appka otvorí skôr, než telefónu nabehne pripojenie, načítanie sa skúsi znova dvakrát namiesto raz.</li></ul>
     <p class="starsie">Appku vylepšujeme priebežne. <a href="./novinky.html">Všetky verzie</a></p>
   </div>
   <div class="card">
@@ -328,8 +338,8 @@ footer .pataJazyk.aktivny{display:inline}
   
   <div class="card novinky">
     <h2>Co přibylo</h2>
-    <span class="verzia">Verze 1.5.7</span>
-    <ul><li>V historii dítěte teď přibude i úkol nebo odměna, kterou rodič neuznal. Oslava za schválenou odměnu se spustí hned, i když máte aplikaci otevřenou. Vibrace jsou silnější a pro každou událost jiné, vibruje už i obrazovka rodiče. Oslavy mají nové animace a body se na kartě přepočítají. Kdo má v telefonu zapnuté omezení pohybu, dostane oslavu bez létajících částic. Když si dítě zruší účet, rodiče dostanou zprávu a v Členech je to označené.</li></ul>
+    <span class="verzia">Verze 1.5.15</span> <span class="stav test">Testovací verze · TestFlight a uzavřený test v Google Play</span>
+    <ul><li>Oprava zamrzávání po odemknutí telefonu. Oznámení od PointJar se už neukazuje v systémovém okně, které na některých telefonech s Androidem přestalo reagovat na klepnutí a appku bylo třeba vypnout. Popup je teď součástí appky a zavřeš ho tlačítkem i gestem zpět. Když se appka otevře dřív, než telefonu naběhne připojení, načtení se zkusí znovu dvakrát místo jednou.</li></ul>
     <p class="starsie">Aplikaci vylepšujeme průběžně. <a href="./novinky.html">Všechny verze</a></p>
   </div>
   <div class="card">
@@ -390,8 +400,8 @@ footer .pataJazyk.aktivny{display:inline}
   
   <div class="card novinky">
     <h2>Was neu ist</h2>
-    <span class="verzia">Version 1.5.7</span>
-    <ul><li>Im Verlauf des Kindes erscheint jetzt auch eine Aufgabe oder Belohnung, die ein Elternteil nicht anerkannt hat. Die Feier für eine genehmigte Belohnung startet sofort, auch bei geöffneter App. Vibrationen sind stärker und je nach Ereignis anders, auch der Elternbildschirm vibriert. Feiern haben neue Animationen, Punkte zählen auf der Karte hoch. Mit reduzierter Bewegung kommt die Feier ohne Partikel. Löscht ein Kind sein Konto, erfahren es die Eltern.</li></ul>
+    <span class="verzia">Version 1.5.15</span> <span class="stav test">Testversion · TestFlight und geschlossener Test bei Google Play</span>
+    <ul><li>Fehlerbehebung zum Einfrieren nach dem Entsperren des Telefons. Hinweise von PointJar erscheinen nicht mehr in einem Systemfenster, das auf manchen Android-Telefonen nicht mehr auf Tippen reagierte, sodass die App beendet werden musste. Der Hinweis ist jetzt Teil der App und lässt sich per Taste oder Zurück-Geste schließen. Öffnet sich die App, bevor die Verbindung steht, wird das Laden zweimal statt einmal wiederholt.</li></ul>
     <p class="starsie">Wir verbessern die App laufend. <a href="./novinky.html">Alle Versionen</a></p>
   </div>
   <div class="card">
