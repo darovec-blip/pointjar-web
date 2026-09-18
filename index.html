@@ -30,11 +30,14 @@ h1,h2,h3,nav a,button{font-family:'Baloo 2',Nunito,-apple-system,sans-serif}
 header{position:relative;display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:22px;min-height:56px}
 .logo{display:block;width:56px;height:56px;flex:none}
 h1{font-size:30px;margin:0}
-/* --- prepínač jazyka: len vlajka a šípka, zoznam sa rozbalí ako v appke --- */
+/* --- prepínač jazyka: zemeguľa + kód jazyka a šípka, zoznam sa rozbalí ako v appke.
+   Bez vlajok od 18. 9. 2026 (Matej: vlajka je štát, nie jazyk) --- */
 .jazyk-menu{position:absolute;right:0;top:50%;transform:translateY(-50%)}
 .jazyk-spust{display:flex;align-items:center;gap:6px;padding:7px 10px 7px 12px;border:2px solid var(--grid);border-radius:11px;background:var(--card);cursor:pointer;font:inherit;line-height:1}
 .jazyk-spust:hover{border-color:var(--ink)}
-.jazyk-spust .vlajka{font-size:20px}
+.jazyk-spust .vlajka{font-size:18px}
+.jazyk-spust .kod{font-family:'Baloo 2',sans-serif;font-weight:700;font-size:14px;letter-spacing:.5px;color:var(--ink)}
+.jazyk-zoznam .kod-badge{display:inline-flex;min-width:30px;justify-content:center;padding:2px 5px;border:2px solid var(--ink);border-radius:6px;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:12px}
 .jazyk-spust .sipka{font-size:11px;color:var(--inkSoft)}
 .jazyk-zoznam{position:absolute;right:0;top:calc(100% + 8px);min-width:260px;background:var(--card);border:2.5px solid var(--ink);border-radius:11px;padding:10px 8px;z-index:20;box-shadow:0 10px 30px rgba(20,33,61,.14)}
 .jazyk-zoznam[hidden]{display:none}
@@ -150,15 +153,15 @@ footer .pataJazyk.aktivny{display:inline}
 <div class="wrap">
   <header><img class="logo" src="assets/ikona.png" width="56" height="56" alt=""><h1>PointJar</h1><div class="jazyk-menu">
     <button class="jazyk-spust" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
-      <span class="vlajka" data-vlajka>🌐</span><span class="sipka">▼</span>
+      <span class="vlajka">🌐</span><span class="kod" data-kod></span><span class="sipka">▼</span>
     </button>
     <div class="jazyk-zoznam" role="listbox" hidden>
       <div class="jazyk-nadpis"><span data-lang="en">LANGUAGE</span><span data-lang="sk">JAZYK</span><span data-lang="cs">JAZYK</span><span data-lang="de">SPRACHE</span></div>
       <button type="button" role="option" data-k="auto" aria-selected="false"><span class="ikona">🌐</span><span><span data-lang="en">Browser language</span><span data-lang="sk">Podľa prehliadača</span><span data-lang="cs">Podle prohlížeče</span><span data-lang="de">Wie der Browser</span></span><span class="fajka">✓</span></button>
-      <button type="button" role="option" data-k="en" aria-selected="false"><span class="ikona">🇬🇧</span><span>English</span><span class="fajka">✓</span></button>
-      <button type="button" role="option" data-k="sk" aria-selected="false"><span class="ikona">🇸🇰</span><span>Slovenčina</span><span class="fajka">✓</span></button>
-      <button type="button" role="option" data-k="cs" aria-selected="false"><span class="ikona">🇨🇿</span><span>Čeština</span><span class="fajka">✓</span></button>
-      <button type="button" role="option" data-k="de" aria-selected="false"><span class="ikona">🇩🇪</span><span>Deutsch</span><span class="fajka">✓</span></button>
+      <button type="button" role="option" data-k="en" aria-selected="false"><span class="ikona kod-badge">EN</span><span>English</span><span class="fajka">✓</span></button>
+      <button type="button" role="option" data-k="sk" aria-selected="false"><span class="ikona kod-badge">SK</span><span>Slovenčina</span><span class="fajka">✓</span></button>
+      <button type="button" role="option" data-k="cs" aria-selected="false"><span class="ikona kod-badge">CS</span><span>Čeština</span><span class="fajka">✓</span></button>
+      <button type="button" role="option" data-k="de" aria-selected="false"><span class="ikona kod-badge">DE</span><span>Deutsch</span><span class="fajka">✓</span></button>
     </div>
   </div></header>
   <div data-lang="en"><nav>
@@ -214,7 +217,7 @@ footer .pataJazyk.aktivny{display:inline}
   
   <div class="card novinky">
     <h2>What's new</h2>
-    <span class="verzia">Version 1.5.16</span> <span class="stav">On the App Store</span>
+    <span class="verzia">Version 1.5.16</span> <span class="stav test">Test build · TestFlight and Google Play closed testing</span>
     <ul><li>A release about security and stability. Links and images in notices from PointJar are now checked, so no outside address can reach the app. On Android the app no longer goes into the phone's automatic backup, where your sign-in could have been misused — after moving to a new phone, sign in again. We also fixed a bug where a screen left in the background for a while failed to load and reported that you had no permission.</li></ul>
     <p class="starsie">We keep improving the app. <a href="./novinky.html">All versions</a></p>
   </div>
@@ -276,7 +279,7 @@ footer .pataJazyk.aktivny{display:inline}
   
   <div class="card novinky">
     <h2>Čo pribudlo</h2>
-    <span class="verzia">Verzia 1.5.16</span> <span class="stav">V App Store</span>
+    <span class="verzia">Verzia 1.5.16</span> <span class="stav test">Testovacia verzia · TestFlight a uzavretý test v Google Play</span>
     <ul><li>Vydanie o bezpečnosti a stabilite. Odkazy a obrázky v oznamoch od PointJar sa kontrolujú, takže do appky nemôže prejsť cudzia adresa. Na Androide appka už nepatrí do automatickej zálohy telefónu, kde by sa dalo zneužiť tvoje prihlásenie — po prenose na nový telefón sa preto prihlás znova. Opravili sme aj chybu, pri ktorej sa obrazovka po dlhšom čase v pozadí nenačítala a hlásila, že nemáš oprávnenie.</li></ul>
     <p class="starsie">Appku vylepšujeme priebežne. <a href="./novinky.html">Všetky verzie</a></p>
   </div>
@@ -338,7 +341,7 @@ footer .pataJazyk.aktivny{display:inline}
   
   <div class="card novinky">
     <h2>Co přibylo</h2>
-    <span class="verzia">Verze 1.5.16</span> <span class="stav">V App Store</span>
+    <span class="verzia">Verze 1.5.16</span> <span class="stav test">Testovací verze · TestFlight a uzavřený test v Google Play</span>
     <ul><li>Vydání o bezpečnosti a stabilitě. Odkazy a obrázky v oznámeních od PointJar se kontrolují, takže do appky nemůže projít cizí adresa. Na Androidu už appka nepatří do automatické zálohy telefonu, kde by se dalo zneužít tvoje přihlášení — po přenosu na nový telefon se proto přihlas znovu. Opravili jsme i chybu, při které se obrazovka po delší době na pozadí nenačetla a hlásila, že nemáš oprávnění.</li></ul>
     <p class="starsie">Aplikaci vylepšujeme průběžně. <a href="./novinky.html">Všechny verze</a></p>
   </div>
@@ -400,7 +403,7 @@ footer .pataJazyk.aktivny{display:inline}
   
   <div class="card novinky">
     <h2>Was neu ist</h2>
-    <span class="verzia">Version 1.5.16</span> <span class="stav">Im App Store</span>
+    <span class="verzia">Version 1.5.16</span> <span class="stav test">Testversion · TestFlight und geschlossener Test bei Google Play</span>
     <ul><li>Eine Version zu Sicherheit und Stabilität. Links und Bilder in Hinweisen von PointJar werden jetzt geprüft, sodass keine fremde Adresse in die App gelangt. Unter Android landet die App nicht mehr in der automatischen Telefonsicherung, in der deine Anmeldung missbraucht werden könnte — melde dich nach einem Wechsel auf ein neues Telefon erneut an. Behoben ist auch ein Fehler, bei dem ein länger im Hintergrund liegender Bildschirm nicht lud und fehlende Berechtigung meldete.</li></ul>
     <p class="starsie">Wir verbessern die App laufend. <a href="./novinky.html">Alle Versionen</a></p>
   </div>
@@ -535,7 +538,7 @@ const PUBLISHABLE='sb_publishable_SRsE77rat693ZCisKOwUzA_CN-843l8';
 (function(){
   var KLUC='pointjar.web.jazyk';
   var podporovane=['en','sk','cs','de'];
-  var VLAJKY={en:'🇬🇧',sk:'🇸🇰',cs:'🇨🇿',de:'🇩🇪'};
+  var KODY={en:'EN',sk:'SK',cs:'CS',de:'DE'};
   var menu=document.querySelector('.jazyk-menu');
   var spust=menu&&menu.querySelector('.jazyk-spust');
   var zoznam=menu&&menu.querySelector('.jazyk-zoznam');
@@ -546,7 +549,7 @@ const PUBLISHABLE='sb_publishable_SRsE77rat693ZCisKOwUzA_CN-843l8';
       el.classList.toggle('aktivny', el.getAttribute('data-lang')===k);
     });
     document.documentElement.lang=k;
-    var v=menu&&menu.querySelector('[data-vlajka]'); if(v) v.textContent=VLAJKY[k]||'🌐';
+    var v=menu&&menu.querySelector('[data-kod]'); if(v) v.textContent=KODY[k]||'';
     polozky.forEach(function(b){b.setAttribute('aria-selected', String(b.dataset.k===volba));});
   }
   function zvol(volba){
