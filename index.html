@@ -57,6 +57,14 @@ nav a{padding:8px 14px;border:2.5px solid var(--ink);border-radius:7px;backgroun
 nav a:hover:not([aria-current]){background:var(--paper)}
 nav a[aria-current]{background:var(--punchDeep);color:#fff}
 .card{background:var(--card);border:2.5px solid var(--ink);border-radius:9px;padding:22px;margin-bottom:20px}
+/* --- videá: vlastný poster, YouTube (nocookie) sa načíta až po klepnutí --- */
+.videaPozn{font-size:14px;color:var(--inkSoft)}
+.videaMriezka{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;margin-top:14px}
+.video{position:relative;display:block;width:100%;aspect-ratio:9/16;border:2.5px solid var(--ink);border-radius:12px;overflow:hidden;background:var(--ink);padding:0;cursor:pointer;font:inherit;text-align:left}
+.video img{width:100%;height:100%;object-fit:cover;display:block}
+.videoPlay{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:var(--punchDeep);color:#fff;display:grid;place-items:center;font-size:22px;border:2.5px solid #fff}
+.videoNazov{position:absolute;left:0;right:0;bottom:0;padding:10px 12px;background:rgba(20,33,61,.86);color:#fff;font-weight:800;font-size:13px;line-height:1.3}
+.videoRam iframe{width:100%;height:100%;border:0;display:block}
 .card h2{font-size:19px;margin:0 0 12px}
 .card h3{font-size:17px;margin:18px 0 8px}
 .step strong{color:var(--ink)}
@@ -148,6 +156,11 @@ footer .pataJazyk.aktivny{display:inline}
 .kroky li{font-size:15px}
 .odznakPlatformy{display:inline-block;font-size:12px;font-weight:700;color:var(--ink);background:var(--gold);border:2px solid var(--ink);border-radius:999px;padding:2px 10px;margin-right:6px}
 </style>
+<script>
+document.addEventListener('click',function(ev){var b=ev.target.closest&&ev.target.closest('.video[data-yt]');if(!b)return;
+var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+b.getAttribute('data-yt')+'?autoplay=1&rel=0&playsinline=1';
+f.allow='autoplay; encrypted-media; picture-in-picture';f.allowFullscreen=true;f.title=b.getAttribute('aria-label')||'';
+var w=document.createElement('div');w.className='video videoRam';w.appendChild(f);b.replaceWith(w);});</script>
 </head>
 <body>
 <div class="wrap">
@@ -215,6 +228,7 @@ footer .pataJazyk.aktivny{display:inline}
     <div class="galeria"><figure><div class="ramik"><img src="assets/screenshots/android/en-01.png" alt="The child's screen" loading="lazy"></div><figcaption>The child's screen</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/en-02.png" alt="Tasks in categories" loading="lazy"></div><figcaption>Tasks in categories</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/en-03.png" alt="Reward shop" loading="lazy"></div><figcaption>Reward shop</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/en-04.png" alt="The parent's approvals" loading="lazy"></div><figcaption>The parent's approvals</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/en-05.png" alt="Activities and points" loading="lazy"></div><figcaption>Activities and points</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/en-06.png" alt="Why the app exists" loading="lazy"></div><figcaption>Why the app exists</figcaption></figure></div>
   </div>
   
+  
   <div class="card novinky">
     <h2>What's new</h2>
     <span class="verzia">Version 1.5.21</span> <span class="stav test">Test build · TestFlight and Google Play closed testing</span>
@@ -275,6 +289,16 @@ footer .pataJazyk.aktivny{display:inline}
     
     <p class="zariadeniePas"><span>Android</span></p>
     <div class="galeria"><figure><div class="ramik"><img src="assets/screenshots/android/sk-01.png" alt="Obrazovka dieťaťa" loading="lazy"></div><figcaption>Obrazovka dieťaťa</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/sk-02.png" alt="Úlohy v kategóriách" loading="lazy"></div><figcaption>Úlohy v kategóriách</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/sk-03.png" alt="Obchod s odmenami" loading="lazy"></div><figcaption>Obchod s odmenami</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/sk-04.png" alt="Schvaľovanie u rodiča" loading="lazy"></div><figcaption>Schvaľovanie u rodiča</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/sk-05.png" alt="Aktivity a body" loading="lazy"></div><figcaption>Aktivity a body</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/sk-06.png" alt="Prečo appka vznikla" loading="lazy"></div><figcaption>Prečo appka vznikla</figcaption></figure></div>
+  </div>
+  
+  <div class="card videa">
+    <h2>Videá</h2>
+    <p class="videaPozn">Video sa načíta z YouTube až po klepnutí.</p>
+    <div class="videaMriezka"><button class="video" type="button" data-yt="s99pfz9r_ss" aria-label="Prehrať: PointJar za minútu: úlohy, body, odmeny">
+      <img src="assets/video/demo-sk.jpg" alt="" width="360" height="780" loading="lazy">
+      <span class="videoPlay" aria-hidden="true">▶</span>
+      <span class="videoNazov">PointJar za minútu: úlohy, body, odmeny</span>
+    </button></div>
   </div>
   
   <div class="card novinky">
@@ -339,6 +363,7 @@ footer .pataJazyk.aktivny{display:inline}
     <div class="galeria"><figure><div class="ramik"><img src="assets/screenshots/android/cs-01.png" alt="Obrazovka dítěte" loading="lazy"></div><figcaption>Obrazovka dítěte</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/cs-02.png" alt="Úkoly v kategoriích" loading="lazy"></div><figcaption>Úkoly v kategoriích</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/cs-03.png" alt="Obchod s odměnami" loading="lazy"></div><figcaption>Obchod s odměnami</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/cs-04.png" alt="Schvalování u rodiče" loading="lazy"></div><figcaption>Schvalování u rodiče</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/cs-05.png" alt="Aktivity a body" loading="lazy"></div><figcaption>Aktivity a body</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/cs-06.png" alt="Proč appka vznikla" loading="lazy"></div><figcaption>Proč appka vznikla</figcaption></figure></div>
   </div>
   
+  
   <div class="card novinky">
     <h2>Co přibylo</h2>
     <span class="verzia">Verze 1.5.21</span> <span class="stav test">Testovací verze · TestFlight a uzavřený test v Google Play</span>
@@ -400,6 +425,7 @@ footer .pataJazyk.aktivny{display:inline}
     <p class="zariadeniePas"><span>Android</span></p>
     <div class="galeria"><figure><div class="ramik"><img src="assets/screenshots/android/de-01.png" alt="Bildschirm des Kindes" loading="lazy"></div><figcaption>Bildschirm des Kindes</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/de-02.png" alt="Aufgaben in Kategorien" loading="lazy"></div><figcaption>Aufgaben in Kategorien</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/de-03.png" alt="Belohnungs-Shop" loading="lazy"></div><figcaption>Belohnungs-Shop</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/de-04.png" alt="Bestätigen als Elternteil" loading="lazy"></div><figcaption>Bestätigen als Elternteil</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/de-05.png" alt="Aktivitäten und Punkte" loading="lazy"></div><figcaption>Aktivitäten und Punkte</figcaption></figure><figure><div class="ramik"><img src="assets/screenshots/android/de-06.png" alt="Warum es die App gibt" loading="lazy"></div><figcaption>Warum es die App gibt</figcaption></figure></div>
   </div>
+  
   
   <div class="card novinky">
     <h2>Was neu ist</h2>
