@@ -907,9 +907,22 @@ const PUBLISHABLE='sb_publishable_SRsE77rat693ZCisKOwUzA_CN-843l8';
       while(odkryte<=i){polozky[odkryte].hidden=false;odkryte++;}
       stav();polozky[i].scrollIntoView();
     }
+    // Pozor: IntersectionObserver hlási len prechod cez hranicu. Keď po odkrytí
+    // ostane tlačidlo „Načítať ďalšie" stále v dohľade (krátky blok), druhý raz už
+    // nezavolá — preto sa po každom odkrytí pýtame znova a visíme aj na scrolle.
+    function vDohlade(){
+      if(viac.hidden||!viac.offsetParent) return false;
+      var r=viac.getBoundingClientRect();
+      return r.top < (window.innerHeight||document.documentElement.clientHeight)+400;
+    }
+    function skus(){
+      if(pauza) return;
+      var straz=0;
+      while(odkryte<polozky.length&&vDohlade()&&straz++<20) odkry();
+    }
     if('IntersectionObserver' in window){
       new IntersectionObserver(function(z){
-        for(var i=0;i<z.length;i++){ if(z[i].isIntersecting&&!pauza){odkry();break;} }
+        for(var i=0;i<z.length;i++){ if(z[i].isIntersecting){skus();break;} }
       },{rootMargin:'400px'}).observe(viac);
       var kde=new IntersectionObserver(function(z){
         z.forEach(function(x){
@@ -926,11 +939,21 @@ const PUBLISHABLE='sb_publishable_SRsE77rat693ZCisKOwUzA_CN-843l8';
       polozky.forEach(function(p){kde.observe(p);});
     }
     viac.addEventListener('click',odkry);
+    // Throttle cez setTimeout, nie requestAnimationFrame: v skrytej karte rAF nebeží
+    // a odkrývanie by stálo (tá istá pasca ako pri prelínaní blokov).
+    var cakaSkus=false;
+    window.addEventListener('scroll',function(){
+      if(cakaSkus||pauza||odkryte>=polozky.length) return;
+      cakaSkus=true;
+      setTimeout(function(){cakaSkus=false;skus();},60);
+    },{passive:true});
+    window.addEventListener('resize',skus);
     pauzaBtn.addEventListener('click',function(){
       pauza=!pauza;
       pauzaBtn.setAttribute('aria-pressed',String(pauza));
       pauzaBtn.textContent=pauza?ovl.dataset.pauzaZap:ovl.dataset.pauzaVyp;
       hlaska.textContent=pauza?ovl.dataset.pauzaHlaska:'';
+      if(!pauza) skus();
     });
     [].forEach.call(kont.querySelectorAll('a[href^="#"]'),function(a){
       a.addEventListener('click',function(ev){
@@ -945,6 +968,7 @@ const PUBLISHABLE='sb_publishable_SRsE77rat693ZCisKOwUzA_CN-843l8';
     window.addEventListener('resize',posunKurzor);
     if(location.hash) naCiel(location.hash);
     stav();
+    skus();
   }
   var ticha=false;
   window.addEventListener('scroll',function(){
