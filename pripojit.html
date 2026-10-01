@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
 <title>PointJar — Invitation</title>
 <meta name="description" content="PointJar is a family points app: kids earn points for chores, parents approve, and points are traded for rewards you agreed on together. Free, no ads, no tracking.">
 <link rel="canonical" href="https://pointjar.app/pripojit.html">
@@ -13,227 +14,351 @@
 <meta property="og:url" content="https://pointjar.app/pripojit.html">
 <meta property="og:image" content="https://pointjar.app/assets/nahlad.png">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/ikona.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box}
-/* --punch je značková oranžová na plochy a obrysy. Pod bielym textom má voči
-   bielej kontrast len 3,12 : 1, čo je pod hranicou WCAG AA (4,5). Všade, kde na
-   oranžovej stojí text, preto ide --punchDeep: 5,08 : 1 voči bielej a 4,77 voči
-   papieru, a značka ostáva rozpoznateľná. (nález 12. 9. 2026) */
-:root{--ink:#14213D;--inkSoft:#48587A;--paper:#F4F8FF;--grid:#D5E2F2;--card:#fff;--punch:#FF5A1F;--punchDeep:#C93C0A;--gold:#FFC400;--mint:#0FA678}
-body{margin:0;background:var(--paper);color:var(--ink);font:600 16px/1.6 Nunito,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:26px 26px}
-h1,h2,h3,nav a,button{font-family:'Baloo 2',Nunito,-apple-system,sans-serif}
-.wrap{max-width:760px;margin:0 auto;padding:28px 20px 64px}
-header{position:relative;display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:22px;min-height:56px}
-.logo{display:block;width:56px;height:56px;flex:none}
-h1{font-size:30px;margin:0}
-/* --- prepínač jazyka: zemeguľa + kód jazyka a šípka, zoznam sa rozbalí ako v appke.
-   Bez vlajok od 18. 9. 2026 (Matej: vlajka je štát, nie jazyk) --- */
-.jazyk-menu{position:absolute;right:0;top:50%;transform:translateY(-50%)}
-.jazyk-spust{display:flex;align-items:center;gap:6px;padding:7px 10px 7px 12px;border:2px solid var(--grid);border-radius:11px;background:var(--card);cursor:pointer;font:inherit;line-height:1}
+/* Vzhľad „Džbán sa plní" (návrh A, 1. 10. 2026): kobaltová + slnečná žltá, Baloo 2
+   na nadpisy a čísla, Nunito na text, svetlý aj tmavý režim podľa systému.
+   --plocha je kobalt, na ktorom stojí biely text (aj v tmavom režime drží AA).
+   --punch je značková oranžová len na plochy (výplň džbánu); text na nej je tmavý.
+   Staré mená (--paper, --card, --grid, --gold…) ostávajú ako aliasy, používajú ich
+   vložené štýly pozvánkových stránok. */
+:root{
+  --bg:#F7F9FE;--surface:#FFFFFF;--ink:#14213D;--inkSoft:#48587A;--line:#D5E2F2;
+  --cobalt:#0B5FFF;--plocha:#0B5FFF;--sun:#FFD400;--sunSoft:#FFF4B8;--naSlnku:#14213D;
+  --punch:#FF5A1F;--punchText:#C93C0A;--mint:#0FA678;--mintSoft:#DDF5EA;--leaf:#00794D;
+  --berry:#D93A3A;--glass:#EEF4FF;--tien:rgba(20,33,61,.12);
+  --paper:var(--bg);--card:var(--surface);--grid:var(--line);--gold:var(--sun);--punchDeep:var(--punchText);
+  --lockedBg:var(--glass);--vyzvaBg:var(--sunSoft);
+  --display:'Baloo 2',Nunito,system-ui,-apple-system,sans-serif;
+  --text:Nunito,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E1424;--surface:#172036;--ink:#EEF2FB;--inkSoft:#A9B6D3;--line:#26314D;
+  --cobalt:#7FA8FF;--plocha:#1F57D6;--sun:#FFD84D;--sunSoft:#3A3417;--punchText:#FF8A5C;
+  --mintSoft:#143428;--leaf:#5BD6A0;--berry:#FF7A7A;--glass:#1D2944;--tien:rgba(0,0,0,.35);color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1424;--surface:#172036;--ink:#EEF2FB;--inkSoft:#A9B6D3;--line:#26314D;
+  --cobalt:#7FA8FF;--plocha:#1F57D6;--sun:#FFD84D;--sunSoft:#3A3417;--punchText:#FF8A5C;
+  --mintSoft:#143428;--leaf:#5BD6A0;--berry:#FF7A7A;--glass:#1D2944;--tien:rgba(0,0,0,.35);color-scheme:dark}
+html{scroll-padding-top:96px}
+body{margin:0;background:var(--bg);color:var(--ink);font:600 17px/1.6 var(--text);-webkit-font-smoothing:antialiased;overflow-x:clip}
+h1,h2,h3,button{font-family:var(--display)}
+h1,h2,h3{font-weight:800;letter-spacing:-.015em;text-wrap:balance}
+a{color:inherit}
+img{max-width:100%;height:auto}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible,select:focus-visible{outline:3px solid var(--cobalt);outline-offset:3px}
+[data-lang]{display:none}
+[data-lang].aktivny{display:block}
+
+/* --- horná lišta: značka, menu, jazyk, stiahnutie --- */
+.lista{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 88%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.listaVnutro{max-width:1240px;margin:0 auto;padding:0 24px;min-height:68px;display:grid;grid-template-columns:auto 1fr auto auto;grid-template-areas:"znacka nav jazyk cta";align-items:center;column-gap:24px}
+.znacka{grid-area:znacka;display:flex;align-items:center;gap:10px;text-decoration:none;font:800 24px/1 var(--display);color:var(--ink)}
+.znacka svg{width:26px;height:30px;flex:none}
+.lista nav{grid-area:nav;display:none;gap:4px;justify-content:flex-end;min-width:0}
+.lista nav[data-lang].aktivny{display:flex}
+.lista nav a{padding:8px 12px;border-radius:10px;text-decoration:none;color:var(--inkSoft);font-weight:700;font-size:16px;white-space:nowrap}
+.lista nav a:hover{color:var(--ink);background:var(--glass)}
+.lista nav a[aria-current]{color:var(--ink);box-shadow:inset 0 -3px 0 var(--sun)}
+.jazyk-menu{grid-area:jazyk;position:relative}
+.listaCta{grid-area:cta}
+.listaCta span[data-lang].aktivny{display:inline}
+@media (max-width:1180px){
+  .listaVnutro{grid-template-columns:auto 1fr auto;grid-template-areas:"znacka jazyk cta" "nav nav nav";row-gap:2px}
+  .jazyk-menu{justify-self:end}
+  .lista nav{justify-content:flex-start;overflow-x:auto;scrollbar-width:none;margin:0 -12px;padding:0 12px 8px}
+  .lista nav::-webkit-scrollbar{display:none}
+}
+@media (max-width:767px){.listaVnutro{padding:0 16px;column-gap:12px}.listaCta{padding:10px 14px;font-size:15px}}
+
+/* --- prepínač jazyka (zemeguľa + kód), zoznam sa rozbalí ako v appke --- */
+.jazyk-spust{display:flex;align-items:center;gap:6px;padding:8px 10px 8px 12px;border:1.5px solid var(--line);border-radius:12px;background:var(--surface);cursor:pointer;font:inherit;line-height:1;color:var(--ink)}
 .jazyk-spust:hover{border-color:var(--ink)}
-.jazyk-spust .vlajka{font-size:18px}
-.jazyk-spust .kod{font-family:'Baloo 2',sans-serif;font-weight:700;font-size:14px;letter-spacing:.5px;color:var(--ink)}
-.jazyk-zoznam .kod-badge{display:inline-flex;min-width:30px;justify-content:center;padding:2px 5px;border:2px solid var(--ink);border-radius:6px;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:12px}
-.jazyk-spust .sipka{font-size:11px;color:var(--inkSoft)}
-.jazyk-zoznam{position:absolute;right:0;top:calc(100% + 8px);min-width:260px;background:var(--card);border:2.5px solid var(--ink);border-radius:11px;padding:10px 8px;z-index:20;box-shadow:0 10px 30px rgba(20,33,61,.14)}
+.jazyk-spust .vlajka{font-size:17px}
+.jazyk-spust .kod{font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.5px}
+.jazyk-spust .sipka{font-size:10px;color:var(--inkSoft)}
+.jazyk-zoznam{position:absolute;right:0;top:calc(100% + 8px);min-width:260px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:10px 8px;z-index:50;box-shadow:0 18px 40px var(--tien)}
 .jazyk-zoznam[hidden]{display:none}
-.jazyk-nadpis{font-family:'Baloo 2',sans-serif;font-weight:600;font-size:11px;letter-spacing:1.6px;color:var(--inkSoft);padding:2px 10px 8px}
-.jazyk-zoznam button{display:flex;align-items:center;gap:12px;width:100%;padding:11px 10px;border:0;border-radius:9px;background:transparent;cursor:pointer;font:inherit;font-size:16px;color:var(--ink);text-align:left}
-.jazyk-zoznam button:hover{background:var(--paper)}
-.jazyk-zoznam button[aria-selected="true"]{background:#EEF3FB}
-.jazyk-zoznam button .ikona{font-size:20px;width:26px;text-align:center}
-.jazyk-zoznam button .fajka{margin-left:auto;color:var(--mint);font-weight:800}
+.jazyk-nadpis{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:1.4px;color:var(--inkSoft);padding:2px 10px 8px}
+.jazyk-zoznam button{display:flex;align-items:center;gap:12px;width:100%;padding:11px 10px;border:0;border-radius:12px;background:transparent;cursor:pointer;font:600 16px var(--text);color:var(--ink);text-align:left}
+.jazyk-zoznam button:hover{background:var(--glass)}
+.jazyk-zoznam button[aria-selected="true"]{background:var(--glass)}
+.jazyk-zoznam button .ikona{font-size:20px;width:30px;text-align:center}
+.jazyk-zoznam .kod-badge{display:inline-flex;min-width:30px;justify-content:center;padding:2px 5px;border:1.5px solid var(--ink);border-radius:7px;font-family:var(--display);font-weight:700;font-size:12px}
+.jazyk-zoznam button .fajka{margin-left:auto;color:var(--leaf);font-weight:800}
 .jazyk-zoznam button:not([aria-selected="true"]) .fajka{visibility:hidden}
 .jazyk-zoznam [data-lang]{display:none}
 .jazyk-zoznam [data-lang].aktivny{display:inline}
-@media (max-width:560px){header{justify-content:flex-start;padding-right:70px}}
-a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:22px}
-nav a{padding:8px 14px;border:2.5px solid var(--ink);border-radius:7px;background:var(--card);color:var(--ink);text-decoration:none;font-weight:600;font-size:14px}
-nav a:hover:not([aria-current]){background:var(--paper)}
-nav a[aria-current]{background:var(--punchDeep);color:#fff}
-.card{background:var(--card);border:2.5px solid var(--ink);border-radius:9px;padding:22px;margin-bottom:20px}
-/* --- videá: vlastný poster, YouTube (nocookie) sa načíta až po klepnutí --- */
-.videaPozn{font-size:14px;color:var(--inkSoft)}
-.videaMriezka{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;margin-top:14px}
-.video{position:relative;display:block;width:100%;aspect-ratio:9/16;border:2.5px solid var(--ink);border-radius:12px;overflow:hidden;background:var(--ink);padding:0;cursor:pointer;font:inherit;text-align:left}
-.video img{width:100%;height:100%;object-fit:cover;display:block}
-.videoPlay{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:var(--punchDeep);color:#fff;display:grid;place-items:center;font-size:22px;border:2.5px solid #fff}
-.videoNazov{position:absolute;left:0;right:0;bottom:0;padding:10px 12px;background:rgba(20,33,61,.86);color:#fff;font-weight:800;font-size:13px;line-height:1.3}
-.videoRam iframe{width:100%;height:100%;border:0;display:block}
-.card h2{font-size:19px;margin:0 0 12px}
-.card h3{font-size:17px;margin:18px 0 8px}
-.step strong{color:var(--ink)}
-.notice{border-left:8px solid var(--gold)}
-.request{border-color:var(--mint)}
-.tlacidlo{display:inline-block;margin-top:8px;padding:11px 17px;border:2.5px solid var(--ink);border-radius:7px;background:var(--punchDeep);color:#fff;text-decoration:none;font-family:'Baloo 2',sans-serif;font-weight:600}
-.tlacidlo:hover{filter:brightness(.96)}
-.tlacidlo:active{transform:scale(.97);opacity:.92}
-.small{font-size:13px!important}
-.card p,.card li{color:var(--inkSoft);font-size:15px}
-.card p{margin:0 0 10px}
+
+/* --- tlačidlá --- */
+.btn,.tlacidlo{display:inline-flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap;border-radius:14px;padding:13px 22px;font:800 17px/1 var(--display);text-decoration:none;border:2px solid var(--ink);background:var(--ink);color:var(--bg);cursor:pointer;transition:transform .25s cubic-bezier(.16,1,.3,1)}
+.btn:hover,.tlacidlo:hover{transform:translateY(-2px)}
+.btn:active,.tlacidlo:active{transform:scale(.97)}
+.btnObrys{background:transparent;color:var(--ink)}
+.tlacidlo{margin-top:10px}
+
+/* --- obsah stránky --- */
+.wrap{max-width:880px;margin:0 auto;padding:40px 24px 80px}
+body.domov .wrap{max-width:1240px;padding-top:0}
+@media (max-width:767px){.wrap{padding:24px 16px 64px}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:28px;margin-bottom:20px}
+.card h2{font-size:26px;line-height:1.1;margin:0 0 12px}
+.card h3{font-size:19px;margin:20px 0 8px}
+.card p,.card li{color:var(--inkSoft);font-size:16px}
+.card p{margin:0 0 12px}
+.card strong{color:var(--ink)}
 ul,ol{margin:0;padding-left:22px}
 li{margin-bottom:8px}
-.hero{background:var(--punchDeep);color:#fff}
-.hero h2,.hero p{color:#fff}
-.kontakt a{color:var(--punchDeep);font-weight:700}
+.small{font-size:14px!important}
+.card.hero{position:relative;overflow:hidden;background:var(--plocha);color:#fff;border:0;padding:44px 40px;border-radius:28px}
+.card.hero::after{content:"";position:absolute;right:-70px;top:-70px;width:200px;height:200px;border-radius:50%;background:var(--sun);pointer-events:none}
+.card.hero h2{position:relative;z-index:1;color:#fff;font-size:clamp(32px,4.6vw,52px);line-height:1.02;max-width:18ch;margin-bottom:16px}
+.card.hero p{position:relative;z-index:1;color:rgba(255,255,255,.9);font-size:18px;max-width:58ch}
+.card.hero strong{color:#fff}
+@media (max-width:767px){.card{padding:22px;border-radius:20px}.card.hero{padding:32px 22px}.card.hero::after{width:96px;height:96px;right:-48px;top:-48px}.card.hero h2{padding-right:28px}}
+.notice{background:var(--sunSoft);border-color:transparent}
+.request{background:var(--mintSoft);border-color:transparent}
+.step strong{color:var(--ink)}
+.kontakt a{color:var(--punchText);font-weight:800}
 .q{font-weight:800;color:var(--ink);margin:14px 0 2px}
-.datum{font-size:13px;color:var(--inkSoft);margin:0 0 8px}
-label{display:block;font-weight:700;font-size:14px;margin:14px 0 4px}
-input,textarea{width:100%;padding:11px 13px;border:2.5px solid var(--ink);border-radius:7px;background:var(--card);font:inherit;font-size:15px;color:var(--ink)}
-textarea{min-height:150px;resize:vertical}
-.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-button.odoslat:active{transform:scale(.97);opacity:.92}
-button.odoslat{margin-top:18px;width:100%;padding:13px;border:2.5px solid var(--ink);border-radius:7px;background:var(--punchDeep);color:#fff;font-weight:600;font-size:16px;cursor:pointer}
-button.odoslat:active{transform:scale(.97);opacity:.92}
-button.odoslat:disabled{opacity:.6;cursor:default}
-.hlaska{margin-top:14px;font-size:14px}
-.hlaska.ok{color:#0FA678;font-weight:700}
-.hlaska.zle{color:#D93A3A}
-footer{color:var(--inkSoft);font-size:13px;text-align:center;margin-top:32px}
-footer a{color:var(--inkSoft)}
-[data-lang]{display:none}
-[data-lang].aktivny{display:block}
-.cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:18px;justify-content:center;align-items:center}
-.cta a{display:inline-block;line-height:0}
-.cta a:active{transform:scale(.97);opacity:.92}
-.cta img{display:block;width:auto}
-.cta .play{display:flex;align-items:center}
-.dovera{text-align:center;font-family:'Baloo 2',Nunito,sans-serif;font-weight:600;font-size:17px;color:var(--ink);margin:16px auto 0;max-width:56ch}
-.ako{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:14px}
-.ako div{border:2.5px solid var(--ink);border-radius:9px;background:var(--card);padding:14px;font-size:14px;color:var(--inkSoft)}
-.ako div span{display:block;font-size:26px;margin-bottom:6px}
-.platformyText{text-align:center;color:var(--inkSoft);font-size:14px;margin:-4px 0 14px}
-.platformy{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
-.platforma{display:flex;flex-direction:column;align-items:center;gap:8px}
-.platforma .ramik{width:100%;border:2.5px solid var(--ink);border-radius:20px;background:var(--paper);overflow:hidden;display:flex}
-.platforma img{width:100%;display:block}
-.platforma .label{font-family:'Baloo 2',sans-serif;font-weight:600;font-size:13px;color:var(--ink)}
-.platforma .stav{font-size:12px;color:var(--inkSoft)}
-.platforma.android .ramik{aspect-ratio:9/19;align-items:center;justify-content:center;flex-direction:column;gap:10px;color:var(--inkSoft);font-size:13px;text-align:center;padding:12px}
-.platforma.android .ramik svg{opacity:.85}
+.datum{font-size:14px;color:var(--inkSoft);margin:0 0 8px}
+.ako{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-top:14px}
+.ako div{border-radius:18px;background:var(--bg);padding:18px;font-size:15px;color:var(--inkSoft)}
+.ako div span{display:block;font-size:28px;margin-bottom:8px}
+.ako div strong{font-family:var(--display);font-size:18px}
 
-/* --- galéria screenshotov --- */
-.galeria{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:14px}
-.galeria figure{margin:0;display:flex;flex-direction:column;gap:7px}
-.galeria .ramik{border:2.5px solid var(--ink);border-radius:18px;background:var(--paper);overflow:hidden}
-.galeria img{width:100%;display:block}
-.galeria figcaption{font-size:13px;color:var(--inkSoft);text-align:center}
-.zariadeniePas{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:2px 0 14px}
-.zariadeniePas span{font-size:12px;color:var(--inkSoft);border:2px solid var(--grid);border-radius:999px;padding:3px 11px;background:var(--card)}
+/* --- formulár --- */
+label{display:block;font-weight:700;font-size:15px;margin:16px 0 6px;color:var(--ink)}
+input,textarea{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);font:600 16px var(--text);color:var(--ink)}
+input:focus,textarea:focus{border-color:var(--cobalt)}
+textarea{min-height:150px;resize:vertical}
+::placeholder{color:var(--inkSoft);opacity:.8}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+button.odoslat{margin-top:20px;width:100%;padding:15px;border:0;border-radius:14px;background:var(--ink);color:var(--bg);font-weight:800;font-size:17px;cursor:pointer}
+button.odoslat:active{transform:scale(.98)}
+button.odoslat:disabled{opacity:.6;cursor:default}
+.hlaska{margin-top:14px;font-size:15px}
+.hlaska.ok{color:var(--leaf);font-weight:800}
+.hlaska.zle{color:var(--berry);font-weight:700}
+
+/* --- videá: vlastný poster, YouTube (nocookie) sa načíta až po klepnutí --- */
+.videaPozn{font-size:14px;color:var(--inkSoft)}
+.videaMriezka{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(200px,40vw),1fr));gap:16px;margin-top:16px}
+.video{position:relative;display:block;width:100%;aspect-ratio:9/16;border:0;border-radius:22px;overflow:hidden;background:#14213D;padding:0;cursor:pointer;font:inherit;text-align:left}
+.video img{width:100%;height:100%;object-fit:cover;display:block}
+.videoPlay{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:60px;height:60px;border-radius:50%;background:var(--sun);color:#14213D;display:grid;place-items:center;font-size:22px;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.videoNazov{position:absolute;left:0;right:0;bottom:0;padding:12px 14px;background:rgba(20,33,61,.88);color:#fff;font-weight:800;font-size:14px;line-height:1.3}
+.videoRam iframe{width:100%;height:100%;border:0;display:block}
+
 /* --- novinky / changelog --- */
-.novinky .verzia{display:inline-block;font-family:'Baloo 2',sans-serif;font-weight:600;font-size:13px;background:var(--gold);border:2.5px solid var(--ink);border-radius:999px;padding:2px 12px;margin-bottom:10px}
+.novinky .verzia{display:inline-block;font-family:var(--display);font-weight:800;font-size:14px;background:var(--sun);color:#14213D;border-radius:999px;padding:3px 14px;margin-bottom:10px}
 .novinky ul{padding-left:20px}
-.novinky li{font-size:15px;color:var(--inkSoft)}
-.starsie{font-size:13px;color:var(--inkSoft);margin-top:12px}
-.novinky .stav{display:inline-block;font-size:12px;font-weight:700;color:var(--inkSoft);border:2px solid var(--grid);border-radius:999px;padding:2px 10px;margin-bottom:10px;vertical-align:top}
-.novinky .stav.test{background:#FFFBEA;border-color:var(--gold);color:var(--ink)}
-.starsieNadpis{margin:28px 0 12px}
+.novinky li{font-size:16px;color:var(--inkSoft)}
+.starsie{font-size:14px;color:var(--inkSoft);margin-top:12px}
+.novinky .stav{display:inline-block;font-size:13px;font-weight:700;color:var(--inkSoft);border:1.5px solid var(--line);border-radius:999px;padding:2px 11px;margin-bottom:10px;vertical-align:top}
+.novinky .stav.test{background:var(--sunSoft);border-color:transparent;color:var(--ink)}
+.starsieNadpis{margin:32px 0 12px;font-size:24px}
 details.novinky{padding:0}
-details.novinky summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:16px 22px}
+details.novinky summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:18px 24px}
 details.novinky summary::-webkit-details-marker{display:none}
-details.novinky summary::after{content:'+';margin-left:auto;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:24px;line-height:1;color:var(--ink)}
-details.novinky[open] summary::after{content:'–'}
+details.novinky summary::after{content:'+';margin-left:auto;font-family:var(--display);font-weight:800;font-size:24px;line-height:1;color:var(--ink)}
+details.novinky[open] summary::after{content:'−'}
 details.novinky summary .verzia,details.novinky summary .stav{margin-bottom:0}
-details.novinky ul{margin:0;padding:0 22px 18px 42px}
-/* --- pätka --- */
-footer{display:flex;flex-direction:column;align-items:center;gap:8px}
-footer .pravne a{color:var(--inkSoft);text-decoration:underline;text-underline-offset:2px}
-footer .pataDrobne{font-size:12px;opacity:.8}
-footer .pataJazyk{display:none}
-footer .pataJazyk.aktivny{display:inline}
-/* --- podpora projektu --- */
-.sumy{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 4px}
-.sumy a,.sumy span{display:inline-block;padding:11px 20px;border:2.5px solid var(--ink);border-radius:9px;background:var(--card);font-family:'Baloo 2',sans-serif;font-weight:600;color:var(--ink);text-decoration:none}
-.sumy a:hover{background:var(--gold)}
-.platba{border-left:8px solid var(--gold);background:#FFFBEA}
-.platbaPozn{font-size:13px;color:var(--ink);opacity:.75;margin-top:10px}
+details.novinky ul{margin:0;padding:0 24px 20px 44px}
+
+/* --- podpora projektu (Stripe) --- */
+.sumy{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0 6px}
+.sumy a{display:inline-flex;align-items:center;min-height:56px;padding:12px 26px;border:2px solid var(--ink);border-radius:16px;background:var(--surface);font:800 22px/1 var(--display);color:var(--ink);text-decoration:none;transition:transform .25s cubic-bezier(.16,1,.3,1),background .2s}
+.sumy a:hover{background:var(--sun);color:#14213D;border-color:#14213D;transform:translateY(-2px)}
+.sumy a:last-child{font-size:18px}
+.platba{background:var(--sunSoft);border-color:transparent}
+.platbaPozn{font-size:14px;color:var(--ink);opacity:.8;margin-top:12px}
+
 /* --- testovanie --- */
-.kroky li{font-size:15px}
-.odznakPlatformy{display:inline-block;font-size:12px;font-weight:700;color:var(--ink);background:var(--gold);border:2px solid var(--ink);border-radius:999px;padding:2px 10px;margin-right:6px}
-/* --- Nový layout domova a návodu (21. 9. 2026): sekcie sa dopĺňajú pri scrolle
-   a každá má preklik na plnú stránku. Mantinely podľa vzoru infinite-scroll
-   (uxpatterns.dev): fallback tlačidlo, pauza, aria-live, dosiahnuteľná pätička,
-   obsah v HTML aj bez JS. --- */
-:root{--lockedBg:#E8EDF5;--vyzvaBg:#FFF3C4}
-body.siroka .wrap{max-width:1120px;padding-bottom:96px}
-/* na stránkach s postupným dopĺňaním nesie právne odkazy trvalá spodná lišta;
-   bežná pätička by sa dole aj tak nedala dosiahnuť */
-body.siroka > .wrap > footer{display:none}
+.kroky li{font-size:16px}
+.odznakPlatformy{display:inline-block;font-size:13px;font-weight:800;color:#14213D;background:var(--sun);border-radius:999px;padding:3px 11px;margin-right:8px;vertical-align:middle}
+
+/* --- pätka --- */
+.pata{border-top:1px solid var(--line);margin-top:24px}
+.pataVnutro{max-width:1240px;margin:0 auto;padding:44px 24px 56px;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+.pataVnutro[data-lang].aktivny{display:grid}
+.pata .znacka{font-size:22px}
+.pata p{color:var(--inkSoft);font-size:15px;margin:12px 0 0;max-width:36ch}
+.pata h3{font-size:15px;margin:4px 0 12px;color:var(--ink)}
+.pata ul{list-style:none;padding:0;margin:0}
+.pata li{margin:0 0 8px}
+.pata a{color:var(--inkSoft);text-decoration:none;font-size:15px}
+.pata a:hover{color:var(--ink);text-decoration:underline}
+.pataDrobne{grid-column:1/-1;border-top:1px solid var(--line);padding-top:20px;font-size:13px;color:var(--inkSoft)}
+.pataDrobne a{font-size:13px}
+@media (max-width:767px){.pataVnutro{grid-template-columns:1fr 1fr;padding:36px 16px 48px}.pataZnacka{grid-column:1/-1}}
+body.siroka .pata{display:none}
+
+/* --- hlavná stránka --- */
+.sekcia{padding:56px 0}
+.sekcia>h2,.sekciaNadpis{font-size:clamp(32px,4vw,52px);line-height:1.04;margin:0 0 16px;max-width:18ch}
+.sekciaText{color:var(--inkSoft);max-width:60ch;margin:0 0 28px;font-size:18px}
+.domHero{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:48px 0 64px}
+.domHero h1{font-size:clamp(44px,6vw,78px);line-height:1;margin:0}
+.domHero h1 em{font-style:normal;color:var(--cobalt);display:block}
+.domHero p{font-size:20px;color:var(--inkSoft);max-width:32ch;margin:22px 0 30px}
+.obchodyRiadok{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.obchodyRiadok a{display:inline-block;line-height:0;transition:transform .25s cubic-bezier(.16,1,.3,1)}
+.obchodyRiadok a:hover{transform:translateY(-2px)}
+.obchodyRiadok img{height:52px;width:auto;display:block}
+.scena{position:relative;aspect-ratio:1/1;max-width:100%;border-radius:32px;background:var(--plocha);overflow:hidden}
+.scena::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.09) 1px,transparent 1px);background-size:28px 28px}
+.scena .slnko{position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:var(--sun)}
+.scena img{position:absolute;display:block;border-radius:28px;box-shadow:0 30px 60px rgba(8,30,90,.35)}
+.scena .a{width:50%;left:11%;top:8%;rotate:-5deg}
+.scena .b{width:43%;left:47%;top:24%;rotate:6deg}
+@media (prefers-reduced-motion:no-preference){.scena img{animation:vznas 1s cubic-bezier(.16,1,.3,1) both}.scena .b{animation-delay:.12s}}
+@keyframes vznas{from{translate:0 40px}to{translate:0 0}}
+@media (max-width:899px){.domHero{grid-template-columns:1fr;padding:28px 0 40px;gap:32px}.scena{aspect-ratio:1/.9}}
+
+/* príbeh rolovaním: džbán stojí, kroky idú popri ňom */
+.rolMriezka{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px}
+.dzbanPin{position:sticky;top:110px;height:calc(100dvh - 160px);max-height:620px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--surface);border:1px solid var(--line);border-radius:28px}
+.dzbanPin svg{width:min(60%,260px);height:auto}
+.dzbanVypln{transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(var(--plnost,.18));transition:transform .9s cubic-bezier(.16,1,.3,1)}
+.dzbanCislo{font:800 64px/1 var(--display);font-variant-numeric:tabular-nums;margin-top:18px;text-align:center}
+.dzbanPopis{color:var(--inkSoft);font-weight:700;text-align:center}
+.krok{min-height:76dvh;display:grid;grid-template-columns:1fr 210px;gap:32px;align-items:center}
+.rolovanie.js .krok>div{opacity:.5;transition:opacity .5s}
+.rolovanie.js .krok.akt>div{opacity:1}
+.krok h3{font-size:34px;line-height:1.05;margin:0 0 12px}
+.krok p{color:var(--inkSoft);max-width:34ch;margin:0}
+.krok img{display:block;border-radius:24px;border:1px solid var(--line);box-shadow:0 20px 40px var(--tien)}
+.znakKroku{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:14px;background:var(--sunSoft);margin-bottom:16px;font:800 22px var(--display)}
+@media (max-width:899px){
+  .rolMriezka{grid-template-columns:1fr;gap:0}
+  .dzbanPin{top:118px;height:auto;max-height:none;padding:14px 18px;flex-direction:row;gap:16px;z-index:5;justify-content:flex-start}
+  .dzbanPin svg{width:54px}
+  .dzbanCislo{font-size:38px;margin:0;text-align:left}
+  .dzbanPopis{text-align:left}
+  .krok{min-height:auto;grid-template-columns:1fr;padding:44px 0;gap:20px}
+  .rolovanie.js .krok>div{opacity:1}
+  .krok img{max-width:240px}
+}
+
+/* pravidlá ako dlaždice */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.cell{border-radius:28px;padding:30px;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}
+.cell h3{font-size:30px;line-height:1.05;margin:0 0 8px}
+.cell p{margin:0;max-width:34ch}
+.c1{grid-column:span 4;background:var(--plocha);color:#fff}
+.c1 p{color:rgba(255,255,255,.88)}
+.c1 .sipkaHore{position:absolute;right:28px;top:14px;font:800 120px/1 var(--display);opacity:.22}
+.c2{grid-column:span 2;background:var(--sun);color:#14213D}
+.c3{grid-column:span 2;background:var(--mintSoft)}
+.c3 h3{color:var(--leaf)}
+.c3 p{color:var(--inkSoft)}
+.c4{grid-column:span 4;background:var(--surface);border:1px solid var(--line);flex-direction:row;align-items:center;gap:28px}
+.c4 p{color:var(--inkSoft)}
+.c4 img{width:150px;border-radius:18px;align-self:flex-end;margin-bottom:-30px;flex:none}
+@media (max-width:767px){.bento{grid-template-columns:1fr}.c1,.c2,.c3,.c4{grid-column:auto}.c4{flex-direction:column;align-items:flex-start}.c4 img{align-self:center}}
+
+/* pohľad do appky: pás záberov na posúvanie */
+.zabery{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 2px 18px;scrollbar-width:thin}
+.zabery figure{flex:0 0 220px;scroll-snap-align:start;margin:0}
+.zabery img{display:block;width:100%;border-radius:22px;border:1px solid var(--line)}
+.zabery figcaption{font-weight:800;margin-top:10px}
+.platformyText{color:var(--inkSoft);margin:0 0 20px}
+
+/* návod: tri situácie */
+.zoznamSit{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.zoznamSit a{display:flex;align-items:center;gap:16px;padding:18px 22px;text-decoration:none;color:inherit}
+.zoznamSit a+a{border-top:1px solid var(--line)}
+.zoznamSit a:hover{background:var(--glass)}
+.zoznamSit .em{font-size:26px;width:34px;text-align:center;flex:none}
+.zoznamSit b{display:block;font-family:var(--display);font-weight:800;font-size:19px}
+.zoznamSit .sipka{margin-left:auto;font-family:var(--display);font-size:22px;color:var(--inkSoft)}
+.prelik{display:inline-flex;align-items:center;gap:8px;margin-top:20px;min-height:46px;padding:11px 18px;border:2px solid var(--ink);border-radius:14px;background:transparent;color:var(--ink);text-decoration:none;font-family:var(--display);font-weight:800}
+.prelik:hover{background:var(--sunSoft)}
+
+/* zadarmo */
+.zadarmo{background:var(--sunSoft);border-radius:32px;padding:72px 32px;text-align:center;margin:24px 0}
+.zadarmo h2{font-size:clamp(40px,6vw,84px);line-height:1;margin:0 auto}
+.zadarmo p{font-size:20px;color:var(--inkSoft);margin:18px auto 28px;max-width:44ch}
+.zadarmo .obchodyRiadok{justify-content:center}
+.zadarmo .prelik{margin-top:24px}
+@media (max-width:767px){.zadarmo{padding:48px 20px;border-radius:24px}}
+
+/* príbeh a kontakt vedľa seba */
+.dvojica{display:grid;grid-template-columns:1.3fr 1fr;gap:20px;align-items:stretch}
+.dvojica>div{min-width:0;border-radius:28px;padding:36px;background:var(--surface);border:1px solid var(--line)}
+.dvojica h2{font-size:clamp(28px,3vw,40px);line-height:1.05;margin:0 0 14px}
+.dvojica p{color:var(--inkSoft);margin:0}
+@media (max-width:899px){.dvojica{grid-template-columns:1fr}.dvojica>div{padding:26px}}
+
+/* --- návod: situácie s bočným zoznamom a postupným dopĺňaním (21. 9. 2026).
+   Mantinely podľa vzoru infinite-scroll (uxpatterns.dev): fallback tlačidlo,
+   pauza, aria-live, dosiahnuteľná spodná lišta, obsah v HTML aj bez JS. --- */
+body.siroka .wrap{max-width:1180px;padding-bottom:110px}
 .sitObal{display:grid;grid-template-columns:1fr 210px;gap:44px;align-items:start}
-/* návod má zoznam situácií vľavo, obsah vpravo */
 .sitObal.sbokom{grid-template-columns:270px 1fr}
-.os{position:sticky;top:20px;display:grid;gap:2px;margin:0;justify-content:stretch}
-.os a{border:0;background:transparent;position:relative;z-index:1;display:flex;align-items:center;gap:10px;min-height:36px;padding:7px 10px;border-radius:5px;font-family:'Baloo 2',sans-serif;font-weight:600;font-size:14px;color:var(--inkSoft);text-decoration:none;transition:color .2s}
+.sitObal>*{min-width:0}
+.os{position:sticky;top:100px;display:grid;gap:2px;margin:0;justify-content:stretch}
+.os a{position:relative;z-index:1;display:flex;align-items:center;gap:10px;min-height:36px;padding:7px 10px;border-radius:10px;font-family:var(--display);font-weight:700;font-size:15px;color:var(--inkSoft);text-decoration:none;transition:color .2s}
 .os a:hover{color:var(--ink)}
-.os a[aria-current]{color:#fff}
-.os .bodka{width:10px;height:10px;border-radius:999px;border:2px solid var(--ink);background:var(--card);flex:none}
-.os a[aria-current] .bodka{background:var(--gold)}
-.os a.hotovo .bodka{background:var(--mint)}
-.os .kurzor,.bok .kurzor{position:absolute;left:0;right:0;top:0;height:36px;z-index:0;pointer-events:none;background:var(--ink);border-radius:5px;opacity:0;transition:transform .32s cubic-bezier(.4,0,.2,1),height .32s cubic-bezier(.4,0,.2,1),opacity .2s}
-.blok{padding:48px 0;border-bottom:1.5px dashed var(--grid);scroll-margin-top:20px;content-visibility:auto;contain-intrinsic-size:auto 640px;transition:opacity .25s ease-out}
+.os a[aria-current]{color:var(--bg)}
+.os .bodka,.bok .bodka{width:10px;height:10px;border-radius:999px;border:2px solid var(--ink);background:var(--surface);flex:none}
+.os a[aria-current] .bodka,.bok a[aria-current] .bodka{background:var(--sun);border-color:var(--sun)}
+.os a.hotovo .bodka,.bok a.hotovo .bodka{background:var(--mint);border-color:var(--mint)}
+.os .kurzor,.bok .kurzor{position:absolute;left:0;right:0;top:0;height:36px;z-index:0;pointer-events:none;background:var(--ink);border-radius:10px;opacity:0;transition:transform .32s cubic-bezier(.4,0,.2,1),height .32s cubic-bezier(.4,0,.2,1),opacity .2s}
+.blok{padding:48px 0;border-bottom:1px solid var(--line);scroll-margin-top:96px;content-visibility:auto;contain-intrinsic-size:auto 640px;transition:opacity .25s ease-out}
 .blok.prichadza,.situacia.prichadza{opacity:0}
 .blok .card{margin:0}
-.stitok{display:inline-block;background:var(--lockedBg);border-radius:999px;padding:4px 12px;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;color:var(--inkSoft);margin-bottom:12px}
-.blokNadpis{font-size:clamp(24px,3vw,32px);margin:0 0 10px}
+.stitok{display:inline-block;background:var(--glass);border-radius:999px;padding:4px 12px;font-family:var(--display);font-weight:700;font-size:13px;color:var(--inkSoft);margin-bottom:12px}
+.blokNadpis{font-size:clamp(26px,3vw,34px);margin:0 0 10px}
 .blokText{color:var(--inkSoft);max-width:62ch;margin:0}
-.prelik{display:inline-flex;align-items:center;gap:8px;margin-top:20px;min-height:44px;padding:10px 16px;border:2.5px solid var(--ink);border-radius:7px;background:var(--card);color:var(--ink);text-decoration:none;font-family:'Baloo 2',sans-serif;font-weight:600}
-.prelik:hover{background:var(--vyzvaBg)}
-.zoznamSit{margin-top:18px;background:var(--card);border:2.5px solid var(--ink);border-radius:9px;overflow:hidden}
-.zoznamSit a{display:flex;align-items:center;gap:16px;padding:16px 20px;text-decoration:none;color:inherit}
-.zoznamSit a+a{border-top:1.5px dashed var(--grid)}
-.zoznamSit a:hover{background:var(--lockedBg)}
-.zoznamSit .em{font-size:24px;width:32px;text-align:center;flex:none}
-.zoznamSit b{display:block;font-family:'Baloo 2',sans-serif;font-weight:600;font-size:17px}
-.zoznamSit .sipka{margin-left:auto;font-family:'Baloo 2',sans-serif;font-size:20px;color:var(--inkSoft)}
 .kostra{padding:32px 0}
-.kostra div{height:16px;background:var(--lockedBg);border-radius:999px;margin-bottom:12px;animation:dych 1.4s ease-in-out infinite}
+.kostra div{height:16px;background:var(--glass);border-radius:999px;margin-bottom:12px;animation:dych 1.4s ease-in-out infinite}
 .kostra div:nth-child(1){width:28%}.kostra div:nth-child(2){width:68%;height:26px}.kostra div:nth-child(3){width:52%}
 @keyframes dych{0%,100%{opacity:1}50%{opacity:.55}}
 .ovladanie{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:24px 0 6px}
-.ovladanie button{min-height:44px;padding:10px 16px;border:2.5px solid var(--ink);border-radius:7px;background:var(--card);color:var(--ink);font-family:'Baloo 2',sans-serif;font-weight:600;font-size:15px;cursor:pointer}
-.ovladanie button:hover{background:var(--vyzvaBg)}
+.ovladanie button{min-height:46px;padding:10px 18px;border:2px solid var(--ink);border-radius:14px;background:transparent;color:var(--ink);font-weight:800;font-size:15px;cursor:pointer}
+.ovladanie button:hover{background:var(--sunSoft)}
 .stavRiadok{font-size:14px;color:var(--inkSoft)}
 .koniec{text-align:center;padding:36px 0 8px}
-.listaDole{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--ink);color:#fff;
+.listaDole{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--ink);color:var(--bg);
 /* vlastná kompozičná vrstva: bez nej Safari prekresľuje lištu spolu so stránkou a bliká */
 transform:translateZ(0);will-change:transform;backface-visibility:hidden}
-.listaDole .vnutro{max-width:1120px;margin:0 auto;padding:6px 20px;display:flex;align-items:center;gap:16px;min-height:52px;flex-wrap:wrap;font-size:14px}
-.listaDole a{color:#fff;text-decoration:none;font-weight:700}
+.listaDole .vnutro{max-width:1180px;margin:0 auto;padding:6px 20px calc(6px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:16px;min-height:52px;flex-wrap:wrap;font-size:14px}
+.listaDole a{color:var(--bg);text-decoration:none;font-weight:700}
 .listaDole a:hover{text-decoration:underline}
-.hore{margin-left:auto;background:var(--gold);color:var(--ink);border:2px solid var(--ink);border-radius:999px;padding:6px 14px;font-family:'Baloo 2',sans-serif;font-weight:600;cursor:pointer;min-height:36px;opacity:0;visibility:hidden;transform:translateY(4px);transition:opacity .2s,transform .2s,visibility .2s}
+.hore{margin-left:auto;background:var(--sun);color:#14213D;border:0;border-radius:999px;padding:7px 15px;font-weight:800;cursor:pointer;min-height:36px;opacity:0;visibility:hidden;transform:translateY(4px);transition:opacity .2s,transform .2s,visibility .2s}
 .hore.vidno{opacity:1;visibility:visible;transform:none}
-.sekcieMobil{display:none;align-items:center;gap:8px;font-weight:700}
-.sekcieMobil select{min-height:36px;border:2px solid var(--ink);border-radius:7px;background:var(--card);color:var(--ink);font:inherit;font-size:14px;padding:6px 8px}
-.bok{position:sticky;top:20px;background:var(--card);border:2.5px solid var(--ink);border-radius:9px;padding:16px;max-height:calc(100vh - 40px);overflow:auto}
-.bok .skupina{font-family:'Baloo 2',sans-serif;font-weight:700;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;color:var(--inkSoft);margin:14px 0 6px}
-.bok .skupina:first-of-type{margin-top:0}
-.bok a{position:relative;z-index:1;display:flex;gap:8px;align-items:center;min-height:36px;padding:8px 10px;border-radius:5px;color:var(--ink);text-decoration:none;font-size:15px;transition:color .2s}
-.bok a:hover{background:var(--lockedBg)}
-.bok a[aria-current]{color:#fff;font-weight:700;background:transparent}
-.bok .bodka{width:9px;height:9px;border-radius:999px;border:2px solid var(--ink);background:var(--card);flex:none}
-.bok a.hotovo .bodka{background:var(--mint)}
-.bok a[aria-current] .bodka{background:var(--gold)}
-.situacia{padding-bottom:32px;border-bottom:2.5px solid var(--ink);margin-bottom:44px;scroll-margin-top:20px;content-visibility:auto;contain-intrinsic-size:auto 800px;transition:opacity .25s ease-out}
+.sekcieMobil{display:none;align-items:center;gap:8px;font-weight:700;margin:0;color:var(--bg)}
+.sekcieMobil select{min-height:36px;border:0;border-radius:10px;background:var(--surface);color:var(--ink);font:inherit;font-size:14px;padding:6px 8px}
+.bok{position:sticky;top:100px;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:16px;max-height:calc(100vh - 130px);overflow:auto}
+.bok a{position:relative;z-index:1;display:flex;gap:8px;align-items:center;min-height:36px;padding:8px 10px;border-radius:10px;color:var(--ink);text-decoration:none;font-size:15px;transition:color .2s}
+.bok a:hover{background:var(--glass)}
+.bok a[aria-current]{color:var(--bg);font-weight:800;background:transparent}
+.situacia{padding-bottom:32px;border-bottom:1px solid var(--line);margin-bottom:44px;scroll-margin-top:96px;content-visibility:auto;contain-intrinsic-size:auto 800px;transition:opacity .25s ease-out}
 .situacia:last-of-type{border-bottom:none}
-.situaciaHlava{padding-bottom:14px;border-bottom:1.5px dashed var(--grid)}
-.situacia h2{font-size:clamp(22px,2.8vw,30px);margin:6px 0 0}
-.krokSit{display:flex;gap:16px;padding:16px 0;border-bottom:1.5px dashed var(--grid)}
+.situaciaHlava{padding-bottom:14px;border-bottom:1px solid var(--line)}
+.situacia h2{font-size:clamp(24px,2.8vw,32px);margin:6px 0 0}
+.krokSit{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
 .krokSit:last-child{border-bottom:none}
 .krokSit p{margin:4px 0 0;color:var(--inkSoft)}
-.znakSit{width:34px;height:34px;flex:none;display:flex;align-items:center;justify-content:center;border-radius:999px;background:var(--ink);color:#fff;font-family:'Baloo 2',sans-serif;font-weight:700}
-.situacia details{border-bottom:1.5px solid var(--grid);padding:12px 0}
-.situacia details summary{cursor:pointer;font-family:'Baloo 2',sans-serif;font-weight:600;font-size:17px;list-style:none;display:flex;gap:10px;align-items:center;min-height:32px}
+.znakSit{width:36px;height:36px;flex:none;display:flex;align-items:center;justify-content:center;border-radius:12px;background:var(--sunSoft);color:var(--ink);font-family:var(--display);font-weight:800}
+.situacia details{border-bottom:1px solid var(--line);padding:12px 0}
+.situacia details summary{cursor:pointer;font-family:var(--display);font-weight:700;font-size:18px;list-style:none;display:flex;gap:10px;align-items:center;min-height:32px}
 .situacia details summary::-webkit-details-marker{display:none}
-.situacia details summary::after{content:'+';margin-left:auto;font-family:'Baloo 2',sans-serif;font-size:22px;color:var(--inkSoft)}
+.situacia details summary::after{content:'+';margin-left:auto;font-family:var(--display);font-size:22px;color:var(--inkSoft)}
 .situacia details[open] summary::after{content:'−'}
 .situacia details p{margin-top:8px;color:var(--inkSoft)}
-@media (prefers-reduced-motion:reduce){.blok,.situacia{transition:none}.kostra div{animation:none}.os .kurzor,.bok .kurzor{transition:opacity .2s}}
 @media (max-width:980px){.sitObal,.sitObal.sbokom{grid-template-columns:1fr}.os{display:none}.bok{position:static;max-height:none;margin-bottom:24px}.sekcieMobil{display:flex}}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .btn:hover,.tlacidlo:hover,.sumy a:hover,.obchodyRiadok a:hover{transform:none}
+}
 
 </style>
 <script>
@@ -243,8 +368,48 @@ f.allow='autoplay; encrypted-media; picture-in-picture';f.allowFullscreen=true;f
 var w=document.createElement('div');w.className='video videoRam';w.appendChild(f);b.replaceWith(w);});</script>
 </head>
 <body>
-<div class="wrap">
-  <header><img class="logo" src="assets/ikona.png" width="56" height="56" alt=""><h1>PointJar</h1><div class="jazyk-menu">
+<header class="lista"><div class="listaVnutro">
+  <a class="znacka" href="./"><svg viewBox="0 0 52 60" fill="none" aria-hidden="true">
+<clipPath id="lista"><rect x="12.5" y="18.5" width="27" height="38" rx="6.5"></rect></clipPath>
+<rect x="12.5" y="34" width="27" height="26" fill="#FF5A1F" clip-path="url(#lista)"></rect>
+<rect x="11" y="17" width="30" height="41" rx="8" stroke="currentColor" stroke-width="3.5"></rect>
+<rect x="14.5" y="1.5" width="23" height="6" rx="3" fill="currentColor"></rect>
+<rect x="12" y="7" width="28" height="4.4" rx="2.2" fill="currentColor"></rect>
+<rect x="16.5" y="13.2" width="19" height="3" rx="1.5" fill="currentColor"></rect>
+</svg><span>PointJar</span></a>
+  <nav data-lang="en" aria-label="Main menu">
+      <a href="./">Home</a>
+      <a href="./pribeh.html">Our story</a>
+      <a href="./podpora.html">Guide</a>
+      <a href="./testovanie.html">Test the app</a>
+      <a href="./podpor.html">Support the project</a>
+      <a href="./kontakt.html">Contact</a>
+    </nav>
+  <nav data-lang="sk" aria-label="Hlavné menu">
+      <a href="./">Domov</a>
+      <a href="./pribeh.html">Príbeh</a>
+      <a href="./podpora.html">Návod</a>
+      <a href="./testovanie.html">Testovanie</a>
+      <a href="./podpor.html">Podporiť projekt</a>
+      <a href="./kontakt.html">Kontakt</a>
+    </nav>
+  <nav data-lang="cs" aria-label="Hlavní menu">
+      <a href="./">Domů</a>
+      <a href="./pribeh.html">Příběh</a>
+      <a href="./podpora.html">Návod</a>
+      <a href="./testovanie.html">Testování</a>
+      <a href="./podpor.html">Podpořit projekt</a>
+      <a href="./kontakt.html">Kontakt</a>
+    </nav>
+  <nav data-lang="de" aria-label="Hauptmenü">
+      <a href="./">Start</a>
+      <a href="./pribeh.html">Geschichte</a>
+      <a href="./podpora.html">Anleitung</a>
+      <a href="./testovanie.html">App testen</a>
+      <a href="./podpor.html">Projekt unterstützen</a>
+      <a href="./kontakt.html">Kontakt</a>
+    </nav>
+  <div class="jazyk-menu">
     <button class="jazyk-spust" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
       <span class="vlajka">🌐</span><span class="kod" data-kod></span><span class="sipka">▼</span>
     </button>
@@ -256,15 +421,11 @@ var w=document.createElement('div');w.className='video videoRam';w.appendChild(f
       <button type="button" role="option" data-k="cs" aria-selected="false"><span class="ikona kod-badge">CS</span><span>Čeština</span><span class="fajka">✓</span></button>
       <button type="button" role="option" data-k="de" aria-selected="false"><span class="ikona kod-badge">DE</span><span>Deutsch</span><span class="fajka">✓</span></button>
     </div>
-  </div></header>
-  <div data-lang="en"><nav>
-      <a href="./">Home</a>
-      <a href="./pribeh.html">Our story</a>
-      <a href="./podpora.html">Guide</a>
-      <a href="./testovanie.html">Test the app</a>
-      <a href="./podpor.html">Support the project</a>
-      <a href="./kontakt.html">Contact</a>
-    </nav><style>
+  </div>
+  <a class="btn listaCta" href="https://apps.apple.com/app/id6806119044"><span data-lang="en">Download</span><span data-lang="sk">Stiahnuť</span><span data-lang="cs">Stáhnout</span><span data-lang="de">Laden</span></a>
+</div></header>
+<main class="wrap">
+  <div data-lang="en"><style>
 .obchody{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0}
 .obchod{display:inline-block;padding:12px 20px;border:3px solid #14213D;border-radius:14px;background:#fff;color:#14213D;font-weight:800;text-decoration:none;box-shadow:4px 4px 0 #14213D}
 .obchod.ios{background:#14213D;color:#fff}
@@ -278,14 +439,7 @@ var w=document.createElement('div');w.className='video videoRam';w.appendChild(f
   <p class="bez-kodu" hidden>The link has no code. Ask the parent to send it again.</p>
   <a class="otvorit" data-otvorit href="#">I have the app, open with code</a>
   <ol><li>Install the PointJar app (links below).</li><li>Sign in with Google or Apple.</li><li>Enter the code. Valid 7 days, single use.</li></ol><div class="obchody"><a class="obchod ios" href="https://apps.apple.com/app/id6806119044"> App Store (iPhone, iPad)</a><a class="obchod" href="https://play.google.com/apps/testing/com.pointjar.app">▶ Google Play (Android)</a></div></div></div>
-<div data-lang="sk"><nav>
-      <a href="./">Domov</a>
-      <a href="./pribeh.html">Príbeh</a>
-      <a href="./podpora.html">Návod</a>
-      <a href="./testovanie.html">Testovanie</a>
-      <a href="./podpor.html">Podporiť projekt</a>
-      <a href="./kontakt.html">Kontakt</a>
-    </nav><style>
+<div data-lang="sk"><style>
 .obchody{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0}
 .obchod{display:inline-block;padding:12px 20px;border:3px solid #14213D;border-radius:14px;background:#fff;color:#14213D;font-weight:800;text-decoration:none;box-shadow:4px 4px 0 #14213D}
 .obchod.ios{background:#14213D;color:#fff}
@@ -299,14 +453,7 @@ var w=document.createElement('div');w.className='video videoRam';w.appendChild(f
   <p class="bez-kodu" hidden>V odkaze chýba kód. Popros rodiča, nech ti ho pošle znova.</p>
   <a class="otvorit" data-otvorit href="#">Mám appku, otvoriť s kódom</a>
   <ol><li>Nainštaluj appku PointJar (odkazy nižšie).</li><li>Prihlás sa cez Google alebo Apple.</li><li>Zadaj kód. Platí 7 dní a dá sa použiť raz.</li></ol><div class="obchody"><a class="obchod ios" href="https://apps.apple.com/app/id6806119044"> App Store (iPhone, iPad)</a><a class="obchod" href="https://play.google.com/apps/testing/com.pointjar.app">▶ Google Play (Android)</a></div></div></div>
-<div data-lang="cs"><nav>
-      <a href="./">Domů</a>
-      <a href="./pribeh.html">Příběh</a>
-      <a href="./podpora.html">Návod</a>
-      <a href="./testovanie.html">Testování</a>
-      <a href="./podpor.html">Podpořit projekt</a>
-      <a href="./kontakt.html">Kontakt</a>
-    </nav><style>
+<div data-lang="cs"><style>
 .obchody{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0}
 .obchod{display:inline-block;padding:12px 20px;border:3px solid #14213D;border-radius:14px;background:#fff;color:#14213D;font-weight:800;text-decoration:none;box-shadow:4px 4px 0 #14213D}
 .obchod.ios{background:#14213D;color:#fff}
@@ -320,14 +467,7 @@ var w=document.createElement('div');w.className='video videoRam';w.appendChild(f
   <p class="bez-kodu" hidden>V odkazu chybí kód. Popros rodiče, ať ti ho pošle znovu.</p>
   <a class="otvorit" data-otvorit href="#">Mám appku, otevřít s kódem</a>
   <ol><li>Nainstaluj appku PointJar (odkazy níže).</li><li>Přihlas se přes Google nebo Apple.</li><li>Zadej kód. Platí 7 dní a dá se použít jednou.</li></ol><div class="obchody"><a class="obchod ios" href="https://apps.apple.com/app/id6806119044"> App Store (iPhone, iPad)</a><a class="obchod" href="https://play.google.com/apps/testing/com.pointjar.app">▶ Google Play (Android)</a></div></div></div>
-<div data-lang="de"><nav>
-      <a href="./">Start</a>
-      <a href="./pribeh.html">Geschichte</a>
-      <a href="./podpora.html">Anleitung</a>
-      <a href="./testovanie.html">App testen</a>
-      <a href="./podpor.html">Projekt unterstützen</a>
-      <a href="./kontakt.html">Kontakt</a>
-    </nav><style>
+<div data-lang="de"><style>
 .obchody{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0}
 .obchod{display:inline-block;padding:12px 20px;border:3px solid #14213D;border-radius:14px;background:#fff;color:#14213D;font-weight:800;text-decoration:none;box-shadow:4px 4px 0 #14213D}
 .obchod.ios{background:#14213D;color:#fff}
@@ -341,27 +481,109 @@ var w=document.createElement('div');w.className='video videoRam';w.appendChild(f
   <p class="bez-kodu" hidden>Im Link fehlt der Code. Bitte den Elternteil, ihn erneut zu senden.</p>
   <a class="otvorit" data-otvorit href="#">App vorhanden, mit Code öffnen</a>
   <ol><li>Installiere die PointJar-App (Links unten).</li><li>Melde dich mit Google oder Apple an.</li><li>Gib den Code ein. 7 Tage gültig, einmal verwendbar.</li></ol><div class="obchody"><a class="obchod ios" href="https://apps.apple.com/app/id6806119044"> App Store (iPhone, iPad)</a><a class="obchod" href="https://play.google.com/apps/testing/com.pointjar.app">▶ Google Play (Android)</a></div></div></div>
-  <footer>
-    <span data-lang="en" class="pataJazyk"><span class="pravne">
-      <a href="./privacy.html">Privacy</a> ·
-      <a href="./terms.html">Terms</a> ·
-      <a href="./delete-account.html">Delete account</a>
-    </span></span><span data-lang="sk" class="pataJazyk"><span class="pravne">
-      <a href="./privacy.html">Zásady</a> ·
-      <a href="./terms.html">Podmienky</a> ·
-      <a href="./delete-account.html">Vymazať konto</a>
-    </span></span><span data-lang="cs" class="pataJazyk"><span class="pravne">
-      <a href="./privacy.html">Zásady</a> ·
-      <a href="./terms.html">Podmínky</a> ·
-      <a href="./delete-account.html">Smazat účet</a>
-    </span></span><span data-lang="de" class="pataJazyk"><span class="pravne">
-      <a href="./privacy.html">Datenschutz</a> ·
-      <a href="./terms.html">Bedingungen</a> ·
-      <a href="./delete-account.html">Konto löschen</a>
-    </span></span>
-    <span class="pataDrobne">© 2026 Matej Darovec · <a href="mailto:support@pointjar.app">support@pointjar.app</a></span>
-  </footer>
-</div>
+</main>
+<footer class="pata">
+  <div class="pataVnutro" data-lang="en">
+      <div class="pataZnacka"><a class="znacka" href="./"><svg viewBox="0 0 52 60" fill="none" aria-hidden="true">
+<clipPath id="pata-en"><rect x="12.5" y="18.5" width="27" height="38" rx="6.5"></rect></clipPath>
+<rect x="12.5" y="34" width="27" height="26" fill="#FF5A1F" clip-path="url(#pata-en)"></rect>
+<rect x="11" y="17" width="30" height="41" rx="8" stroke="currentColor" stroke-width="3.5"></rect>
+<rect x="14.5" y="1.5" width="23" height="6" rx="3" fill="currentColor"></rect>
+<rect x="12" y="7" width="28" height="4.4" rx="2.2" fill="currentColor"></rect>
+<rect x="16.5" y="13.2" width="19" height="3" rx="1.5" fill="currentColor"></rect>
+</svg><span>PointJar</span></a><p>A family points game. Free, no ads, no tracking.</p></div>
+      <div><h3>Pages</h3><ul>
+        <li><a href="./">Home</a></li>
+        <li><a href="./pribeh.html">Our story</a></li>
+        <li><a href="./podpora.html">Guide</a></li>
+        <li><a href="./novinky.html">What's new</a></li>
+        <li><a href="./testovanie.html">Test the app</a></li>
+        <li><a href="./podpor.html">Support the project</a></li>
+        <li><a href="./kontakt.html">Contact</a></li>
+      </ul></div>
+      <div><h3>Legal</h3><ul>
+        <li><a href="./privacy.html">Privacy</a></li>
+        <li><a href="./terms.html">Terms</a></li>
+        <li><a href="./delete-account.html">Delete account</a></li>
+      </ul></div>
+      <p class="pataDrobne">© 2026 Matej Darovec · <a href="mailto:support@pointjar.app">support@pointjar.app</a></p>
+    </div>
+  <div class="pataVnutro" data-lang="sk">
+      <div class="pataZnacka"><a class="znacka" href="./"><svg viewBox="0 0 52 60" fill="none" aria-hidden="true">
+<clipPath id="pata-sk"><rect x="12.5" y="18.5" width="27" height="38" rx="6.5"></rect></clipPath>
+<rect x="12.5" y="34" width="27" height="26" fill="#FF5A1F" clip-path="url(#pata-sk)"></rect>
+<rect x="11" y="17" width="30" height="41" rx="8" stroke="currentColor" stroke-width="3.5"></rect>
+<rect x="14.5" y="1.5" width="23" height="6" rx="3" fill="currentColor"></rect>
+<rect x="12" y="7" width="28" height="4.4" rx="2.2" fill="currentColor"></rect>
+<rect x="16.5" y="13.2" width="19" height="3" rx="1.5" fill="currentColor"></rect>
+</svg><span>PointJar</span></a><p>Rodinná hra o bodoch. Zadarmo, bez reklám a bez sledovania.</p></div>
+      <div><h3>Stránky</h3><ul>
+        <li><a href="./">Domov</a></li>
+        <li><a href="./pribeh.html">Príbeh</a></li>
+        <li><a href="./podpora.html">Návod</a></li>
+        <li><a href="./novinky.html">Čo pribudlo</a></li>
+        <li><a href="./testovanie.html">Testovanie</a></li>
+        <li><a href="./podpor.html">Podporiť projekt</a></li>
+        <li><a href="./kontakt.html">Kontakt</a></li>
+      </ul></div>
+      <div><h3>Právne</h3><ul>
+        <li><a href="./privacy.html">Zásady</a></li>
+        <li><a href="./terms.html">Podmienky</a></li>
+        <li><a href="./delete-account.html">Vymazať konto</a></li>
+      </ul></div>
+      <p class="pataDrobne">© 2026 Matej Darovec · <a href="mailto:support@pointjar.app">support@pointjar.app</a></p>
+    </div>
+  <div class="pataVnutro" data-lang="cs">
+      <div class="pataZnacka"><a class="znacka" href="./"><svg viewBox="0 0 52 60" fill="none" aria-hidden="true">
+<clipPath id="pata-cs"><rect x="12.5" y="18.5" width="27" height="38" rx="6.5"></rect></clipPath>
+<rect x="12.5" y="34" width="27" height="26" fill="#FF5A1F" clip-path="url(#pata-cs)"></rect>
+<rect x="11" y="17" width="30" height="41" rx="8" stroke="currentColor" stroke-width="3.5"></rect>
+<rect x="14.5" y="1.5" width="23" height="6" rx="3" fill="currentColor"></rect>
+<rect x="12" y="7" width="28" height="4.4" rx="2.2" fill="currentColor"></rect>
+<rect x="16.5" y="13.2" width="19" height="3" rx="1.5" fill="currentColor"></rect>
+</svg><span>PointJar</span></a><p>Rodinná hra o bodech. Zdarma, bez reklam a bez sledování.</p></div>
+      <div><h3>Stránky</h3><ul>
+        <li><a href="./">Domů</a></li>
+        <li><a href="./pribeh.html">Příběh</a></li>
+        <li><a href="./podpora.html">Návod</a></li>
+        <li><a href="./novinky.html">Co přibylo</a></li>
+        <li><a href="./testovanie.html">Testování</a></li>
+        <li><a href="./podpor.html">Podpořit projekt</a></li>
+        <li><a href="./kontakt.html">Kontakt</a></li>
+      </ul></div>
+      <div><h3>Právní</h3><ul>
+        <li><a href="./privacy.html">Zásady</a></li>
+        <li><a href="./terms.html">Podmínky</a></li>
+        <li><a href="./delete-account.html">Smazat účet</a></li>
+      </ul></div>
+      <p class="pataDrobne">© 2026 Matej Darovec · <a href="mailto:support@pointjar.app">support@pointjar.app</a></p>
+    </div>
+  <div class="pataVnutro" data-lang="de">
+      <div class="pataZnacka"><a class="znacka" href="./"><svg viewBox="0 0 52 60" fill="none" aria-hidden="true">
+<clipPath id="pata-de"><rect x="12.5" y="18.5" width="27" height="38" rx="6.5"></rect></clipPath>
+<rect x="12.5" y="34" width="27" height="26" fill="#FF5A1F" clip-path="url(#pata-de)"></rect>
+<rect x="11" y="17" width="30" height="41" rx="8" stroke="currentColor" stroke-width="3.5"></rect>
+<rect x="14.5" y="1.5" width="23" height="6" rx="3" fill="currentColor"></rect>
+<rect x="12" y="7" width="28" height="4.4" rx="2.2" fill="currentColor"></rect>
+<rect x="16.5" y="13.2" width="19" height="3" rx="1.5" fill="currentColor"></rect>
+</svg><span>PointJar</span></a><p>Ein Familien-Punktespiel. Kostenlos, ohne Werbung, ohne Tracking.</p></div>
+      <div><h3>Seiten</h3><ul>
+        <li><a href="./">Start</a></li>
+        <li><a href="./pribeh.html">Geschichte</a></li>
+        <li><a href="./podpora.html">Anleitung</a></li>
+        <li><a href="./novinky.html">Was neu ist</a></li>
+        <li><a href="./testovanie.html">App testen</a></li>
+        <li><a href="./podpor.html">Projekt unterstützen</a></li>
+        <li><a href="./kontakt.html">Kontakt</a></li>
+      </ul></div>
+      <div><h3>Rechtliches</h3><ul>
+        <li><a href="./privacy.html">Datenschutz</a></li>
+        <li><a href="./terms.html">Bedingungen</a></li>
+        <li><a href="./delete-account.html">Konto löschen</a></li>
+      </ul></div>
+      <p class="pataDrobne">© 2026 Matej Darovec · <a href="mailto:support@pointjar.app">support@pointjar.app</a></p>
+    </div>
+</footer>
 
 <script>
 const FUNKCIA_URL='https://bfrfsqorgjvesjwftuzi.supabase.co/functions/v1/podpora';
