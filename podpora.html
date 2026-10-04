@@ -356,6 +356,12 @@ transform:translateZ(0);will-change:transform;backface-visibility:hidden}
 .situacia details summary::after{content:'+';margin-left:auto;font-family:var(--display);font-size:22px;color:var(--inkSoft)}
 .situacia details[open] summary::after{content:'−'}
 .situacia details p{margin-top:8px;color:var(--inkSoft)}
+.navodUvod{margin:8px 0 0;font-size:18px;color:var(--inkSoft)}
+.navodZabery{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin:22px 0 8px}
+.navodZabery img{width:min(270px,44%);height:auto;border:2px solid var(--line);border-radius:22px;background:var(--surface)}
+.navodPodnadpis{margin:2px 0 0;font-size:18px;font-family:var(--display)}
+.navodTip{margin-top:18px;padding:16px 18px;border-radius:16px;background:var(--sunSoft)}
+.navodTip p{margin:4px 0 0;color:var(--ink)}
 @media (max-width:980px){.sitObal,.sitObal.sbokom{grid-template-columns:1fr}.os{display:none}.bok{position:static;max-height:none;margin-bottom:24px}.sekcieMobil{display:flex}}
 
 @media (prefers-reduced-motion:reduce){
@@ -437,86 +443,142 @@ var w=document.createElement('div');w.className='video videoRam';w.appendChild(f
   <div class="sitObal sbokom">
     <aside class="bok" aria-label="Guide">
       <span class="kurzor" aria-hidden="true"></span>
-      <a href="#s1"><span class="bodka"></span>I have just downloaded the app</a>
-      <a href="#s2"><span class="bodka"></span>I want to give the child access to the app</a>
-      <a href="#s3"><span class="bodka"></span>I am adding the other parent or grandma</a>
-      <a href="#s4"><span class="bodka"></span>Leaving the family and closing it</a>
-      <a href="#s5"><span class="bodka"></span>An ordinary day: points, tasks and approvals</a>
-      <a href="#s6"><span class="bodka"></span>I want to change the tasks and rewards</a>
-      <a href="#s7"><span class="bodka"></span>Notifications</a>
-      <a href="#s8"><span class="bodka"></span>Something is not right</a>
+      <a href="#start"><span class="bodka"></span>Getting started</a>
+      <a href="#role"><span class="bodka"></span>Who is in the family</a>
+      <a href="#pristup"><span class="bodka"></span>Access for a child</a>
+      <a href="#dieta"><span class="bodka"></span>What the child sees</a>
+      <a href="#obchod"><span class="bodka"></span>Rewards, goals and level</a>
+      <a href="#schvalit"><span class="bodka"></span>Approving</a>
+      <a href="#body"><span class="bodka"></span>Giving points</a>
+      <a href="#katalog"><span class="bodka"></span>Tasks, rewards and deductions</a>
+      <a href="#pohlad"><span class="bodka"></span>Switching views</a>
+      <a href="#clenovia"><span class="bodka"></span>Family and members</a>
+      <a href="#upozornenia"><span class="bodka"></span>Notifications</a>
+      <a href="#nastavenia"><span class="bodka"></span>Account, rules and leaving</a>
+      <a href="#problemy"><span class="bodka"></span>Something is not right</a>
       <a href="#faq"><span class="bodka"></span>FAQ</a>
       <a href="#delete-account"><span class="bodka"></span>Delete account</a>
     </aside>
     <div>
-      <article class="situacia" id="s1">
-      <div class="situaciaHlava"><span class="stitok">How to use PointJar</span><h2>🚀 I have just downloaded the app</h2></div>
-      <div class="krokSit"><span class="znakSit">1</span><div><p>You sign in with a Google account, on iPhone and iPad also with an Apple account. Sign in with Apple is not available on Android — an account created with Apple stays tied to Apple and cannot be opened on Android. The first screen has two cards: “I’m creating a new family” (a parent) and “I have a family code” (a child, the other parent or grandparents). Whoever enters a code first sees a preview “Join the … family as …?” and only joins after confirming.</p></div></div>
-      <div class="krokSit"><span class="znakSit">2</span><div><p>The first adult creates the family and becomes a parent; every other parent they add has the same rights. Right after that, the app offers to add more members with a three-question wizard: who, what is their name and how they get into the app. You can skip it and finish any time under the Family tab.</p></div></div>
-      <div class="krokSit"><span class="znakSit">3</span><div><p>Child — sees their points, tasks and the reward shop. No phone of their own needed: until they have access, a parent records the points.</p></div></div>
-      <div class="krokSit"><span class="znakSit">4</span><div><p>Parent — awards points, approves tasks and rewards and manages the family: activities and rewards under the Parent tab, members, rules and settings under the Family tab.</p></div></div>
-      <div class="krokSit"><span class="znakSit">5</span><div><p>Viewer — sees everything, changes nothing (grandma, grandpa, a sitter…). Their screen says “You are watching as a viewer”.</p></div></div>
-      <div class="krokSit"><span class="znakSit">6</span><div><p>The whole setup takes about five minutes. The rest can be finished any time later.</p></div></div></article>
-      <article class="situacia" id="s2" hidden>
-      <div class="situaciaHlava"><span class="stitok">How to use PointJar</span><h2>📱 I want to give the child access to the app</h2></div>
-      <div class="krokSit"><span class="znakSit">1</span><div><p>Under Family, tap the child and then “Give access” (or “Add a family member” → Child). The wizard asks how the child gets into the app: their own phone, a shared tablet, or not yet.</p></div></div>
-      <div class="krokSit"><span class="znakSit">2</span><div><p>Own phone — the app issues a code (e.g. HRAD-2947) valid for 7 days and usable once. On their phone the child installs the app, signs in with a Google account (or Apple on iPhone — Apple sign-in works only on iPhone and iPad), picks “I have a family code” and enters it. The child’s role is in the code, there is nothing to choose. The share message also carries a link that fills the code in by itself.</p></div></div>
-      <div class="krokSit"><span class="znakSit">3</span><div><p>Shared tablet — for a child without an account of their own. The app shows a pairing code valid for 15 minutes. On the tablet, tap “Connect a kid’s device 📱” on the sign-in screen and enter the code; no e-mail or account is needed. One tablet handles several children — when pairing you pick which ones, and on screen you switch between them by tapping the name at the top.</p></div></div>
-      <div class="krokSit"><span class="znakSit">4</span><div><p>To stop siblings on the tablet from peeking into each other’s profile, set each one a 4- to 8-digit PIN in the child’s detail under Family. Tablets are listed and disconnected under Family in the Kids’ devices block.</p></div></div>
-      <div class="krokSit"><span class="znakSit">5</span><div><p>The member list shows the child’s status: Active, Invitation pending (with the code’s expiry date), Expired or No access. Tapping the child lets you issue a new code (the old one stops working) or cancel the invitation — the child stays in the family.</p></div></div></article>
-      <article class="situacia" id="s3" hidden>
-      <div class="situaciaHlava"><span class="stitok">How to use PointJar</span><h2>👨‍👩‍👧 I am adding the other parent or grandma</h2></div>
-      <div class="krokSit"><span class="znakSit">1</span><div><p>Under Family, tap “Add a family member”, choose Another adult or Someone who just watches, type the name and pick how they get into the app: a code, an e-mail invitation, or not yet. A member is listed even without access; you can give it any time later.</p></div></div>
-      <div class="krokSit"><span class="znakSit">2</span><div><p>A code (recommended) is valid for 7 days and works once. Send it any way you like — the message also carries a download link. Whoever enters it becomes that member with that role, after the preview “Join the … family as …?”.</p></div></div>
-      <div class="krokSit"><span class="znakSit">3</span><div><p>E-mail: type the address of their Apple or Google account. They receive a message with a “Confirm invitation” button; the invitation is valid for 14 days and a reminder goes out after three days. They must sign in with exactly that address; with Apple sign-in they must not use “Hide My Email”, otherwise the addresses will not match. If that fails, send a code.</p></div></div>
-      <div class="krokSit"><span class="znakSit">4</span><div><p>A parent has the same rights as you. A viewer only watches — sees everything, changes nothing. You change a role in the member’s detail; you cannot change your own role, another parent does that.</p></div></div>
-      <div class="krokSit"><span class="znakSit">5</span><div><p>One account belongs to one family. Someone who already has a family sees, when entering a code, that they must leave it first under My account. A second household (after a divorce, say) joins the same family as a parent — the child has one balance and one history.</p></div></div>
-      <div class="krokSit"><span class="znakSit">6</span><div><p>Pause and remove — a paused member loses access at once but stays in the list, and one tap restores their access. “Remove from family” deletes them from the list; what they did in the family stays in history under their name. A removed child disappears from the list; their points and history stay with the family.</p></div></div></article>
-      <article class="situacia" id="s4" hidden>
-      <div class="situaciaHlava"><span class="stitok">How to use PointJar</span><h2>🚪 Leaving the family and closing it</h2></div>
-      <div class="krokSit"><span class="znakSit">1</span><div><p>An adult leaves on their own under My account → Leave family (by typing the family name). A child does not leave by themselves — a parent removes them under Family.</p></div></div>
-      <div class="krokSit"><span class="znakSit">2</span><div><p>If you are the only parent and there is another adult in the family, the app asks on leaving and on deleting your account who will manage the family after you. The chosen member becomes a parent and gets a message about it. If there is nobody, you can close the family.</p></div></div>
-      <div class="krokSit"><span class="znakSit">3</span><div><p>Close the family — at the very bottom of Family, after typing its name. Points, tasks, rewards and history are deleted; the other members get a message and their accounts stay.</p></div></div>
-      <div class="krokSit"><span class="znakSit">4</span><div><p>Moving to another family: after leaving, join the new family with a code. Points and history stay with the original family.</p></div></div></article>
-      <article class="situacia" id="s5" hidden>
-      <div class="situaciaHlava"><span class="stitok">How to use PointJar</span><h2>⭐ An ordinary day: points, tasks and approvals</h2></div>
-      <div class="krokSit"><span class="znakSit">1</span><div><p>A parent adds points in two taps: the Parent screen, Activities section, and tap what the child did (e.g. “Tidied room +100”). Points are added and the child gets a notification. Points outside the list you write by hand — what for and how many (minus = deduction).</p></div></div>
-      <div class="krokSit"><span class="znakSit">2</span><div><p>On their screen, under “Today I can earn”, the child taps the square. It turns yellow ⏳ (waiting for approval); once approved it turns green ✓ and the points arrive.</p></div></div>
-      <div class="krokSit"><span class="znakSit">3</span><div><p>Approvals: at the top, in “Waiting for approval” and “Reward requests”, tap ✓ or ✕.</p></div></div>
-      <div class="krokSit"><span class="znakSit">4</span><div><p>The shop — anything the child can afford, they can request (“Trade”); if they cannot afford a reward yet, they set it as their goal and the “My goal” card fills up as points are saved.</p></div></div>
-      <div class="krokSit"><span class="znakSit">5</span><div><p>Deductions are the red buttons in the Deductions category. A daily cap applies and the balance never goes below zero — the database enforces it.</p></div></div>
-      <div class="krokSit"><span class="znakSit">6</span><div><p>Level grows from total points earned and never drops, even after a deduction or a purchase. The child picks their avatar from 40 characters by tapping it in the top left.</p></div></div></article>
-      <article class="situacia" id="s6" hidden>
-      <div class="situaciaHlava"><span class="stitok">How to use PointJar</span><h2>🛠️ I want to change the tasks and rewards</h2></div>
-      <div class="krokSit"><span class="znakSit">1</span><div><p>Activities — the Parent screen → Activities: tasks and activities that earn points. Negative points = deduction. Each has a max per day.</p></div></div>
-      <div class="krokSit"><span class="znakSit">2</span><div><p>Rewards — the Parent screen → Rewards: add a new one (name, price, icon, even a photo from the phone). Edit in the list and save 💾; ✕ retires a reward, history stays.</p></div></div>
-      <div class="krokSit"><span class="znakSit">3</span><div><p>The starter catalogue is translated into 4 languages; items you add or rename are shown exactly as you wrote them.</p></div></div>
-      <div class="krokSit"><span class="znakSit">4</span><div><p>Family — below the member list are the Rules (daily deduction cap, points per level) and quiet hours for reminders. The child’s name, avatar and PIN are edited by tapping the child in the list.</p></div></div>
-      <div class="krokSit"><span class="znakSit">5</span><div><p>Tasks and rewards are shared by the whole family; points, the goal and history belong to each child.</p></div></div></article>
-      <article class="situacia" id="s7" hidden>
-      <div class="situaciaHlava"><span class="stitok">How to use PointJar</span><h2>🔔 Notifications</h2></div>
-      <div class="krokSit"><span class="znakSit">1</span><div><p>The app asks for notification permission after first sign-in. Parents get pinged when the child reports a task or requests a reward; the child gets approvals and declines. Whoever triggered the action gets no notification about it.</p></div></div>
-      <div class="krokSit"><span class="znakSit">2</span><div><p>Parents get a reminder when something has been waiting for approval for more than 4 hours (then again after 10 and 18 hours, and no more).</p></div></div>
-      <div class="krokSit"><span class="znakSit">3</span><div><p>Everyone in the family, viewers included, gets a message when the child saves up for their goal, reaches a new level or a new member joins.</p></div></div>
-      <div class="krokSit"><span class="znakSit">4</span><div><p>Nothing gets lost: under the top bar there is “What happened recently” — every notification you received or should have received, with its full text. Parents see the whole family’s notifications under Family → Changes.</p></div></div>
-      <div class="krokSit"><span class="znakSit">5</span><div><p>Notifications arrive in the language the app is set to on each device. A child’s notifications are set by a parent in the child’s detail under Family.</p></div></div>
-      <div class="krokSit"><span class="znakSit">6</span><div><p>The day follows the family’s time zone. The app takes it from a parent’s phone (the phone sets it from the network, not from location), so “today” and daily limits hold up on holiday too.</p></div></div></article>
-      <article class="situacia" id="s8" hidden>
-      <div class="situaciaHlava"><span class="stitok">How to use PointJar</span><h2>🆘 Something is not right</h2></div>
-      <div class="krokSit"><span class="znakSit">1</span><div><p>I only see a code screen — the account is not in any family yet. Ask a parent for a code (they create it under Family next to your name), or tap “No code? Ask your family” to send them a message with your e-mail. Or create your own family as a parent.</p></div></div>
-      <div class="krokSit"><span class="znakSit">2</span><div><p>The code does not work — it was already used, it expired (7 days), or a parent issued a new one in the meantime and the old one stopped working. Ask for the current one.</p></div></div>
-      <div class="krokSit"><span class="znakSit">3</span><div><p>I invited someone by e-mail but they cannot see the family — they have to sign in with exactly the address the invitation went to. Under Family, next to their name, you see the invitation’s status and can resend or cancel it. A code is the surest way.</p></div></div>
-      <div class="krokSit"><span class="znakSit">4</span><div><p>We added points by mistake — every entry of yours has an Undo button in History for 24 hours. A counter-entry is created, nothing is deleted.</p></div></div>
-      <div class="krokSit"><span class="znakSit">5</span><div><p>The child reported a task by mistake — a parent declines it under “Waiting for approval” and nothing is added.</p></div></div>
-      <div class="krokSit"><span class="znakSit">6</span><div><p>A task cannot be tapped twice — either it is still waiting for approval, or its daily limit is used up (e.g. teeth max 2× a day).</p></div></div>
-      <div class="krokSit"><span class="znakSit">7</span><div><p>Who changed what — Family → Changes: every edit shows who, what, from which value to which, and when.</p></div></div></article>
+      <article class="situacia" id="start">
+      <div class="situaciaHlava"><span class="stitok">How to use PointJar</span><h2>🚀 Getting started</h2><p class="navodUvod">A parent creates the family and everyone else joins with a code. It takes a few minutes.</p></div>
+      
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Signing in</h3><p>Sign in with a Google account, and on iPhone and iPad also with an Apple account. Android has no Apple sign-in, so anyone who once signed in with Apple cannot reach that account on Android.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Creating the family</h3><p>Tap “I’m creating a new family”, enter your name and your child’s name (up to six children at the start). The family name is optional. The family immediately gets a starter catalog of tasks and rewards that you can adjust.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">I have a family code</h3><p>The other parent, a grandparent or a child with their own account taps “I have a family code” and enters the 8-character code (for example ABCD-1234). They see which family and role they are joining and only join after confirming.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">More members</h3><p>At the end of setup the app offers to give the children access and to add other adults. Nothing is required, everything can be done later in the Family tab.</p></div></div>
+      <div class="navodTip"><b>💡 Tip</b><p>Before you create a family, open “Try the demo without signing in 👀”. It shows the child’s and the parent’s view with made-up children, and nothing is saved.</p></div></article>
+      <article class="situacia" id="role" hidden>
+      <div class="situaciaHlava"><span class="stitok">How to use PointJar</span><h2>👨‍👩‍👧 Who is in the family</h2><p class="navodUvod">Every member has one role: parent, kid or viewer.</p></div>
+      
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Parent</h3><p>Approves tasks and rewards, gives points, edits the catalog, adds members and sets the rules. Every other parent has the same rights.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Kid</h3><p>Collects points, taps finished tasks and saves up for rewards. No own device is needed: until the child has access, a parent gives the points.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Viewer</h3><p>Grandma, grandpa or a babysitter. They see everything, change nothing and their screen says “You are viewing as a viewer”.</p></div></div>
+      </article>
+      <article class="situacia" id="pristup" hidden>
+      <div class="situaciaHlava"><span class="stitok">How to use PointJar</span><h2>📱 Access for a child</h2><p class="navodUvod">A child can tap tasks on their own device, on a shared tablet or with you on your phone.</p></div>
+      
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Where to start</h3><p>In the Family tab tap “Add a family member” → Kid, or “Give access” next to a child without access. The wizard asks where the child will tap tasks.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Their own phone or tablet</h3><p>No e-mail and no account. The app shows a 6-character code valid for 15 minutes. On the child’s device tap “Connect a kid’s device 📱” on the sign-in screen and enter the code. When the device connects, the wizard shows “✓ … is connected”.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">A child with their own account</h3><p>If the child has their own Google or Apple account, tap the link “… has their own Google or Apple account” in the wizard. You get an 8-character code valid for 7 days and the child enters it under “I have a family code”.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">On my phone, with me</h3><p>The child taps tasks on your phone in the child’s view (the pill at the top right). A reported task waits ⏳ just like on a tablet and you confirm it in the Approve tab.</p></div></div>
+      <div class="krokSit"><span class="znakSit">5</span><div><h3 class="navodPodnadpis">Several children on one tablet</h3><p>When pairing, choose which children the tablet is for, then switch between them by tapping the name at the top right. So that siblings do not open each other’s profile, set a PIN (4 to 8 digits) for each child in Family after tapping the child.</p></div></div>
+      <div class="krokSit"><span class="znakSit">6</span><div><h3 class="navodPodnadpis">Devices</h3><p>In Family, the “Kids’ devices” block shows when each device was last used, and you can disconnect it with one tap.</p></div></div>
+      </article>
+      <article class="situacia" id="dieta" hidden>
+      <div class="situaciaHlava"><span class="stitok">How to use PointJar</span><h2>🧒 What the child sees</h2><p class="navodUvod">The child has four tabs: Home, Tasks, Shop and History.</p></div>
+      <div class="navodZabery"><img src="assets/navod/en-domov.webp" width="270" height="587" loading="lazy" alt="Child’s Home: the jar with points and the task coins"><img src="assets/navod/en-harok.webp" width="270" height="587" loading="lazy" alt="Sheet after tapping a task: Send to parent or record a message first"></div>
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Home</h3><p>The big jar shows the points, the level and how much is missing to the goal. Below it are the coins “What will fill your jar today?” with tasks that can be done today.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Reporting a task</h3><p>The child taps the coin of a finished task. A sheet with the name and points appears: “Send to parent” reports the task, “Record a message first 🎤” adds a voice message (up to 20 seconds).</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Waiting ⏳</h3><p>A reported task waits for a parent and its points “wait above the jar”. They drop in once the parent confirms. Until then, tapping the coin takes the report back.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Tasks and History</h3><p>Tasks lists all tasks by category with a checkbox that opens the same sheet. History shows, day by day, approved and declined tasks, rewards, deductions and the parent’s voice replies.</p></div></div>
+      <div class="navodTip"><b>💡 Tip</b><p>If a task cannot be tapped again, it is either still waiting for a parent or has reached its daily limit (for example teeth at most twice a day).</p></div></article>
+      <article class="situacia" id="obchod" hidden>
+      <div class="situaciaHlava"><span class="stitok">How to use PointJar</span><h2>🎁 Rewards, goals and level</h2><p class="navodUvod">With points the child picks rewards you have agreed on at home.</p></div>
+      <div class="navodZabery"><img src="assets/navod/en-obchod.webp" width="270" height="587" loading="lazy" alt="The shop with rewards and a goal"></div>
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Trading</h3><p>For a reward they can afford, the child taps “Trade for … pts”. The points are set aside until a parent confirms the request, and until then the request can be taken back.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Saving up for a goal</h3><p>For a pricier reward the child taps “Save up for this” and it becomes the goal. The jar on Home then shows how much is still missing. There is one goal at a time.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Level</h3><p>Grows from all points ever earned and never goes down, not after a deduction and not after trading for a reward. The balance gets spent, not the achievements.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Empty shop</h3><p>When the shop is empty, the child can tap “Send a request 💬” to remind the parents to add rewards.</p></div></div>
+      </article>
+      <article class="situacia" id="schvalit" hidden>
+      <div class="situaciaHlava"><span class="stitok">How to use PointJar</span><h2>✅ Approving</h2><p class="navodUvod">Everything the children reported waits in the Approve tab as a stack of cards.</p></div>
+      <div class="navodZabery"><img src="assets/navod/en-schvalit.webp" width="270" height="587" loading="lazy" alt="Approve: a card with a reported task"></div>
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">The card</h3><p>The card shows who reported what, for how many points and what the balance will be after approval. If the child recorded a message, you can play it right on the card.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Confirm or Decline</h3><p>One tap on “✓ Confirm” or “Decline” decides. Swiping a card only moves between cards, it never decides.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Undoing</h3><p>Within 24 hours a decision can be undone with “↺ Undo decision”, even after closing the app. If the child has already spent the approved points, the app warns that the balance will go below zero.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Several tasks at once</h3><p>When at least three tasks are waiting, “Approve all tasks” appears below the stack. Reward requests are confirmed one by one.</p></div></div>
+      <div class="krokSit"><span class="znakSit">5</span><div><h3 class="navodPodnadpis">Voice reply</h3><p>Tap “Reply by voice”, record a reply and send it. The child gets it right away, even before a decision, so it can also be a question.</p></div></div>
+      <div class="krokSit"><span class="znakSit">6</span><div><h3 class="navodPodnadpis">Right from the notification</h3><p>A reported task’s notification has Approve, Decline and Later buttons. On iPhone, Face ID or the phone passcode is required before deciding; on Android the app opens.</p></div></div>
+      </article>
+      <article class="situacia" id="body" hidden>
+      <div class="situaciaHlava"><span class="stitok">How to use PointJar</span><h2>⚡ Giving points</h2><p class="navodUvod">You can also give points yourself when you see something good, without the child reporting anything.</p></div>
+      <div class="navodZabery"><img src="assets/navod/en-body.webp" width="270" height="587" loading="lazy" alt="Quick points: choosing the child and the reason, the Give button"></div>
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Quick points</h3><p>In the Points tab choose the child (with several children) and what for. Use “± Other amount” for your own amount and reason. A button like “Give Mia +N pts” appears at the bottom and the points are added immediately.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Deductions</h3><p>Minus items, or “− Deduct” with your own amount. A deduction asks for confirmation, has a daily cap and the balance never drops below zero.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">If you make a mistake</h3><p>In History below the entries, each of your entries has an “Undo” button for 24 hours. It creates a counter-entry, nothing is deleted.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Voice messages</h3><p>In History next to a task you can play the child’s message and your reply, and “Delete message” removes them at once. Otherwise they are deleted automatically, usually 3 days after being played and at the latest after 30 days.</p></div></div>
+      </article>
+      <article class="situacia" id="katalog" hidden>
+      <div class="situaciaHlava"><span class="stitok">How to use PointJar</span><h2>📋 Tasks, rewards and deductions</h2><p class="navodUvod">The catalog is shared by the whole family; points, goal and history belong to each child.</p></div>
+      <div class="navodZabery"><img src="assets/navod/en-katalog.webp" width="270" height="587" loading="lazy" alt="Catalog of tasks, rewards and deductions"></div>
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">New task or deduction</h3><p>Catalog → Tasks or Deductions → “New behavior”: name, points (a minus means a deduction), an icon from the grid, a category and how many times a day it can be given.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">New reward</h3><p>Catalog → Rewards → “New reward”: name, price in points, an icon and optionally a photo from your phone.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Editing and turning off</h3><p>Tap “Edit” on an item. “Turn off (hide from the list)” hides it from the children and from quick points; the history stays.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Who changes the catalog</h3><p>A parent. A viewer can only see it.</p></div></div>
+      </article>
+      <article class="situacia" id="pohlad" hidden>
+      <div class="situaciaHlava"><span class="stitok">How to use PointJar</span><h2>👀 Switching views</h2><p class="navodUvod">The pill at the top right switches between the child’s view, Parent and Family.</p></div>
+      <div class="navodZabery"><img src="assets/navod/en-pohlad.webp" width="270" height="587" loading="lazy" alt="The View sheet: children, Parent and Family"></div>
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">On a parent’s phone</h3><p>The View sheet lists each child (with the number of tasks waiting), Parent for approving and points, and Family with members and settings.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">On a tablet with several children</h3><p>The sheet shows only the children. A child with a PIN has to enter it.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Parent lock</h3><p>In My account you can turn on Face ID or fingerprint for every entry into the parent area: at start, from a notification and when switching from the child’s view. After 5 minutes in the background it locks again.</p></div></div>
+      <div class="navodTip"><b>💡 Tip</b><p>The parent lock is worth it when a child plays on your phone: in the child’s view they can only report tasks, not approve them.</p></div></article>
+      <article class="situacia" id="clenovia" hidden>
+      <div class="situaciaHlava"><span class="stitok">How to use PointJar</span><h2>🏠 Family and members</h2><p class="navodUvod">The Family tab holds the children, the adults and the kids’ devices.</p></div>
+      <div class="navodZabery"><img src="assets/navod/en-rodina.webp" width="270" height="587" loading="lazy" alt="The Family tab with children and the Settings and Support PointJar rows"></div>
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">The other parent or grandma</h3><p>“Add a family member” → “Another adult” (same rights as you) or “Someone who just watches”. They get access with a code (8 characters, valid 7 days, single use) or an e-mail invitation valid for 14 days.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Status next to the name</h3><p>Active, Invite pending, Expired, No access or Paused. Tap a member to rename them, change their role, issue a new code or cancel the invitation.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Pause and remove</h3><p>A paused member loses access at once but stays on the list, and one tap restores access. “Remove from family” deletes them from the list; their points and history stay with the family.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Child</h3><p>Tap a child to change their name, avatar and PIN for the shared tablet.</p></div></div>
+      </article>
+      <article class="situacia" id="upozornenia" hidden>
+      <div class="situaciaHlava"><span class="stitok">How to use PointJar</span><h2>🔔 Notifications</h2><p class="navodUvod">Every adult sets their own notifications in My account; a parent sets them for the children.</p></div>
+      
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Categories</h3><p>Tasks, Rewards, Goal and level, Family members and News from PointJar (only if you turn it on). The settings apply to notifications and e-mails.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Permission</h3><p>The app asks for permission when it makes sense: at the end of family setup if a child got access, or after your first approval. If notifications are off, Approve and My account show a strip with a “Turn on” button.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Reminders and quiet hours</h3><p>When a task has been waiting for a few hours, the app reminds the parents. During quiet hours (Family rules) reminders are not sent and other notifications arrive silently.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Archive</h3><p>Every notification stays in My account for a month in case you missed it.</p></div></div>
+      </article>
+      <article class="situacia" id="nastavenia" hidden>
+      <div class="situaciaHlava"><span class="stitok">How to use PointJar</span><h2>⚙️ Account, rules and leaving</h2><p class="navodUvod">Open My account in the Family tab via the “Settings” row.</p></div>
+      
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Family rules</h3><p>Max deduction per day (100 pts by default), points per level (500 pts by default) and quiet hours. Changes shows who changed what and when.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Appearance</h3><p>App language, colour and the look of the bottom bar.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Leave family</h3><p>An adult leaves on their own in My account by typing the family name. If you are the last parent and another adult is in the family, the app asks who will manage it after you. A child does not leave; a parent removes them.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Close the family</h3><p>At the very bottom of Family rules, after typing the name. Points, tasks, rewards and history are deleted; the other members’ accounts remain.</p></div></div>
+      <div class="krokSit"><span class="znakSit">5</span><div><h3 class="navodPodnadpis">Delete account</h3><p>My account → “Delete account”. Your profile and sign-in account are removed immediately.</p></div></div>
+      <div class="krokSit"><span class="znakSit">6</span><div><h3 class="navodPodnadpis">Support PointJar</h3><p>In Family, the 💛 “Support PointJar” row: a voluntary contribution through the App Store or Google Play, a rating or a recommendation to another family. The app stays completely free.</p></div></div>
+      </article>
+      <article class="situacia" id="problemy" hidden>
+      <div class="situaciaHlava"><span class="stitok">How to use PointJar</span><h2>🆘 Something is not right</h2><p class="navodUvod">The most common snags and what to do.</p></div>
+      
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">I only see a code screen</h3><p>Your account is not in a family yet. Ask a parent for a code, or tap “No code? Ask your family 📤” and send them a message. Or create your own family as a parent.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">The code does not work</h3><p>It was already used, it expired, or the parent issued a new one. A 6-character code goes into “Connect a kid’s device 📱” without signing in, an 8-character one into “I have a family code” after signing in.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">The invited person cannot see the family</h3><p>They have to sign in with exactly the address the invitation went to. In Family you can see the invitation status next to their name. A code is the safest way.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Notifications do not arrive</h3><p>Check the permission in the phone settings and the categories in My account.</p></div></div>
+      <div class="krokSit"><span class="znakSit">5</span><div><h3 class="navodPodnadpis">Who changed what</h3><p>Family rules → Changes: who, what, from which value to which and when.</p></div></div>
+      <div class="krokSit"><span class="znakSit">6</span><div><h3 class="navodPodnadpis">Nothing helped</h3><p>Write to us in My account via “💬 Write to us”. We usually reply within one working day.</p></div></div>
+      </article>
       <article class="situacia" id="faq" hidden>
       <div class="situaciaHlava"><span class="stitok">How to use PointJar</span><h2>FAQ</h2></div>
-      <details><summary>We have several children — is that possible?</summary><p>Yes. Add another child under Family with “Add a family member”, even without access — you record their points. On the Parent and Child screens you then switch between children; each has their own points, goal and history. Tasks and rewards are shared by the family.</p></details>
-      <details><summary>Does the level drop after a deduction or a purchase?</summary><p>No. The level grows from total points earned and never drops — deductions and purchases only lower the wallet.</p></details>
-      <details><summary>How many points can I deduct per day?</summary><p>At most the daily cap (set under Family in the Rules) and never below zero. A bigger deduction trims itself.</p></details>
-      <details><summary>How does the child change their avatar?</summary><p>They tap the avatar in the top left of their screen and pick from 40 characters. A parent can do the same from the overview, or by tapping the child under Family.</p></details>
-      <details><summary>Why was the app built and where do tasks and rewards come from?</summary><p>My account holds the text “Why PointJar exists” with the studies behind the catalogue of tasks and rewards. The app version number is there too — handy when you report something to us.</p></details></article>
+      <details><summary>We have several children, does that work?</summary><p>Yes. You can enter up to six when creating the family and add more any time in Family. Each child has their own points, goal and history; tasks and rewards are shared.</p></details>
+      <details><summary>Does the level drop after a deduction or a reward?</summary><p>No. The level grows from all points ever earned and never drops. Deductions and rewards only lower the balance in the jar.</p></details>
+      <details><summary>How many points can I take away per day?</summary><p>In total at most the daily cap from Family rules, and never below zero. A larger deduction is reduced automatically.</p></details>
+      <details><summary>How does a child change their avatar?</summary><p>They tap their avatar next to the greeting on Home and pick a character. A parent changes it in Family after tapping the child.</p></details>
+      <details><summary>Who can hear voice messages?</summary><p>Only members of your family. They are stored in the European Union and deleted automatically, usually 3 days after being played and at the latest after 30 days. A parent can delete them earlier.</p></details>
+      <details><summary>Does the app cost anything?</summary><p>No. PointJar is free, with no ads and no subscription. If you like, you can make a voluntary contribution to running costs via “Support PointJar” in Family.</p></details>
+      <details><summary>Why does the app exist and where do the tasks and rewards come from?</summary><p>My account has the text “Why PointJar exists” with the studies behind the catalog. It also shows the app version, which is handy when you report something to us.</p></details></article>
       <article class="situacia" id="delete-account" hidden>
       <div class="situaciaHlava"><span class="stitok">Delete account</span><h2>Delete your account and data</h2></div>
       <div class="krokSit"><span class="znakSit">1</span><div><p>Open PointJar and sign in.</p></div></div>
@@ -551,86 +613,142 @@ var w=document.createElement('div');w.className='video videoRam';w.appendChild(f
   <div class="sitObal sbokom">
     <aside class="bok" aria-label="Návod">
       <span class="kurzor" aria-hidden="true"></span>
-      <a href="#s1"><span class="bodka"></span>Práve som si stiahol/a appku</a>
-      <a href="#s2"><span class="bodka"></span>Chcem dať dieťaťu prístup do appky</a>
-      <a href="#s3"><span class="bodka"></span>Pridávam druhého rodiča alebo babku</a>
-      <a href="#s4"><span class="bodka"></span>Odchod z rodiny a jej zrušenie</a>
-      <a href="#s5"><span class="bodka"></span>Bežný deň: body, úlohy a schvaľovanie</a>
-      <a href="#s6"><span class="bodka"></span>Chcem zmeniť úlohy a odmeny</a>
-      <a href="#s7"><span class="bodka"></span>Upozornenia</a>
-      <a href="#s8"><span class="bodka"></span>Niečo nesedí</a>
+      <a href="#start"><span class="bodka"></span>Začíname</a>
+      <a href="#role"><span class="bodka"></span>Kto je v rodine</a>
+      <a href="#pristup"><span class="bodka"></span>Prístup pre dieťa</a>
+      <a href="#dieta"><span class="bodka"></span>Ako to vidí dieťa</a>
+      <a href="#obchod"><span class="bodka"></span>Odmeny, ciele a level</a>
+      <a href="#schvalit"><span class="bodka"></span>Schvaľovanie</a>
+      <a href="#body"><span class="bodka"></span>Zapisovanie bodov</a>
+      <a href="#katalog"><span class="bodka"></span>Úlohy, odmeny a mínusy</a>
+      <a href="#pohlad"><span class="bodka"></span>Prepínanie pohľadov</a>
+      <a href="#clenovia"><span class="bodka"></span>Rodina a členovia</a>
+      <a href="#upozornenia"><span class="bodka"></span>Upozornenia</a>
+      <a href="#nastavenia"><span class="bodka"></span>Konto, pravidlá a odchod</a>
+      <a href="#problemy"><span class="bodka"></span>Niečo nesedí</a>
       <a href="#faq"><span class="bodka"></span>Časté otázky</a>
       <a href="#delete-account"><span class="bodka"></span>Vymazať konto</a>
     </aside>
     <div>
-      <article class="situacia" id="s1">
-      <div class="situaciaHlava"><span class="stitok">Ako sa používa PointJar</span><h2>🚀 Práve som si stiahol/a appku</h2></div>
-      <div class="krokSit"><span class="znakSit">1</span><div><p>Prihlasuje sa Google účtom, na iPhone a iPade aj Apple účtom. Na Androide Apple prihlásenie nie je — kto sa raz prihlásil cez Apple, má konto viazané na Apple a na Androide sa doň nedostane. Na prvej obrazovke sú dve karty: „Zakladám novú rodinu“ (rodič) a „Mám kód od rodiny“ (dieťa, druhý rodič aj starí rodičia). Kto zadá kód, uvidí najprv náhľad „Pripojiť sa k rodine … ako …?“ a vstúpi až po potvrdení.</p></div></div>
-      <div class="krokSit"><span class="znakSit">2</span><div><p>Prvý dospelý zakladá rodinu a stáva sa rodičom; každý ďalší rodič, ktorého pridá, má rovnaké práva ako on. Hneď po založení appka ponúkne pridať ďalších členov sprievodcom s tromi otázkami: koho, ako sa volá a ako sa dostane do appky. Dá sa to preskočiť a dorobiť kedykoľvek v záložke Rodina.</p></div></div>
-      <div class="krokSit"><span class="znakSit">3</span><div><p>Dieťa — vidí svoje body, úlohy a obchod s odmenami. Vlastný telefón nepotrebuje: kým nemá prístup, body zapisuje rodič.</p></div></div>
-      <div class="krokSit"><span class="znakSit">4</span><div><p>Rodič — prideľuje body, schvaľuje úlohy a odmeny a spravuje rodinu: aktivity a odmeny v záložke Rodič, členov, pravidlá a nastavenia v záložke Rodina.</p></div></div>
-      <div class="krokSit"><span class="znakSit">5</span><div><p>Divák — všetko vidí, nič nemení (babka, dedko, opatrovateľka…). Na obrazovke má vetu „Pozeráš ako divák“.</p></div></div>
-      <div class="krokSit"><span class="znakSit">6</span><div><p>Celé založenie je otázka piatich minút. Zvyšok sa dá dorobiť kedykoľvek neskôr.</p></div></div></article>
-      <article class="situacia" id="s2" hidden>
-      <div class="situaciaHlava"><span class="stitok">Ako sa používa PointJar</span><h2>📱 Chcem dať dieťaťu prístup do appky</h2></div>
-      <div class="krokSit"><span class="znakSit">1</span><div><p>V Rodine klepni na dieťa a na „Dať prístup“ (alebo na „Pridať člena rodiny“ → Dieťa). Sprievodca sa spýta, ako sa dieťa dostane do appky: vlastný telefón, spoločný tablet, alebo zatiaľ nijako.</p></div></div>
-      <div class="krokSit"><span class="znakSit">2</span><div><p>Vlastný telefón — appka vydá kód (napr. HRAD-2947), ktorý platí 7 dní a dá sa použiť raz. Dieťa si na svojom telefóne stiahne appku, prihlási sa Google kontom (na iPhone aj Apple kontom — prihlásenie cez Apple funguje len na iPhone a iPade), vyberie „Mám kód od rodiny“ a kód zadá. Rola dieťaťa je v kóde, nič si nevyberá. V správe na zdieľanie je aj odkaz, po ktorom sa kód vyplní sám.</p></div></div>
-      <div class="krokSit"><span class="znakSit">3</span><div><p>Spoločný tablet — pre dieťa bez vlastného konta. Appka ukáže párovací kód, ktorý platí 15 minút. Na tablete klepni na prihlasovacej obrazovke na „Pripojiť zariadenie dieťaťa 📱“ a kód zadaj; žiadny e-mail ani konto sa nevyžaduje. Jeden tablet zvládne viac detí — pri párovaní vyberieš, ktoré, a na obrazovke sa medzi nimi prepína klepnutím na meno hore.</p></div></div>
-      <div class="krokSit"><span class="znakSit">4</span><div><p>Aby si súrodenci na tablete nevideli navzájom do profilu, nastav každému 4- až 8-miestny PIN v detaile dieťaťa v Rodine. Tablety vidíš a odpojíš v Rodine v bloku Zariadenia detí.</p></div></div>
-      <div class="krokSit"><span class="znakSit">5</span><div><p>V zozname členov je pri dieťati stav: Aktívne, Pozvánka čaká (s dátumom, dokedy kód platí), Vypršala alebo Bez prístupu. Klepnutím na dieťa vieš vydať nový kód (starý prestane platiť) alebo pozvánku zrušiť — dieťa v rodine ostáva.</p></div></div></article>
-      <article class="situacia" id="s3" hidden>
-      <div class="situaciaHlava"><span class="stitok">Ako sa používa PointJar</span><h2>👨‍👩‍👧 Pridávam druhého rodiča alebo babku</h2></div>
-      <div class="krokSit"><span class="znakSit">1</span><div><p>V Rodine klepni na „Pridať člena rodiny“, vyber Ďalší dospelý alebo Niekto, kto len sleduje, napíš meno a zvoľ, ako sa dostane do appky: kód, pozvánka e-mailom, alebo zatiaľ nijako. Člen je v zozname aj bez prístupu; prístup mu dáš kedykoľvek neskôr.</p></div></div>
-      <div class="krokSit"><span class="znakSit">2</span><div><p>Kód (odporúčané) platí 7 dní a dá sa použiť raz. Pošli ho akokoľvek — v správe je aj odkaz na stiahnutie appky. Kto ho zadá, stane sa týmto členom s jeho rolou, po náhľade „Pripojiť sa k rodine … ako …?“.</p></div></div>
-      <div class="krokSit"><span class="znakSit">3</span><div><p>E-mail: napíš adresu Apple či Google konta. Príde správa s tlačidlom „Potvrdiť pozvanie“; pozvánka platí 14 dní a po troch dňoch chodí pripomienka. Prihlásiť sa musí presne tou adresou; pri Apple prihlásení nesmie použiť „Skryť môj e-mail“, inak sa adresy nezhodujú. Keď to nevyjde, pošli kód.</p></div></div>
-      <div class="krokSit"><span class="znakSit">4</span><div><p>Rodič má rovnaké práva ako ty. Divák sa len pozerá — všetko vidí, nič nemení. Rolu zmeníš v detaile člena; svoju vlastnú rolu si zmeniť nevieš, urobí to iný rodič.</p></div></div>
-      <div class="krokSit"><span class="znakSit">5</span><div><p>Jedno konto patrí do jednej rodiny. Kto už rodinu má, uvidí pri kóde vetu, že ju musí najprv opustiť v Moje konto. Druhá domácnosť (napríklad po rozvode) sa pridá do tej istej rodiny ako rodič — dieťa má jedny body a jednu históriu.</p></div></div>
-      <div class="krokSit"><span class="znakSit">6</span><div><p>Pozastaviť a odstrániť — pozastavený člen stratí prístup hneď, ale ostáva v zozname a prístup mu jedným klepnutím vrátiš. „Odstrániť z rodiny“ ho zo zoznamu zmaže; čo v rodine urobil, ostane v histórii s jeho menom. Odstránené dieťa zo zoznamu zmizne, jeho body a história ostávajú v rodine.</p></div></div></article>
-      <article class="situacia" id="s4" hidden>
-      <div class="situaciaHlava"><span class="stitok">Ako sa používa PointJar</span><h2>🚪 Odchod z rodiny a jej zrušenie</h2></div>
-      <div class="krokSit"><span class="znakSit">1</span><div><p>Dospelý odíde sám v Moje konto → Opustiť rodinu (odpíše názov rodiny). Dieťa neodchádza samo — odstráni ho rodič v Rodine.</p></div></div>
-      <div class="krokSit"><span class="znakSit">2</span><div><p>Ak si jediný rodič a v rodine je ďalší dospelý, appka sa pri odchode aj pri mazaní konta spýta, kto bude rodinu spravovať po tebe. Vybraný člen sa stane rodičom a dostane o tom správu. Ak nikto taký nie je, rodinu môžeš zrušiť.</p></div></div>
-      <div class="krokSit"><span class="znakSit">3</span><div><p>Zrušiť rodinu — v Rodine úplne dole, po odpísaní názvu. Zmažú sa body, úlohy, odmeny aj história; ostatní členovia dostanú správu a ich kontá ostanú.</p></div></div>
-      <div class="krokSit"><span class="znakSit">4</span><div><p>Presun do inej rodiny: po odchode sa pridáš kódom k novej rodine. Body a história ostávajú v pôvodnej rodine.</p></div></div></article>
-      <article class="situacia" id="s5" hidden>
-      <div class="situaciaHlava"><span class="stitok">Ako sa používa PointJar</span><h2>⭐ Bežný deň: body, úlohy a schvaľovanie</h2></div>
-      <div class="krokSit"><span class="znakSit">1</span><div><p>Rodič pridáva body dvoma klepnutiami: obrazovka Rodič, časť Aktivity, a klepni na to, čo dieťa spravilo (napr. „Upratanie izby +100“). Body sú pripísané a dieťaťu príde upozornenie. Body mimo zoznamu zapíšeš ručne — napíš za čo a koľko (mínus = zrážka).</p></div></div>
-      <div class="krokSit"><span class="znakSit">2</span><div><p>Dieťa na svojej obrazovke v časti „Dnes môžem získať“ klepne na štvorček. Zožltne ⏳ (čaká na schválenie); po schválení zozelenie ✓ a body pribudnú.</p></div></div>
-      <div class="krokSit"><span class="znakSit">3</span><div><p>Schvaľovanie: hore v „Čaká na schválenie“ a „Žiadosti o odmenu“ klepni ✓ alebo ✕.</p></div></div>
-      <div class="krokSit"><span class="znakSit">4</span><div><p>Obchod — na čo má dieťa body, to si môže vypýtať („Vymeniť“); keď na odmenu ešte nemá, nastaví si ju ako cieľ a karta „Môj cieľ“ sa vyfarbuje podľa našetrených bodov.</p></div></div>
-      <div class="krokSit"><span class="znakSit">5</span><div><p>Zrážky sú červené tlačidlá v kategórii Zrážky. Platí denný strop a zostatok nikdy neklesne pod nulu — stráži to databáza.</p></div></div>
-      <div class="krokSit"><span class="znakSit">6</span><div><p>Level rastie z celkovo získaných bodov a nikdy neklesá, ani po zrážke či nákupe. Avatara si dieťa vyberá samo zo 40 postavičiek klepnutím naň vľavo hore.</p></div></div></article>
-      <article class="situacia" id="s6" hidden>
-      <div class="situaciaHlava"><span class="stitok">Ako sa používa PointJar</span><h2>🛠️ Chcem zmeniť úlohy a odmeny</h2></div>
-      <div class="krokSit"><span class="znakSit">1</span><div><p>Aktivity — obrazovka Rodič → Aktivity: úlohy a aktivity, za ktoré sa dávajú body. Mínusové body = zrážka. Pri každej sa dá nastaviť max. počet za deň.</p></div></div>
-      <div class="krokSit"><span class="znakSit">2</span><div><p>Odmeny — obrazovka Rodič → Odmeny: pridať novú (názov, cena, ikona, aj fotka z telefónu). V zozname uprav a ulož 💾; ✕ odmenu vyradí z ponuky, história zostáva.</p></div></div>
-      <div class="krokSit"><span class="znakSit">3</span><div><p>Štartovací katalóg je preložený do 4 jazykov; položky, ktoré si pridáš alebo premenuješ, sa zobrazujú tak, ako si ich napísal/a.</p></div></div>
-      <div class="krokSit"><span class="znakSit">4</span><div><p>Rodina — pod zoznamom členov sú Pravidlá (denný strop zrážok, body na level) a tiché hodiny pripomienok. Meno, avatar a PIN dieťaťa upravíš klepnutím na dieťa v zozname.</p></div></div>
-      <div class="krokSit"><span class="znakSit">5</span><div><p>Úlohy a odmeny sú spoločné pre celú rodinu; body, cieľ a história sú vlastné každému dieťaťu.</p></div></div></article>
-      <article class="situacia" id="s7" hidden>
-      <div class="situaciaHlava"><span class="stitok">Ako sa používa PointJar</span><h2>🔔 Upozornenia</h2></div>
-      <div class="krokSit"><span class="znakSit">1</span><div><p>Appka sa pri prvom prihlásení opýta na povolenie notifikácií. Rodičom cinkne, keď dieťa niečo nahlási alebo o niečo požiada; dieťaťu cinkne schválenie či zamietnutie. Kto akciu vyvolal, tomu upozornenie nechodí.</p></div></div>
-      <div class="krokSit"><span class="znakSit">2</span><div><p>Rodičom príde pripomienka, keď niečo čaká na schválenie dlhšie než 4 hodiny (potom ešte po 10 a 18 hodinách, ďalej už nie).</p></div></div>
-      <div class="krokSit"><span class="znakSit">3</span><div><p>Všetci v rodine, aj divák, dostanú správu, keď dieťa našetrí na svoj cieľ, dosiahne nový level alebo sa pridá nový člen.</p></div></div>
-      <div class="krokSit"><span class="znakSit">4</span><div><p>Nič sa nestratí: pod hornou lištou je „Čo sa stalo naposledy“ — všetky notifikácie, ktoré ti prišli alebo mali prísť, aj s celým textom. Rodič vidí v Rodina → Zmeny notifikácie celej rodiny.</p></div></div>
-      <div class="krokSit"><span class="znakSit">5</span><div><p>Notifikácie chodia v jazyku, ktorý má appka nastavený na danom zariadení. Notifikácie dieťaťa nastavuje rodič v detaile dieťaťa v Rodine.</p></div></div>
-      <div class="krokSit"><span class="znakSit">6</span><div><p>Deň sa počíta podľa časového pásma rodiny. To si appka berie z telefónu rodiča (telefón ho nastavuje podľa siete, nie podľa polohy), takže „dnes“ a denné limity sedia aj na dovolenke.</p></div></div></article>
-      <article class="situacia" id="s8" hidden>
-      <div class="situaciaHlava"><span class="stitok">Ako sa používa PointJar</span><h2>🆘 Niečo nesedí</h2></div>
-      <div class="krokSit"><span class="znakSit">1</span><div><p>Vidím len obrazovku s kódom — konto ešte nie je v žiadnej rodine. Popros rodiča o kód (vytvorí ho v Rodine pri tvojom mene), alebo klepni na „Nemáš kód? Požiadaj rodinu“ a pošli mu správu so svojím e-mailom. Alebo si ako rodič založ vlastnú rodinu.</p></div></div>
-      <div class="krokSit"><span class="znakSit">2</span><div><p>Kód neplatí — buď už bol použitý, vypršal (7 dní), alebo rodič medzitým vydal nový a starý tým prestal platiť. Popros o aktuálny.</p></div></div>
-      <div class="krokSit"><span class="znakSit">3</span><div><p>Pozval/a som niekoho e-mailom, ale rodinu nevidí — musí sa prihlásiť presne tou adresou, na ktorú pozvánka prišla. V Rodine pri jeho mene vidíš stav pozvánky, vieš ju poslať znova alebo zrušiť. Najistejší je kód.</p></div></div>
-      <div class="krokSit"><span class="znakSit">4</span><div><p>Dali sme body omylom — v Histórii má každý tvoj zápis do 24 hodín tlačidlo Storno. Vytvorí sa protizápis, nič sa nemaže.</p></div></div>
-      <div class="krokSit"><span class="znakSit">5</span><div><p>Dieťa nahlásilo úlohu omylom — rodič ju v „Čaká na schválenie“ zamietne a nepripíše sa nič.</p></div></div>
-      <div class="krokSit"><span class="znakSit">6</span><div><p>Úloha sa nedá klepnúť druhýkrát — buď ešte čaká na schválenie, alebo je vyčerpaný jej denný limit (napr. zuby max 2× denne).</p></div></div>
-      <div class="krokSit"><span class="znakSit">7</span><div><p>Kto čo zmenil — Rodina → Zmeny: pri každej úprave je kto, čo, z akej hodnoty na akú a kedy.</p></div></div></article>
+      <article class="situacia" id="start">
+      <div class="situaciaHlava"><span class="stitok">Ako sa používa PointJar</span><h2>🚀 Začíname</h2><p class="navodUvod">Rodič založí rodinu, ostatní sa pridajú kódom. Celé to trvá pár minút.</p></div>
+      
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Prihlásenie</h3><p>Prihlasuje sa Google účtom, na iPhone a iPade aj Apple účtom. Na Androide prihlásenie cez Apple nie je, takže kto sa raz prihlásil cez Apple, na Androide sa do svojho konta nedostane.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Založenie rodiny</h3><p>Ťukni na „Zakladám novú rodinu“, napíš svoje meno a meno dieťaťa (pri zakladaní až šesť detí). Názov rodiny je nepovinný. Rodina hneď dostane štartovací katalóg úloh a odmien, ktorý si upravíš podľa seba.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Mám kód od rodiny</h3><p>Druhý rodič, babka alebo dieťa s vlastným kontom ťukne na „Mám kód od rodiny“ a zadá 8-znakový kód (napríklad ABCD-1234). Uvidí, ku ktorej rodine a v akej roli sa pripája, a vstúpi až po potvrdení.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Ďalší členovia</h3><p>Na konci zakladania appka ponúkne dať deťom prístup a pridať ďalších dospelých. Nič nie je povinné, všetko sa dá dorobiť neskôr v záložke Rodina.</p></div></div>
+      <div class="navodTip"><b>💡 Tip</b><p>Skôr než založíš rodinu, pozri si „Pozrieť si demo bez prihlásenia 👀“. Ukáže pohľad dieťaťa aj rodiča s vymyslenými deťmi a nič sa v ňom neukladá.</p></div></article>
+      <article class="situacia" id="role" hidden>
+      <div class="situaciaHlava"><span class="stitok">Ako sa používa PointJar</span><h2>👨‍👩‍👧 Kto je v rodine</h2><p class="navodUvod">Každý člen má jednu rolu: rodič, dieťa alebo divák.</p></div>
+      
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Rodič</h3><p>Schvaľuje úlohy a odmeny, zapisuje body, upravuje katalóg, pridáva členov a nastavuje pravidlá. Každý ďalší rodič má rovnaké práva.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Dieťa</h3><p>Zbiera body, ťuká hotové úlohy a šetrí na odmeny. Vlastné zariadenie nepotrebuje: kým nemá prístup, body mu zapisuje rodič.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Divák</h3><p>Babka, dedko či opatrovateľka. Všetko vidí, nič nemení a na obrazovke má vetu „Pozeráš ako divák“.</p></div></div>
+      </article>
+      <article class="situacia" id="pristup" hidden>
+      <div class="situaciaHlava"><span class="stitok">Ako sa používa PointJar</span><h2>📱 Prístup pre dieťa</h2><p class="navodUvod">Dieťa môže ťukať úlohy na vlastnom zariadení, na spoločnom tablete alebo s tebou na tvojom telefóne.</p></div>
+      
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Kde začať</h3><p>V záložke Rodina ťukni na „Pridať člena rodiny“ → Dieťa, alebo pri dieťati bez prístupu na „Dať prístup“. Sprievodca sa spýta, kde bude dieťa ťukať úlohy.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Vlastný telefón alebo tablet</h3><p>Bez e-mailu a bez konta. Appka ukáže 6-znakový kód, ktorý platí 15 minút. Na zariadení dieťaťa ťukni na prihlasovacej obrazovke na „Pripojiť zariadenie dieťaťa 📱“ a kód zadaj. Keď sa zariadenie pripojí, v sprievodcovi naskočí „✓ … je pripojené“.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Dieťa s vlastným kontom</h3><p>Ak má dieťa vlastné Google alebo Apple konto, ťukni v sprievodcovi na odkaz „… má vlastné Google alebo Apple konto“. Dostaneš 8-znakový kód na 7 dní a dieťa ho zadá v „Mám kód od rodiny“.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Na mojom telefóne, so mnou</h3><p>Dieťa ťuká úlohy na tvojom telefóne v pohľade dieťaťa (pilulka vpravo hore). Nahlásená úloha čaká ⏳ presne ako na tablete a potvrdíš ju v záložke Schváliť.</p></div></div>
+      <div class="krokSit"><span class="znakSit">5</span><div><h3 class="navodPodnadpis">Viac detí na jednom tablete</h3><p>Pri párovaní vyberieš, ktoré deti tablet zvládne, a prepína sa medzi nimi klepnutím na meno vpravo hore. Aby si súrodenci nechodili navzájom do profilu, nastav každému PIN (4 až 8 číslic) v Rodine po ťuknutí na dieťa.</p></div></div>
+      <div class="krokSit"><span class="znakSit">6</span><div><h3 class="navodPodnadpis">Zariadenia</h3><p>V Rodine v bloku „Zariadenia detí“ vidíš, kedy sa ktoré zariadenie naposledy použilo, a jedným ťuknutím ho odpojíš.</p></div></div>
+      </article>
+      <article class="situacia" id="dieta" hidden>
+      <div class="situaciaHlava"><span class="stitok">Ako sa používa PointJar</span><h2>🧒 Ako to vidí dieťa</h2><p class="navodUvod">Dieťa má štyri záložky: Domov, Úlohy, Obchod a História.</p></div>
+      <div class="navodZabery"><img src="assets/navod/sk-domov.webp" width="270" height="587" loading="lazy" alt="Domov dieťaťa: džbán s bodmi a mince s úlohami"><img src="assets/navod/sk-harok.webp" width="270" height="587" loading="lazy" alt="Hárok po ťuknutí na úlohu: Poslať rodičovi alebo najprv nahrať odkaz"></div>
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Domov</h3><p>Veľký džbán ukazuje body, level a koľko chýba do cieľa. Pod ním sú mince „Čím si dnes naplníš džbán?“ s úlohami, ktoré sa dnes dajú splniť.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Nahlásenie úlohy</h3><p>Dieťa ťukne na mincu úlohy, ktorú má hotovú. Ukáže sa hárok s názvom a bodmi: „Poslať rodičovi“ úlohu nahlási, „Najprv nahrať odkaz 🎤“ k nej pridá hlasový odkaz (najviac 20 sekúnd).</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Čaká ⏳</h3><p>Nahlásená úloha čaká na rodiča a jej body „čakajú nad džbánom“. Do džbánu spadnú, keď to rodič potvrdí. Kým nerozhodol, dá sa nahlásenie ťuknutím na mincu vziať späť.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Úlohy a História</h3><p>V Úlohách sú všetky úlohy podľa kategórií so štvorčekom, ktorý otvorí ten istý hárok. História ukazuje po dňoch schválené aj neuznané úlohy, odmeny, zrážky a hlasové odpovede rodiča.</p></div></div>
+      <div class="navodTip"><b>💡 Tip</b><p>Keď sa úloha nedá ťuknúť druhýkrát, buď ešte čaká na rodiča, alebo má vyčerpaný denný limit (napríklad zuby najviac dvakrát za deň).</p></div></article>
+      <article class="situacia" id="obchod" hidden>
+      <div class="situaciaHlava"><span class="stitok">Ako sa používa PointJar</span><h2>🎁 Odmeny, ciele a level</h2><p class="navodUvod">Za body si dieťa vyberá odmeny, ktoré ste si doma dohodli.</p></div>
+      <div class="navodZabery"><img src="assets/navod/sk-obchod.webp" width="270" height="587" loading="lazy" alt="Obchod s odmenami a cieľom"></div>
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Výmena</h3><p>Na odmenu, na ktorú má, ťukne „Vymeniť za … b“. Body sa odložia bokom, kým rodič žiadosť potvrdí, a žiadosť sa dá dovtedy vziať späť.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Šetrenie na cieľ</h3><p>Pri drahšej odmene ťukne „Chcem si naň šetriť“ a odmena sa stane cieľom. Džbán na Domove potom ukazuje, koľko ešte chýba. Cieľ môže mať naraz jeden.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Level</h3><p>Rastie zo všetkých získaných bodov a nikdy neklesá, ani po zrážke, ani po výmene za odmenu. Míňa sa zostatok, nie úspechy.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Prázdny obchod</h3><p>Keď v obchode nič nie je, dieťa môže rodičom ťuknutím na „Poslať prosbu 💬“ pripomenúť, aby odmeny pridali.</p></div></div>
+      </article>
+      <article class="situacia" id="schvalit" hidden>
+      <div class="situaciaHlava"><span class="stitok">Ako sa používa PointJar</span><h2>✅ Schvaľovanie</h2><p class="navodUvod">Všetko, čo deti nahlásili, čaká v záložke Schváliť ako balíček kariet.</p></div>
+      <div class="navodZabery"><img src="assets/navod/sk-schvalit.webp" width="270" height="587" loading="lazy" alt="Schváliť: karta s nahlásenou úlohou"></div>
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Karta</h3><p>Na karte je, kto a čo nahlásil, za koľko bodov a koľko bude mať po schválení. Ak dieťa nahralo odkaz, prehráš si ho priamo na karte.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Potvrdiť alebo Neschváliť</h3><p>Rozhoduje sa jedným ťuknutím na „✓ Potvrdiť“ alebo „Neschváliť“. Potiahnutím karty sa len listuje, nič sa ním nerozhodne.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Odvolanie</h3><p>Do 24 hodín sa rozhodnutie dá vrátiť cez „↺ Odvolať rozhodnutie“, aj po zavretí appky. Ak dieťa schválené body medzitým minulo, appka upozorní, že zostatok pôjde do mínusu.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Viac úloh naraz</h3><p>Keď čakajú aspoň tri úlohy, pod balíčkom je „Potvrdiť všetky úlohy“. Žiadosti o odmenu sa potvrdzujú jednotlivo.</p></div></div>
+      <div class="krokSit"><span class="znakSit">5</span><div><h3 class="navodPodnadpis">Hlasová odpoveď</h3><p>Ťukni na „Odpovedať hlasom“, nahraj odpoveď a pošli ju. Dieťaťu príde hneď, aj pred rozhodnutím, takže to môže byť aj otázka.</p></div></div>
+      <div class="krokSit"><span class="znakSit">6</span><div><h3 class="navodPodnadpis">Priamo z notifikácie</h3><p>Pri nahlásenej úlohe sú v notifikácii tlačidlá Schváliť, Zamietnuť a Neskôr. Na iPhone sa pred rozhodnutím vyžiada Face ID alebo kód telefónu, na Androide sa otvorí appka.</p></div></div>
+      </article>
+      <article class="situacia" id="body" hidden>
+      <div class="situaciaHlava"><span class="stitok">Ako sa používa PointJar</span><h2>⚡ Zapisovanie bodov</h2><p class="navodUvod">Body môžeš zapísať aj sám, keď niečo dobré vidíš, bez toho, aby dieťa niečo nahlasovalo.</p></div>
+      <div class="navodZabery"><img src="assets/navod/sk-body.webp" width="270" height="587" loading="lazy" alt="Rýchle body: výber dieťaťa a dôvodu, tlačidlo Zapísať"></div>
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Rýchle body</h3><p>V záložke Body vyber dieťa (pri viacerých deťoch) a za čo. Vlastnú sumu a dôvod napíšeš cez „± Iný počet bodov“. Dole sa ukáže tlačidlo „Mia: zapísať +N b“ a body sú hneď pripísané.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Zrážky</h3><p>Mínusové položky alebo „− Odobrať“ pri vlastnej sume. Zrážka sa pred zápisom pýta na potvrdenie, má denný strop a zostatok nikdy neklesne pod nulu.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Keď sa pomýliš</h3><p>V Histórii pod zápismi má každý tvoj zápis 24 hodín tlačidlo „Vrátiť“. Vznikne protizápis, nič sa nemaže.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Hlasové odkazy</h3><p>V Histórii pri úlohe si prehráš odkaz dieťaťa aj svoju odpoveď a „Vymazať odkaz“ ich zmaže hneď. Inak sa mažú samy, spravidla 3 dni po vypočutí, najneskôr po 30 dňoch.</p></div></div>
+      </article>
+      <article class="situacia" id="katalog" hidden>
+      <div class="situaciaHlava"><span class="stitok">Ako sa používa PointJar</span><h2>📋 Úlohy, odmeny a mínusy</h2><p class="navodUvod">Katalóg je spoločný pre celú rodinu, body, cieľ a história sú pre každé dieťa zvlášť.</p></div>
+      <div class="navodZabery"><img src="assets/navod/sk-katalog.webp" width="270" height="587" loading="lazy" alt="Katalóg úloh, odmien a mínusov"></div>
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Nová úloha alebo mínus</h3><p>Katalóg → Úlohy alebo Mínusy → „Nové správanie“: názov, body (mínus znamená zrážku), ikona z mriežky, kategória a koľkokrát za deň sa dá zapísať.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Nová odmena</h3><p>Katalóg → Odmeny → „Nová odmena“: názov, cena v bodoch, ikona a voliteľne fotka z telefónu.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Úprava a vypnutie</h3><p>Pri položke ťukni na „Upraviť“. „Vypnúť (skryť z ponuky)“ ju schová deťom aj z rýchlych bodov, história ostane.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Kto katalóg mení</h3><p>Rodič. Divák ho len vidí.</p></div></div>
+      </article>
+      <article class="situacia" id="pohlad" hidden>
+      <div class="situaciaHlava"><span class="stitok">Ako sa používa PointJar</span><h2>👀 Prepínanie pohľadov</h2><p class="navodUvod">Pilulka vpravo hore prepína medzi pohľadom dieťaťa, Rodičom a Rodinou.</p></div>
+      <div class="navodZabery"><img src="assets/navod/sk-pohlad.webp" width="270" height="587" loading="lazy" alt="Hárok Pohľad: deti, Rodič a Rodina"></div>
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Na telefóne rodiča</h3><p>V hárku Pohľad je každé dieťa (aj s počtom úloh, ktoré čakajú), Rodič na schvaľovanie a body a Rodina s členmi a nastaveniami.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Na tablete s viac deťmi</h3><p>Hárok ukáže len deti. Dieťa, ktoré má PIN, ho musí zadať.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Zámok rodiča</h3><p>V Moje konto si zapneš Face ID alebo odtlačok prsta pri každom vstupe do rodičovskej časti: pri štarte, z notifikácie aj pri prepnutí z pohľadu dieťaťa. Po 5 minútach v pozadí sa zamkne znova.</p></div></div>
+      <div class="navodTip"><b>💡 Tip</b><p>Zámok rodiča sa oplatí, keď sa dieťa hrá na tvojom telefóne: v pohľade dieťaťa môže úlohy len nahlásiť, schváliť si ich samo nevie.</p></div></article>
+      <article class="situacia" id="clenovia" hidden>
+      <div class="situaciaHlava"><span class="stitok">Ako sa používa PointJar</span><h2>🏠 Rodina a členovia</h2><p class="navodUvod">V záložke Rodina sú deti, dospelí a zariadenia detí.</p></div>
+      <div class="navodZabery"><img src="assets/navod/sk-rodina.webp" width="270" height="587" loading="lazy" alt="Záložka Rodina s deťmi a riadkami Nastavenia a Podporiť PointJar"></div>
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Druhý rodič alebo babka</h3><p>„Pridať člena rodiny“ → „Ďalší dospelý“ (rovnaké práva ako ty) alebo „Niekto, kto len sleduje“. Prístup dostane kódom (8 znakov, platí 7 dní, dá sa použiť raz) alebo pozvánkou e-mailom, ktorá platí 14 dní.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Stav pri mene</h3><p>Aktívny, Pozvánka čaká, Vypršala, Bez prístupu alebo Pozastavený. Ťuknutím na člena ho premenuješ, zmeníš mu rolu, vydáš nový kód alebo pozvánku zrušíš.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Pozastaviť a odstrániť</h3><p>Pozastavený člen stratí prístup hneď, ale ostane v zozname a prístup mu vrátiš jedným ťuknutím. „Odstrániť z rodiny“ ho zo zoznamu zmaže, jeho body a história ostanú rodine.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Dieťa</h3><p>Po ťuknutí na dieťa mu zmeníš meno, avatara a PIN pre spoločný tablet.</p></div></div>
+      </article>
+      <article class="situacia" id="upozornenia" hidden>
+      <div class="situaciaHlava"><span class="stitok">Ako sa používa PointJar</span><h2>🔔 Upozornenia</h2><p class="navodUvod">Notifikácie si každý dospelý nastaví sám v Moje konto, deťom ich nastavuje rodič.</p></div>
+      
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Kategórie</h3><p>Úlohy, Odmeny, Cieľ a level, Členovia rodiny a Novinky od PointJar (tie len ak si ich zapneš). Nastavenie platí pre notifikácie aj e-maily.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Povolenie</h3><p>Appka sa na povolenie spýta, keď dáva zmysel: na konci zakladania rodiny, ak dieťa dostalo prístup, alebo po prvom schválení. Ak sú notifikácie vypnuté, v Schváliť a v Moje konto uvidíš pás s tlačidlom „Zapnúť“.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Pripomienky a tiché hodiny</h3><p>Keď úloha čaká niekoľko hodín, appka rodičom pripomenie. V tichých hodinách (Pravidlá rodiny) pripomienky nechodia a ostatné notifikácie prídu potichu, bez zvuku.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Archív</h3><p>Každá notifikácia ostáva mesiac v Moje konto, keby ti nejaká ušla.</p></div></div>
+      </article>
+      <article class="situacia" id="nastavenia" hidden>
+      <div class="situaciaHlava"><span class="stitok">Ako sa používa PointJar</span><h2>⚙️ Konto, pravidlá a odchod</h2><p class="navodUvod">Moje konto otvoríš v záložke Rodina riadkom „Nastavenia“.</p></div>
+      
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Pravidlá rodiny</h3><p>Max. zrážka za deň (predvolene 100 b), body na jeden level (predvolene 500 b) a tiché hodiny. V časti Zmeny vidíš, kto čo a kedy upravil.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Vzhľad</h3><p>Jazyk appky, farba a vzhľad spodnej lišty.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Opustiť rodinu</h3><p>Dospelý odíde sám v Moje konto, keď odpíše názov rodiny. Ak si posledný rodič a v rodine je ďalší dospelý, appka sa spýta, kto ju bude spravovať po tebe. Dieťa rodinu neopúšťa, odstráni ho rodič.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Zrušiť rodinu</h3><p>V Pravidlách rodiny úplne dole, po odpísaní názvu. Zmažú sa body, úlohy, odmeny aj história, kontá ostatných členov ostanú.</p></div></div>
+      <div class="krokSit"><span class="znakSit">5</span><div><h3 class="navodPodnadpis">Zmazať konto</h3><p>Moje konto → „Zmazať konto“. Profil aj prihlasovacie konto sa odstránia hneď.</p></div></div>
+      <div class="krokSit"><span class="znakSit">6</span><div><h3 class="navodPodnadpis">Podporiť PointJar</h3><p>V Rodine riadok 💛 „Podporiť PointJar“: dobrovoľný príspevok cez App Store alebo Google Play, hodnotenie appky alebo odporúčanie ďalšej rodine. Appka zostáva celá zadarmo.</p></div></div>
+      </article>
+      <article class="situacia" id="problemy" hidden>
+      <div class="situaciaHlava"><span class="stitok">Ako sa používa PointJar</span><h2>🆘 Niečo nesedí</h2><p class="navodUvod">Najčastejšie zádrhele a čo s nimi.</p></div>
+      
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Vidím len obrazovku s kódom</h3><p>Tvoje konto ešte nie je v žiadnej rodine. Popros rodiča o kód, alebo ťukni na „Nemáš kód? Požiadaj rodinu 📤“ a pošli mu správu. Prípadne si ako rodič založ vlastnú rodinu.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Kód neplatí</h3><p>Buď už bol použitý, vypršal, alebo rodič medzitým vydal nový. 6-znakový kód patrí do „Pripojiť zariadenie dieťaťa 📱“ bez prihlásenia, 8-znakový do „Mám kód od rodiny“ po prihlásení.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Pozvaný nevidí rodinu</h3><p>Musí sa prihlásiť presne tou adresou, na ktorú prišla pozvánka. V Rodine pri jeho mene vidíš stav pozvánky. Najistejší je kód.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Nechodia notifikácie</h3><p>Skontroluj povolenie v nastaveniach telefónu a kategórie v Moje konto.</p></div></div>
+      <div class="krokSit"><span class="znakSit">5</span><div><h3 class="navodPodnadpis">Kto čo zmenil</h3><p>Pravidlá rodiny → Zmeny: kto, čo, z akej hodnoty na akú a kedy.</p></div></div>
+      <div class="krokSit"><span class="znakSit">6</span><div><h3 class="navodPodnadpis">Nič nepomohlo</h3><p>Napíš nám v Moje konto cez „💬 Napíš nám“. Odpovedáme zvyčajne do jedného pracovného dňa.</p></div></div>
+      </article>
       <article class="situacia" id="faq" hidden>
       <div class="situaciaHlava"><span class="stitok">Ako sa používa PointJar</span><h2>Časté otázky</h2></div>
-      <details><summary>Máme viac detí — dá sa to?</summary><p>Áno. Ďalšie dieťa pridáš v Rodine cez „Pridať člena rodiny“, aj bez prístupu — body mu zapisuješ ty. Na obrazovkách Rodič a Dieťa sa potom medzi deťmi prepínaš; každé má vlastné body, cieľ aj históriu. Úlohy a odmeny sú spoločné pre rodinu.</p></details>
-      <details><summary>Klesne level po zrážke alebo nákupe odmeny?</summary><p>Nie. Level rastie z celkovo získaných bodov a nikdy neklesá — zrážky a nákupy znižujú len peňaženku.</p></details>
-      <details><summary>Koľko bodov môžem dieťaťu zobrať za deň?</summary><p>Spolu najviac denný strop (nastavíš v Rodine v Pravidlách) a nikdy pod nulu. Väčšia zrážka sa sama oreže.</p></details>
-      <details><summary>Ako si dieťa zmení avatara?</summary><p>Klepne na avatara vľavo hore na svojej obrazovke a vyberie si z 40 postavičiek. To isté vie rodič klepnutím na avatara v prehľade alebo na dieťa v Rodine.</p></details>
-      <details><summary>Prečo appka vznikla a odkiaľ sú úlohy a odmeny?</summary><p>V Moje konto nájdeš text „Prečo vznikol PointJar“ so štúdiami, z ktorých vychádza katalóg úloh aj odmien. Tam je aj číslo verzie appky, ktoré sa hodí, keď nám niečo hlásiš.</p></details></article>
+      <details><summary>Máme viac detí, dá sa to?</summary><p>Áno. Pri zakladaní rodiny ich zadáš až šesť a ďalšie pridáš kedykoľvek v Rodine. Každé dieťa má vlastné body, cieľ aj históriu, úlohy a odmeny sú spoločné.</p></details>
+      <details><summary>Klesne level po zrážke alebo výmene za odmenu?</summary><p>Nie. Level rastie zo všetkých získaných bodov a nikdy neklesá. Zrážky a odmeny znižujú len zostatok v džbáne.</p></details>
+      <details><summary>Koľko bodov môžem dieťaťu zobrať za deň?</summary><p>Spolu najviac denný strop z Pravidiel rodiny a nikdy pod nulu. Väčšia zrážka sa sama zníži.</p></details>
+      <details><summary>Ako si dieťa zmení avatara?</summary><p>Ťukne na svojho avatara pri pozdrave na Domove a vyberie si postavičku. Rodič ho zmení v Rodine po ťuknutí na dieťa.</p></details>
+      <details><summary>Kto počuje hlasové odkazy?</summary><p>Len členovia vašej rodiny. Ukladajú sa v Európskej únii a mažú sa samy, spravidla 3 dni po vypočutí, najneskôr po 30 dňoch. Rodič ich môže vymazať aj skôr.</p></details>
+      <details><summary>Stojí appka niečo?</summary><p>Nie. PointJar je zadarmo, bez reklám a bez predplatného. Ak chceš, môžeš v Rodine cez „Podporiť PointJar“ dobrovoľne prispieť na prevádzku.</p></details>
+      <details><summary>Prečo appka vznikla a odkiaľ sú úlohy a odmeny?</summary><p>V Moje konto je text „Prečo vznikol PointJar“ so štúdiami, z ktorých vychádza katalóg. Je tam aj číslo verzie appky, ktoré sa hodí, keď nám niečo hlásiš.</p></details></article>
       <article class="situacia" id="delete-account" hidden>
       <div class="situaciaHlava"><span class="stitok">Vymazať konto</span><h2>Zmazanie konta a údajov</h2></div>
       <div class="krokSit"><span class="znakSit">1</span><div><p>Otvor PointJar a prihlás sa.</p></div></div>
@@ -665,86 +783,142 @@ var w=document.createElement('div');w.className='video videoRam';w.appendChild(f
   <div class="sitObal sbokom">
     <aside class="bok" aria-label="Návod">
       <span class="kurzor" aria-hidden="true"></span>
-      <a href="#s1"><span class="bodka"></span>Právě jsem si stáhl/a appku</a>
-      <a href="#s2"><span class="bodka"></span>Chci dát dítěti přístup do appky</a>
-      <a href="#s3"><span class="bodka"></span>Přidávám druhého rodiče nebo babičku</a>
-      <a href="#s4"><span class="bodka"></span>Odchod z rodiny a její zrušení</a>
-      <a href="#s5"><span class="bodka"></span>Běžný den: body, úkoly a schvalování</a>
-      <a href="#s6"><span class="bodka"></span>Chci změnit úkoly a odměny</a>
-      <a href="#s7"><span class="bodka"></span>Upozornění</a>
-      <a href="#s8"><span class="bodka"></span>Něco nesedí</a>
+      <a href="#start"><span class="bodka"></span>Začínáme</a>
+      <a href="#role"><span class="bodka"></span>Kdo je v rodině</a>
+      <a href="#pristup"><span class="bodka"></span>Přístup pro dítě</a>
+      <a href="#dieta"><span class="bodka"></span>Jak to vidí dítě</a>
+      <a href="#obchod"><span class="bodka"></span>Odměny, cíle a level</a>
+      <a href="#schvalit"><span class="bodka"></span>Schvalování</a>
+      <a href="#body"><span class="bodka"></span>Zapisování bodů</a>
+      <a href="#katalog"><span class="bodka"></span>Úkoly, odměny a mínusy</a>
+      <a href="#pohlad"><span class="bodka"></span>Přepínání pohledů</a>
+      <a href="#clenovia"><span class="bodka"></span>Rodina a členové</a>
+      <a href="#upozornenia"><span class="bodka"></span>Upozornění</a>
+      <a href="#nastavenia"><span class="bodka"></span>Účet, pravidla a odchod</a>
+      <a href="#problemy"><span class="bodka"></span>Něco nesedí</a>
       <a href="#faq"><span class="bodka"></span>Časté otázky</a>
       <a href="#delete-account"><span class="bodka"></span>Smazat účet</a>
     </aside>
     <div>
-      <article class="situacia" id="s1">
-      <div class="situaciaHlava"><span class="stitok">Jak se používá PointJar</span><h2>🚀 Právě jsem si stáhl/a appku</h2></div>
-      <div class="krokSit"><span class="znakSit">1</span><div><p>Přihlašuje se Google účtem, na iPhonu a iPadu i Apple účtem. Na Androidu přihlášení přes Apple není — kdo se jednou přihlásil přes Apple, má účet vázaný na Apple a na Androidu se do něj nedostane. Na první obrazovce jsou dvě karty: „Zakládám novou rodinu“ (rodič) a „Mám kód od rodiny“ (dítě, druhý rodič i prarodiče). Kdo zadá kód, uvidí nejdřív náhled „Připojit se k rodině … jako …?“ a vstoupí až po potvrzení.</p></div></div>
-      <div class="krokSit"><span class="znakSit">2</span><div><p>První dospělý zakládá rodinu a stává se rodičem; každý další rodič, kterého přidá, má stejná práva jako on. Hned po založení appka nabídne přidat další členy průvodcem se třemi otázkami: koho, jak se jmenuje a jak se dostane do appky. Dá se to přeskočit a dodělat kdykoli v záložce Rodina.</p></div></div>
-      <div class="krokSit"><span class="znakSit">3</span><div><p>Dítě — vidí své body, úkoly a obchod s odměnami. Vlastní telefon nepotřebuje: dokud nemá přístup, body zapisuje rodič.</p></div></div>
-      <div class="krokSit"><span class="znakSit">4</span><div><p>Rodič — přiděluje body, schvaluje úkoly a odměny a spravuje rodinu: aktivity a odměny v záložce Rodič, členy, pravidla a nastavení v záložce Rodina.</p></div></div>
-      <div class="krokSit"><span class="znakSit">5</span><div><p>Divák — všechno vidí, nic nemění (babička, děda, chůva…). Na obrazovce má větu „Díváš se jako divák“.</p></div></div>
-      <div class="krokSit"><span class="znakSit">6</span><div><p>Celé založení je otázka pěti minut. Zbytek se dá dodělat kdykoli později.</p></div></div></article>
-      <article class="situacia" id="s2" hidden>
-      <div class="situaciaHlava"><span class="stitok">Jak se používá PointJar</span><h2>📱 Chci dát dítěti přístup do appky</h2></div>
-      <div class="krokSit"><span class="znakSit">1</span><div><p>V Rodině klepni na dítě a na „Dát přístup“ (nebo na „Přidat člena rodiny“ → Dítě). Průvodce se zeptá, jak se dítě dostane do appky: vlastní telefon, společný tablet, nebo zatím nijak.</p></div></div>
-      <div class="krokSit"><span class="znakSit">2</span><div><p>Vlastní telefon — appka vydá kód (např. HRAD-2947), který platí 7 dní a dá se použít jednou. Dítě si na svém telefonu stáhne appku, přihlásí se Google účtem (na iPhonu i Apple účtem — přihlášení přes Apple funguje jen na iPhonu a iPadu), vybere „Mám kód od rodiny“ a kód zadá. Role dítěte je v kódu, nic si nevybírá. Ve zprávě ke sdílení je i odkaz, po kterém se kód vyplní sám.</p></div></div>
-      <div class="krokSit"><span class="znakSit">3</span><div><p>Společný tablet — pro dítě bez vlastního účtu. Appka ukáže párovací kód, který platí 15 minut. Na tabletu klepni na přihlašovací obrazovce na „Připojit zařízení dítěte 📱“ a kód zadej; žádný e-mail ani účet se nevyžaduje. Jeden tablet zvládne víc dětí — při párování vybereš které, a na obrazovce se mezi nimi přepíná klepnutím na jméno nahoře.</p></div></div>
-      <div class="krokSit"><span class="znakSit">4</span><div><p>Aby si sourozenci na tabletu navzájem neviděli do profilu, nastav každému 4- až 8místní PIN v detailu dítěte v Rodině. Tablety vidíš a odpojíš v Rodině v bloku Zařízení dětí.</p></div></div>
-      <div class="krokSit"><span class="znakSit">5</span><div><p>V seznamu členů je u dítěte stav: Aktivní, Pozvánka čeká (s datem, dokdy kód platí), Vypršela nebo Bez přístupu. Klepnutím na dítě můžeš vydat nový kód (starý přestane platit) nebo pozvánku zrušit — dítě v rodině zůstává.</p></div></div></article>
-      <article class="situacia" id="s3" hidden>
-      <div class="situaciaHlava"><span class="stitok">Jak se používá PointJar</span><h2>👨‍👩‍👧 Přidávám druhého rodiče nebo babičku</h2></div>
-      <div class="krokSit"><span class="znakSit">1</span><div><p>V Rodině klepni na „Přidat člena rodiny“, vyber Další dospělý nebo Někdo, kdo jen sleduje, napiš jméno a zvol, jak se dostane do appky: kód, pozvánka e-mailem, nebo zatím nijak. Člen je v seznamu i bez přístupu; přístup mu dáš kdykoli později.</p></div></div>
-      <div class="krokSit"><span class="znakSit">2</span><div><p>Kód (doporučeno) platí 7 dní a dá se použít jednou. Pošli ho jakkoli — ve zprávě je i odkaz ke stažení appky. Kdo ho zadá, stane se tímto členem s jeho rolí, po náhledu „Připojit se k rodině … jako …?“.</p></div></div>
-      <div class="krokSit"><span class="znakSit">3</span><div><p>E-mail: napiš adresu Apple či Google účtu. Přijde zpráva s tlačítkem „Potvrdit pozvání“; pozvánka platí 14 dní a po třech dnech chodí připomínka. Přihlásit se musí přesně tou adresou; při přihlášení přes Apple nesmí použít „Skrýt můj e-mail“, jinak se adresy neshodují. Když to nevyjde, pošli kód.</p></div></div>
-      <div class="krokSit"><span class="znakSit">4</span><div><p>Rodič má stejná práva jako ty. Divák se jen dívá — všechno vidí, nic nemění. Roli změníš v detailu člena; svoji vlastní roli si změnit nemůžeš, udělá to jiný rodič.</p></div></div>
-      <div class="krokSit"><span class="znakSit">5</span><div><p>Jeden účet patří do jedné rodiny. Kdo už rodinu má, uvidí u kódu větu, že ji musí nejdřív opustit v Můj účet. Druhá domácnost (například po rozvodu) se přidá do stejné rodiny jako rodič — dítě má jedny body a jednu historii.</p></div></div>
-      <div class="krokSit"><span class="znakSit">6</span><div><p>Pozastavit a odstranit — pozastavený člen ztratí přístup hned, ale zůstává v seznamu a přístup mu jedním klepnutím vrátíš. „Odstranit z rodiny“ ho ze seznamu smaže; co v rodině udělal, zůstane v historii s jeho jménem. Odstraněné dítě ze seznamu zmizí, jeho body a historie zůstávají v rodině.</p></div></div></article>
-      <article class="situacia" id="s4" hidden>
-      <div class="situaciaHlava"><span class="stitok">Jak se používá PointJar</span><h2>🚪 Odchod z rodiny a její zrušení</h2></div>
-      <div class="krokSit"><span class="znakSit">1</span><div><p>Dospělý odejde sám v Můj účet → Opustit rodinu (opíše název rodiny). Dítě neodchází samo — odstraní ho rodič v Rodině.</p></div></div>
-      <div class="krokSit"><span class="znakSit">2</span><div><p>Pokud jsi jediný rodič a v rodině je další dospělý, appka se při odchodu i při mazání účtu zeptá, kdo bude rodinu spravovat po tobě. Vybraný člen se stane rodičem a dostane o tom zprávu. Pokud nikdo takový není, rodinu můžeš zrušit.</p></div></div>
-      <div class="krokSit"><span class="znakSit">3</span><div><p>Zrušit rodinu — v Rodině úplně dole, po opsání názvu. Smažou se body, úkoly, odměny i historie; ostatní členové dostanou zprávu a jejich účty zůstanou.</p></div></div>
-      <div class="krokSit"><span class="znakSit">4</span><div><p>Přesun do jiné rodiny: po odchodu se přidáš kódem k nové rodině. Body a historie zůstávají v původní rodině.</p></div></div></article>
-      <article class="situacia" id="s5" hidden>
-      <div class="situaciaHlava"><span class="stitok">Jak se používá PointJar</span><h2>⭐ Běžný den: body, úkoly a schvalování</h2></div>
-      <div class="krokSit"><span class="znakSit">1</span><div><p>Rodič přidává body dvěma klepnutími: obrazovka Rodič, část Aktivity, a klepni na to, co dítě udělalo (např. „Úklid pokoje +100“). Body jsou připsané a dítěti přijde upozornění. Body mimo seznam zapíšeš ručně — napiš za co a kolik (mínus = srážka).</p></div></div>
-      <div class="krokSit"><span class="znakSit">2</span><div><p>Dítě na své obrazovce v části „Dnes můžu získat“ klepne na čtvereček. Zežloutne ⏳ (čeká na schválení); po schválení zezelená ✓ a body přibudou.</p></div></div>
-      <div class="krokSit"><span class="znakSit">3</span><div><p>Schvalování: nahoře v „Čeká na schválení“ a „Žádosti o odměnu“ klepni ✓ nebo ✕.</p></div></div>
-      <div class="krokSit"><span class="znakSit">4</span><div><p>Obchod — na co má dítě body, to si může vyžádat („Vyměnit“); když na odměnu ještě nemá, nastaví si ji jako cíl a karta „Můj cíl“ se vybarvuje podle našetřených bodů.</p></div></div>
-      <div class="krokSit"><span class="znakSit">5</span><div><p>Srážky jsou červená tlačítka v kategorii Srážky. Platí denní strop a zůstatek nikdy neklesne pod nulu — hlídá to databáze.</p></div></div>
-      <div class="krokSit"><span class="znakSit">6</span><div><p>Level roste z celkově získaných bodů a nikdy neklesá, ani po srážce či nákupu. Avatara si dítě vybírá samo ze 40 postaviček klepnutím na něj vlevo nahoře.</p></div></div></article>
-      <article class="situacia" id="s6" hidden>
-      <div class="situaciaHlava"><span class="stitok">Jak se používá PointJar</span><h2>🛠️ Chci změnit úkoly a odměny</h2></div>
-      <div class="krokSit"><span class="znakSit">1</span><div><p>Aktivity — obrazovka Rodič → Aktivity: úkoly a aktivity, za které se dávají body. Mínusové body = srážka. U každé lze nastavit max. počet za den.</p></div></div>
-      <div class="krokSit"><span class="znakSit">2</span><div><p>Odměny — obrazovka Rodič → Odměny: přidat novou (název, cena, ikona, i fotka z telefonu). V seznamu uprav a ulož 💾; ✕ odměnu vyřadí z nabídky, historie zůstává.</p></div></div>
-      <div class="krokSit"><span class="znakSit">3</span><div><p>Startovní katalog je přeložený do 4 jazyků; položky, které přidáš nebo přejmenuješ, se zobrazují tak, jak jsi je napsal/a.</p></div></div>
-      <div class="krokSit"><span class="znakSit">4</span><div><p>Rodina — pod seznamem členů jsou Pravidla (denní strop srážek, body na level) a tiché hodiny připomínek. Jméno, avatar a PIN dítěte upravíš klepnutím na dítě v seznamu.</p></div></div>
-      <div class="krokSit"><span class="znakSit">5</span><div><p>Úkoly a odměny jsou společné pro celou rodinu; body, cíl a historie jsou vlastní každému dítěti.</p></div></div></article>
-      <article class="situacia" id="s7" hidden>
-      <div class="situaciaHlava"><span class="stitok">Jak se používá PointJar</span><h2>🔔 Upozornění</h2></div>
-      <div class="krokSit"><span class="znakSit">1</span><div><p>Appka se při prvním přihlášení zeptá na povolení notifikací. Rodičům cinkne, když dítě něco nahlásí nebo o něco požádá; dítěti cinkne schválení či zamítnutí. Kdo akci vyvolal, tomu upozornění nechodí.</p></div></div>
-      <div class="krokSit"><span class="znakSit">2</span><div><p>Rodičům přijde připomínka, když něco čeká na schválení déle než 4 hodiny (potom ještě po 10 a 18 hodinách, dál už ne).</p></div></div>
-      <div class="krokSit"><span class="znakSit">3</span><div><p>Všichni v rodině, i divák, dostanou zprávu, když dítě našetří na svůj cíl, dosáhne nový level nebo se přidá nový člen.</p></div></div>
-      <div class="krokSit"><span class="znakSit">4</span><div><p>Nic se neztratí: pod horní lištou je „Co se stalo naposledy“ — všechny notifikace, které ti přišly nebo měly přijít, i s celým textem. Rodič vidí v Rodina → Změny notifikace celé rodiny.</p></div></div>
-      <div class="krokSit"><span class="znakSit">5</span><div><p>Notifikace chodí v jazyce, který má appka nastavený na daném zařízení. Notifikace dítěte nastavuje rodič v detailu dítěte v Rodině.</p></div></div>
-      <div class="krokSit"><span class="znakSit">6</span><div><p>Den se počítá podle časového pásma rodiny. To si appka bere z telefonu rodiče (telefon ho nastavuje podle sítě, ne podle polohy), takže „dnes“ a denní limity sedí i na dovolené.</p></div></div></article>
-      <article class="situacia" id="s8" hidden>
-      <div class="situaciaHlava"><span class="stitok">Jak se používá PointJar</span><h2>🆘 Něco nesedí</h2></div>
-      <div class="krokSit"><span class="znakSit">1</span><div><p>Vidím jen obrazovku s kódem — účet ještě není v žádné rodině. Popros rodiče o kód (vytvoří ho v Rodině u tvého jména), nebo klepni na „Nemáš kód? Požádej rodinu“ a pošli mu zprávu se svým e-mailem. Nebo si jako rodič založ vlastní rodinu.</p></div></div>
-      <div class="krokSit"><span class="znakSit">2</span><div><p>Kód neplatí — buď už byl použitý, vypršel (7 dní), nebo rodič mezitím vydal nový a starý tím přestal platit. Popros o aktuální.</p></div></div>
-      <div class="krokSit"><span class="znakSit">3</span><div><p>Pozval/a jsem někoho e-mailem, ale rodinu nevidí — musí se přihlásit přesně tou adresou, na kterou pozvánka přišla. V Rodině u jeho jména vidíš stav pozvánky, můžeš ji poslat znovu nebo zrušit. Nejjistější je kód.</p></div></div>
-      <div class="krokSit"><span class="znakSit">4</span><div><p>Dali jsme body omylem — v Historii má každý tvůj zápis do 24 hodin tlačítko Storno. Vytvoří se protizápis, nic se nemaže.</p></div></div>
-      <div class="krokSit"><span class="znakSit">5</span><div><p>Dítě nahlásilo úkol omylem — rodič ho v „Čeká na schválení“ zamítne a nepřipíše se nic.</p></div></div>
-      <div class="krokSit"><span class="znakSit">6</span><div><p>Úkol nejde klepnout podruhé — buď ještě čeká na schválení, nebo je vyčerpaný jeho denní limit (např. zuby max 2× denně).</p></div></div>
-      <div class="krokSit"><span class="znakSit">7</span><div><p>Kdo co změnil — Rodina → Změny: u každé úpravy je kdo, co, z jaké hodnoty na jakou a kdy.</p></div></div></article>
+      <article class="situacia" id="start">
+      <div class="situaciaHlava"><span class="stitok">Jak se používá PointJar</span><h2>🚀 Začínáme</h2><p class="navodUvod">Rodič založí rodinu, ostatní se přidají kódem. Celé to trvá pár minut.</p></div>
+      
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Přihlášení</h3><p>Přihlašuje se účtem Google, na iPhonu a iPadu i účtem Apple. Na Androidu přihlášení přes Apple není, takže kdo se jednou přihlásil přes Apple, na Androidu se do svého účtu nedostane.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Založení rodiny</h3><p>Ťukni na „Zakládám novou rodinu“, napiš své jméno a jméno dítěte (při zakládání až šest dětí). Název rodiny je nepovinný. Rodina hned dostane startovní katalog úkolů a odměn, který si upravíš podle sebe.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Mám kód od rodiny</h3><p>Druhý rodič, babička nebo dítě s vlastním účtem ťukne na „Mám kód od rodiny“ a zadá 8znakový kód (například ABCD-1234). Uvidí, ke které rodině a v jaké roli se připojuje, a vstoupí až po potvrzení.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Další členové</h3><p>Na konci zakládání appka nabídne dát dětem přístup a přidat další dospělé. Nic není povinné, všechno jde dodělat později v záložce Rodina.</p></div></div>
+      <div class="navodTip"><b>💡 Tip</b><p>Než založíš rodinu, podívej se na „Prohlédnout si demo bez přihlášení 👀“. Ukáže pohled dítěte i rodiče s vymyšlenými dětmi a nic se v něm neukládá.</p></div></article>
+      <article class="situacia" id="role" hidden>
+      <div class="situaciaHlava"><span class="stitok">Jak se používá PointJar</span><h2>👨‍👩‍👧 Kdo je v rodině</h2><p class="navodUvod">Každý člen má jednu roli: rodič, dítě nebo divák.</p></div>
+      
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Rodič</h3><p>Schvaluje úkoly a odměny, zapisuje body, upravuje katalog, přidává členy a nastavuje pravidla. Každý další rodič má stejná práva.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Dítě</h3><p>Sbírá body, ťuká hotové úkoly a šetří na odměny. Vlastní zařízení nepotřebuje: dokud nemá přístup, body mu zapisuje rodič.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Divák</h3><p>Babička, děda nebo chůva. Všechno vidí, nic nemění a na obrazovce má větu „Díváš se jako divák“.</p></div></div>
+      </article>
+      <article class="situacia" id="pristup" hidden>
+      <div class="situaciaHlava"><span class="stitok">Jak se používá PointJar</span><h2>📱 Přístup pro dítě</h2><p class="navodUvod">Dítě může ťukat úkoly na vlastním zařízení, na společném tabletu nebo s tebou na tvém telefonu.</p></div>
+      
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Kde začít</h3><p>V záložce Rodina ťukni na „Přidat člena rodiny“ → Dítě, nebo u dítěte bez přístupu na „Dát přístup“. Průvodce se zeptá, kde bude dítě ťukat úkoly.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Vlastní telefon nebo tablet</h3><p>Bez e-mailu a bez účtu. Appka ukáže 6znakový kód, který platí 15 minut. Na zařízení dítěte ťukni na přihlašovací obrazovce na „Připojit zařízení dítěte 📱“ a kód zadej. Když se zařízení připojí, v průvodci naskočí „✓ … je připojené“.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Dítě s vlastním účtem</h3><p>Pokud má dítě vlastní účet Google nebo Apple, ťukni v průvodci na odkaz „… má vlastní účet Google nebo Apple“. Dostaneš 8znakový kód na 7 dní a dítě ho zadá v „Mám kód od rodiny“.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Na mém telefonu, se mnou</h3><p>Dítě ťuká úkoly na tvém telefonu v pohledu dítěte (pilulka vpravo nahoře). Nahlášený úkol čeká ⏳ stejně jako na tabletu a potvrdíš ho v záložce Schválit.</p></div></div>
+      <div class="krokSit"><span class="znakSit">5</span><div><h3 class="navodPodnadpis">Více dětí na jednom tabletu</h3><p>Při párování vybereš, které děti tablet zvládne, a přepíná se mezi nimi klepnutím na jméno vpravo nahoře. Aby si sourozenci nechodili navzájem do profilu, nastav každému PIN (4 až 8 číslic) v Rodině po ťuknutí na dítě.</p></div></div>
+      <div class="krokSit"><span class="znakSit">6</span><div><h3 class="navodPodnadpis">Zařízení</h3><p>V Rodině v bloku „Zařízení dětí“ vidíš, kdy se které zařízení naposledy použilo, a jedním ťuknutím ho odpojíš.</p></div></div>
+      </article>
+      <article class="situacia" id="dieta" hidden>
+      <div class="situaciaHlava"><span class="stitok">Jak se používá PointJar</span><h2>🧒 Jak to vidí dítě</h2><p class="navodUvod">Dítě má čtyři záložky: Domů, Úkoly, Obchod a Historie.</p></div>
+      <div class="navodZabery"><img src="assets/navod/cs-domov.webp" width="270" height="587" loading="lazy" alt="Domů dítěte: džbán s body a mince s úkoly"><img src="assets/navod/cs-harok.webp" width="270" height="587" loading="lazy" alt="List po ťuknutí na úkol: Poslat rodiči nebo nejdřív nahrát vzkaz"></div>
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Domů</h3><p>Velký džbán ukazuje body, level a kolik chybí do cíle. Pod ním jsou mince „Čím si dnes naplníš džbán?“ s úkoly, které se dnes dají splnit.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Nahlášení úkolu</h3><p>Dítě ťukne na minci úkolu, který má hotový. Ukáže se list s názvem a body: „Poslat rodiči“ úkol nahlásí, „Nejdřív nahrát vzkaz 🎤“ k němu přidá hlasový vzkaz (nejvýš 20 sekund).</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Čeká ⏳</h3><p>Nahlášený úkol čeká na rodiče a jeho body „čekají nad džbánem“. Do džbánu spadnou, až to rodič potvrdí. Dokud nerozhodl, jde nahlášení ťuknutím na minci vzít zpět.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Úkoly a Historie</h3><p>V Úkolech jsou všechny úkoly podle kategorií se čtverečkem, který otevře stejný list. Historie ukazuje po dnech schválené i neuznané úkoly, odměny, srážky a hlasové odpovědi rodiče.</p></div></div>
+      <div class="navodTip"><b>💡 Tip</b><p>Když úkol nejde ťuknout podruhé, buď ještě čeká na rodiče, nebo má vyčerpaný denní limit (například zuby nejvýš dvakrát za den).</p></div></article>
+      <article class="situacia" id="obchod" hidden>
+      <div class="situaciaHlava"><span class="stitok">Jak se používá PointJar</span><h2>🎁 Odměny, cíle a level</h2><p class="navodUvod">Za body si dítě vybírá odměny, na kterých jste se doma domluvili.</p></div>
+      <div class="navodZabery"><img src="assets/navod/cs-obchod.webp" width="270" height="587" loading="lazy" alt="Obchod s odměnami a cílem"></div>
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Výměna</h3><p>Na odměnu, na kterou má, ťukne „Vyměnit za … b“. Body se odloží stranou, dokud rodič žádost nepotvrdí, a žádost jde do té doby vzít zpět.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Šetření na cíl</h3><p>U dražší odměny ťukne „Chci si na to šetřit“ a odměna se stane cílem. Džbán na Domů pak ukazuje, kolik ještě chybí. Cíl může mít najednou jeden.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Level</h3><p>Roste ze všech získaných bodů a nikdy neklesá, ani po srážce, ani po výměně za odměnu. Utrácí se zůstatek, ne úspěchy.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Prázdný obchod</h3><p>Když v obchodě nic není, dítě může rodičům ťuknutím na „Poslat prosbu 💬“ připomenout, aby odměny přidali.</p></div></div>
+      </article>
+      <article class="situacia" id="schvalit" hidden>
+      <div class="situaciaHlava"><span class="stitok">Jak se používá PointJar</span><h2>✅ Schvalování</h2><p class="navodUvod">Všechno, co děti nahlásily, čeká v záložce Schválit jako balíček karet.</p></div>
+      <div class="navodZabery"><img src="assets/navod/cs-schvalit.webp" width="270" height="587" loading="lazy" alt="Schválit: karta s nahlášeným úkolem"></div>
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Karta</h3><p>Na kartě je, kdo a co nahlásil, za kolik bodů a kolik bude mít po schválení. Pokud dítě nahrálo vzkaz, přehraješ si ho přímo na kartě.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Potvrdit nebo Neschválit</h3><p>Rozhoduje se jedním ťuknutím na „✓ Potvrdit“ nebo „Neschválit“. Potažením karty se jen listuje, nic se jím nerozhodne.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Odvolání</h3><p>Do 24 hodin jde rozhodnutí vrátit přes „↺ Odvolat rozhodnutí“, i po zavření appky. Pokud dítě schválené body mezitím utratilo, appka upozorní, že zůstatek půjde do mínusu.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Více úkolů najednou</h3><p>Když čekají aspoň tři úkoly, pod balíčkem je „Potvrdit všechny úkoly“. Žádosti o odměnu se potvrzují jednotlivě.</p></div></div>
+      <div class="krokSit"><span class="znakSit">5</span><div><h3 class="navodPodnadpis">Hlasová odpověď</h3><p>Ťukni na „Odpovědět hlasem“, nahraj odpověď a pošli ji. Dítěti přijde hned, i před rozhodnutím, takže to může být i otázka.</p></div></div>
+      <div class="krokSit"><span class="znakSit">6</span><div><h3 class="navodPodnadpis">Přímo z notifikace</h3><p>U nahlášeného úkolu jsou v notifikaci tlačítka Schválit, Zamítnout a Později. Na iPhonu se před rozhodnutím vyžádá Face ID nebo kód telefonu, na Androidu se otevře appka.</p></div></div>
+      </article>
+      <article class="situacia" id="body" hidden>
+      <div class="situaciaHlava"><span class="stitok">Jak se používá PointJar</span><h2>⚡ Zapisování bodů</h2><p class="navodUvod">Body můžeš zapsat i sám, když vidíš něco dobrého, aniž by dítě cokoli hlásilo.</p></div>
+      <div class="navodZabery"><img src="assets/navod/cs-body.webp" width="270" height="587" loading="lazy" alt="Rychlé body: výběr dítěte a důvodu, tlačítko Zapsat"></div>
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Rychlé body</h3><p>V záložce Body vyber dítě (u více dětí) a za co. Vlastní částku a důvod napíšeš přes „± Jiný počet bodů“. Dole se ukáže tlačítko „Mia: zapsat +N b“ a body jsou hned připsané.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Srážky</h3><p>Mínusové položky nebo „− Odebrat“ u vlastní částky. Srážka se před zápisem ptá na potvrzení, má denní strop a zůstatek nikdy neklesne pod nulu.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Když se spleteš</h3><p>V Historii pod zápisy má každý tvůj zápis 24 hodin tlačítko „Vrátit“. Vznikne protizápis, nic se nemaže.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Hlasové vzkazy</h3><p>V Historii u úkolu si přehraješ vzkaz dítěte i svou odpověď a „Smazat vzkaz“ je smaže hned. Jinak se mažou samy, zpravidla 3 dny po poslechnutí, nejpozději po 30 dnech.</p></div></div>
+      </article>
+      <article class="situacia" id="katalog" hidden>
+      <div class="situaciaHlava"><span class="stitok">Jak se používá PointJar</span><h2>📋 Úkoly, odměny a mínusy</h2><p class="navodUvod">Katalog je společný pro celou rodinu, body, cíl a historie jsou pro každé dítě zvlášť.</p></div>
+      <div class="navodZabery"><img src="assets/navod/cs-katalog.webp" width="270" height="587" loading="lazy" alt="Katalog úkolů, odměn a mínusů"></div>
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Nový úkol nebo mínus</h3><p>Katalog → Úkoly nebo Mínusy → „Nové chování“: název, body (mínus znamená srážku), ikona z mřížky, kategorie a kolikrát za den jde zapsat.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Nová odměna</h3><p>Katalog → Odměny → „Nová odměna“: název, cena v bodech, ikona a volitelně fotka z telefonu.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Úprava a vypnutí</h3><p>U položky ťukni na „Upravit“. „Vypnout (skrýt z nabídky)“ ji schová dětem i z rychlých bodů, historie zůstane.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Kdo katalog mění</h3><p>Rodič. Divák ho jen vidí.</p></div></div>
+      </article>
+      <article class="situacia" id="pohlad" hidden>
+      <div class="situaciaHlava"><span class="stitok">Jak se používá PointJar</span><h2>👀 Přepínání pohledů</h2><p class="navodUvod">Pilulka vpravo nahoře přepíná mezi pohledem dítěte, Rodičem a Rodinou.</p></div>
+      <div class="navodZabery"><img src="assets/navod/cs-pohlad.webp" width="270" height="587" loading="lazy" alt="List Pohled: děti, Rodič a Rodina"></div>
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Na telefonu rodiče</h3><p>V listu Pohled je každé dítě (i s počtem úkolů, které čekají), Rodič na schvalování a body a Rodina se členy a nastavením.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Na tabletu s více dětmi</h3><p>List ukáže jen děti. Dítě, které má PIN, ho musí zadat.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Zámek rodiče</h3><p>V Můj účet si zapneš Face ID nebo otisk prstu při každém vstupu do rodičovské části: při startu, z notifikace i při přepnutí z pohledu dítěte. Po 5 minutách na pozadí se zamkne znovu.</p></div></div>
+      <div class="navodTip"><b>💡 Tip</b><p>Zámek rodiče se vyplatí, když si dítě hraje na tvém telefonu: v pohledu dítěte může úkoly jen nahlásit, schválit si je samo neumí.</p></div></article>
+      <article class="situacia" id="clenovia" hidden>
+      <div class="situaciaHlava"><span class="stitok">Jak se používá PointJar</span><h2>🏠 Rodina a členové</h2><p class="navodUvod">V záložce Rodina jsou děti, dospělí a zařízení dětí.</p></div>
+      <div class="navodZabery"><img src="assets/navod/cs-rodina.webp" width="270" height="587" loading="lazy" alt="Záložka Rodina s dětmi a řádky Nastavení a Podpořit PointJar"></div>
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Druhý rodič nebo babička</h3><p>„Přidat člena rodiny“ → „Další dospělý“ (stejná práva jako ty) nebo „Někdo, kdo jen sleduje“. Přístup dostane kódem (8 znaků, platí 7 dní, jde použít jednou) nebo pozvánkou e-mailem, která platí 14 dní.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Stav u jména</h3><p>Aktivní, Pozvánka čeká, Vypršela, Bez přístupu nebo Pozastavený. Ťuknutím na člena ho přejmenuješ, změníš mu roli, vydáš nový kód nebo pozvánku zrušíš.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Pozastavit a odstranit</h3><p>Pozastavený člen ztratí přístup hned, ale zůstane v seznamu a přístup mu vrátíš jedním ťuknutím. „Odstranit z rodiny“ ho ze seznamu smaže, jeho body a historie zůstanou rodině.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Dítě</h3><p>Po ťuknutí na dítě mu změníš jméno, avatara a PIN pro společný tablet.</p></div></div>
+      </article>
+      <article class="situacia" id="upozornenia" hidden>
+      <div class="situaciaHlava"><span class="stitok">Jak se používá PointJar</span><h2>🔔 Upozornění</h2><p class="navodUvod">Notifikace si každý dospělý nastaví sám v Můj účet, dětem je nastavuje rodič.</p></div>
+      
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Kategorie</h3><p>Úkoly, Odměny, Cíl a level, Členové rodiny a Novinky od PointJar (ty jen pokud si je zapneš). Nastavení platí pro notifikace i e-maily.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Povolení</h3><p>Appka se na povolení zeptá, když to dává smysl: na konci zakládání rodiny, pokud dítě dostalo přístup, nebo po prvním schválení. Pokud jsou notifikace vypnuté, ve Schválit a v Můj účet uvidíš pruh s tlačítkem „Zapnout“.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Připomínky a tiché hodiny</h3><p>Když úkol čeká několik hodin, appka rodičům připomene. V tichých hodinách (Pravidla rodiny) připomínky nechodí a ostatní notifikace přijdou potichu, bez zvuku.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Archiv</h3><p>Každá notifikace zůstává měsíc v Můj účet, kdyby ti nějaká utekla.</p></div></div>
+      </article>
+      <article class="situacia" id="nastavenia" hidden>
+      <div class="situaciaHlava"><span class="stitok">Jak se používá PointJar</span><h2>⚙️ Účet, pravidla a odchod</h2><p class="navodUvod">Můj účet otevřeš v záložce Rodina řádkem „Nastavení“.</p></div>
+      
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Pravidla rodiny</h3><p>Max. srážka za den (výchozí 100 b), body na jeden level (výchozí 500 b) a tiché hodiny. V části Změny vidíš, kdo co a kdy upravil.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Vzhled</h3><p>Jazyk appky, barva a vzhled spodní lišty.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Opustit rodinu</h3><p>Dospělý odejde sám v Můj účet, když opíše název rodiny. Pokud jsi poslední rodič a v rodině je další dospělý, appka se zeptá, kdo ji bude spravovat po tobě. Dítě rodinu neopouští, odstraní ho rodič.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Zrušit rodinu</h3><p>V Pravidlech rodiny úplně dole, po opsání názvu. Smažou se body, úkoly, odměny i historie, účty ostatních členů zůstanou.</p></div></div>
+      <div class="krokSit"><span class="znakSit">5</span><div><h3 class="navodPodnadpis">Smazat účet</h3><p>Můj účet → „Smazat účet“. Profil i přihlašovací účet se odstraní hned.</p></div></div>
+      <div class="krokSit"><span class="znakSit">6</span><div><h3 class="navodPodnadpis">Podpořit PointJar</h3><p>V Rodině řádek 💛 „Podpořit PointJar“: dobrovolný příspěvek přes App Store nebo Google Play, hodnocení appky nebo doporučení další rodině. Appka zůstává celá zdarma.</p></div></div>
+      </article>
+      <article class="situacia" id="problemy" hidden>
+      <div class="situaciaHlava"><span class="stitok">Jak se používá PointJar</span><h2>🆘 Něco nesedí</h2><p class="navodUvod">Nejčastější zádrhele a co s nimi.</p></div>
+      
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Vidím jen obrazovku s kódem</h3><p>Tvůj účet ještě není v žádné rodině. Popros rodiče o kód, nebo ťukni na „Nemáš kód? Požádej rodinu 📤“ a pošli mu zprávu. Případně si jako rodič založ vlastní rodinu.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Kód neplatí</h3><p>Buď už byl použit, vypršel, nebo rodič mezitím vydal nový. 6znakový kód patří do „Připojit zařízení dítěte 📱“ bez přihlášení, 8znakový do „Mám kód od rodiny“ po přihlášení.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Pozvaný nevidí rodinu</h3><p>Musí se přihlásit přesně tou adresou, na kterou přišla pozvánka. V Rodině u jeho jména vidíš stav pozvánky. Nejjistější je kód.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Nechodí notifikace</h3><p>Zkontroluj povolení v nastavení telefonu a kategorie v Můj účet.</p></div></div>
+      <div class="krokSit"><span class="znakSit">5</span><div><h3 class="navodPodnadpis">Kdo co změnil</h3><p>Pravidla rodiny → Změny: kdo, co, z jaké hodnoty na jakou a kdy.</p></div></div>
+      <div class="krokSit"><span class="znakSit">6</span><div><h3 class="navodPodnadpis">Nic nepomohlo</h3><p>Napiš nám v Můj účet přes „💬 Napiš nám“. Odpovídáme obvykle do jednoho pracovního dne.</p></div></div>
+      </article>
       <article class="situacia" id="faq" hidden>
       <div class="situaciaHlava"><span class="stitok">Jak se používá PointJar</span><h2>Časté otázky</h2></div>
-      <details><summary>Máme víc dětí — dá se to?</summary><p>Ano. Další dítě přidáš v Rodině přes „Přidat člena rodiny“, i bez přístupu — body mu zapisuješ ty. Na obrazovkách Rodič a Dítě se pak mezi dětmi přepínáš; každé má vlastní body, cíl i historii. Úkoly a odměny jsou společné pro rodinu.</p></details>
-      <details><summary>Klesne level po srážce nebo nákupu odměny?</summary><p>Ne. Level roste z celkově získaných bodů a nikdy neklesá — srážky a nákupy snižují jen peněženku.</p></details>
-      <details><summary>Kolik bodů můžu dítěti vzít za den?</summary><p>Celkem nejvýš denní strop (nastavíš v Rodině v Pravidlech) a nikdy pod nulu. Větší srážka se sama ořízne.</p></details>
-      <details><summary>Jak si dítě změní avatara?</summary><p>Klepne na avatara vlevo nahoře na své obrazovce a vybere si ze 40 postaviček. Totéž umí rodič klepnutím na avatara v přehledu nebo na dítě v Rodině.</p></details>
-      <details><summary>Proč appka vznikla a odkud jsou úkoly a odměny?</summary><p>V Můj účet najdeš text „Proč vznikl PointJar“ se studiemi, ze kterých vychází katalog úkolů i odměn. Je tam i číslo verze appky, které se hodí, když nám něco hlásíš.</p></details></article>
+      <details><summary>Máme více dětí, jde to?</summary><p>Ano. Při zakládání rodiny jich zadáš až šest a další přidáš kdykoli v Rodině. Každé dítě má vlastní body, cíl i historii, úkoly a odměny jsou společné.</p></details>
+      <details><summary>Klesne level po srážce nebo výměně za odměnu?</summary><p>Ne. Level roste ze všech získaných bodů a nikdy neklesá. Srážky a odměny snižují jen zůstatek ve džbánu.</p></details>
+      <details><summary>Kolik bodů můžu dítěti vzít za den?</summary><p>Celkem nejvýš denní strop z Pravidel rodiny a nikdy pod nulu. Větší srážka se sama sníží.</p></details>
+      <details><summary>Jak si dítě změní avatara?</summary><p>Ťukne na svého avatara u pozdravu na Domů a vybere si postavičku. Rodič ho změní v Rodině po ťuknutí na dítě.</p></details>
+      <details><summary>Kdo slyší hlasové vzkazy?</summary><p>Jen členové vaší rodiny. Ukládají se v Evropské unii a mažou se samy, zpravidla 3 dny po poslechnutí, nejpozději po 30 dnech. Rodič je může smazat i dříve.</p></details>
+      <details><summary>Stojí appka něco?</summary><p>Ne. PointJar je zdarma, bez reklam a bez předplatného. Pokud chceš, můžeš v Rodině přes „Podpořit PointJar“ dobrovolně přispět na provoz.</p></details>
+      <details><summary>Proč appka vznikla a odkud jsou úkoly a odměny?</summary><p>V Můj účet je text „Proč vznikl PointJar“ se studiemi, ze kterých vychází katalog. Je tam i číslo verze appky, které se hodí, když nám něco hlásíš.</p></details></article>
       <article class="situacia" id="delete-account" hidden>
       <div class="situaciaHlava"><span class="stitok">Smazat účet</span><h2>Smazání účtu a údajů</h2></div>
       <div class="krokSit"><span class="znakSit">1</span><div><p>Otevři PointJar a přihlas se.</p></div></div>
@@ -779,86 +953,142 @@ var w=document.createElement('div');w.className='video videoRam';w.appendChild(f
   <div class="sitObal sbokom">
     <aside class="bok" aria-label="Anleitung">
       <span class="kurzor" aria-hidden="true"></span>
-      <a href="#s1"><span class="bodka"></span>Ich habe die App gerade heruntergeladen</a>
-      <a href="#s2"><span class="bodka"></span>Ich möchte dem Kind Zugang zur App geben</a>
-      <a href="#s3"><span class="bodka"></span>Ich füge den zweiten Elternteil oder die Oma hinzu</a>
-      <a href="#s4"><span class="bodka"></span>Familie verlassen und auflösen</a>
-      <a href="#s5"><span class="bodka"></span>Ein normaler Tag: Punkte, Aufgaben und Bestätigen</a>
-      <a href="#s6"><span class="bodka"></span>Ich möchte Aufgaben und Belohnungen ändern</a>
-      <a href="#s7"><span class="bodka"></span>Benachrichtigungen</a>
-      <a href="#s8"><span class="bodka"></span>Etwas stimmt nicht</a>
+      <a href="#start"><span class="bodka"></span>Erste Schritte</a>
+      <a href="#role"><span class="bodka"></span>Wer zur Familie gehört</a>
+      <a href="#pristup"><span class="bodka"></span>Zugang für das Kind</a>
+      <a href="#dieta"><span class="bodka"></span>Was das Kind sieht</a>
+      <a href="#obchod"><span class="bodka"></span>Belohnungen, Ziele und Level</a>
+      <a href="#schvalit"><span class="bodka"></span>Freigeben</a>
+      <a href="#body"><span class="bodka"></span>Punkte eintragen</a>
+      <a href="#katalog"><span class="bodka"></span>Aufgaben, Belohnungen und Abzüge</a>
+      <a href="#pohlad"><span class="bodka"></span>Ansicht wechseln</a>
+      <a href="#clenovia"><span class="bodka"></span>Familie und Mitglieder</a>
+      <a href="#upozornenia"><span class="bodka"></span>Benachrichtigungen</a>
+      <a href="#nastavenia"><span class="bodka"></span>Konto, Regeln und Verlassen</a>
+      <a href="#problemy"><span class="bodka"></span>Etwas stimmt nicht</a>
       <a href="#faq"><span class="bodka"></span>Häufige Fragen</a>
       <a href="#delete-account"><span class="bodka"></span>Konto löschen</a>
     </aside>
     <div>
-      <article class="situacia" id="s1">
-      <div class="situaciaHlava"><span class="stitok">So funktioniert PointJar</span><h2>🚀 Ich habe die App gerade heruntergeladen</h2></div>
-      <div class="krokSit"><span class="znakSit">1</span><div><p>Angemeldet wird mit einem Google-Konto, auf iPhone und iPad auch mit einem Apple-Konto. Auf Android gibt es kein Anmelden mit Apple — ein mit Apple erstelltes Konto bleibt an Apple gebunden und lässt sich auf Android nicht öffnen. Der erste Bildschirm zeigt zwei Karten: „Ich gründe eine neue Familie“ (Elternteil) und „Ich habe einen Familien-Code“ (Kind, zweiter Elternteil, Großeltern). Wer einen Code eingibt, sieht zuerst die Vorschau „Der Familie … als … beitreten?“ und tritt erst nach der Bestätigung bei.</p></div></div>
-      <div class="krokSit"><span class="znakSit">2</span><div><p>Der erste Erwachsene gründet die Familie und wird Elternteil; jeder weitere Elternteil, den er hinzufügt, hat dieselben Rechte. Direkt danach bietet die App an, weitere Mitglieder mit einem Assistenten aus drei Fragen hinzuzufügen: wen, wie die Person heißt und wie sie in die App kommt. Das lässt sich überspringen und jederzeit im Reiter Familie nachholen.</p></div></div>
-      <div class="krokSit"><span class="znakSit">3</span><div><p>Kind — sieht seine Punkte, Aufgaben und den Belohnungs-Shop. Ein eigenes Handy braucht es nicht: Solange es keinen Zugang hat, trägt ein Elternteil die Punkte ein.</p></div></div>
-      <div class="krokSit"><span class="znakSit">4</span><div><p>Elternteil — vergibt Punkte, bestätigt Aufgaben und Belohnungen und verwaltet die Familie: Aktivitäten und Belohnungen im Reiter Eltern, Mitglieder, Regeln und Einstellungen im Reiter Familie.</p></div></div>
-      <div class="krokSit"><span class="znakSit">5</span><div><p>Zuschauer — sieht alles, ändert nichts (Oma, Opa, Babysitter…). Auf dem Bildschirm steht „Du schaust als Zuschauer zu“.</p></div></div>
-      <div class="krokSit"><span class="znakSit">6</span><div><p>Das Einrichten dauert etwa fünf Minuten. Der Rest lässt sich jederzeit später nachholen.</p></div></div></article>
-      <article class="situacia" id="s2" hidden>
-      <div class="situaciaHlava"><span class="stitok">So funktioniert PointJar</span><h2>📱 Ich möchte dem Kind Zugang zur App geben</h2></div>
-      <div class="krokSit"><span class="znakSit">1</span><div><p>Tippe unter Familie auf das Kind und auf „Zugang geben“ (oder auf „Familienmitglied hinzufügen“ → Kind). Der Assistent fragt, wie das Kind in die App kommt: eigenes Handy, gemeinsames Tablet oder vorerst nicht.</p></div></div>
-      <div class="krokSit"><span class="znakSit">2</span><div><p>Eigenes Handy — die App erstellt einen Code (z. B. HRAD-2947), der 7 Tage gilt und einmal funktioniert. Das Kind lädt die App auf sein Handy, meldet sich mit einem Google-Konto an (auf dem iPhone auch mit Apple — die Apple-Anmeldung gibt es nur auf iPhone und iPad), wählt „Ich habe einen Familien-Code“ und gibt ihn ein. Die Rolle des Kindes steckt im Code, es wählt nichts. Die Nachricht zum Teilen enthält auch einen Link, der den Code von selbst einträgt.</p></div></div>
-      <div class="krokSit"><span class="znakSit">3</span><div><p>Gemeinsames Tablet — für ein Kind ohne eigenes Konto. Die App zeigt einen Kopplungscode, der 15 Minuten gilt. Tippe auf dem Tablet auf dem Anmeldebildschirm auf „Gerät eines Kindes verbinden 📱“ und gib den Code ein; weder E-Mail noch Konto sind nötig. Ein Tablet reicht für mehrere Kinder — beim Koppeln wählst du welche, und auf dem Bildschirm wechselst du per Tipp auf den Namen oben.</p></div></div>
-      <div class="krokSit"><span class="znakSit">4</span><div><p>Damit Geschwister am Tablet nicht ins Profil des anderen sehen, vergib jedem eine 4- bis 8-stellige PIN in den Details des Kindes unter Familie. Tablets siehst und trennst du unter Familie im Block Geräte der Kinder.</p></div></div>
-      <div class="krokSit"><span class="znakSit">5</span><div><p>In der Mitgliederliste steht beim Kind der Stand: Aktiv, Einladung wartet (mit dem Datum, bis wann der Code gilt), Abgelaufen oder Kein Zugang. Per Tipp auf das Kind erstellst du einen neuen Code (der alte gilt dann nicht mehr) oder ziehst die Einladung zurück — das Kind bleibt in der Familie.</p></div></div></article>
-      <article class="situacia" id="s3" hidden>
-      <div class="situaciaHlava"><span class="stitok">So funktioniert PointJar</span><h2>👨‍👩‍👧 Ich füge den zweiten Elternteil oder die Oma hinzu</h2></div>
-      <div class="krokSit"><span class="znakSit">1</span><div><p>Tippe unter Familie auf „Familienmitglied hinzufügen“, wähle Weiterer Erwachsener oder Jemand, der nur zusieht, gib den Namen ein und wähle, wie die Person in die App kommt: Code, Einladung per E-Mail oder vorerst nicht. Ein Mitglied steht auch ohne Zugang in der Liste; Zugang gibst du jederzeit später.</p></div></div>
-      <div class="krokSit"><span class="znakSit">2</span><div><p>Der Code (empfohlen) gilt 7 Tage und funktioniert einmal. Schick ihn, wie du willst — die Nachricht enthält auch einen Download-Link. Wer ihn eingibt, wird dieses Mitglied mit dieser Rolle, nach der Vorschau „Der Familie … als … beitreten?“.</p></div></div>
-      <div class="krokSit"><span class="znakSit">3</span><div><p>E-Mail: gib die Adresse des Apple- oder Google-Kontos ein. Es kommt eine Nachricht mit dem Knopf „Einladung bestätigen“; die Einladung gilt 14 Tage und nach drei Tagen geht eine Erinnerung raus. Anmelden muss sich die Person genau mit dieser Adresse; bei der Apple-Anmeldung darf „E-Mail verbergen“ nicht verwendet werden, sonst stimmen die Adressen nicht überein. Klappt das nicht, schick einen Code.</p></div></div>
-      <div class="krokSit"><span class="znakSit">4</span><div><p>Ein Elternteil hat dieselben Rechte wie du. Ein Zuschauer schaut nur zu — sieht alles, ändert nichts. Die Rolle änderst du in den Details des Mitglieds; deine eigene Rolle kannst du nicht ändern, das macht ein anderer Elternteil.</p></div></div>
-      <div class="krokSit"><span class="znakSit">5</span><div><p>Ein Konto gehört zu einer Familie. Wer schon eine Familie hat, sieht beim Code den Hinweis, sie zuerst unter Mein Konto zu verlassen. Ein zweiter Haushalt (etwa nach einer Trennung) tritt derselben Familie als Elternteil bei — das Kind hat einen Punktestand und eine Historie.</p></div></div>
-      <div class="krokSit"><span class="znakSit">6</span><div><p>Pausieren und entfernen — ein pausiertes Mitglied verliert den Zugang sofort, bleibt aber in der Liste, und mit einem Tipp gibst du ihn zurück. „Aus der Familie entfernen“ löscht es aus der Liste; was es in der Familie gemacht hat, bleibt in der Historie unter seinem Namen. Ein entferntes Kind verschwindet aus der Liste; seine Punkte und seine Historie bleiben bei der Familie.</p></div></div></article>
-      <article class="situacia" id="s4" hidden>
-      <div class="situaciaHlava"><span class="stitok">So funktioniert PointJar</span><h2>🚪 Familie verlassen und auflösen</h2></div>
-      <div class="krokSit"><span class="znakSit">1</span><div><p>Ein Erwachsener geht selbst unter Mein Konto → Familie verlassen (Familienname eintippen). Ein Kind geht nicht selbst — ein Elternteil entfernt es unter Familie.</p></div></div>
-      <div class="krokSit"><span class="znakSit">2</span><div><p>Bist du der einzige Elternteil und es gibt einen weiteren Erwachsenen in der Familie, fragt die App beim Verlassen und beim Löschen des Kontos, wer die Familie nach dir verwaltet. Das gewählte Mitglied wird Elternteil und bekommt eine Nachricht. Gibt es niemanden, kannst du die Familie auflösen.</p></div></div>
-      <div class="krokSit"><span class="znakSit">3</span><div><p>Familie auflösen — ganz unten unter Familie, nach dem Eintippen des Namens. Punkte, Aufgaben, Belohnungen und Historie werden gelöscht; die anderen Mitglieder bekommen eine Nachricht und ihre Konten bleiben.</p></div></div>
-      <div class="krokSit"><span class="znakSit">4</span><div><p>Wechsel in eine andere Familie: Nach dem Verlassen trittst du der neuen Familie mit einem Code bei. Punkte und Historie bleiben bei der alten Familie.</p></div></div></article>
-      <article class="situacia" id="s5" hidden>
-      <div class="situaciaHlava"><span class="stitok">So funktioniert PointJar</span><h2>⭐ Ein normaler Tag: Punkte, Aufgaben und Bestätigen</h2></div>
-      <div class="krokSit"><span class="znakSit">1</span><div><p>Ein Elternteil vergibt Punkte mit zwei Tipps: Eltern-Bildschirm, Bereich Aktivitäten, und auf das tippen, was das Kind gemacht hat (z. B. „Zimmer aufgeräumt +100“). Die Punkte sind gutgeschrieben und das Kind bekommt eine Benachrichtigung. Punkte außerhalb der Liste trägst du von Hand ein — wofür und wie viele (Minus = Abzug).</p></div></div>
-      <div class="krokSit"><span class="znakSit">2</span><div><p>Das Kind tippt auf seinem Bildschirm unter „Heute kann ich verdienen“ auf das Kästchen. Es wird gelb ⏳ (wartet auf Bestätigung); nach der Bestätigung grün ✓ und die Punkte kommen an.</p></div></div>
-      <div class="krokSit"><span class="znakSit">3</span><div><p>Bestätigen: oben bei „Wartet auf Bestätigung“ und „Belohnungswünsche“ auf ✓ oder ✕ tippen.</p></div></div>
-      <div class="krokSit"><span class="znakSit">4</span><div><p>Der Shop — was sich das Kind leisten kann, kann es sich wünschen („Eintauschen“); fehlen noch Punkte, setzt es die Belohnung als Ziel und die Karte „Mein Ziel“ füllt sich mit den gesparten Punkten.</p></div></div>
-      <div class="krokSit"><span class="znakSit">5</span><div><p>Abzüge sind die roten Knöpfe in der Kategorie Abzüge. Es gilt ein Tageslimit und der Kontostand fällt nie unter null — das erzwingt die Datenbank.</p></div></div>
-      <div class="krokSit"><span class="znakSit">6</span><div><p>Das Level wächst aus allen verdienten Punkten und sinkt nie, auch nicht nach Abzug oder Kauf. Den Avatar wählt das Kind selbst aus 40 Figuren per Tipp oben links.</p></div></div></article>
-      <article class="situacia" id="s6" hidden>
-      <div class="situaciaHlava"><span class="stitok">So funktioniert PointJar</span><h2>🛠️ Ich möchte Aufgaben und Belohnungen ändern</h2></div>
-      <div class="krokSit"><span class="znakSit">1</span><div><p>Aktivitäten — Eltern-Bildschirm → Aktivitäten: Aufgaben und Aktivitäten, die Punkte bringen. Minuspunkte = Abzug. Für jede gibt es ein Maximum pro Tag.</p></div></div>
-      <div class="krokSit"><span class="znakSit">2</span><div><p>Belohnungen — Eltern-Bildschirm → Belohnungen: neue anlegen (Name, Preis, Icon, sogar ein Foto vom Handy). In der Liste bearbeiten und speichern 💾; ✕ nimmt eine Belohnung aus dem Angebot, die Historie bleibt.</p></div></div>
-      <div class="krokSit"><span class="znakSit">3</span><div><p>Der Startkatalog ist in 4 Sprachen übersetzt; was du hinzufügst oder umbenennst, erscheint genau so, wie du es geschrieben hast.</p></div></div>
-      <div class="krokSit"><span class="znakSit">4</span><div><p>Familie — unter der Mitgliederliste stehen die Regeln (Tageslimit für Abzüge, Punkte pro Level) und die Ruhezeiten für Erinnerungen. Name, Avatar und PIN des Kindes änderst du per Tipp auf das Kind in der Liste.</p></div></div>
-      <div class="krokSit"><span class="znakSit">5</span><div><p>Aufgaben und Belohnungen gelten für die ganze Familie; Punkte, Ziel und Historie gehören jedem Kind einzeln.</p></div></div></article>
-      <article class="situacia" id="s7" hidden>
-      <div class="situaciaHlava"><span class="stitok">So funktioniert PointJar</span><h2>🔔 Benachrichtigungen</h2></div>
-      <div class="krokSit"><span class="znakSit">1</span><div><p>Die App fragt nach der ersten Anmeldung nach der Benachrichtigungs-Erlaubnis. Eltern werden benachrichtigt, wenn das Kind etwas meldet oder sich etwas wünscht; das Kind bei Bestätigung oder Ablehnung. Wer die Aktion ausgelöst hat, bekommt dazu keine Benachrichtigung.</p></div></div>
-      <div class="krokSit"><span class="znakSit">2</span><div><p>Eltern bekommen eine Erinnerung, wenn etwas länger als 4 Stunden auf Bestätigung wartet (dann noch nach 10 und 18 Stunden, danach nicht mehr).</p></div></div>
-      <div class="krokSit"><span class="znakSit">3</span><div><p>Alle in der Familie, auch Zuschauer, bekommen eine Nachricht, wenn das Kind genug für sein Ziel gespart hat, ein neues Level erreicht oder ein neues Mitglied dazukommt.</p></div></div>
-      <div class="krokSit"><span class="znakSit">4</span><div><p>Nichts geht verloren: Unter der oberen Leiste steht „Was zuletzt passiert ist“ — alle Benachrichtigungen, die du bekommen hast oder hättest bekommen sollen, mit vollem Text. Eltern sehen unter Familie → Änderungen die Benachrichtigungen der ganzen Familie.</p></div></div>
-      <div class="krokSit"><span class="znakSit">5</span><div><p>Benachrichtigungen kommen in der Sprache, die die App auf dem jeweiligen Gerät eingestellt hat. Die Benachrichtigungen des Kindes stellt ein Elternteil in den Details des Kindes unter Familie ein.</p></div></div>
-      <div class="krokSit"><span class="znakSit">6</span><div><p>Der Tag richtet sich nach der Zeitzone der Familie. Die App übernimmt sie vom Telefon eines Elternteils (das Telefon stellt sie nach dem Netz ein, nicht nach dem Standort), damit „heute“ und Tageslimits auch im Urlaub stimmen.</p></div></div></article>
-      <article class="situacia" id="s8" hidden>
-      <div class="situaciaHlava"><span class="stitok">So funktioniert PointJar</span><h2>🆘 Etwas stimmt nicht</h2></div>
-      <div class="krokSit"><span class="znakSit">1</span><div><p>Ich sehe nur einen Code-Bildschirm — das Konto ist noch in keiner Familie. Bitte einen Elternteil um einen Code (er erstellt ihn unter Familie bei deinem Namen), oder tippe auf „Kein Code? Frag deine Familie“ und schick ihm eine Nachricht mit deiner E-Mail. Oder gründe als Elternteil deine eigene Familie.</p></div></div>
-      <div class="krokSit"><span class="znakSit">2</span><div><p>Der Code gilt nicht — er wurde schon benutzt, ist abgelaufen (7 Tage) oder ein Elternteil hat inzwischen einen neuen erstellt, womit der alte ungültig wurde. Bitte um den aktuellen.</p></div></div>
-      <div class="krokSit"><span class="znakSit">3</span><div><p>Ich habe jemanden per E-Mail eingeladen, aber er sieht die Familie nicht — er muss sich genau mit der Adresse anmelden, an die die Einladung ging. Unter Familie siehst du bei seinem Namen den Stand der Einladung und kannst sie erneut senden oder zurückziehen. Am sichersten ist ein Code.</p></div></div>
-      <div class="krokSit"><span class="znakSit">4</span><div><p>Wir haben Punkte aus Versehen vergeben — jeder deiner Einträge hat in der Historie 24 Stunden lang einen Storno-Knopf. Es entsteht ein Gegeneintrag, nichts wird gelöscht.</p></div></div>
-      <div class="krokSit"><span class="znakSit">5</span><div><p>Das Kind hat eine Aufgabe aus Versehen gemeldet — ein Elternteil lehnt sie bei „Wartet auf Bestätigung“ ab und es wird nichts gutgeschrieben.</p></div></div>
-      <div class="krokSit"><span class="znakSit">6</span><div><p>Eine Aufgabe lässt sich nicht zweimal antippen — entweder wartet sie noch auf Bestätigung, oder ihr Tageslimit ist aufgebraucht (z. B. Zähne max. 2× täglich).</p></div></div>
-      <div class="krokSit"><span class="znakSit">7</span><div><p>Wer hat was geändert — Familie → Änderungen: bei jeder Bearbeitung steht wer, was, von welchem Wert auf welchen und wann.</p></div></div></article>
+      <article class="situacia" id="start">
+      <div class="situaciaHlava"><span class="stitok">So funktioniert PointJar</span><h2>🚀 Erste Schritte</h2><p class="navodUvod">Ein Elternteil gründet die Familie, alle anderen kommen mit einem Code dazu. Das dauert ein paar Minuten.</p></div>
+      
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Anmelden</h3><p>Angemeldet wird mit einem Google-Konto, auf iPhone und iPad auch mit einem Apple-Konto. Auf Android gibt es keine Apple-Anmeldung, wer sich einmal mit Apple angemeldet hat, kommt auf Android nicht in sein Konto.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Familie gründen</h3><p>Tippe auf „Ich gründe eine neue Familie“ und gib deinen Namen und den Namen des Kindes ein (beim Gründen bis zu sechs Kinder). Der Familienname ist freiwillig. Die Familie bekommt sofort einen Startkatalog mit Aufgaben und Belohnungen, den du anpasst.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Ich habe einen Familien-Code</h3><p>Der zweite Elternteil, die Oma oder ein Kind mit eigenem Konto tippt auf „Ich habe einen Familien-Code“ und gibt den 8-stelligen Code ein (zum Beispiel ABCD-1234). Es sieht, welcher Familie und in welcher Rolle es beitritt, und tritt erst nach dem Bestätigen bei.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Weitere Mitglieder</h3><p>Am Ende der Gründung bietet die App an, den Kindern Zugang zu geben und weitere Erwachsene hinzuzufügen. Nichts ist Pflicht, alles geht später im Tab Familie.</p></div></div>
+      <div class="navodTip"><b>💡 Tipp</b><p>Bevor du eine Familie gründest, schau dir „Demo ohne Anmeldung ansehen 👀“ an. Es zeigt die Ansicht des Kindes und der Eltern mit erfundenen Kindern, und nichts wird gespeichert.</p></div></article>
+      <article class="situacia" id="role" hidden>
+      <div class="situaciaHlava"><span class="stitok">So funktioniert PointJar</span><h2>👨‍👩‍👧 Wer zur Familie gehört</h2><p class="navodUvod">Jedes Mitglied hat eine Rolle: Elternteil, Kind oder Zuschauer.</p></div>
+      
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Elternteil</h3><p>Bestätigt Aufgaben und Belohnungen, trägt Punkte ein, bearbeitet den Katalog, fügt Mitglieder hinzu und legt die Regeln fest. Jeder weitere Elternteil hat dieselben Rechte.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Kind</h3><p>Sammelt Punkte, tippt erledigte Aufgaben an und spart auf Belohnungen. Ein eigenes Gerät braucht es nicht: Solange es keinen Zugang hat, tragen die Eltern die Punkte ein.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Zuschauer</h3><p>Oma, Opa oder Babysitter. Sehen alles, ändern nichts und auf dem Bildschirm steht „Du schaust als Zuschauer zu“.</p></div></div>
+      </article>
+      <article class="situacia" id="pristup" hidden>
+      <div class="situaciaHlava"><span class="stitok">So funktioniert PointJar</span><h2>📱 Zugang für das Kind</h2><p class="navodUvod">Ein Kind kann Aufgaben auf dem eigenen Gerät, auf einem gemeinsamen Tablet oder mit dir auf deinem Handy antippen.</p></div>
+      
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Wo anfangen</h3><p>Im Tab Familie auf „Familienmitglied hinzufügen“ → Kind tippen, oder bei einem Kind ohne Zugang auf „Zugang geben“. Der Assistent fragt, wo das Kind Aufgaben antippen wird.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Eigenes Handy oder Tablet</h3><p>Ohne E-Mail und ohne Konto. Die App zeigt einen 6-stelligen Code, der 15 Minuten gilt. Auf dem Gerät des Kindes auf dem Anmeldebildschirm „Gerät eines Kindes verbinden 📱“ antippen und den Code eingeben. Sobald das Gerät verbunden ist, zeigt der Assistent „✓ … ist verbunden“.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Kind mit eigenem Konto</h3><p>Hat das Kind ein eigenes Google- oder Apple-Konto, tippe im Assistenten auf „… hat ein eigenes Google- oder Apple-Konto“. Du bekommst einen 8-stelligen Code für 7 Tage, und das Kind gibt ihn unter „Ich habe einen Familien-Code“ ein.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Auf meinem Handy, mit mir</h3><p>Das Kind tippt Aufgaben auf deinem Handy in der Ansicht des Kindes an (die Pille oben rechts). Eine gemeldete Aufgabe wartet ⏳ genau wie auf dem Tablet und du bestätigst sie im Tab Freigeben.</p></div></div>
+      <div class="krokSit"><span class="znakSit">5</span><div><h3 class="navodPodnadpis">Mehrere Kinder auf einem Tablet</h3><p>Beim Koppeln wählst du, für welche Kinder das Tablet ist, und gewechselt wird mit einem Tipp auf den Namen oben rechts. Damit Geschwister nicht ins Profil des anderen gehen, gib jedem eine PIN (4 bis 8 Ziffern) unter Familie nach einem Tipp auf das Kind.</p></div></div>
+      <div class="krokSit"><span class="znakSit">6</span><div><h3 class="navodPodnadpis">Geräte</h3><p>Unter Familie im Block „Geräte der Kinder“ siehst du, wann welches Gerät zuletzt benutzt wurde, und trennst es mit einem Tipp.</p></div></div>
+      </article>
+      <article class="situacia" id="dieta" hidden>
+      <div class="situaciaHlava"><span class="stitok">So funktioniert PointJar</span><h2>🧒 Was das Kind sieht</h2><p class="navodUvod">Das Kind hat vier Tabs: Start, Aufgaben, Laden und Verlauf.</p></div>
+      <div class="navodZabery"><img src="assets/navod/de-domov.webp" width="270" height="587" loading="lazy" alt="Start des Kindes: das Glas mit Punkten und die Aufgaben-Münzen"><img src="assets/navod/de-harok.webp" width="270" height="587" loading="lazy" alt="Blatt nach dem Antippen einer Aufgabe: An Eltern senden oder zuerst eine Nachricht aufnehmen"></div>
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Start</h3><p>Das große Glas zeigt die Punkte, das Level und wie viel bis zum Ziel fehlt. Darunter liegen die Münzen „Womit füllst du heute dein Glas?“ mit Aufgaben, die heute gehen.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Aufgabe melden</h3><p>Das Kind tippt auf die Münze einer erledigten Aufgabe. Ein Blatt mit Name und Punkten erscheint: „An Eltern senden“ meldet die Aufgabe, „Zuerst Nachricht aufnehmen 🎤“ hängt eine Sprachnachricht an (höchstens 20 Sekunden).</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Wartet ⏳</h3><p>Eine gemeldete Aufgabe wartet auf die Eltern und ihre Punkte „warten über dem Glas“. Sie fallen hinein, sobald die Eltern bestätigen. Bis dahin lässt sich die Meldung mit einem Tipp auf die Münze zurücknehmen.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Aufgaben und Verlauf</h3><p>Unter Aufgaben stehen alle Aufgaben nach Kategorien mit einem Kästchen, das dasselbe Blatt öffnet. Der Verlauf zeigt Tag für Tag bestätigte und abgelehnte Aufgaben, Belohnungen, Abzüge und die Sprachantworten der Eltern.</p></div></div>
+      <div class="navodTip"><b>💡 Tipp</b><p>Lässt sich eine Aufgabe nicht noch einmal antippen, wartet sie entweder noch auf die Eltern oder ihr Tageslimit ist erreicht (zum Beispiel Zähne höchstens zweimal am Tag).</p></div></article>
+      <article class="situacia" id="obchod" hidden>
+      <div class="situaciaHlava"><span class="stitok">So funktioniert PointJar</span><h2>🎁 Belohnungen, Ziele und Level</h2><p class="navodUvod">Für Punkte wählt das Kind Belohnungen, die ihr zu Hause vereinbart habt.</p></div>
+      <div class="navodZabery"><img src="assets/navod/de-obchod.webp" width="270" height="587" loading="lazy" alt="Der Laden mit Belohnungen und Ziel"></div>
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Eintauschen</h3><p>Bei einer Belohnung, die es sich leisten kann, tippt das Kind auf „Für … P eintauschen“. Die Punkte werden zurückgelegt, bis die Eltern bestätigen, und bis dahin lässt sich die Anfrage zurücknehmen.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Auf ein Ziel sparen</h3><p>Bei einer teureren Belohnung tippt es auf „Dafür sparen“ und sie wird zum Ziel. Das Glas auf Start zeigt dann, wie viel noch fehlt. Es gibt immer ein Ziel auf einmal.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Level</h3><p>Wächst aus allen verdienten Punkten und sinkt nie, weder nach einem Abzug noch nach dem Eintauschen. Ausgegeben wird der Kontostand, nicht die Erfolge.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Leerer Laden</h3><p>Ist der Laden leer, kann das Kind mit „Bitte senden 💬“ die Eltern erinnern, Belohnungen hinzuzufügen.</p></div></div>
+      </article>
+      <article class="situacia" id="schvalit" hidden>
+      <div class="situaciaHlava"><span class="stitok">So funktioniert PointJar</span><h2>✅ Freigeben</h2><p class="navodUvod">Alles, was die Kinder gemeldet haben, wartet im Tab Freigeben als Kartenstapel.</p></div>
+      <div class="navodZabery"><img src="assets/navod/de-schvalit.webp" width="270" height="587" loading="lazy" alt="Freigeben: eine Karte mit einer gemeldeten Aufgabe"></div>
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Die Karte</h3><p>Auf der Karte steht, wer was gemeldet hat, für wie viele Punkte und wie viel es nach der Freigabe hat. Hat das Kind eine Nachricht aufgenommen, spielst du sie direkt auf der Karte ab.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Bestätigen oder Ablehnen</h3><p>Entschieden wird mit einem Tipp auf „✓ Bestätigen“ oder „Ablehnen“. Wischen blättert nur, es entscheidet nie.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Zurücknehmen</h3><p>Innerhalb von 24 Stunden lässt sich eine Entscheidung mit „↺ Entscheidung zurücknehmen“ rückgängig machen, auch nach dem Schließen der App. Hat das Kind die Punkte schon ausgegeben, warnt die App, dass der Kontostand ins Minus geht.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Mehrere Aufgaben auf einmal</h3><p>Warten mindestens drei Aufgaben, steht unter dem Stapel „Alle Aufgaben bestätigen“. Belohnungsanfragen werden einzeln bestätigt.</p></div></div>
+      <div class="krokSit"><span class="znakSit">5</span><div><h3 class="navodPodnadpis">Sprachantwort</h3><p>Tippe auf „Mit Sprache antworten“, nimm die Antwort auf und sende sie. Das Kind bekommt sie sofort, auch vor der Entscheidung, sie kann also auch eine Frage sein.</p></div></div>
+      <div class="krokSit"><span class="znakSit">6</span><div><h3 class="navodPodnadpis">Direkt aus der Benachrichtigung</h3><p>Bei einer gemeldeten Aufgabe hat die Benachrichtigung die Knöpfe Freigeben, Ablehnen und Später. Auf dem iPhone wird vorher Face ID oder der Gerätecode verlangt, auf Android öffnet sich die App.</p></div></div>
+      </article>
+      <article class="situacia" id="body" hidden>
+      <div class="situaciaHlava"><span class="stitok">So funktioniert PointJar</span><h2>⚡ Punkte eintragen</h2><p class="navodUvod">Punkte kannst du auch selbst eintragen, wenn du etwas Gutes siehst, ohne dass das Kind etwas meldet.</p></div>
+      <div class="navodZabery"><img src="assets/navod/de-body.webp" width="270" height="587" loading="lazy" alt="Schnelle Punkte: Kind und Grund wählen, Knopf Eintragen"></div>
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Schnelle Punkte</h3><p>Im Tab Punkte wählst du das Kind (bei mehreren Kindern) und wofür. Einen eigenen Betrag und Grund gibst du über „± Andere Punktzahl“ ein. Unten erscheint ein Knopf wie „Mia: +N P eintragen“ und die Punkte sind sofort gutgeschrieben.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Abzüge</h3><p>Minus-Einträge oder „− Abziehen“ bei einem eigenen Betrag. Ein Abzug fragt vorher nach, hat ein Tageslimit und der Kontostand fällt nie unter null.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Wenn du dich vertust</h3><p>Im Verlauf unter den Einträgen hat jeder deiner Einträge 24 Stunden lang den Knopf „Rückgängig“. Es entsteht eine Gegenbuchung, nichts wird gelöscht.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Sprachnachrichten</h3><p>Im Verlauf bei einer Aufgabe spielst du die Nachricht des Kindes und deine Antwort ab, und „Nachricht löschen“ entfernt sie sofort. Sonst werden sie automatisch gelöscht, meist 3 Tage nach dem Anhören, spätestens nach 30 Tagen.</p></div></div>
+      </article>
+      <article class="situacia" id="katalog" hidden>
+      <div class="situaciaHlava"><span class="stitok">So funktioniert PointJar</span><h2>📋 Aufgaben, Belohnungen und Abzüge</h2><p class="navodUvod">Der Katalog gilt für die ganze Familie; Punkte, Ziel und Verlauf hat jedes Kind für sich.</p></div>
+      <div class="navodZabery"><img src="assets/navod/de-katalog.webp" width="270" height="587" loading="lazy" alt="Katalog der Aufgaben, Belohnungen und Abzüge"></div>
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Neue Aufgabe oder neuer Abzug</h3><p>Katalog → Aufgaben oder Abzüge → „Neues Verhalten“: Name, Punkte (Minus bedeutet Abzug), ein Symbol aus dem Raster, eine Kategorie und wie oft am Tag es eingetragen werden kann.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Neue Belohnung</h3><p>Katalog → Belohnungen → „Neue Belohnung“: Name, Preis in Punkten, Symbol und auf Wunsch ein Foto vom Handy.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Bearbeiten und ausschalten</h3><p>Bei einem Eintrag auf „Bearbeiten“ tippen. „Ausschalten (aus der Liste nehmen)“ blendet ihn für die Kinder und bei den schnellen Punkten aus, der Verlauf bleibt.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Wer den Katalog ändert</h3><p>Ein Elternteil. Zuschauer sehen ihn nur.</p></div></div>
+      </article>
+      <article class="situacia" id="pohlad" hidden>
+      <div class="situaciaHlava"><span class="stitok">So funktioniert PointJar</span><h2>👀 Ansicht wechseln</h2><p class="navodUvod">Die Pille oben rechts wechselt zwischen der Ansicht des Kindes, Eltern und Familie.</p></div>
+      <div class="navodZabery"><img src="assets/navod/de-pohlad.webp" width="270" height="587" loading="lazy" alt="Das Blatt Ansicht: Kinder, Eltern und Familie"></div>
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Auf dem Handy der Eltern</h3><p>Das Blatt Ansicht zeigt jedes Kind (mit der Zahl wartender Aufgaben), Eltern zum Freigeben und für Punkte und Familie mit Mitgliedern und Einstellungen.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Auf einem Tablet mit mehreren Kindern</h3><p>Das Blatt zeigt nur die Kinder. Ein Kind mit PIN muss sie eingeben.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Elternsperre</h3><p>Unter Mein Konto schaltest du Face ID oder Fingerabdruck für jeden Zugang zum Elternbereich ein: beim Start, aus einer Benachrichtigung und beim Wechsel aus der Ansicht des Kindes. Nach 5 Minuten im Hintergrund sperrt sie wieder.</p></div></div>
+      <div class="navodTip"><b>💡 Tipp</b><p>Die Elternsperre lohnt sich, wenn ein Kind auf deinem Handy spielt: In der Ansicht des Kindes kann es Aufgaben nur melden, nicht selbst freigeben.</p></div></article>
+      <article class="situacia" id="clenovia" hidden>
+      <div class="situaciaHlava"><span class="stitok">So funktioniert PointJar</span><h2>🏠 Familie und Mitglieder</h2><p class="navodUvod">Im Tab Familie stehen die Kinder, die Erwachsenen und die Geräte der Kinder.</p></div>
+      <div class="navodZabery"><img src="assets/navod/de-rodina.webp" width="270" height="587" loading="lazy" alt="Der Tab Familie mit Kindern und den Zeilen Einstellungen und PointJar unterstützen"></div>
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Zweiter Elternteil oder Oma</h3><p>„Familienmitglied hinzufügen“ → „Weiterer Erwachsener“ (dieselben Rechte wie du) oder „Jemand, der nur zusieht“. Zugang gibt es per Code (8 Zeichen, 7 Tage gültig, einmal verwendbar) oder per E-Mail-Einladung, die 14 Tage gilt.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Status beim Namen</h3><p>Aktiv, Einladung offen, Abgelaufen, Kein Zugang oder Pausiert. Mit einem Tipp auf das Mitglied benennst du es um, änderst die Rolle, gibst einen neuen Code aus oder ziehst die Einladung zurück.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Pausieren und entfernen</h3><p>Ein pausiertes Mitglied verliert sofort den Zugang, bleibt aber in der Liste, und ein Tipp gibt den Zugang zurück. „Aus der Familie entfernen“ löscht es aus der Liste; seine Punkte und der Verlauf bleiben der Familie.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Kind</h3><p>Nach einem Tipp auf das Kind änderst du Namen, Avatar und die PIN für das gemeinsame Tablet.</p></div></div>
+      </article>
+      <article class="situacia" id="upozornenia" hidden>
+      <div class="situaciaHlava"><span class="stitok">So funktioniert PointJar</span><h2>🔔 Benachrichtigungen</h2><p class="navodUvod">Jeder Erwachsene stellt seine Benachrichtigungen unter Mein Konto ein; für die Kinder machen das die Eltern.</p></div>
+      
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Kategorien</h3><p>Aufgaben, Belohnungen, Ziel und Level, Familienmitglieder und Neues von PointJar (nur wenn du es einschaltest). Die Einstellung gilt für Benachrichtigungen und E-Mails.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Erlaubnis</h3><p>Die App fragt, wenn es Sinn ergibt: am Ende der Familiengründung, wenn ein Kind Zugang bekommen hat, oder nach der ersten Freigabe. Sind Benachrichtigungen aus, zeigen Freigeben und Mein Konto einen Streifen mit „Einschalten“.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Erinnerungen und Ruhezeiten</h3><p>Wartet eine Aufgabe einige Stunden, erinnert die App die Eltern. In den Ruhezeiten (Familienregeln) kommen keine Erinnerungen und andere Benachrichtigungen kommen lautlos.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Archiv</h3><p>Jede Benachrichtigung bleibt einen Monat unter Mein Konto, falls du eine verpasst hast.</p></div></div>
+      </article>
+      <article class="situacia" id="nastavenia" hidden>
+      <div class="situaciaHlava"><span class="stitok">So funktioniert PointJar</span><h2>⚙️ Konto, Regeln und Verlassen</h2><p class="navodUvod">Mein Konto öffnest du im Tab Familie über die Zeile „Einstellungen“.</p></div>
+      
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Familienregeln</h3><p>Max. Abzug pro Tag (standardmäßig 100 P), Punkte pro Level (standardmäßig 500 P) und Ruhezeiten. Unter Änderungen siehst du, wer was wann geändert hat.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Aussehen</h3><p>Sprache der App, Farbe und das Aussehen der unteren Leiste.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Familie verlassen</h3><p>Ein Erwachsener geht selbst unter Mein Konto, indem er den Familiennamen abtippt. Bist du der letzte Elternteil und gibt es einen weiteren Erwachsenen, fragt die App, wer die Familie nach dir verwaltet. Ein Kind verlässt die Familie nicht, es wird von den Eltern entfernt.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Familie auflösen</h3><p>Ganz unten in den Familienregeln, nach dem Abtippen des Namens. Punkte, Aufgaben, Belohnungen und Verlauf werden gelöscht, die Konten der anderen Mitglieder bleiben.</p></div></div>
+      <div class="krokSit"><span class="znakSit">5</span><div><h3 class="navodPodnadpis">Konto löschen</h3><p>Mein Konto → „Konto löschen“. Profil und Anmeldekonto werden sofort entfernt.</p></div></div>
+      <div class="krokSit"><span class="znakSit">6</span><div><h3 class="navodPodnadpis">PointJar unterstützen</h3><p>Unter Familie die Zeile 💛 „PointJar unterstützen“: ein freiwilliger Beitrag über den App Store oder Google Play, eine Bewertung oder eine Empfehlung an eine andere Familie. Die App bleibt vollständig kostenlos.</p></div></div>
+      </article>
+      <article class="situacia" id="problemy" hidden>
+      <div class="situaciaHlava"><span class="stitok">So funktioniert PointJar</span><h2>🆘 Etwas stimmt nicht</h2><p class="navodUvod">Die häufigsten Stolpersteine und was hilft.</p></div>
+      
+      <div class="krokSit"><span class="znakSit">1</span><div><h3 class="navodPodnadpis">Ich sehe nur einen Code-Bildschirm</h3><p>Dein Konto ist noch in keiner Familie. Bitte einen Elternteil um einen Code oder tippe auf „Kein Code? Frag deine Familie 📤“ und schick eine Nachricht. Oder gründe als Elternteil eine eigene Familie.</p></div></div>
+      <div class="krokSit"><span class="znakSit">2</span><div><h3 class="navodPodnadpis">Der Code gilt nicht</h3><p>Er wurde schon benutzt, ist abgelaufen, oder die Eltern haben inzwischen einen neuen ausgegeben. Ein 6-stelliger Code gehört zu „Gerät eines Kindes verbinden 📱“ ohne Anmeldung, ein 8-stelliger zu „Ich habe einen Familien-Code“ nach der Anmeldung.</p></div></div>
+      <div class="krokSit"><span class="znakSit">3</span><div><h3 class="navodPodnadpis">Eingeladene Person sieht die Familie nicht</h3><p>Sie muss sich genau mit der Adresse anmelden, an die die Einladung ging. Unter Familie siehst du beim Namen den Status der Einladung. Am sichersten ist ein Code.</p></div></div>
+      <div class="krokSit"><span class="znakSit">4</span><div><h3 class="navodPodnadpis">Benachrichtigungen kommen nicht</h3><p>Prüfe die Erlaubnis in den Einstellungen des Handys und die Kategorien unter Mein Konto.</p></div></div>
+      <div class="krokSit"><span class="znakSit">5</span><div><h3 class="navodPodnadpis">Wer hat was geändert</h3><p>Familienregeln → Änderungen: wer, was, von welchem Wert auf welchen und wann.</p></div></div>
+      <div class="krokSit"><span class="znakSit">6</span><div><h3 class="navodPodnadpis">Nichts hat geholfen</h3><p>Schreib uns unter Mein Konto über „💬 Schreib uns“. Wir antworten meist innerhalb eines Arbeitstags.</p></div></div>
+      </article>
       <article class="situacia" id="faq" hidden>
       <div class="situaciaHlava"><span class="stitok">So funktioniert PointJar</span><h2>Häufige Fragen</h2></div>
-      <details><summary>Wir haben mehrere Kinder — geht das?</summary><p>Ja. Ein weiteres Kind fügst du unter Familie über „Familienmitglied hinzufügen“ hinzu, auch ohne Zugang — die Punkte trägst du ein. Auf den Bildschirmen Eltern und Kind wechselst du dann zwischen den Kindern; jedes hat eigene Punkte, ein eigenes Ziel und eine eigene Historie. Aufgaben und Belohnungen gelten für die ganze Familie.</p></details>
-      <details><summary>Sinkt das Level nach einem Abzug oder Kauf?</summary><p>Nein. Das Level wächst aus allen verdienten Punkten und sinkt nie — Abzüge und Käufe verringern nur die Geldbörse.</p></details>
-      <details><summary>Wie viele Punkte kann ich pro Tag abziehen?</summary><p>Höchstens das Tageslimit (einstellbar unter Familie in den Regeln) und nie unter null. Ein größerer Abzug kürzt sich selbst.</p></details>
-      <details><summary>Wie ändert das Kind seinen Avatar?</summary><p>Es tippt oben links auf seinem Bildschirm auf den Avatar und wählt aus 40 Figuren. Ein Elternteil kann das über die Übersicht oder per Tipp auf das Kind unter Familie.</p></details>
-      <details><summary>Warum gibt es die App und woher kommen Aufgaben und Belohnungen?</summary><p>Unter Mein Konto steht der Text „Warum es PointJar gibt“ mit den Studien hinter dem Katalog der Aufgaben und Belohnungen. Dort steht auch die Versionsnummer der App — praktisch, wenn du uns etwas meldest.</p></details></article>
+      <details><summary>Wir haben mehrere Kinder, geht das?</summary><p>Ja. Beim Gründen gibst du bis zu sechs ein, weitere fügst du jederzeit unter Familie hinzu. Jedes Kind hat eigene Punkte, ein eigenes Ziel und einen eigenen Verlauf; Aufgaben und Belohnungen sind gemeinsam.</p></details>
+      <details><summary>Sinkt das Level nach einem Abzug oder einer Belohnung?</summary><p>Nein. Das Level wächst aus allen verdienten Punkten und sinkt nie. Abzüge und Belohnungen verringern nur den Stand im Glas.</p></details>
+      <details><summary>Wie viele Punkte kann ich pro Tag abziehen?</summary><p>Insgesamt höchstens das Tageslimit aus den Familienregeln und nie unter null. Ein größerer Abzug wird automatisch verringert.</p></details>
+      <details><summary>Wie ändert das Kind seinen Avatar?</summary><p>Es tippt auf Start auf seinen Avatar neben der Begrüßung und wählt eine Figur. Die Eltern ändern ihn unter Familie nach einem Tipp auf das Kind.</p></details>
+      <details><summary>Wer hört die Sprachnachrichten?</summary><p>Nur Mitglieder eurer Familie. Sie werden in der Europäischen Union gespeichert und automatisch gelöscht, meist 3 Tage nach dem Anhören, spätestens nach 30 Tagen. Die Eltern können sie früher löschen.</p></details>
+      <details><summary>Kostet die App etwas?</summary><p>Nein. PointJar ist kostenlos, ohne Werbung und ohne Abo. Wenn du möchtest, kannst du unter Familie über „PointJar unterstützen“ freiwillig zu den Betriebskosten beitragen.</p></details>
+      <details><summary>Warum gibt es die App und woher kommen Aufgaben und Belohnungen?</summary><p>Unter Mein Konto steht der Text „Warum es PointJar gibt“ mit den Studien hinter dem Katalog. Dort steht auch die Versionsnummer der App, praktisch, wenn du uns etwas meldest.</p></details></article>
       <article class="situacia" id="delete-account" hidden>
       <div class="situaciaHlava"><span class="stitok">Konto löschen</span><h2>Konto und Daten löschen</h2></div>
       <div class="krokSit"><span class="znakSit">1</span><div><p>Öffne PointJar und melde dich an.</p></div></div>
@@ -995,7 +1225,7 @@ var w=document.createElement('div');w.className='video videoRam';w.appendChild(f
     <a href="./terms.html">Terms</a>
     <a href="./kontakt.html">Contact</a>
     <label class="sekcieMobil">Section
-      <select class="skokSekcia"><option value="#s1">I have just downloaded the app</option><option value="#s2">I want to give the child access to the app</option><option value="#s3">I am adding the other parent or grandma</option><option value="#s4">Leaving the family and closing it</option><option value="#s5">An ordinary day: points, tasks and approvals</option><option value="#s6">I want to change the tasks and rewards</option><option value="#s7">Notifications</option><option value="#s8">Something is not right</option><option value="#faq">FAQ</option><option value="#delete-account">Delete account</option></select>
+      <select class="skokSekcia"><option value="#start">Getting started</option><option value="#role">Who is in the family</option><option value="#pristup">Access for a child</option><option value="#dieta">What the child sees</option><option value="#obchod">Rewards, goals and level</option><option value="#schvalit">Approving</option><option value="#body">Giving points</option><option value="#katalog">Tasks, rewards and deductions</option><option value="#pohlad">Switching views</option><option value="#clenovia">Family and members</option><option value="#upozornenia">Notifications</option><option value="#nastavenia">Account, rules and leaving</option><option value="#problemy">Something is not right</option><option value="#faq">FAQ</option><option value="#delete-account">Delete account</option></select>
     </label>
     <button type="button" class="hore" tabindex="-1">↑ Back to top</button>
   </div></div>
@@ -1006,7 +1236,7 @@ var w=document.createElement('div');w.className='video videoRam';w.appendChild(f
     <a href="./terms.html">Podmienky</a>
     <a href="./kontakt.html">Kontakt</a>
     <label class="sekcieMobil">Sekcia
-      <select class="skokSekcia"><option value="#s1">Práve som si stiahol/a appku</option><option value="#s2">Chcem dať dieťaťu prístup do appky</option><option value="#s3">Pridávam druhého rodiča alebo babku</option><option value="#s4">Odchod z rodiny a jej zrušenie</option><option value="#s5">Bežný deň: body, úlohy a schvaľovanie</option><option value="#s6">Chcem zmeniť úlohy a odmeny</option><option value="#s7">Upozornenia</option><option value="#s8">Niečo nesedí</option><option value="#faq">Časté otázky</option><option value="#delete-account">Vymazať konto</option></select>
+      <select class="skokSekcia"><option value="#start">Začíname</option><option value="#role">Kto je v rodine</option><option value="#pristup">Prístup pre dieťa</option><option value="#dieta">Ako to vidí dieťa</option><option value="#obchod">Odmeny, ciele a level</option><option value="#schvalit">Schvaľovanie</option><option value="#body">Zapisovanie bodov</option><option value="#katalog">Úlohy, odmeny a mínusy</option><option value="#pohlad">Prepínanie pohľadov</option><option value="#clenovia">Rodina a členovia</option><option value="#upozornenia">Upozornenia</option><option value="#nastavenia">Konto, pravidlá a odchod</option><option value="#problemy">Niečo nesedí</option><option value="#faq">Časté otázky</option><option value="#delete-account">Vymazať konto</option></select>
     </label>
     <button type="button" class="hore" tabindex="-1">↑ Na začiatok</button>
   </div></div>
@@ -1017,7 +1247,7 @@ var w=document.createElement('div');w.className='video videoRam';w.appendChild(f
     <a href="./terms.html">Podmínky</a>
     <a href="./kontakt.html">Kontakt</a>
     <label class="sekcieMobil">Sekce
-      <select class="skokSekcia"><option value="#s1">Právě jsem si stáhl/a appku</option><option value="#s2">Chci dát dítěti přístup do appky</option><option value="#s3">Přidávám druhého rodiče nebo babičku</option><option value="#s4">Odchod z rodiny a její zrušení</option><option value="#s5">Běžný den: body, úkoly a schvalování</option><option value="#s6">Chci změnit úkoly a odměny</option><option value="#s7">Upozornění</option><option value="#s8">Něco nesedí</option><option value="#faq">Časté otázky</option><option value="#delete-account">Smazat účet</option></select>
+      <select class="skokSekcia"><option value="#start">Začínáme</option><option value="#role">Kdo je v rodině</option><option value="#pristup">Přístup pro dítě</option><option value="#dieta">Jak to vidí dítě</option><option value="#obchod">Odměny, cíle a level</option><option value="#schvalit">Schvalování</option><option value="#body">Zapisování bodů</option><option value="#katalog">Úkoly, odměny a mínusy</option><option value="#pohlad">Přepínání pohledů</option><option value="#clenovia">Rodina a členové</option><option value="#upozornenia">Upozornění</option><option value="#nastavenia">Účet, pravidla a odchod</option><option value="#problemy">Něco nesedí</option><option value="#faq">Časté otázky</option><option value="#delete-account">Smazat účet</option></select>
     </label>
     <button type="button" class="hore" tabindex="-1">↑ Na začátek</button>
   </div></div>
@@ -1028,7 +1258,7 @@ var w=document.createElement('div');w.className='video videoRam';w.appendChild(f
     <a href="./terms.html">Bedingungen</a>
     <a href="./kontakt.html">Kontakt</a>
     <label class="sekcieMobil">Abschnitt
-      <select class="skokSekcia"><option value="#s1">Ich habe die App gerade heruntergeladen</option><option value="#s2">Ich möchte dem Kind Zugang zur App geben</option><option value="#s3">Ich füge den zweiten Elternteil oder die Oma hinzu</option><option value="#s4">Familie verlassen und auflösen</option><option value="#s5">Ein normaler Tag: Punkte, Aufgaben und Bestätigen</option><option value="#s6">Ich möchte Aufgaben und Belohnungen ändern</option><option value="#s7">Benachrichtigungen</option><option value="#s8">Etwas stimmt nicht</option><option value="#faq">Häufige Fragen</option><option value="#delete-account">Konto löschen</option></select>
+      <select class="skokSekcia"><option value="#start">Erste Schritte</option><option value="#role">Wer zur Familie gehört</option><option value="#pristup">Zugang für das Kind</option><option value="#dieta">Was das Kind sieht</option><option value="#obchod">Belohnungen, Ziele und Level</option><option value="#schvalit">Freigeben</option><option value="#body">Punkte eintragen</option><option value="#katalog">Aufgaben, Belohnungen und Abzüge</option><option value="#pohlad">Ansicht wechseln</option><option value="#clenovia">Familie und Mitglieder</option><option value="#upozornenia">Benachrichtigungen</option><option value="#nastavenia">Konto, Regeln und Verlassen</option><option value="#problemy">Etwas stimmt nicht</option><option value="#faq">Häufige Fragen</option><option value="#delete-account">Konto löschen</option></select>
     </label>
     <button type="button" class="hore" tabindex="-1">↑ Nach oben</button>
   </div></div>

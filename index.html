@@ -356,6 +356,12 @@ transform:translateZ(0);will-change:transform;backface-visibility:hidden}
 .situacia details summary::after{content:'+';margin-left:auto;font-family:var(--display);font-size:22px;color:var(--inkSoft)}
 .situacia details[open] summary::after{content:'−'}
 .situacia details p{margin-top:8px;color:var(--inkSoft)}
+.navodUvod{margin:8px 0 0;font-size:18px;color:var(--inkSoft)}
+.navodZabery{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin:22px 0 8px}
+.navodZabery img{width:min(270px,44%);height:auto;border:2px solid var(--line);border-radius:22px;background:var(--surface)}
+.navodPodnadpis{margin:2px 0 0;font-size:18px;font-family:var(--display)}
+.navodTip{margin-top:18px;padding:16px 18px;border-radius:16px;background:var(--sunSoft)}
+.navodTip p{margin:4px 0 0;color:var(--ink)}
 @media (max-width:980px){.sitObal,.sitObal.sbokom{grid-template-columns:1fr}.os{display:none}.bok{position:static;max-height:none;margin-bottom:24px}.sekcieMobil{display:flex}}
 
 @media (prefers-reduced-motion:reduce){
@@ -510,7 +516,7 @@ var w=document.createElement('div');w.className='video videoRam';w.appendChild(f
 
   <section class="sekcia" id="navod">
     <h2>How to use PointJar</h2>
-    <div class="zoznamSit"><a href="./podpora.html#s1"><span class="em">🚀</span><span><b>I have just downloaded the app</b></span><span class="sipka">›</span></a><a href="./podpora.html#s2"><span class="em">📱</span><span><b>I want to give the child access to the app</b></span><span class="sipka">›</span></a><a href="./podpora.html#s3"><span class="em">👨‍👩‍👧</span><span><b>I am adding the other parent or grandma</b></span><span class="sipka">›</span></a></div>
+    <div class="zoznamSit"><a href="./podpora.html#start"><span class="em">🚀</span><span><b>Getting started</b></span><span class="sipka">›</span></a><a href="./podpora.html#role"><span class="em">👨‍👩‍👧</span><span><b>Who is in the family</b></span><span class="sipka">›</span></a><a href="./podpora.html#pristup"><span class="em">📱</span><span><b>Access for a child</b></span><span class="sipka">›</span></a></div>
     <a class="prelik" href="./podpora.html">Guide ›</a>
   </section>
   
@@ -631,7 +637,7 @@ var w=document.createElement('div');w.className='video videoRam';w.appendChild(f
 
   <section class="sekcia" id="navod">
     <h2>Ako sa používa PointJar</h2>
-    <div class="zoznamSit"><a href="./podpora.html#s1"><span class="em">🚀</span><span><b>Práve som si stiahol/a appku</b></span><span class="sipka">›</span></a><a href="./podpora.html#s2"><span class="em">📱</span><span><b>Chcem dať dieťaťu prístup do appky</b></span><span class="sipka">›</span></a><a href="./podpora.html#s3"><span class="em">👨‍👩‍👧</span><span><b>Pridávam druhého rodiča alebo babku</b></span><span class="sipka">›</span></a></div>
+    <div class="zoznamSit"><a href="./podpora.html#start"><span class="em">🚀</span><span><b>Začíname</b></span><span class="sipka">›</span></a><a href="./podpora.html#role"><span class="em">👨‍👩‍👧</span><span><b>Kto je v rodine</b></span><span class="sipka">›</span></a><a href="./podpora.html#pristup"><span class="em">📱</span><span><b>Prístup pre dieťa</b></span><span class="sipka">›</span></a></div>
     <a class="prelik" href="./podpora.html">Návod ›</a>
   </section>
   
@@ -748,7 +754,7 @@ var w=document.createElement('div');w.className='video videoRam';w.appendChild(f
 
   <section class="sekcia" id="navod">
     <h2>Jak se používá PointJar</h2>
-    <div class="zoznamSit"><a href="./podpora.html#s1"><span class="em">🚀</span><span><b>Právě jsem si stáhl/a appku</b></span><span class="sipka">›</span></a><a href="./podpora.html#s2"><span class="em">📱</span><span><b>Chci dát dítěti přístup do appky</b></span><span class="sipka">›</span></a><a href="./podpora.html#s3"><span class="em">👨‍👩‍👧</span><span><b>Přidávám druhého rodiče nebo babičku</b></span><span class="sipka">›</span></a></div>
+    <div class="zoznamSit"><a href="./podpora.html#start"><span class="em">🚀</span><span><b>Začínáme</b></span><span class="sipka">›</span></a><a href="./podpora.html#role"><span class="em">👨‍👩‍👧</span><span><b>Kdo je v rodině</b></span><span class="sipka">›</span></a><a href="./podpora.html#pristup"><span class="em">📱</span><span><b>Přístup pro dítě</b></span><span class="sipka">›</span></a></div>
     <a class="prelik" href="./podpora.html">Návod ›</a>
   </section>
   
@@ -865,7 +871,7 @@ var w=document.createElement('div');w.className='video videoRam';w.appendChild(f
 
   <section class="sekcia" id="navod">
     <h2>So funktioniert PointJar</h2>
-    <div class="zoznamSit"><a href="./podpora.html#s1"><span class="em">🚀</span><span><b>Ich habe die App gerade heruntergeladen</b></span><span class="sipka">›</span></a><a href="./podpora.html#s2"><span class="em">📱</span><span><b>Ich möchte dem Kind Zugang zur App geben</b></span><span class="sipka">›</span></a><a href="./podpora.html#s3"><span class="em">👨‍👩‍👧</span><span><b>Ich füge den zweiten Elternteil oder die Oma hinzu</b></span><span class="sipka">›</span></a></div>
+    <div class="zoznamSit"><a href="./podpora.html#start"><span class="em">🚀</span><span><b>Erste Schritte</b></span><span class="sipka">›</span></a><a href="./podpora.html#role"><span class="em">👨‍👩‍👧</span><span><b>Wer zur Familie gehört</b></span><span class="sipka">›</span></a><a href="./podpora.html#pristup"><span class="em">📱</span><span><b>Zugang für das Kind</b></span><span class="sipka">›</span></a></div>
     <a class="prelik" href="./podpora.html">Anleitung ›</a>
   </section>
   
