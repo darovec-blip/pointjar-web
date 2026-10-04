@@ -284,6 +284,9 @@ body.siroka .pata{display:none}
 .zadarmo{background:var(--sunSoft);border-radius:32px;padding:72px 32px;text-align:center;margin:24px 0}
 .zadarmo h2{font-size:clamp(40px,6vw,84px);line-height:1;margin:0 auto}
 .zadarmo p{font-size:20px;color:var(--inkSoft);margin:18px auto 28px;max-width:44ch}
+.zadarmo p.podporaVyzva{font-size:17px;margin:28px auto 0;max-width:52ch}
+.prelikPodpora{background:var(--ink);color:#fff;border-color:var(--ink)}
+.prelikPodpora:hover{background:var(--sun);color:#14213D;border-color:#14213D}
 .zadarmo .obchodyRiadok{justify-content:center}
 .zadarmo .prelik{margin-top:24px}
 @media (max-width:767px){.zadarmo{padding:48px 20px;border-radius:24px}}
@@ -428,11 +431,11 @@ var w=document.createElement('div');w.className='video videoRam';w.appendChild(f
   <div data-lang="en">
   <div class="card hero">
     <h2>Support PointJar</h2>
-    <p>PointJar is free, with no ads and no in-app purchases. We do not want to change that. It does run on servers that cost money, and we build it alongside our day jobs.</p>
+    <p>PointJar is free, with no ads and no in-app purchases, and it will stay that way. But everything the app runs on has to be paid for: servers, storage, the app stores and the domain. We build it alongside our day jobs and so far cover the costs out of our own pockets. Every contribution helps PointJar keep running and growing.</p>
   </div>
   <div class="card">
     <h2>Where a contribution goes</h2>
-    <div class="ako"><div><span>🗄️</span>Database and servers, so the app stays fast and reliable</div><div><span>📱</span>Apple and Google developer account fees</div><div><span>✉️</span>Sending e-mails and notifications</div><div><span>🧪</span>Time for the features you ask for</div></div>
+    <div class="ako"><div><span>🗄️</span><strong>Database and servers</strong><br>Every family’s points, tasks and history on servers in the European Union. They grow with every new family.</div><div><span>🎤</span><strong>Storage for voice messages and photos</strong><br>Children’s recordings, parents’ replies and reward photos need to be stored safely.</div><div><span>🔒</span><strong>Backups and security</strong><br>Regular backups and the database’s security features are only available on paid plans.</div><div><span>📱</span><strong>Apple and Google developer accounts</strong><br>Without Apple’s yearly fee the app would not be in the App Store, and Google charges for developer registration.</div><div><span>🏗️</span><strong>Building new versions</strong><br>Every version for iPhone, iPad and Android is built on paid servers, and fixes also ship as quick updates without the store.</div><div><span>🔔</span><strong>Notifications and e-mails</strong><br>Alerts about reported tasks, family invitations and welcome e-mails.</div><div><span>🌐</span><strong>Domain and website</strong><br>The pointjar.app address, this website and the support inboxes you write to.</div><div><span>🌍</span><strong>Translations and guides</strong><br>The app, website and video guides in Slovak, Czech, English and German.</div><div><span>🧪</span><strong>Testing</strong><br>We try every version on iPhone, iPad and Android, including with large text.</div><div><span>🛠️</span><strong>Developer tools</strong><br>The services and programs we use to build, check and fix the app.</div><div><span>💡</span><strong>Time for new features</strong><br>What we are working on: dark mode, a better iPad app and an easier way to add the whole family.</div></div>
   </div>
   <div class="card platba" id="stripe">
     <h2>Pick an amount</h2>
@@ -446,11 +449,11 @@ var w=document.createElement('div');w.className='video videoRam';w.appendChild(f
 <div data-lang="sk">
   <div class="card hero">
     <h2>Podporiť PointJar</h2>
-    <p>PointJar je zadarmo, bez reklám a bez nákupov v appke. Nechceme to meniť. Beží ale na serveroch, ktoré niečo stoja, a robíme ho popri práci.</p>
+    <p>PointJar je zadarmo, bez reklám a bez nákupov v appke, a tak to aj ostane. Všetko, na čom appka beží, sa však platí: servery, úložisko, obchody s aplikáciami aj doména. Robíme ho popri práci a náklady zatiaľ hradíme z vlastného vrecka. Každý príspevok pomáha, aby PointJar mohol bežať ďalej a rásť.</p>
   </div>
   <div class="card">
     <h2>Na čo príspevok ide</h2>
-    <div class="ako"><div><span>🗄️</span>Databáza a servery, aby appka bežala rýchlo a spoľahlivo</div><div><span>📱</span>Poplatky vývojárskym účtom Apple a Google</div><div><span>✉️</span>Odosielanie e-mailov a notifikácií</div><div><span>🧪</span>Čas na nové funkcie, ktoré si pýtate</div></div>
+    <div class="ako"><div><span>🗄️</span><strong>Databáza a servery</strong><br>Body, úlohy a história každej rodiny na serveroch v Európskej únii. S každou novou rodinou ich pribúda.</div><div><span>🎤</span><strong>Úložisko hlasových odkazov a fotiek</strong><br>Nahrávky detí, odpovede rodičov a fotky odmien musia byť niekde bezpečne uložené.</div><div><span>🔒</span><strong>Zálohy a bezpečnosť</strong><br>Pravidelné zálohy a bezpečnostné funkcie databázy sú len v platených plánoch.</div><div><span>📱</span><strong>Účty vývojára Apple a Google</strong><br>Bez ročného poplatku Apple by appka v App Store nebola, Google si účtuje registráciu vývojára.</div><div><span>🏗️</span><strong>Zostavovanie nových verzií</strong><br>Každá verzia pre iPhone, iPad a Android sa zostavuje na platených serveroch, opravy chodia aj ako rýchle aktualizácie bez obchodu.</div><div><span>🔔</span><strong>Notifikácie a e-maily</strong><br>Upozornenia na nahlásené úlohy, pozvánky do rodiny a uvítacie e-maily.</div><div><span>🌐</span><strong>Doména a web</strong><br>Adresa pointjar.app, táto stránka a schránky podpory, na ktoré nám píšete.</div><div><span>🌍</span><strong>Preklady a návody</strong><br>Appka, web aj video návody v slovenčine, češtine, angličtine a nemčine.</div><div><span>🧪</span><strong>Testovanie</strong><br>Každú verziu skúšame na iPhone, iPade a Androide, aj s veľkým písmom.</div><div><span>🛠️</span><strong>Vývojárske nástroje</strong><br>Služby a programy, s ktorými appku staviame, kontrolujeme a opravujeme.</div><div><span>💡</span><strong>Čas na nové funkcie</strong><br>Na čom pracujeme: tmavý režim, lepšia appka na iPade a jednoduchšie pridanie celej rodiny.</div></div>
   </div>
   <div class="card platba" id="stripe">
     <h2>Koľko chceš</h2>
@@ -464,11 +467,11 @@ var w=document.createElement('div');w.className='video videoRam';w.appendChild(f
 <div data-lang="cs">
   <div class="card hero">
     <h2>Podpořit PointJar</h2>
-    <p>PointJar je zdarma, bez reklam a bez nákupů v aplikaci. Nechceme to měnit. Běží ale na serverech, které něco stojí, a děláme ho vedle práce.</p>
+    <p>PointJar je zdarma, bez reklam a bez nákupů v aplikaci, a tak to i zůstane. Všechno, na čem appka běží, se ale platí: servery, úložiště, obchody s aplikacemi i doména. Děláme ho vedle práce a náklady zatím hradíme z vlastní kapsy. Každý příspěvek pomáhá, aby PointJar mohl běžet dál a růst.</p>
   </div>
   <div class="card">
     <h2>Na co příspěvek jde</h2>
-    <div class="ako"><div><span>🗄️</span>Databáze a servery, aby appka běžela rychle a spolehlivě</div><div><span>📱</span>Poplatky vývojářským účtům Apple a Google</div><div><span>✉️</span>Odesílání e-mailů a notifikací</div><div><span>🧪</span>Čas na nové funkce, které si přejete</div></div>
+    <div class="ako"><div><span>🗄️</span><strong>Databáze a servery</strong><br>Body, úkoly a historie každé rodiny na serverech v Evropské unii. S každou novou rodinou jich přibývá.</div><div><span>🎤</span><strong>Úložiště hlasových vzkazů a fotek</strong><br>Nahrávky dětí, odpovědi rodičů a fotky odměn musí být někde bezpečně uložené.</div><div><span>🔒</span><strong>Zálohy a bezpečnost</strong><br>Pravidelné zálohy a bezpečnostní funkce databáze jsou jen v placených plánech.</div><div><span>📱</span><strong>Účty vývojáře Apple a Google</strong><br>Bez ročního poplatku Apple by appka v App Storu nebyla, Google si účtuje registraci vývojáře.</div><div><span>🏗️</span><strong>Sestavování nových verzí</strong><br>Každá verze pro iPhone, iPad a Android se sestavuje na placených serverech, opravy chodí i jako rychlé aktualizace bez obchodu.</div><div><span>🔔</span><strong>Notifikace a e-maily</strong><br>Upozornění na nahlášené úkoly, pozvánky do rodiny a uvítací e-maily.</div><div><span>🌐</span><strong>Doména a web</strong><br>Adresa pointjar.app, tato stránka a schránky podpory, na které nám píšete.</div><div><span>🌍</span><strong>Překlady a návody</strong><br>Appka, web i video návody ve slovenštině, češtině, angličtině a němčině.</div><div><span>🧪</span><strong>Testování</strong><br>Každou verzi zkoušíme na iPhonu, iPadu a Androidu, i s velkým písmem.</div><div><span>🛠️</span><strong>Vývojářské nástroje</strong><br>Služby a programy, se kterými appku stavíme, kontrolujeme a opravujeme.</div><div><span>💡</span><strong>Čas na nové funkce</strong><br>Na čem pracujeme: tmavý režim, lepší appka na iPadu a jednodušší přidání celé rodiny.</div></div>
   </div>
   <div class="card platba" id="stripe">
     <h2>Kolik chceš</h2>
@@ -482,11 +485,11 @@ var w=document.createElement('div');w.className='video videoRam';w.appendChild(f
 <div data-lang="de">
   <div class="card hero">
     <h2>PointJar unterstützen</h2>
-    <p>PointJar ist kostenlos, ohne Werbung und ohne In-App-Käufe. Das wollen wir nicht ändern. Die App läuft aber auf Servern, die Geld kosten, und wir bauen sie neben dem Beruf.</p>
+    <p>PointJar ist kostenlos, ohne Werbung und ohne In-App-Käufe, und das bleibt so. Alles, worauf die App läuft, kostet aber Geld: Server, Speicher, die App-Stores und die Domain. Wir bauen sie neben dem Beruf und tragen die Kosten bisher aus eigener Tasche. Jeder Beitrag hilft, dass PointJar weiterlaufen und wachsen kann.</p>
   </div>
   <div class="card">
     <h2>Wofür ein Beitrag verwendet wird</h2>
-    <div class="ako"><div><span>🗄️</span>Datenbank und Server, damit die App schnell und zuverlässig bleibt</div><div><span>📱</span>Gebühren für die Entwicklerkonten von Apple und Google</div><div><span>✉️</span>Versand von E-Mails und Benachrichtigungen</div><div><span>🧪</span>Zeit für die Funktionen, die ihr euch wünscht</div></div>
+    <div class="ako"><div><span>🗄️</span><strong>Datenbank und Server</strong><br>Punkte, Aufgaben und Verlauf jeder Familie auf Servern in der Europäischen Union. Mit jeder neuen Familie wird es mehr.</div><div><span>🎤</span><strong>Speicher für Sprachnachrichten und Fotos</strong><br>Aufnahmen der Kinder, Antworten der Eltern und Fotos der Belohnungen müssen sicher gespeichert sein.</div><div><span>🔒</span><strong>Backups und Sicherheit</strong><br>Regelmäßige Backups und die Sicherheitsfunktionen der Datenbank gibt es nur in bezahlten Tarifen.</div><div><span>📱</span><strong>Entwicklerkonten bei Apple und Google</strong><br>Ohne die Jahresgebühr bei Apple wäre die App nicht im App Store, Google verlangt eine Gebühr für die Registrierung.</div><div><span>🏗️</span><strong>Neue Versionen bauen</strong><br>Jede Version für iPhone, iPad und Android wird auf bezahlten Servern gebaut, Korrekturen kommen auch als schnelle Updates ohne Store.</div><div><span>🔔</span><strong>Benachrichtigungen und E-Mails</strong><br>Hinweise auf gemeldete Aufgaben, Einladungen in die Familie und Willkommens-E-Mails.</div><div><span>🌐</span><strong>Domain und Website</strong><br>Die Adresse pointjar.app, diese Website und die Support-Postfächer, an die ihr schreibt.</div><div><span>🌍</span><strong>Übersetzungen und Anleitungen</strong><br>App, Website und Videoanleitungen auf Slowakisch, Tschechisch, Englisch und Deutsch.</div><div><span>🧪</span><strong>Testen</strong><br>Jede Version probieren wir auf iPhone, iPad und Android aus, auch mit großer Schrift.</div><div><span>🛠️</span><strong>Entwicklerwerkzeuge</strong><br>Dienste und Programme, mit denen wir die App bauen, prüfen und reparieren.</div><div><span>💡</span><strong>Zeit für neue Funktionen</strong><br>Woran wir arbeiten: dunkler Modus, eine bessere iPad-App und ein einfacheres Hinzufügen der ganzen Familie.</div></div>
   </div>
   <div class="card platba" id="stripe">
     <h2>Wähle einen Betrag</h2>
