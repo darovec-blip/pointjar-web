@@ -441,9 +441,9 @@ var w=document.createElement('div');w.className='video videoRam';w.appendChild(f
         <h3>Get PointJar with the link below</h3>
         <div class="potvrd-obchody">
           <a class="tlacidlo" data-plat="ios" href="https://apps.apple.com/app/id6806119044">App Store</a>
-          <a class="tlacidlo" data-plat="android" href="https://play.google.com/apps/testing/com.pointjar.app">Google Play</a>
+          <a class="tlacidlo" data-plat="android" href="https://play.google.com/store/apps/details?id=com.pointjar.app">Google Play</a>
         </div>
-        <p class="potvrd-pop" data-plat="android">Google Play — in testing</p>
+        
       </div>
     </div>
     <div data-stav="zle" hidden>
@@ -490,9 +490,9 @@ var w=document.createElement('div');w.className='video videoRam';w.appendChild(f
         <h3>Stiahni si PointJar odkazom nižšie</h3>
         <div class="potvrd-obchody">
           <a class="tlacidlo" data-plat="ios" href="https://apps.apple.com/app/id6806119044">App Store</a>
-          <a class="tlacidlo" data-plat="android" href="https://play.google.com/apps/testing/com.pointjar.app">Google Play</a>
+          <a class="tlacidlo" data-plat="android" href="https://play.google.com/store/apps/details?id=com.pointjar.app">Google Play</a>
         </div>
-        <p class="potvrd-pop" data-plat="android">Google Play — v testovaní</p>
+        
       </div>
     </div>
     <div data-stav="zle" hidden>
@@ -539,9 +539,9 @@ var w=document.createElement('div');w.className='video videoRam';w.appendChild(f
         <h3>Stáhni si PointJar odkazem níže</h3>
         <div class="potvrd-obchody">
           <a class="tlacidlo" data-plat="ios" href="https://apps.apple.com/app/id6806119044">App Store</a>
-          <a class="tlacidlo" data-plat="android" href="https://play.google.com/apps/testing/com.pointjar.app">Google Play</a>
+          <a class="tlacidlo" data-plat="android" href="https://play.google.com/store/apps/details?id=com.pointjar.app">Google Play</a>
         </div>
-        <p class="potvrd-pop" data-plat="android">Google Play — v testování</p>
+        
       </div>
     </div>
     <div data-stav="zle" hidden>
@@ -588,9 +588,9 @@ var w=document.createElement('div');w.className='video videoRam';w.appendChild(f
         <h3>Lade PointJar über den Link unten</h3>
         <div class="potvrd-obchody">
           <a class="tlacidlo" data-plat="ios" href="https://apps.apple.com/app/id6806119044">App Store</a>
-          <a class="tlacidlo" data-plat="android" href="https://play.google.com/apps/testing/com.pointjar.app">Google Play</a>
+          <a class="tlacidlo" data-plat="android" href="https://play.google.com/store/apps/details?id=com.pointjar.app">Google Play</a>
         </div>
-        <p class="potvrd-pop" data-plat="android">Google Play — im Test</p>
+        
       </div>
     </div>
     <div data-stav="zle" hidden>
@@ -848,7 +848,7 @@ var PUBLISHABLE='sb_publishable_SRsE77rat693ZCisKOwUzA_CN-843l8';
 var TEXTY={"en":{"bezTokenu":"The link has no confirmation code. Please open it directly from the e-mail.","caste":"Too many attempts. Please try again in a moment.","zleText":"The link is invalid, already used, or expired. Ask the parent to send the invitation again."},"sk":{"bezTokenu":"V odkaze chýba potvrdzovací kód. Otvor ho prosím priamo z e-mailu.","caste":"Priveľa pokusov. Skús to prosím za chvíľu.","zleText":"Odkaz je neplatný, už bol použitý, alebo mu vypršala platnosť. Popros rodiča, nech ti pozvánku pošle znova."},"cs":{"bezTokenu":"V odkazu chybí potvrzovací kód. Otevři ho prosím přímo z e-mailu.","caste":"Příliš mnoho pokusů. Zkus to prosím za chvíli.","zleText":"Odkaz je neplatný, už byl použit, nebo mu vypršela platnost. Popros rodiče, ať ti pozvání pošle znovu."},"de":{"bezTokenu":"Im Link fehlt der Bestätigungscode. Bitte öffne ihn direkt aus der E-Mail.","caste":"Zu viele Versuche. Bitte versuche es in einem Moment erneut.","zleText":"Der Link ist ungültig, bereits verwendet oder abgelaufen. Bitte den Elternteil, die Einladung erneut zu senden."}};
 // Tlačidlo obchodu len pre platformu, z ktorej človek číta; na počítači obe.
 var ua=navigator.userAgent||'';var ios=/iPhone|iPad|iPod/i.test(ua);var android=/Android/i.test(ua);
-var obchod=ios?'https://apps.apple.com/app/id6806119044':android?'https://play.google.com/apps/testing/com.pointjar.app':null;
+var obchod=ios?'https://apps.apple.com/app/id6806119044':android?'https://play.google.com/store/apps/details?id=com.pointjar.app':null;
 document.querySelectorAll('[data-plat]').forEach(function(e){
   var p=e.dataset.plat; e.hidden=(ios&&p!=='ios')||(android&&p!=='android');
 });
