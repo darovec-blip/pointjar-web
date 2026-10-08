@@ -431,7 +431,7 @@ var w=document.createElement('div');w.className='video videoRam';w.appendChild(f
       <button type="button" role="option" data-k="de" aria-selected="false"><span class="ikona kod-badge">DE</span><span>Deutsch</span><span class="fajka">✓</span></button>
     </div>
   </div>
-  <a class="btn listaCta" href="https://apps.apple.com/app/id6806119044"><span data-lang="en">Download</span><span data-lang="sk">Stiahnuť</span><span data-lang="cs">Stáhnout</span><span data-lang="de">Laden</span></a>
+  <a class="btn listaCta" href="./app.html" data-obchod-podla-telefonu><span data-lang="en">Download</span><span data-lang="sk">Stiahnuť</span><span data-lang="cs">Stáhnout</span><span data-lang="de">Laden</span></a>
 </div></header>
 <main class="wrap">
   <div data-lang="en">
@@ -1206,6 +1206,12 @@ var w=document.createElement('div');w.className='video videoRam';w.appendChild(f
 const FUNKCIA_URL='https://bfrfsqorgjvesjwftuzi.supabase.co/functions/v1/podpora';
 const PUBLISHABLE='sb_publishable_SRsE77rat693ZCisKOwUzA_CN-843l8';
 
+// --- Stiahnuť v lište: obchod podľa telefónu (pokyn Mateja 8. 10. 2026) ---
+// Bez JS vedie na app.html, kde sú obe tlačidlá. iPad od iPadOS 13 sa hlási ako
+// Macintosh, preto aj dotyk; desktop ostáva na app.html s výberom.
+(function(){var ua=navigator.userAgent||'';var ios=/iPhone|iPad|iPod/i.test(ua)||(/Macintosh/.test(ua)&&navigator.maxTouchPoints>1);var android=/Android/i.test(ua);
+var ciel=ios?'https://apps.apple.com/app/id6806119044':android?'https://play.google.com/store/apps/details?id=com.pointjar.app':null;
+if(ciel){document.querySelectorAll('[data-obchod-podla-telefonu]').forEach(function(a){a.href=ciel});}})();
 // --- kontaktný formulár (jeden pre každý jazyk, obsluha spoločná) ---
 // Proti spamu: neviditeľná výzva zo servera. Prehliadač k nej musí nájsť číslo,
 // ktorého otisk začína nulami — pre človeka sekunda, pre rozosielač práca navyše
