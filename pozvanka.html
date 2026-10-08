@@ -15,10 +15,12 @@
 <meta property="og:image" content="https://pointjar.app/assets/nahlad.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/ikona.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
-<style>
+<link rel="preload" href="assets/fonts/baloo-2-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/nunito-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:'Baloo 2';font-style:normal;font-weight:600 800;font-display:swap;src:url(assets/fonts/baloo-2-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Baloo 2';font-style:normal;font-weight:600 800;font-display:swap;src:url(assets/fonts/baloo-2-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Nunito';font-style:normal;font-weight:600 800;font-display:swap;src:url(assets/fonts/nunito-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Nunito';font-style:normal;font-weight:600 800;font-display:swap;src:url(assets/fonts/nunito-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
 *{box-sizing:border-box}
 /* Vzhľad „Džbán sa plní" (návrh A, 1. 10. 2026): kobaltová + slnečná žltá, Baloo 2
    na nadpisy a čísla, Nunito na text, svetlý aj tmavý režim podľa systému.
@@ -78,6 +80,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 /* --- prepínač jazyka (zemeguľa + kód), zoznam sa rozbalí ako v appke --- */
 .jazyk-spust{display:flex;align-items:center;gap:6px;padding:8px 10px 8px 12px;border:1.5px solid var(--line);border-radius:12px;background:var(--surface);cursor:pointer;font:inherit;line-height:1;color:var(--ink)}
 .jazyk-spust:hover{border-color:var(--ink)}
+.srOnly{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .jazyk-spust .vlajka{font-size:17px}
 .jazyk-spust .kod{font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.5px}
 .jazyk-spust .sipka{font-size:10px;color:var(--inkSoft)}
@@ -251,7 +254,7 @@ body.siroka .pata{display:none}
 .cell h3{font-size:30px;line-height:1.05;margin:0 0 8px}
 .cell p{margin:0;max-width:34ch}
 .c1{grid-column:span 4;background:var(--plocha);color:#fff}
-.c1 p{color:rgba(255,255,255,.88)}
+.c1 p{color:rgba(255,255,255,.96)}
 .c1 .sipkaHore{position:absolute;right:28px;top:14px;font:800 120px/1 var(--display);opacity:.22}
 .c2{grid-column:span 2;background:var(--sun);color:#14213D}
 .c3{grid-column:span 2;background:var(--mintSoft)}
@@ -388,8 +391,8 @@ var w=document.createElement('div');w.className='video videoRam';w.appendChild(f
 </svg><span>PointJar</span></a>
   
   <div class="jazyk-menu">
-    <button class="jazyk-spust" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
-      <span class="vlajka">🌐</span><span class="kod" data-kod></span><span class="sipka">▼</span>
+    <button class="jazyk-spust" type="button" aria-haspopup="listbox" aria-expanded="false">
+      <span class="srOnly">Language</span><span class="vlajka">🌐</span><span class="kod" data-kod></span><span class="sipka">▼</span>
     </button>
     <div class="jazyk-zoznam" role="listbox" hidden>
       <div class="jazyk-nadpis"><span data-lang="en">LANGUAGE</span><span data-lang="sk">JAZYK</span><span data-lang="cs">JAZYK</span><span data-lang="de">SPRACHE</span></div>
